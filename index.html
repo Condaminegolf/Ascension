@@ -390,6 +390,7 @@ async function init(){
 }
 el('cloudSignIn').addEventListener('click',signIn);el('cloudSignUp').addEventListener('click',signUp);el('cloudResetPassword').addEventListener('click',resetPassword);
 el('cloudSignOut').addEventListener('click',()=>client?.auth.signOut());el('cloudUpload').addEventListener('click',uploadChoice);el('cloudDownload').addEventListener('click',downloadChoice);
-init();
+if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',init,{once:true});
+else init();
 })();
 </script></body></html>
