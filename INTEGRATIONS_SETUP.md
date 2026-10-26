@@ -1,0 +1,13 @@
+# ASCENSION Oura + Strava setup
+
+This package includes working frontend integration controls and a Supabase Edge Function source. **It is not live until the following backend steps are completed.**
+
+1. In Supabase project `wgoznposhwxhkgpzymnv`, open **SQL Editor** and execute `supabase-integrations.sql`. The token table has RLS enabled and no access for anon/authenticated roles; the Edge Function accesses it with the server-side service role.
+2. Verify the four Edge Function secrets exist: `STRAVA_CLIENT_ID`, `STRAVA_CLIENT_SECRET`, `OURA_CLIENT_ID`, `OURA_CLIENT_SECRET`. Do not put secrets in GitHub. Supabase supplies `SUPABASE_URL`, `SUPABASE_ANON_KEY`, `SUPABASE_SERVICE_ROLE_KEY` automatically to Edge Functions.
+3. Deploy `supabase/functions/ascension-integrations/index.ts` as an Edge Function named **ascension-integrations**. In the Supabase dashboard you can use Edge Functions → Deploy a new function → Via Editor, paste the contents, and deploy. Set **Verify JWT** to OFF for this function: the code itself validates the Supabase user's access token with `auth.getUser` on *every request*; this avoids JWT gateway incompatibility with publishable keys. Never disable the in-function authentication check.
+4. Verify Strava's **Authorization Callback Domain** is `condaminegolf.github.io` and Oura's exact redirect URI is `https://condaminegolf.github.io/Ascension/`.
+5. Upload the contents of this ZIP to the root of the GitHub `Ascension` repository. Don't upload the ZIP file itself.
+6. Open the app, sign in to your ASCENSION profile, then use **Settings → Connected Apps** to connect Strava and Oura. Choose Sync activities / Sync recovery. The first Strava sync looks back 90 days; Oura looks back 14 days. Sync is manual in this release, not scheduled.
+7. Export a JSON backup before the first Strava sync. Imported Strava activities use `stravaId` and retain their XP in the existing `ascension_v1` data format. Existing cardio entries and rankings are preserved. Matching manual entries are not duplicated.
+
+**Important limitations:** This is a starter integration, not yet an automatic background sync. Oura API scopes must include `daily`; Strava must grant `activity:read_all`. The UI is not yet a separate Recovery tab, but Oura recovery appears in Settings. The OAuth state is validated in the browser and tied to the current tab. The backend doesn't currently validate a server-side nonce, so do not treat this as a fully hardened multiuser OAuth integration. Strava deletions and updates are not yet reconciled. Cloud save conflicts require manual resolution as before.
