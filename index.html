@@ -431,7 +431,7 @@ async function callback(){
   await statuses();report(provider+' connected successfully. '+(r.message||''));
  }catch(e){report(provider+' authorisation returned, but the token exchange failed: '+e.message);}
 }
-function refreshViews(){save();renderAll();renderCardioRecent();renderCardioWeekly();renderCardioHistory();renderCalendar();renderRecords();renderCardioChart();window.refreshAscensionOverview?.()}
+function refreshViews(){save();renderAll();renderCardioRecent();renderCardioWeekly();renderCardioHistory();window.refreshAscensionOverview?.()}
 async function syncStrava(){const r=await api('sync',{provider:'strava'});db.stravaIgnoredIds??=[];let added=0,skipped=0;for(const a of r.activities||[]){const id=String(a.id);if(db.stravaIgnoredIds.includes(id)||(db.cardio||[]).some(c=>String(c.stravaId)===id)){skipped++;continue}const type={Run:'run',TrailRun:'run',VirtualRun:'run',Ride:'cycle',VirtualRide:'cycle',GravelRide:'cycle',MountainBikeRide:'cycle',EBikeRide:'cycle',Walk:'walk',Hike:'walk'}[a.sport_type||a.type];if(!type)continue;const distance=Math.round((Number(a.distance)||0)/10)/1000,minutes=Math.max(1,Math.round((Number(a.moving_time)||0)/60)),date=String(a.start_date_local||a.start_date||'').slice(0,10);if(!distance||!date||date>today())continue;
 // Manual sessions that appear to represent the same Strava workout are left untouched, without double XP.
 if((db.cardio||[]).some(c=>!c.stravaId&&c.date===date&&c.type===type&&Math.abs(Number(c.distance)-distance)<Math.max(.15,distance*.02)&&Math.abs(Number(c.minutes)-minutes)<=3)){skipped++;continue}
