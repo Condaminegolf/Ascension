@@ -1,7 +1,7 @@
 {
-  "name": "ASCENSION \u2014 Training RPG",
-  "short_name": "ASCENSION",
-  "description": "Strength, cardio and training progression",
+  "name": "NEXTFORM \u2014 The System",
+  "short_name": "NEXTFORM",
+  "description": "Your real-life fitness progression system",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
