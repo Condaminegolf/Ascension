@@ -603,7 +603,7 @@ function avatarMarkup(rank){
  const auraColor=(db.nfAuraColorByCharacter||{})[gender]||aura[rank];
  return `<div class="nf-character-art nf-character-${gender}" style="--nf-rank-color:${aura[rank]};--nf-aura-color:${auraColor}">
  <div class="nf-aura-field" aria-hidden="true"></div>
- <img class="nf-hero-image" src="character-${gender}-rank-${rank}.webp?v=approved20261027gear1" alt="Full-body ${gender} ${ranks[rank][0]} rank athlete character artwork" loading="eager">
+ <img class="nf-hero-image" src="character-${gender}-rank-${rank}.webp?v=approved20261027gear2" alt="Full-body ${gender} ${ranks[rank][0]} rank athlete character artwork" loading="eager">
  ${nfMaleWearableMarkup()}
  
  </div>`;
@@ -700,7 +700,7 @@ function renderAthlete(){
  const nfEquipmentMount=document.getElementById('nfMaleEquipmentMount');if(nfEquipmentMount)nfEquipmentMount.innerHTML=nfMaleEquipmentPanel();
  $u('hunterEvoTitle').textContent=avatarNames[r];$u('hunterEvoInfo').textContent=`${ranks[r][0]}-Rank · ${db.name||'Athlete'} · ${db.heightCm||192} cm · ${bodyMass().toFixed(1)} kg current bodyweight`;
  const strip=document.getElementById('nfRankStrip');
- if(strip)strip.innerHTML=ranks.map((row,i)=>`<div class="nf-rank-tile ${i===r?'current':''}"><img src="character-${nfCharacterType()}-rank-${i}.webp?v=approved20261027gear1" alt="" loading="lazy"><strong>${row[0]}</strong></div>`).join('');
+ if(strip)strip.innerHTML=ranks.map((row,i)=>`<div class="nf-rank-tile ${i===r?'current':''}"><img src="character-${nfCharacterType()}-rank-${i}.webp?v=approved20261027gear2" alt="" loading="lazy"><strong>${row[0]}</strong></div>`).join('');
  $u('evoNext').innerHTML=r<6?`<strong>Next evolution: ${avatarNames[r+1]}</strong><p class="muted">Unlock ${ranks[r+1][0]} Rank by meeting all XP, session, repetition, volume and strength-trial requirements in the Ranks tab.</p>`:'<strong>Final evolution unlocked</strong><p class="muted">Keep improving your personal records and consistency.</p>';
  $u('powerScore').innerHTML=`<div class="big" style="color:#70d8ff">${avg} <span class="muted">/ 100 · Performance Index</span></div>`+score.map(([name,n,color])=>`<div class="power-row"><strong>${name}</strong><div class="bar"><div class="fill" style="width:${n}%;background:${color}"></div></div><strong>${n}</strong></div>`).join('')+'<p class="foot">Scores represent game progress, not a comparison against population norms. Endurance incorporates logged runs, cycles and walks alongside steps and consistency.</p>';
 }
