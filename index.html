@@ -307,13 +307,62 @@ body[data-nf-theme="future"] .nf-cosmetic{background:#edf3ef;color:#142b27;borde
 .nf-other-activity-entry strong{font-size:13px}.nf-other-activity-entry small{color:#9cb3c2}
 .nf-other-activity-stats{font-size:14px;font-weight:700;color:#8ae6ba;margin:12px 0}
 #cardioActivityNameField[style*="display: none"]{display:none!important}
+</style><style id="nf-quests-notices-style">
+.nf-module-top{display:flex;align-items:flex-start;justify-content:space-between;gap:12px}
+.nf-module-top h2{margin:5px 0 6px;font-size:21px;line-height:1.2}
+.nf-notice-count{display:inline-grid;place-items:center;min-width:26px;height:24px;padding:0 7px;margin-left:6px;border-radius:99px;background:#153d43;border:1px solid #429781;font-size:12px;color:#83e5c2;vertical-align:middle}
+.nf-alert-symbol{color:#80dbc2;font-size:24px;border:1px solid #355d66;background:#143039;border-radius:12px;padding:4px 11px}
+.nf-notification-list{display:grid;gap:10px;margin-top:15px}
+.nf-notification{display:grid;grid-template-columns:35px minmax(0,1fr) auto;gap:10px;align-items:center;padding:12px;border:1px solid #365766;border-radius:12px;background:#102634}
+.nf-notice-icon{display:grid;place-items:center;width:34px;height:34px;border-radius:10px;background:#173c42;color:#a7f2d6;font-weight:800;font-size:19px}
+.nf-notification strong{display:block;font-size:14px;color:#e3f5f5}
+.nf-notification small{display:block;margin-top:4px;line-height:1.4;color:#9db7ca;font-size:12px}
+.nf-notification time{display:block;color:#7495ab;font-size:11px;margin-top:4px}
+.nf-notification button{min-width:42px;min-height:38px;padding:8px 9px;border-radius:10px;background:#1b4d49;border:1px solid #388976;color:#ceffe9;font-size:12px;font-weight:800}
+.nf-notification button:focus-visible,.nf-title-choice:focus-visible{outline:2px solid #9deccc;outline-offset:3px}
+.nf-inbox-empty{padding:17px;border-radius:12px;border:1px dashed #39586b;text-align:center;color:#9fb4c8;font-size:13px}
+.nf-quest-total{color:#8af5cb;white-space:nowrap;font-variant-numeric:tabular-nums}
+.nf-quest-progress{height:10px;margin:15px 0 8px;border-radius:30px;background:#22394b;overflow:hidden}
+.nf-quest-progress-fill{height:100%;border-radius:30px;background:linear-gradient(90deg,#2c9ec4,#5ee0ad);transition:width .2s ease}
+.nf-daily-summary{font-size:12px;color:#9bc7c4;margin-bottom:10px}
+.nf-daily-quests .quest{border-color:#2a4755;align-items:flex-start}
+.nf-daily-quests .quest label{line-height:1.4;font-size:14px}
+.nf-daily-quests .quest small{white-space:nowrap;font-weight:700}
+.nf-daily-quests .quest input:disabled{opacity:.8;cursor:not-allowed}
+.nf-weekly-detail{margin:12px 0;border:1px solid #2b4b58;border-radius:12px;padding:10px 13px}
+.nf-weekly-detail summary{cursor:pointer;font-weight:700;font-size:13px}
+.nf-weekly-detail p{margin-bottom:5px}
+.nf-challenge-link{margin-top:4px}
+.nf-title-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:9px}
+.nf-title-choice{padding:12px;text-align:left;color:inherit;background:#0d2331;border:1px solid #355264;border-radius:12px}
+.nf-title-choice strong{display:block;color:#e2f1f4}
+.nf-title-choice small{display:block;color:#a2b6c4;font-size:12px;margin:5px 0}
+.nf-title-choice span{color:#78e6c0;font-size:11px;font-weight:800}
+.nf-title-choice.selected{border-color:#68d9ab;background:#173f38}
+.nf-title-choice:disabled{opacity:.45;cursor:not-allowed}
+.nf-title-equipped{margin:0 0 12px;padding:9px 12px;border:1px solid #426a60;border-radius:10px;background:#14332f;color:#c6efdc}
+@media(max-width:430px){.nf-notification{grid-template-columns:28px minmax(0,1fr);gap:9px}.nf-notification button{grid-column:2;justify-self:start}.nf-notice-icon{width:28px;height:28px}.nf-title-list{grid-template-columns:1fr 1fr}}
 </style></head><body><div class="wrap"><header class="top"><div><div class="nf-brand-lockup"><img src="./icon-192.png" alt="NEXTFORM logo" class="nf-header-logo"><div><div class="brand">NEXTFORM<span class="brand-mark">_</span></div><div class="tag">THE SYSTEM <span class="system-dot">●</span> ONLINE</div></div></div><button class="secondary" onclick="exportData()">Export Save</button></header><div class="panel hero"><div><div class="rank" id="rank">F</div><div style="text-align:center" class="muted">TRAINING RANK</div></div><div><div class="muted">XP LEVEL <span id="level">1</span> · <span id="xp">0</span> TOTAL XP</div><div class="big" id="rankTitle">Foundation</div><div class="nf-rank-bar-label"><span>NEXT RANK READINESS</span><strong id="rankProgressPercent">0%</strong></div><div class="bar nf-rank-main-track" id="rankProgressTrack" role="progressbar" aria-label="Progress toward next rank" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"><div class="fill" id="xpbar" style="width:0%"></div></div><div class="muted" id="nextRank">Progress to E Rank</div><div class="muted" id="decayStatus" style="margin-top:6px"></div></div></div><section class="command-dashboard" aria-label="Progress overview">
 <div class="panel command-power"><div class="command-label">PERFORMANCE INDEX</div><div class="command-power-top"><div><div class="command-number" id="overviewPower">0 <small>/ 100</small></div><div class="muted">Combined training and wellness progress</div></div><div class="command-mini" id="overviewBreakdown"></div></div></div>
 <div class="panel command-radar"><div class="command-label">ATTRIBUTE RADAR · LIVE PROGRESSION</div><div id="overviewRadar" class="radar-slot"></div><div class="muted" style="text-align:center">Strength · Endurance · Discipline · Recovery · Mobility</div></div>
-</section><div class="stats" style="margin-top:12px"><div class="stat"><strong id="sessions">0</strong><span class="muted">Workouts</span></div><div class="stat"><strong id="streak">0</strong><span class="muted">Day streak</span></div><div class="stat"><strong id="sets">0</strong><span class="muted">Sets logged</span></div></div><nav class="tabs nf-bottom-nav" id="tabs"><button class="active" data-tab="home">⌂<span>Home</span></button><button data-tab="train">＋<span>Train</span></button><button data-tab="hunter">◇<span>Character</span></button><button data-tab="records">▥<span>Records</span></button><button data-tab="more">☷<span>More</span></button></nav><div id="nfHiddenNav" hidden><button data-tab="quests">Habits</button><button data-tab="progress">Progress</button><button data-tab="ranks">Ranks</button><button data-tab="analytics">Analytics</button><button data-tab="calendar">Calendar</button><button data-tab="settings">Settings</button></div><main id="home"><section class="panel nf-rank-requirements" aria-label="Rank requirements overview"><div class="tag">NEXT RANK / PROMOTION REQUIREMENTS</div><div class="nf-rank-home-head"><h2 id="rankHomeHeading">F → E RANK</h2><strong id="rankHomePercent">0%</strong></div><p class="muted" id="rankHomeSummary">Your progress toward the next rank across every requirement.</p><div id="rankRequirementBars" class="nf-rank-requirement-rows"></div><div class="nf-rank-home-foot" id="rankHomeTip">Each requirement contributes to your overall rank progress.</div><button type="button" class="secondary nf-rank-details-btn" onclick="nfGo('ranks')">View full rank requirements</button></section><div class="panel nf-welcome"><div class="tag">NEXTFORM / THE SYSTEM</div><h2>Your next form starts here.</h2><p class="muted">Track your training, develop your character and review your progress.</p><div class="nf-actions"><button class="primary" type="button" onclick="document.querySelector('[data-tab=train]').click()">Log training</button><button class="secondary" type="button" onclick="document.querySelector('[data-tab=hunter]').click()">View character</button></div></div><div class="panel"><h3>Quick access</h3><div class="nf-shortcuts"><button onclick="nfGo('quests')">Daily Habits</button><button onclick="nfGo('progress')">Body & Recovery</button><button onclick="nfGo('analytics')">Analytics</button><button onclick="nfGo('calendar')">Calendar</button></div></div><section class="panel" id="nfOtherExerciseHome"><div class="tag">IMPORTED & MANUAL ACTIVITY</div><h3>Other Exercise</h3><p class="muted">Sessions that are not a walk, run or ride. Recognized training earns bounded XP and counts toward active-day consistency, not distance or weightlifting records.</p><div id="nfOtherExerciseHomeBody"></div></section></main><main id="more" class="hidden"><div class="panel"><div class="tag">NEXTFORM / MORE</div><h2>Explore</h2><p class="muted">Additional tools and account settings.</p><div class="nf-shortcuts"><button onclick="nfGo('quests')">Daily Habits</button><button onclick="nfGo('progress')">Body & Recovery</button><button onclick="nfGo('ranks')">Ranks & Achievements</button><button onclick="nfGo('analytics')">Analytics</button><button onclick="nfGo('calendar')">Training Calendar</button><button onclick="nfGo('settings')">Settings</button></div></div></main><main id="train" class="hidden"><div class="panel"><div class="tag">YOUR FIVE-DAY TRAINING PLAN</div><div class="days" id="days"></div><h2 id="workoutTitle" style="margin-bottom:3px"></h2><div class="muted" id="workoutSub"></div><div id="exercises"></div><div class="exercise" id="overloadTrainTip"></div><details class="workout-builder" id="workoutBuilder"><summary>Customise this training day</summary><p class="muted">Change exercises, set counts and rep targets. Your five training days remain available. Previously logged workouts are never rewritten.</p><div id="builderRows"></div><div class="builder-actions"><button class="secondary" type="button" onclick="ascBuilderAdd()">+ Add exercise</button><button class="secondary" type="button" onclick="ascBuilderReset()">Restore default day</button></div><button class="primary" type="button" onclick="ascBuilderSave()">SAVE WORKOUT PLAN</button><p class="muted">Saving changes clears unsaved set drafts for this day, after confirmation.</p></details><div class="exercise" id="overloadTrainTip"></div><button class="primary" onclick="finishWorkout()">SAVE COMPLETED SETS · FULL OR PARTIAL</button><div class="muted" id="draftStatus" style="margin-top:10px"></div><p class="foot">Check each set as you finish it. Enter the weight and repetitions actually performed. Save any number of completed sets when time runs out. You can return and finish the remaining sets later. XP is awarded only for newly saved sets; the session bonus is proportional to completed sets. Rank also requires cumulative reps, kg lifted (weight × reps), and from C Rank upward, bodyweight-relative strength trials. Inactivity lowers current rank after a 7-day grace period (one tier per 14 further days). Regain the first lost tier after 3 distinct active days, then one more tier per 5 additional active days; each tier also requires a workout or cardio day. Attributes lose 5 points per 7 inactive days after the grace period. Lifetime XP and records remain saved.</p></div><div class="panel" id="cardioPanel"><div class="tag">OPTIONAL ENDURANCE TRAINING</div><h2>Run · Cycle · Walk · Other Exercise</h2><p class="muted">Log distance activities or other exercise sessions (Yoga, HIIT, Pilates, Weight Training and more). Imported Strava and Oura sessions also appear in your history. Other Exercise contributes bounded XP and consistency, but not running, cycling or lifting milestones without those measurements.</p><div class="grid2"><div class="field"><label for="cardioType">Activity</label><select id="cardioType" onchange="renderCardioGoals()"><option value="run">Run</option><option value="cycle">Cycle</option><option value="walk">Walk</option><option value="exercise">Other Exercise</option></select></div><div class="field"><label for="cardioDate">Date</label><input type="date" id="cardioDate"></div><div class="field" id="cardioDistanceField"><label for="cardioDistance">Distance (km)</label><input type="number" min="0.01" step="0.1" id="cardioDistance" placeholder="e.g. 3.0"></div><div class="field" id="cardioActivityNameField" style="display:none"><label for="cardioActivityName">Exercise (optional)</label><input id="cardioActivityName" maxlength="65" placeholder="Yoga, HIIT, weights, Pilates…"></div><div class="field"><label for="cardioMinutes">Duration (minutes)</label><input type="number" min="1" step="1" id="cardioMinutes" placeholder="e.g. 25"></div></div><div id="cardioTargetInfo" class="cardio-target"></div><button class="primary" onclick="saveCardio()">LOG ACTIVITY & EARN XP</button><div id="cardioRecent" class="cardio-recent"></div></div></main><main id="quests" class="hidden"><div class="panel"><div class="tag">DAILY HABITS</div><h2>Daily Habits</h2><p class="muted">Small habits build lasting fitness. Each quest can be claimed once per day.</p><div id="questList"></div></div><div class="panel"><h3>Weekly Goal</h3><div id="weekly"></div></div><div class="panel"><div class="tag">ENDURANCE TARGETS</div><h3>Weekly Activity Goals</h3><p class="muted">Edit your distance goals whenever you need. Goals are targets, not prerequisites for earning activity XP.</p><div id="cardioGoalControls"></div><button class="primary" onclick="saveCardioGoals()">SAVE DISTANCE GOALS</button><div id="cardioWeeklyProgress"></div></div><div class="panel" id="monthlyChallengesPanel"><div class="tag">MONTHLY PROGRESSION</div><h2>Monthly Challenges</h2><p class="muted">One-time rewards per challenge, per calendar month. Log real activity to unlock; claimed rewards are reversed if a deleted activity causes you to fall below the target.</p><div id="monthlyChallenges"></div></div></main><main id="progress" class="hidden"><div class="panel"><h2>Body & Recovery Log</h2><div class="grid2"><div class="field"><label>Body weight (kg)</label><input type="number" id="bodyWeight" step="0.1" placeholder="140"></div><div class="field"><label>Waist (cm)</label><input type="number" id="waist" step="0.1" placeholder="Optional"></div><div class="field"><label>Daily steps</label><input type="number" id="stepsInput" placeholder="e.g. 7500"></div><div class="field"><label>Sleep (hours)</label><input type="number" id="sleepInput" step="0.1" placeholder="e.g. 8"></div></div><button class="primary" onclick="saveMetrics()">SAVE TODAY'S METRICS</button></div><div class="panel"><h3>Recent Workout History</h3><div id="history"></div></div><div class="panel"><h3>Endurance History</h3><div id="cardioHistory"></div></div><div class="panel"><div class="tag">BODY COMPOSITION</div><h2>Weight & Waist Goals</h2><div class="grid2"><div class="field"><label>Target weight (kg)</label><input id="targetWeight" type="number" min="30" max="350" step="0.1" value="110"></div><div class="field"><label>Target waist (cm, optional)</label><input id="targetWaist" type="number" min="30" max="250" step="0.1" placeholder="Optional"></div></div><button class="primary" onclick="ascSaveGoals()">SAVE BODY GOALS</button><div id="bodyGoalOverview"></div></div><div class="panel"><h3>Weight History</h3><div id="weightHistory"></div></div></main><main id="ranks" class="hidden"><div class="panel"><div class="tag">ASCENSION PATH</div><h2>From F to S Rank</h2><p class="muted">Every rank requires XP, training sessions, total repetitions and total training volume (kg × reps). C Rank onward also requires strength trials scaled to bodyweight. Partial sessions count and can be continued without double-counting.</p><div id="rankList"></div></div><div class="panel"><h3>Achievement Badges</h3><div id="badges"></div></div><div class="panel"><h3>Strength Trials · Relative to Bodyweight</h3><p class="muted">Bench, squat, overhead press and Romanian deadlift milestones are scaled to your current bodyweight. Your best estimated 1-rep max (e1RM) is calculated from logged sets of 1–10 reps. These are game milestones, not medical or normative strength standards. Never attempt a max lift just to earn a badge.</p><div id="strengthBadges"></div></div><div class="panel"><div class="tag">YOUR MILESTONES</div><h2>Achievement Timeline</h2><p class="muted">Achievements are recorded when first reached and remain in your timeline. Milestone badges do not award extra XP.</p><div id="achievementTimeline"></div></div></main>
+</section><div class="stats" style="margin-top:12px"><div class="stat"><strong id="sessions">0</strong><span class="muted">Workouts</span></div><div class="stat"><strong id="streak">0</strong><span class="muted">Day streak</span></div><div class="stat"><strong id="sets">0</strong><span class="muted">Sets logged</span></div></div><nav class="tabs nf-bottom-nav" id="tabs"><button class="active" data-tab="home">⌂<span>Home</span></button><button data-tab="train">＋<span>Train</span></button><button data-tab="hunter">◇<span>Character</span></button><button data-tab="records">▥<span>Records</span></button><button data-tab="more">☷<span>More</span></button></nav><div id="nfHiddenNav" hidden><button data-tab="quests">Challenges</button><button data-tab="progress">Progress</button><button data-tab="ranks">Ranks</button><button data-tab="analytics">Analytics</button><button data-tab="calendar">Calendar</button><button data-tab="settings">Settings</button></div><main id="home"><section class="panel nf-rank-requirements" aria-label="Rank requirements overview"><div class="tag">NEXT RANK / PROMOTION REQUIREMENTS</div><div class="nf-rank-home-head"><h2 id="rankHomeHeading">F → E RANK</h2><strong id="rankHomePercent">0%</strong></div><p class="muted" id="rankHomeSummary">Your progress toward the next rank across every requirement.</p><div id="rankRequirementBars" class="nf-rank-requirement-rows"></div><div class="nf-rank-home-foot" id="rankHomeTip">Each requirement contributes to your overall rank progress.</div><button type="button" class="secondary nf-rank-details-btn" onclick="nfGo('ranks')">View full rank requirements</button></section><section class="panel nf-alert-panel" id="nfNotificationsPanel" aria-label="Achievement notifications">
+ <div class="nf-module-top"><div><div class="tag">THE SYSTEM / INBOX</div><h2>Notifications <span id="nfNoticeCount" class="nf-notice-count" aria-label="Unread notifications">0</span></h2></div><span class="nf-alert-symbol" aria-hidden="true">◈</span></div>
+ <p class="muted">New skill-tree milestones, equipment rewards, titles and rank achievements appear here. Acknowledge one to remove it from your inbox.</p>
+ <div id="nfNotificationList" class="nf-notification-list" aria-live="polite"><p class="muted">You're all caught up. New achievements will appear here.</p></div>
+ </section>
+ <section class="panel nf-daily-quests" id="nfDailyQuests" aria-label="Daily quests">
+ <div class="nf-module-top"><div><div class="tag">THE SYSTEM / DAILY MISSIONS</div><h2>Daily Quests</h2></div><strong class="nf-quest-total" id="nfDailyQuestCount">0/6</strong></div>
+ <p class="muted">Your existing habits are today's quests. Completing one earns its original XP reward once per day; Oura can automatically validate steps and sleep.</p>
+ <div class="nf-quest-progress" role="progressbar" aria-label="Daily quest completion" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="nfDailyQuestProgress"><div class="nf-quest-progress-fill" id="nfDailyQuestFill" style="width:0%"></div></div>
+ <div class="nf-daily-summary" id="nfDailyQuestSummary">0/6 quests complete · 0 XP earned today</div>
+ <div id="questList"></div>
+ <details class="nf-weekly-detail"><summary>Weekly training goal</summary><div id="weekly"></div></details>
+ <button type="button" class="secondary nf-challenge-link" onclick="nfGo('quests')">View monthly challenges &amp; goals</button>
+ </section><div class="panel nf-welcome"><div class="tag">NEXTFORM / THE SYSTEM</div><h2>Your next form starts here.</h2><p class="muted">Track your training, develop your character and review your progress.</p><div class="nf-actions"><button class="primary" type="button" onclick="document.querySelector('[data-tab=train]').click()">Log training</button><button class="secondary" type="button" onclick="document.querySelector('[data-tab=hunter]').click()">View character</button></div></div><div class="panel"><h3>Quick access</h3><div class="nf-shortcuts"><button onclick="nfShowHomeQuests()">Daily Quests</button><button onclick="nfGo('progress')">Body & Recovery</button><button onclick="nfGo('analytics')">Analytics</button><button onclick="nfGo('calendar')">Calendar</button></div></div><section class="panel" id="nfOtherExerciseHome"><div class="tag">IMPORTED & MANUAL ACTIVITY</div><h3>Other Exercise</h3><p class="muted">Sessions that are not a walk, run or ride. Recognized training earns bounded XP and counts toward active-day consistency, not distance or weightlifting records.</p><div id="nfOtherExerciseHomeBody"></div></section></main><main id="more" class="hidden"><div class="panel"><div class="tag">NEXTFORM / MORE</div><h2>Explore</h2><p class="muted">Additional tools and account settings.</p><div class="nf-shortcuts"><button onclick="nfGo('quests')">Daily Habits</button><button onclick="nfGo('progress')">Body & Recovery</button><button onclick="nfGo('ranks')">Ranks & Achievements</button><button onclick="nfGo('analytics')">Analytics</button><button onclick="nfGo('calendar')">Training Calendar</button><button onclick="nfGo('settings')">Settings</button></div></div></main><main id="train" class="hidden"><div class="panel"><div class="tag">YOUR FIVE-DAY TRAINING PLAN</div><div class="days" id="days"></div><h2 id="workoutTitle" style="margin-bottom:3px"></h2><div class="muted" id="workoutSub"></div><div id="exercises"></div><div class="exercise" id="overloadTrainTip"></div><details class="workout-builder" id="workoutBuilder"><summary>Customise this training day</summary><p class="muted">Change exercises, set counts and rep targets. Your five training days remain available. Previously logged workouts are never rewritten.</p><div id="builderRows"></div><div class="builder-actions"><button class="secondary" type="button" onclick="ascBuilderAdd()">+ Add exercise</button><button class="secondary" type="button" onclick="ascBuilderReset()">Restore default day</button></div><button class="primary" type="button" onclick="ascBuilderSave()">SAVE WORKOUT PLAN</button><p class="muted">Saving changes clears unsaved set drafts for this day, after confirmation.</p></details><div class="exercise" id="overloadTrainTip"></div><button class="primary" onclick="finishWorkout()">SAVE COMPLETED SETS · FULL OR PARTIAL</button><div class="muted" id="draftStatus" style="margin-top:10px"></div><p class="foot">Check each set as you finish it. Enter the weight and repetitions actually performed. Save any number of completed sets when time runs out. You can return and finish the remaining sets later. XP is awarded only for newly saved sets; the session bonus is proportional to completed sets. Rank also requires cumulative reps, kg lifted (weight × reps), and from C Rank upward, bodyweight-relative strength trials. Inactivity lowers current rank after a 7-day grace period (one tier per 14 further days). Regain the first lost tier after 3 distinct active days, then one more tier per 5 additional active days; each tier also requires a workout or cardio day. Attributes lose 5 points per 7 inactive days after the grace period. Lifetime XP and records remain saved.</p></div><div class="panel" id="cardioPanel"><div class="tag">OPTIONAL ENDURANCE TRAINING</div><h2>Run · Cycle · Walk · Other Exercise</h2><p class="muted">Log distance activities or other exercise sessions (Yoga, HIIT, Pilates, Weight Training and more). Imported Strava and Oura sessions also appear in your history. Other Exercise contributes bounded XP and consistency, but not running, cycling or lifting milestones without those measurements.</p><div class="grid2"><div class="field"><label for="cardioType">Activity</label><select id="cardioType" onchange="renderCardioGoals()"><option value="run">Run</option><option value="cycle">Cycle</option><option value="walk">Walk</option><option value="exercise">Other Exercise</option></select></div><div class="field"><label for="cardioDate">Date</label><input type="date" id="cardioDate"></div><div class="field" id="cardioDistanceField"><label for="cardioDistance">Distance (km)</label><input type="number" min="0.01" step="0.1" id="cardioDistance" placeholder="e.g. 3.0"></div><div class="field" id="cardioActivityNameField" style="display:none"><label for="cardioActivityName">Exercise (optional)</label><input id="cardioActivityName" maxlength="65" placeholder="Yoga, HIIT, weights, Pilates…"></div><div class="field"><label for="cardioMinutes">Duration (minutes)</label><input type="number" min="1" step="1" id="cardioMinutes" placeholder="e.g. 25"></div></div><div id="cardioTargetInfo" class="cardio-target"></div><button class="primary" onclick="saveCardio()">LOG ACTIVITY & EARN XP</button><div id="cardioRecent" class="cardio-recent"></div></div></main><main id="quests" class="hidden"><div class="panel"><div class="tag">TRAINING CHALLENGES</div><h2>Challenges &amp; Goals</h2><p class="muted">Daily quests now live on Home. Your monthly challenges and distance targets remain here.</p><button type="button" class="secondary" onclick="nfShowHomeQuests()">Go to Daily Quests</button></div><div class="panel"><div class="tag">ENDURANCE TARGETS</div><h3>Weekly Activity Goals</h3><p class="muted">Edit your distance goals whenever you need. Goals are targets, not prerequisites for earning activity XP.</p><div id="cardioGoalControls"></div><button class="primary" onclick="saveCardioGoals()">SAVE DISTANCE GOALS</button><div id="cardioWeeklyProgress"></div></div><div class="panel" id="monthlyChallengesPanel"><div class="tag">MONTHLY PROGRESSION</div><h2>Monthly Challenges</h2><p class="muted">One-time rewards per challenge, per calendar month. Log real activity to unlock; claimed rewards are reversed if a deleted activity causes you to fall below the target.</p><div id="monthlyChallenges"></div></div></main><main id="progress" class="hidden"><div class="panel"><h2>Body & Recovery Log</h2><div class="grid2"><div class="field"><label>Body weight (kg)</label><input type="number" id="bodyWeight" step="0.1" placeholder="140"></div><div class="field"><label>Waist (cm)</label><input type="number" id="waist" step="0.1" placeholder="Optional"></div><div class="field"><label>Daily steps</label><input type="number" id="stepsInput" placeholder="e.g. 7500"></div><div class="field"><label>Sleep (hours)</label><input type="number" id="sleepInput" step="0.1" placeholder="e.g. 8"></div></div><button class="primary" onclick="saveMetrics()">SAVE TODAY'S METRICS</button></div><div class="panel"><h3>Recent Workout History</h3><div id="history"></div></div><div class="panel"><h3>Endurance History</h3><div id="cardioHistory"></div></div><div class="panel"><div class="tag">BODY COMPOSITION</div><h2>Weight & Waist Goals</h2><div class="grid2"><div class="field"><label>Target weight (kg)</label><input id="targetWeight" type="number" min="30" max="350" step="0.1" value="110"></div><div class="field"><label>Target waist (cm, optional)</label><input id="targetWaist" type="number" min="30" max="250" step="0.1" placeholder="Optional"></div></div><button class="primary" onclick="ascSaveGoals()">SAVE BODY GOALS</button><div id="bodyGoalOverview"></div></div><div class="panel"><h3>Weight History</h3><div id="weightHistory"></div></div></main><main id="ranks" class="hidden"><div class="panel"><div class="tag">ASCENSION PATH</div><h2>From F to S Rank</h2><p class="muted">Every rank requires XP, training sessions, total repetitions and total training volume (kg × reps). C Rank onward also requires strength trials scaled to bodyweight. Partial sessions count and can be continued without double-counting.</p><div id="rankList"></div></div><div class="panel"><h3>Achievement Badges</h3><div id="badges"></div></div><div class="panel"><h3>Strength Trials · Relative to Bodyweight</h3><p class="muted">Bench, squat, overhead press and Romanian deadlift milestones are scaled to your current bodyweight. Your best estimated 1-rep max (e1RM) is calculated from logged sets of 1–10 reps. These are game milestones, not medical or normative strength standards. Never attempt a max lift just to earn a badge.</p><div id="strengthBadges"></div></div><div class="panel"><div class="tag">YOUR MILESTONES</div><h2>Achievement Timeline</h2><p class="muted">Achievements are recorded when first reached and remain in your timeline. Milestone badges do not award extra XP.</p><div id="achievementTimeline"></div></div></main>
 <main id="hunter" class="hidden">
 <div class="panel"><div class="tag">CHARACTER IDENTITY</div><h2>Your Character</h2><p class="muted">Choose the appearance you want. Male and female characters have separate artwork and equipped looks; both evolve with overall rank while equipment unlocks through completed achievements. This does not change your performance benchmark category.</p><div class="nf-character-switch"><button type="button" id="nfMaleCharacter" data-nf-character="male">Male Character</button><button type="button" id="nfFemaleCharacter" data-nf-character="female">Female Character</button></div></div><div class="panel"><div class="tag">AVATAR PROGRESSION</div><h2>Character Evolution</h2><div class="upgrade-grid"><div id="hunterAvatar" class="avatar-frame"></div><div><div class="big" id="hunterEvoTitle"></div><p class="muted" id="hunterEvoInfo"></p><div id="evoNext" class="skill"></div><div id="nfRankStrip" class="nf-rank-strip"></div></div></div></div>
 <div id="nfMaleEquipmentMount" aria-live="polite"></div>
+ <section class="panel nf-title-collection" aria-label="Earned character titles"><div class="tag">CHARACTER / TITLES</div><h2>Equippable Titles</h2><p class="muted">Earn permanent titles through meaningful achievements. Choose one to display under your character name.</p><div id="nfTitleCollectionBody"></div></section>
 <div id="powerScore" style="display:none"></div>
 <div class="panel" style="margin-top:16px"><div class="tag">ATHLETICISM · PERFORMANCE TESTS</div><h2>Athleticism</h2><p class="muted">35% mobility consistency · 30% plank · 25% push-ups · 10% single-leg balance. Enter your best measured result; incomplete tests count as zero.</p><div class="asc-athletic-tests"><label>Plank hold (seconds)<input id="athPlank" type="number" min="0" max="3600" step="1" placeholder="e.g. 90"></label><label>Strict push-ups (reps)<input id="athPushups" type="number" min="0" max="500" step="1" placeholder="e.g. 20"></label><label>Single-leg balance (seconds)<input id="athBalance" type="number" min="0" max="600" step="1" placeholder="e.g. 30"></label></div><button type="button" onclick="saveAthleticTests()">Save performance tests</button><p class="muted">Original benchmarks include a 180-second plank, <span id="athPushupTarget">40</span> strict push-ups and 60-second balance; the Skill Tree now extends into advanced mastery goals. Push-up targets depend on your selected benchmark category. Mobility consistency reaches its maximum at 20 completed mobility days.</p></div><div class="panel" style="margin-top:16px"><div class="tag">CHARACTER PROGRESSION · SKILL TREE</div><h2>Skill Tree</h2><p class="muted">Explore your unlocked abilities and discover your next milestone.</p><div id="skillTrees"></div></div>
 </main>
@@ -451,6 +500,95 @@ function nfRenderRankReadiness(snapshot){
  </div>`).join('');
  if(tip)tip.textContent='The overall bar combines '+p.total+' requirements; each must be complete to earn '+p.next[0]+' Rank. XP alone cannot promote your character.';
 }
+
+// NEXTFORM Daily Quests + Achievement Inbox. Persist in the existing synced save.
+function nfSafeText(value){return String(value??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
+function nfNoticeStore(){
+ if(!db.nfNoticeInboxV1||typeof db.nfNoticeInboxV1!=='object'||Array.isArray(db.nfNoticeInboxV1)){
+  db.nfNoticeInboxV1={entries:[],known:{},live:false};
+ }
+ const box=db.nfNoticeInboxV1;
+ if(!Array.isArray(box.entries))box.entries=[];
+ if(!box.known||typeof box.known!=='object'||Array.isArray(box.known))box.known={};
+ return box;
+}
+function nfQueueNotice(id,type,title,description,date){
+ if(!id)return;
+ const inbox=nfNoticeStore();id=String(id);
+ if(inbox.known[id])return;
+ inbox.known[id]=true;
+ if(inbox.live===true){
+  inbox.entries.unshift({id,type:String(type||'achievement'),title:String(title||'Achievement unlocked'),description:String(description||''),date:String(date||today()),time:Date.now()});
+  if(inbox.entries.length>60)inbox.entries.length=60;
+ }
+ localStorage.setItem(key,JSON.stringify(db));
+ nfRenderNotices();
+}
+function nfRenderNotices(){
+ const area=$('nfNotificationList');if(!area)return;
+ const inbox=nfNoticeStore();const count=inbox.entries.length;
+ if($('nfNoticeCount'))$('nfNoticeCount').textContent=String(count);
+ area.innerHTML=count?inbox.entries.map(n=>{
+   const icon=({skill:'◇',title:'★',rank:'⬡',gear:'▣',achievement:'◆'})[n.type]||'◆';
+   const rid=encodeURIComponent(n.id);
+   return `<div class="nf-notification"><div class="nf-notice-icon" aria-hidden="true">${icon}</div><div><strong>${nfSafeText(n.title)}</strong><small>${nfSafeText(n.description)}</small><time>${nfSafeText(n.date)}</time></div><button type="button" data-nf-ack="${rid}" aria-label="Acknowledge ${nfSafeText(n.title)}">Got it</button></div>`;
+  }).join(''):'<div class="nf-inbox-empty">✓ You’re all caught up. New milestones and titles will appear here.</div>';
+}
+function nfAcknowledgeNotice(id){
+ const inbox=nfNoticeStore();const prior=inbox.entries.length;
+ inbox.entries=inbox.entries.filter(n=>n.id!==id);
+ if(inbox.entries.length===prior)return;
+ localStorage.setItem(key,JSON.stringify(db));nfRenderNotices();
+}
+function nfShowHomeQuests(){document.querySelector('#tabs [data-tab="home"]')?.click();$('nfDailyQuests')?.scrollIntoView({behavior:'smooth',block:'start'});}
+document.addEventListener('click',event=>{
+ const ack=event.target.closest('button[data-nf-ack]');if(!ack)return;
+ event.preventDefault();nfAcknowledgeNotice(decodeURIComponent(ack.dataset.nfAck));
+});
+const nfTitlesCatalog=[
+ {id:'first-steps',name:'First Steps',detail:'Log your first training session',achieved:()=>db.workouts.length+(db.cardio||[]).length>=1},
+ {id:'iron-disciple',name:'Iron Disciple',detail:'Log 25 strength sessions',achieved:()=>db.workouts.length>=25},
+ {id:'iron-will',name:'Iron Will',detail:'Log 100 strength sessions',achieved:()=>db.workouts.length>=100},
+ {id:'endurance-runner',name:'Distance Runner',detail:'Record 50 km of cumulative running',achieved:()=>((db.cardio||[]).filter(a=>a.type==='run').reduce((n,a)=>n+(Number(a.distance)||0),0))>=50},
+ {id:'century-rider',name:'Century Rider',detail:'Record a single 100 km cycling session',achieved:()=>db.cardio.some(a=>a.type==='cycle'&&Number(a.distance)>=100)},
+ {id:'marathoner',name:'Marathoner',detail:'Record a single 42.195 km run',achieved:()=>db.cardio.some(a=>a.type==='run'&&Number(a.distance)>=42.195)},
+ {id:'unbreakable',name:'Unbreakable',detail:'Train on 100 separate days',achieved:()=>new Set([...db.workouts,...(db.cardio||[])].map(a=>a.date).filter(Boolean)).size>=100},
+ {id:'the-ascended',name:'The Ascended',detail:'Reach S Rank',achieved:()=>rankIndex()>=6}
+];
+function nfTitleStore(){
+ if(!db.nfTitleRewardsV1||typeof db.nfTitleRewardsV1!=='object')db.nfTitleRewardsV1={earned:{},equipped:null,initialized:false};
+ const t=db.nfTitleRewardsV1;if(!t.earned||typeof t.earned!=='object')t.earned={};return t;
+}
+function nfEvaluateTitles(){
+ const store=nfTitleStore();const first=!store.initialized;let changed=first;
+ for(const t of nfTitlesCatalog){
+  if(store.earned[t.id])continue;
+  if(t.achieved()){
+   store.earned[t.id]={date:today()};changed=true;
+   if(!first)nfQueueNotice('title:'+t.id,'title','Title unlocked: '+t.name,t.detail);
+  }
+ }
+ store.initialized=true;
+ if(changed)localStorage.setItem(key,JSON.stringify(db));
+ nfRenderTitles();
+}
+function nfRenderTitles(){
+ const body=$('nfTitleCollectionBody');if(!body)return;
+ const store=nfTitleStore();const active=nfTitlesCatalog.find(t=>t.id===store.equipped&&store.earned[t.id]);
+ body.innerHTML='<div class="nf-title-equipped">'+(active?'Equipped: <strong>'+nfSafeText(active.name)+'</strong>':'No title equipped yet')+'</div><div class="nf-title-list">'+
+  nfTitlesCatalog.map(t=>{const earned=!!store.earned[t.id],selected=store.equipped===t.id&&earned;
+   return `<button type="button" class="nf-title-choice ${selected?'selected':''}" data-nf-title="${nfSafeText(t.id)}" ${earned?'':'disabled'} aria-pressed="${selected}"><strong>${nfSafeText(t.name)}</strong><small>${nfSafeText(t.detail)}</small><span>${!earned?'🔒 LOCKED':selected?'✓ EQUIPPED · TAP TO REMOVE':'EQUIP TITLE'}</span></button>`;
+  }).join('')+'</div>';
+}
+function nfSelectTitle(id){
+ const store=nfTitleStore();if(!store.earned[id])return;
+ store.equipped=store.equipped===id?null:id;save();nfRenderTitles();if(typeof renderAthlete==='function')renderAthlete();
+}
+function nfCurrentTitle(){const store=nfTitleStore();return nfTitlesCatalog.find(t=>t.id===store.equipped&&store.earned[t.id])?.name||'';}
+document.addEventListener('click',event=>{const button=event.target.closest('button[data-nf-title]');if(button&&!button.disabled){event.preventDefault();nfSelectTitle(button.dataset.nfTitle);}});
+// During the first load, earlier earned rewards are kept but do not flood the inbox.
+function nfActivateNoticeInbox(){const n=nfNoticeStore();n.live=true;localStorage.setItem(key,JSON.stringify(db));nfRenderNotices();}
+
 function renderStats(){let r=rankIndex(),curr=ranks[r],next=ranks[r+1];$('rank').textContent=curr[0];$('rankTitle').textContent=curr[1];const di=window.ascensionDecayInfo();$('decayStatus').textContent=di.recovery.returning&&di.rankPenalty?`Rank recovery: ${di.recovery.recovered}/${di.recovery.lost} tiers restored · ${di.recovery.activeDays} active days · ${di.recovery.sessionDays} workout/cardio days. Next tier: ${3+di.recovery.recovered*5} active days and ${di.recovery.recovered+1} session days.`:di.rankPenalty?`Inactivity penalty: −${di.rankPenalty} rank tier(s) · ${di.daysSinceActivity} days since activity`:`Rank decay: 7-day grace, then −1 tier every 14 inactive days`;$('xp').textContent=db.xp.toLocaleString();$('level').textContent=Math.floor(db.xp/500)+1;$('sessions').textContent=db.workouts.length;$('streak').textContent=streak();$('sets').textContent=db.workouts.reduce((s,w)=>s+w.sets.length,0);const readiness=nfRankReadiness();nfRenderRankReadiness(readiness);$('nextRank').textContent=readiness.next?`${readiness.percent}% to ${readiness.next[0]} Rank · ${readiness.completed}/${readiness.total} requirements met`:'MAX RANK UNLOCKED'}function renderTrain(){ $('days').innerHTML=plan.map((p,i)=>`<button class="${day===i?'active':''}" onclick="switchDay(${i})">${p.day.slice(0,3)}</button>`).join('');let p=plan[day];$('workoutTitle').textContent=p.name;$('workoutSub').textContent=p.day+' · '+p.sub+' · 20–30 min';$('exercises').innerHTML=p.ex.map((e,i)=>`<div class="exercise"><h3>${i+1}. ${e[0]}</h3><div class="muted">${e[1]} sets · ${e[2]} reps</div>${Array.from({length:e[1]},(_,s)=>{let k=day+'-'+i+'-'+s,v=draft[k]||{};return `<div class="set"><span class="muted">${s+1}</span><input type="number" min="0" step="0.5" placeholder="kg" aria-label="Weight in kg for set ${s+1}" value="${v.kg??''}" oninput="setDraft('${k}','kg',this.value)"><input type="number" min="0" placeholder="reps" aria-label="Repetitions for set ${s+1}" value="${v.reps??''}" oninput="setDraft('${k}','reps',this.value)"><button class="${v.done?'done':''}" onclick="toggleSet('${k}')">${v.done?'✓':'○'}</button></div>`}).join('')}</div>`).join('')};function setDraft(k,f,v){draft[k]??={};draft[k][f]=v;localStorage.setItem('ascension_draft_v2',JSON.stringify(draft))}function toggleSet(k){draft[k]??={};draft[k].done=!draft[k].done;localStorage.setItem('ascension_draft_v2',JSON.stringify(draft));renderTrain()}function switchDay(n){day=n;renderTrain()}function finishWorkout(){let p=plan[day],sets=[],invalid=false;p.ex.forEach((e,i)=>{for(let n=0;n<e[1];n++){let v=draft[day+'-'+i+'-'+n];if(v?.done){let kg=Number(v.kg),reps=Number(v.reps);if(!Number.isFinite(kg)||kg<0||!Number.isInteger(reps)||reps<=0||v.kg===''||v.reps===''){invalid=true;return}sets.push({exercise:e[0],set:n+1,kg,reps})}}});if(invalid){alert('Each checked set needs a valid weight (0 for bodyweight) and positive whole-number reps.');return}if(!sets.length){alert('Check off at least one completed set first.');return}let date=today(),existing=db.workouts.find(w=>w.date===date&&w.day===p.day),prior=existing?existing.sets:[],newSets=sets.filter(x=>!prior.some(y=>y.exercise===x.exercise&&y.set===x.set));if(!newSets.length){alert('All checked sets are already saved. Log more sets to continue this workout.');return}let total=p.ex.reduce((a,e)=>a+e[1],0);if(existing){existing.sets.push(...newSets)}else{existing={date,day:p.day,name:p.name,sets:newSets};db.workouts.push(existing)}let earned=newSets.length*10+Math.round(200*newSets.length/total);db.xp+=earned;for(const x of newSets){let i=p.ex.findIndex(e=>e[0]===x.exercise);delete draft[day+'-'+i+'-'+(x.set-1)]}localStorage.setItem('ascension_draft_v2',JSON.stringify(draft));save();renderTrain();alert(`SAVED ${newSets.length} SETS! +${earned} XP. ${existing.sets.length}/${total} sets complete. You can finish the rest later.`)}function ouraHabitMode(id,date=today()){
  const record=db.ouraRecovery?.[date];
  const reading=id==='steps'?record?.steps:record?.sleepHours;
@@ -460,6 +598,13 @@ function renderStats(){let r=rankIndex(),curr=ranks[r],next=ranks[r+1];$('rank')
 }
 function renderQuests(){
  const done=db.quests[today()]||{};
+  const questCount=quests.filter(([id])=>Boolean(done[id])).length;
+  const earnedXP=quests.reduce((sum,[id,label,xp])=>sum+(done[id]?xp:0),0);
+  const completionPct=Math.round(100*questCount/quests.length);
+  if($('nfDailyQuestCount'))$('nfDailyQuestCount').textContent=questCount+'/'+quests.length;
+  if($('nfDailyQuestSummary'))$('nfDailyQuestSummary').textContent=questCount+'/'+quests.length+' quests complete · '+earnedXP+' XP earned today';
+  const questTrack=$('nfDailyQuestProgress');if(questTrack)questTrack.setAttribute('aria-valuenow',String(completionPct));
+  if($('nfDailyQuestFill'))$('nfDailyQuestFill').style.width=completionPct+'%';
  $('questList').innerHTML=quests.map(([id,label,xp])=>{
   const isOura=id==='steps'||id==='sleep';
   const mode=isOura?ouraHabitMode(id):{automatic:false,value:null};
@@ -566,7 +711,7 @@ function renderCardioWeekly(){const goalEl=$('cardioGoalControls'),progress=$('c
 function saveCardioGoals(){const goals={};for(const t of distanceCardioTypes){const session=Number($(`goal_${t}_session`).value),weekly=Number($(`goal_${t}_weekly`).value);if(!Number.isFinite(session)||session<=0||session>500||!Number.isFinite(weekly)||weekly<=0||weekly>2000){alert('All activity goals must be positive, reasonable distances.');return}goals[t]={session,weekly}}db.cardioGoals=goals;save();renderCardioGoals();renderCardioWeekly();alert('Activity goals saved.')}
 function renderCardioHistory(){const el=$('cardioHistory');if(!el)return;const a=db.cardio||[];el.innerHTML=a.length?a.map((c,i)=>({c,i})).sort((x,y)=>y.c.date.localeCompare(x.c.date)).map(x=>cardioActivityRow(x.c,x.i)).join(''):'<p class="muted">No running, cycling or walking sessions yet.</p>'}
 
-function renderAll(){renderStats();renderOtherExerciseHome();renderTrain();renderQuests();renderProgress();renderRanks();$('hunterName').value=db.name||'Athlete';$('heightCm').value=db.heightCm||192;$('startWeight').value=db.startWeight||140;$('benchmarkCategory').value=benchmarkCategory()}document.querySelectorAll('[data-tab]').forEach(b=>b.onclick=()=>{document.querySelectorAll('[data-tab]').forEach(x=>x.classList.toggle('active',x===b));if(b.closest('#nfHiddenNav'))document.querySelector('#tabs [data-tab=more]')?.classList.add('active');document.querySelectorAll('main').forEach(x=>x.classList.toggle('hidden',x.id!==b.dataset.tab));if(b.dataset.tab==='quests')renderQuests();if(b.dataset.tab==='progress')renderProgress();if(b.dataset.tab==='ranks')renderRanks();if(b.dataset.tab==='quests')renderCardioWeekly();if(b.dataset.tab==='progress')renderCardioHistory()});renderAll();$('cardioDate').value=today();renderCardioGoals();renderCardioRecent();renderCardioWeekly();renderCardioHistory();
+function renderAll(){nfNoticeStore();renderStats();renderOtherExerciseHome();renderTrain();renderQuests();nfEvaluateTitles();nfRenderNotices();renderProgress();renderRanks();$('hunterName').value=db.name||'Athlete';$('heightCm').value=db.heightCm||192;$('startWeight').value=db.startWeight||140;$('benchmarkCategory').value=benchmarkCategory()}document.querySelectorAll('[data-tab]').forEach(b=>b.onclick=()=>{document.querySelectorAll('[data-tab]').forEach(x=>x.classList.toggle('active',x===b));if(b.closest('#nfHiddenNav'))document.querySelector('#tabs [data-tab=more]')?.classList.add('active');document.querySelectorAll('main').forEach(x=>x.classList.toggle('hidden',x.id!==b.dataset.tab));if(b.dataset.tab==='quests')renderQuests();if(b.dataset.tab==='progress')renderProgress();if(b.dataset.tab==='ranks')renderRanks();if(b.dataset.tab==='quests')renderCardioWeekly();if(b.dataset.tab==='progress')renderCardioHistory()});renderAll();$('cardioDate').value=today();renderCardioGoals();renderCardioRecent();renderCardioWeekly();renderCardioHistory();
 </script>
 <script>
 (function(){
@@ -632,8 +777,9 @@ function nfStrengthCompleted(exercise,targets,best,bw){
  const measured=Number(best[exercise]||0);
  const flags=targets.map((ratio,i)=>Boolean(earned[i])||(measured>0&&measured+1e-7>=ratio*bw));
  if(flags.some((yes,i)=>yes&&!earned[i])){
-  db.nfStrengthMilestonesV2[exercise]=flags;
-  localStorage.setItem(key,JSON.stringify(db));
+   db.nfStrengthMilestonesV2[exercise]=flags;
+   flags.forEach((done,i)=>{if(done&&!earned[i])nfQueueNotice('skill:strength:'+exercise+':'+i,'skill',exercise.replace(/^Barbell /,'')+' · Milestone '+(i+1),'Strength Skill Tree · '+nfStrengthStage(i)+' node unlocked');});
+   localStorage.setItem(key,JSON.stringify(db));
  }
  return flags;
 }
@@ -698,8 +844,9 @@ function nfOtherSkillCompleted(tracks,cardio,mobilityDays,tests){
    });
   });
   if(flags.some((done,i)=>done&&!prior[i])){
-   db.nfOtherSkillMilestonesV3[t.id]=flags;
-   changed=true;
+    db.nfOtherSkillMilestonesV3[t.id]=flags;
+    flags.forEach((done,i)=>{if(done&&!prior[i])nfQueueNotice('skill:'+t.id+':'+i,'skill',t.name+' · Milestone '+(i+1),nfStrengthStage(i)+' Skill Tree node unlocked');});
+    changed=true;
   }
   return flags;
  });
@@ -838,7 +985,7 @@ function nfCaptureEquipmentAchievements(){
  for(const [type,cfg] of Object.entries(NF_EQUIPMENT_REQUIREMENTS)){
   const progress=Math.max(0,Number(cfg.progress())||0);
   const earned=db.nfEquipmentEarned[type] ||= [];
-  cfg.levels.forEach((n,i)=>{if(progress>=n&&!earned[i]){earned[i]=true;changed=true;}});
+  cfg.levels.forEach((n,i)=>{if(progress>=n&&!earned[i]){earned[i]=true;changed=true;nfQueueNotice('equipment:'+type+':'+i,'gear',NF_MALE_EQUIPMENT_RANKS[i].toUpperCase()+'-Rank '+type+' unlocked','New wearable equipment is available in the Character collection.');}});
  }
  if(changed)localStorage.setItem(key,JSON.stringify(db));
 }
@@ -986,7 +1133,7 @@ function renderAthlete(){
  nfCaptureEquipmentAchievements();
  $u('hunterAvatar').style.setProperty('--aura',aura[r]);$u('hunterAvatar').innerHTML=avatarMarkup(r);
  const nfEquipmentMount=document.getElementById('nfMaleEquipmentMount');if(nfEquipmentMount)nfEquipmentMount.innerHTML=nfMaleEquipmentPanel();
- $u('hunterEvoTitle').textContent=avatarNames[r];$u('hunterEvoInfo').textContent=`${ranks[r][0]}-Rank · ${db.name||'Athlete'} · ${db.heightCm||192} cm · ${bodyMass().toFixed(1)} kg current bodyweight`;
+ $u('hunterEvoTitle').textContent=avatarNames[r];nfRenderTitles();$u('hunterEvoInfo').textContent=`${ranks[r][0]}-Rank · ${db.name||'Athlete'}${nfCurrentTitle()?' · ★ '+nfCurrentTitle():''} · ${db.heightCm||192} cm · ${bodyMass().toFixed(1)} kg current bodyweight`;
  const strip=document.getElementById('nfRankStrip');
  if(strip)strip.innerHTML=ranks.map((row,i)=>`<div class="nf-rank-tile ${i===r?'current':''}"><img src="character-${nfCharacterType()}-rank-${i}.webp?v=approved20261027gear2" alt="" loading="lazy"><strong>${row[0]}</strong></div>`).join('');
  $u('evoNext').innerHTML=r<6?`<strong>Next evolution: ${avatarNames[r+1]}</strong><p class="muted">Unlock ${ranks[r+1][0]} Rank by meeting all XP, session, repetition, volume and strength-trial requirements in the Ranks tab.</p>`:'<strong>Final evolution unlocked</strong><p class="muted">Keep improving your personal records and consistency.</p>';
@@ -1134,6 +1281,7 @@ save=function(){oldSave();try{renderAthlete();renderSkills();renderAnalytics();r
 const oldRender=renderAll;
 renderAll=function(){oldRender();renderAthlete();renderSkills();renderAnalytics();renderCardioChart()};
 document.querySelectorAll('[data-tab]').forEach(b=>b.addEventListener('click',()=>{if(b.dataset.tab==='hunter')renderAthlete();if(b.dataset.tab==='analytics')renderAnalytics()}));
+window.nfSyncSkillUnlocks=()=>{nfSkillUnlockCounts();nfCaptureEquipmentAchievements();};
 renderAthlete();renderSkills();renderAnalytics();renderCardioChart();
 })();
 </script>
@@ -1232,7 +1380,9 @@ function ascRenderChallenges(){
 function ascAchievementStore(){if(!db.achievementTimeline||typeof db.achievementTimeline!=='object'||Array.isArray(db.achievementTimeline))db.achievementTimeline={};return db.achievementTimeline}
 function ascRecordAchievement(id,label,description,date){
  const store=ascAchievementStore();if(store[id])return false;
- store[id]={id,label,description,date:date||today()};return true;
+  store[id]={id,label,description,date:date||today()};
+  nfQueueNotice('achievement:'+id,id.startsWith('rank-')?'rank':'achievement',label,description,date||today());
+  return true;
 }
 function ascCheckAchievements(){
  const store=ascAchievementStore(),workouts=db.workouts||[],cardio=db.cardio||[],metrics=db.metrics||[];
@@ -1285,7 +1435,7 @@ function ascSyncImportedPlan(){
 }
 // Wrap existing data mutations without replacing or migrating the ascension_v1 save.
 const ascOriginalSave=save;
-save=function(){ascOriginalSave();ascReconcileChallenges();ascCheckAchievements();ascRenderChallenges();ascRenderAchievements();window.refreshAscensionOverview?.()};
+save=function(){ascOriginalSave();window.nfSyncSkillUnlocks?.();ascReconcileChallenges();ascCheckAchievements();nfEvaluateTitles();ascRenderChallenges();ascRenderAchievements();nfRenderNotices();window.refreshAscensionOverview?.()};
 const ascOriginalSwitchDay=switchDay;
 switchDay=function(n){ascOriginalSwitchDay(n);ascBuilderOpen()};
 const ascOriginalDeleteCardio=deleteCardioActivity;
@@ -1299,13 +1449,13 @@ importData=function(event){
   if(!Array.isArray(next.workouts)||!Array.isArray(next.metrics)||typeof next.xp!=='number'||!next.quests||typeof next.quests!=='object')throw Error('Invalid backup');
   if(!confirm('Replace all current app data with this save?'))return;
   db=next;if(!Array.isArray(db.cardio))db.cardio=[];if(!db.cardioGoals||typeof db.cardioGoals!=='object')db.cardioGoals={};
-  ascSyncImportedPlan();save();renderAll();renderCardioRecent();renderCardioWeekly();renderCardioHistory();renderCalendar();renderRecords();renderBodyGoals();window.refreshAscensionOverview?.();alert('Save imported.');
+  ascSyncImportedPlan();save();renderAll();nfActivateNoticeInbox();renderCardioRecent();renderCardioWeekly();renderCardioHistory();renderCalendar();renderRecords();renderBodyGoals();window.refreshAscensionOverview?.();alert('Save imported.');
  }catch(e){console.error(e);alert('Invalid save file.')}};reader.readAsText(file);
 };
 document.getElementById('workoutBuilder')?.addEventListener('toggle',ascBuilderOpen);
 document.querySelectorAll('[data-tab]').forEach(button=>button.addEventListener('click',()=>{if(button.dataset.tab==='quests')ascRenderChallenges();if(button.dataset.tab==='ranks')ascRenderAchievements();if(button.dataset.tab==='train')ascBuilderOpen()}));
-ascReconcileChallenges();ascCheckAchievements();ascRenderChallenges();ascRenderAchievements();
-</script><script src="./cloud-config.js"></script>
+ascReconcileChallenges();ascCheckAchievements();ascRenderChallenges();ascRenderAchievements();nfEvaluateTitles();nfActivateNoticeInbox();
+ </script><script src="./cloud-config.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.57.0/dist/umd/supabase.min.js" defer></script>
 <script defer>
 (function(){
@@ -1320,7 +1470,7 @@ const localSnapshot=()=>JSON.parse(JSON.stringify(db));
 const errMessage=e=>e&&e.message?e.message:String(e);
 const setUi=()=>{el('cloudGuest').classList.toggle('hidden',!!user);el('cloudMember').classList.toggle('hidden',!user);el('cloudUserEmail').textContent=user?.email||''};
 function localBackup(reason){try{const stamp=new Date().toISOString();localStorage.setItem('ascension_cloud_backup_'+stamp,JSON.stringify({reason,save_data:localSnapshot()}));const keys=Object.keys(localStorage).filter(k=>k.startsWith('ascension_cloud_backup_')).sort();keys.slice(0,Math.max(0,keys.length-3)).forEach(k=>localStorage.removeItem(k));}catch(e){console.warn('Could not create local backup',e)}}
-function activate(d){if(!validData(d))throw Error('Cloud save has an invalid format.');applying=true;try{db={...db,...d};localStorage.setItem(key,JSON.stringify(db));renderAll()}finally{applying=false}}
+function activate(d){if(!validData(d))throw Error('Cloud save has an invalid format.');applying=true;try{db={...db,...d};localStorage.setItem(key,JSON.stringify(db));renderAll();window.nfSyncSkillUnlocks?.();nfActivateNoticeInbox()}finally{applying=false}}
 async function getCloud(){const {data,error}=await client.from('ascension_saves').select('save_data,updated_at').eq('user_id',user.id).maybeSingle();if(error)throw error;return data}
 function markSynced(iso){cloudIso=iso||null;cloudStamp=Date.parse(iso)||0;localStorage.setItem(storageKey,String(cloudStamp));dirty=false;ready=true;status('Cloud synced · '+new Date().toLocaleTimeString())}
 async function upload(force=false){
