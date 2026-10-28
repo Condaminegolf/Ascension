@@ -342,6 +342,77 @@ body[data-nf-theme="future"] .nf-cosmetic{background:#edf3ef;color:#142b27;borde
 .nf-title-choice:disabled{opacity:.45;cursor:not-allowed}
 .nf-title-equipped{margin:0 0 12px;padding:9px 12px;border:1px solid #426a60;border-radius:10px;background:#14332f;color:#c6efdc}
 @media(max-width:430px){.nf-notification{grid-template-columns:28px minmax(0,1fr);gap:9px}.nf-notification button{grid-column:2;justify-self:start}.nf-notice-icon{width:28px;height:28px}.nf-title-list{grid-template-columns:1fr 1fr}}
+</style><style id="nf-organic-skill-tree-styles">
+/* NEXTFORM Organic Skill Tree. Visual-only upgrade; unlock and rank requirements unchanged. */
+.nf-tree-forest-head{border-radius:17px;padding:16px;background:linear-gradient(125deg,#14362f,#142537 70%);border:1px solid #3a7462;position:relative;overflow:hidden;margin:15px 0}
+.nf-tree-head-row{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.nf-tree-head-row h3{font-size:clamp(15px,3.6vw,22px);line-height:1.3;margin:5px 0 10px;color:#f1fff9}
+.nf-tree-head-row>strong{font-size:26px;font-weight:850;white-space:nowrap;color:#8eecc4;letter-spacing:-.04em}
+.nf-tree-head-row>strong span{color:#a6bfbe;font-size:15px;font-weight:600}
+.nf-tree-eyebrow{font-size:10px;letter-spacing:.19em;color:#80dabb;font-weight:800}
+.nf-tree-forest-head p{font-size:12px;line-height:1.55;color:#bdcfcf;margin:8px 0 0}
+.nf-tree-global-track{height:7px;overflow:hidden;background:#071920;border-radius:20px}
+.nf-tree-global-track>div{height:100%;background:linear-gradient(90deg,#35ae80,#9bfad0);border-radius:20px;box-shadow:0 0 14px #82f2b880}
+.nf-tree-focus-row{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:6px;margin:12px 0 8px}
+.nf-tree-focus{--nf-tree-accent:#80ddbd;min-width:0!important;min-height:56px!important;border:1px solid #415b62!important;border-radius:11px!important;background:#112330!important;color:#d7e8e6!important;padding:8px 4px!important;text-align:center;display:flex!important;flex-direction:column;align-items:center;justify-content:center;gap:3px;line-height:1.1;transition:background .18s,border-color .18s}
+.nf-tree-focus:not(.all){border-top:3px solid var(--nf-tree-accent)!important}
+.nf-tree-focus[aria-pressed="true"]{background:#214537!important;border-color:#7be6b5!important;box-shadow:0 0 0 1px #67dba46a}
+.nf-tree-focus-name{font-size:clamp(9px,1.9vw,12px);font-weight:800;overflow-wrap:anywhere}
+.nf-tree-focus.all{font-size:11px;font-weight:800}
+.nf-tree-focus small{font-size:10px;white-space:nowrap;font-weight:600;color:#a9c5c3}
+.nf-organic-toolbar{justify-content:flex-end;gap:6px;margin:5px 0 9px!important}
+.nf-organic-toolbar button{min-height:37px!important;padding:6px 10px!important;border-radius:9px!important}
+.nf-tree-map-hint{margin-right:auto;font-size:11px;color:#a4c2c0}
+.nf-organic-tree{height:auto!important;min-height:260px;border:1px solid #36584e!important;border-radius:18px!important;background:radial-gradient(circle at 50% 50%,#235043 0%,#172d35 17%,#0d1b29 53%,#0b1421 100%)!important;box-shadow:inset 0 0 35px #031215b5,0 10px 28px #020a1252;overflow:hidden!important}
+.nf-organic-tree svg{display:block;width:100%;height:auto;touch-action:none;user-select:none}
+.nf-organic-tree .nf-tree-bud{cursor:pointer;outline:none}
+.nf-organic-tree .nf-tree-bud:focus-visible circle:last-child{stroke:#f2fff9;stroke-width:2;stroke-opacity:1}
+.nf-organic-tree .nf-tree-bud>path,.nf-organic-tree .nf-tree-bud>ellipse,.nf-organic-tree .nf-tree-bud>text,.nf-organic-tree .nf-tree-bud>g{pointer-events:none}
+.nf-organic-tree .nf-tree-bud>circle:last-child{pointer-events:all;cursor:pointer}
+.nf-organic-tree .nf-tree-hub{cursor:pointer}
+.nf-organic-tree .nf-tree-hub:focus-visible circle:nth-child(2){stroke:#fff;stroke-width:6}
+.nf-organic-tree .nf-tree-next-halo{animation:nfTreeBreathe 2.6s ease-in-out infinite;transform-box:fill-box;transform-origin:center;pointer-events:none}
+.nf-organic-tree .nf-tree-grown{stroke-opacity:.75}
+.nf-organic-tree .nf-tree-track-name{paint-order:stroke;stroke:#0b1b28;stroke-width:4;stroke-linejoin:round}
+.nf-tree-inspect{--nf-tree-inspect-color:#6cdfb1;display:flex;gap:12px;align-items:center;background:#12252f;border:1px solid #375a59;border-radius:12px;padding:13px;margin:11px 0 5px;min-height:70px}
+.nf-tree-inspect-icon{width:35px;height:35px;border-radius:50%;background:#163a36;border:1px solid var(--nf-tree-inspect-color);display:flex;align-items:center;justify-content:center;color:var(--nf-tree-inspect-color);font-weight:900;flex:none}
+.nf-tree-inspect strong{font-size:14px;color:#eafbf3}
+.nf-tree-inspect p{font-size:12px;margin:4px 0 0;color:#b6c9ca;line-height:1.45}
+.nf-tree-inspect-status{display:inline-block;margin-left:7px;color:var(--nf-tree-inspect-color);font-weight:800;font-size:11px}
+.nf-tree-legend{display:flex;gap:12px;flex-wrap:wrap;margin:13px 0 18px;color:#c0d1d0;font-size:11px}
+.nf-tree-legend span{display:flex;align-items:center;gap:6px}
+.nf-legend-leaf{width:13px;height:8px;border-radius:80% 0 80% 0;display:inline-block;transform:rotate(-20deg)}
+.nf-legend-leaf.earned{background:#6be6b0;box-shadow:0 0 6px #69e8b4}
+.nf-legend-leaf.next{background:#254f4b;border:1px solid #9ceacb}
+.nf-legend-leaf.locked{background:#17252c;border:1px solid #536c6d}
+.nf-tree-details-heading{margin:15px 0 10px!important}
+.nf-organic-detail{margin:10px 0!important}
+.nf-organic-detail-track{margin:8px 0!important;background:#0e202a!important}
+.nf-organic-detail summary{cursor:pointer}
+.nf-organic-detail summary small{float:right;opacity:.75}
+.nf-organic-detail .asc-skill-milestone.done{color:#b5e5d4}
+.nf-organic-detail .asc-skill-milestone.nf-milestone-next{background:#1e3d34;color:#d8ffef;border-radius:6px;padding-left:8px;padding-right:8px}
+.nf-organic-detail .asc-skill-milestone.nf-milestone-future{opacity:.56}
+@keyframes nfTreeBreathe{0%,100%{opacity:.36}50%{opacity:1}}
+@media(prefers-reduced-motion:reduce){.nf-organic-tree .nf-tree-next-halo{animation:none}}
+@media(max-width:550px){.nf-tree-focus-row{grid-template-columns:repeat(5,minmax(0,1fr));gap:4px}.nf-tree-focus{padding:8px 2px!important;min-height:53px!important}.nf-tree-focus-name{font-size:9px}.nf-tree-map-hint{flex-basis:100%;font-size:10px}.nf-organic-toolbar{justify-content:flex-end}.nf-tree-forest-head{padding:13px}.nf-tree-head-row>strong{font-size:22px}}
+/* The separate pale theme retains contrast in the organic map and related controls. */
+body[data-nf-theme="future"] .nf-tree-forest-head{background:linear-gradient(130deg,#dff1ea,#edf4f3);border-color:#afd9c7}
+body[data-nf-theme="future"] .nf-tree-head-row h3{color:#193c3c}
+body[data-nf-theme="future"] .nf-tree-head-row>strong{color:#18835f}
+body[data-nf-theme="future"] .nf-tree-head-row>strong span,body[data-nf-theme="future"] .nf-tree-forest-head p{color:#4d6763}
+body[data-nf-theme="future"] .nf-tree-eyebrow{color:#167c61}
+body[data-nf-theme="future"] .nf-tree-global-track{background:#bdd4cc}
+body[data-nf-theme="future"] .nf-tree-focus{background:#f9fdfa!important;color:#17453f!important;border-color:#b8d1c9!important}
+body[data-nf-theme="future"] .nf-tree-focus small{color:#54716a}
+body[data-nf-theme="future"] .nf-tree-focus[aria-pressed="true"]{background:#c5ecdc!important;border-color:#1f9d78!important}
+body[data-nf-theme="future"] .nf-tree-map-hint{color:#4b706b}
+body[data-nf-theme="future"] .nf-tree-inspect{background:#e6f2ee;border-color:#bad6cc}
+body[data-nf-theme="future"] .nf-tree-inspect strong{color:#224d44}
+body[data-nf-theme="future"] .nf-tree-inspect p,body[data-nf-theme="future"] .nf-tree-legend{color:#4a6964}
+body[data-nf-theme="future"] .nf-organic-detail-track{background:#f1f7f4!important}
+body[data-nf-theme="future"] .nf-organic-detail .asc-skill-milestone.nf-milestone-next{background:#d5eee4;color:#245a4a}
+
 </style></head><body><div class="wrap"><header class="top"><div><div class="nf-brand-lockup"><img src="./icon-192.png" alt="NEXTFORM logo" class="nf-header-logo"><div><div class="brand">NEXTFORM<span class="brand-mark">_</span></div><div class="tag">THE SYSTEM <span class="system-dot">●</span> ONLINE</div></div></div><button class="secondary" onclick="exportData()">Export Save</button></header><div class="panel hero"><div><div class="rank" id="rank">F</div><div style="text-align:center" class="muted">TRAINING RANK</div></div><div><div class="muted">XP LEVEL <span id="level">1</span> · <span id="xp">0</span> TOTAL XP</div><div class="big" id="rankTitle">Foundation</div><div class="nf-rank-bar-label"><span>NEXT RANK READINESS</span><strong id="rankProgressPercent">0%</strong></div><div class="bar nf-rank-main-track" id="rankProgressTrack" role="progressbar" aria-label="Progress toward next rank" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"><div class="fill" id="xpbar" style="width:0%"></div></div><div class="muted" id="nextRank">Progress to E Rank</div><div class="muted" id="decayStatus" style="margin-top:6px"></div></div></div><section class="command-dashboard" aria-label="Progress overview">
 <div class="panel command-power"><div class="command-label">PERFORMANCE INDEX</div><div class="command-power-top"><div><div class="command-number" id="overviewPower">0 <small>/ 100</small></div><div class="muted">Combined training and wellness progress</div></div><div class="command-mini" id="overviewBreakdown"></div></div></div>
 <div class="panel command-radar"><div class="command-label">ATTRIBUTE RADAR · LIVE PROGRESSION</div><div id="overviewRadar" class="radar-slot"></div><div class="muted" style="text-align:center">Strength · Endurance · Discipline · Recovery · Mobility</div></div>
@@ -364,7 +435,7 @@ body[data-nf-theme="future"] .nf-cosmetic{background:#edf3ef;color:#142b27;borde
 <div id="nfMaleEquipmentMount" aria-live="polite"></div>
  <section class="panel nf-title-collection" aria-label="Earned character titles"><div class="tag">CHARACTER / TITLES</div><h2>Equippable Titles</h2><p class="muted">Earn permanent titles through meaningful achievements. Choose one to display under your character name.</p><div id="nfTitleCollectionBody"></div></section>
 <div id="powerScore" style="display:none"></div>
-<div class="panel" style="margin-top:16px"><div class="tag">ATHLETICISM · PERFORMANCE TESTS</div><h2>Athleticism</h2><p class="muted">35% mobility consistency · 30% plank · 25% push-ups · 10% single-leg balance. Enter your best measured result; incomplete tests count as zero.</p><div class="asc-athletic-tests"><label>Plank hold (seconds)<input id="athPlank" type="number" min="0" max="3600" step="1" placeholder="e.g. 90"></label><label>Strict push-ups (reps)<input id="athPushups" type="number" min="0" max="500" step="1" placeholder="e.g. 20"></label><label>Single-leg balance (seconds)<input id="athBalance" type="number" min="0" max="600" step="1" placeholder="e.g. 30"></label></div><button type="button" onclick="saveAthleticTests()">Save performance tests</button><p class="muted">Original benchmarks include a 180-second plank, <span id="athPushupTarget">40</span> strict push-ups and 60-second balance; the Skill Tree now extends into advanced mastery goals. Push-up targets depend on your selected benchmark category. Mobility consistency reaches its maximum at 20 completed mobility days.</p></div><div class="panel" style="margin-top:16px"><div class="tag">CHARACTER PROGRESSION · SKILL TREE</div><h2>Skill Tree</h2><p class="muted">Explore your unlocked abilities and discover your next milestone.</p><div id="skillTrees"></div></div>
+<div class="panel" style="margin-top:16px"><div class="tag">ATHLETICISM · PERFORMANCE TESTS</div><h2>Athleticism</h2><p class="muted">35% mobility consistency · 30% plank · 25% push-ups · 10% single-leg balance. Enter your best measured result; incomplete tests count as zero.</p><div class="asc-athletic-tests"><label>Plank hold (seconds)<input id="athPlank" type="number" min="0" max="3600" step="1" placeholder="e.g. 90"></label><label>Strict push-ups (reps)<input id="athPushups" type="number" min="0" max="500" step="1" placeholder="e.g. 20"></label><label>Single-leg balance (seconds)<input id="athBalance" type="number" min="0" max="600" step="1" placeholder="e.g. 30"></label></div><button type="button" onclick="saveAthleticTests()">Save performance tests</button><p class="muted">Original benchmarks include a 180-second plank, <span id="athPushupTarget">40</span> strict push-ups and 60-second balance; the Skill Tree now extends into advanced mastery goals. Push-up targets depend on your selected benchmark category. Mobility consistency reaches its maximum at 20 completed mobility days.</p></div><div class="panel" style="margin-top:16px"><div class="tag">CHARACTER PROGRESSION · SKILL TREE</div><h2>Skill Tree</h2><p class="muted">Follow your growing paths, inspect the next milestones, and explore what is still to come.</p><div id="skillTrees"></div></div>
 </main>
 
 <main id="analytics" class="hidden"><div class="panel"><div class="tag">PERFORMANCE ANALYTICS</div><h2>Progress Analytics</h2><p class="muted">Charts use your saved workout and body metrics. Empty charts mean you have not logged enough data yet.</p><div class="grid2" id="analyticCards"></div></div><div class="panel"><h3>Bodyweight Trend</h3><div id="weightChart"></div></div><div class="panel"><h3>Weekly Training Volume</h3><div id="volumeChart"></div></div><div class="panel"><h3>Endurance Distance by Week</h3><div id="cardioChart"></div></div><div class="panel"><h3>Estimated Strength Records</h3><div id="strengthChart"></div></div></main>
@@ -1142,70 +1213,142 @@ function renderAthlete(){
 
 function renderSkills(){
  const best=bestLifts(),bw=bodyMass(),cat=benchmarkCategory();
- const runF=runBenchmarkFactor(),cycleF=cycleBenchmarkFactor(),strengthF=strengthBenchmarkFactor();
+ const strengthF=strengthBenchmarkFactor();
  const cardio=(db.cardio||[]).filter(c=>Number(c.distance)>0&&Number(c.minutes)>0);
  const mobilityDays=Object.values(db.quests||{}).filter(v=>v.mobility).length;
  const tests=db.athleticTests||{};
  const fmtPace=p=>{let m=Math.floor(p),sec=Math.round((p-m)*60);if(sec===60){m++;sec=0}return m+':'+String(sec).padStart(2,'0')};
  const liftNames=['Bench press','Squat','Overhead press','Romanian deadlift'];
- const liftTracks=trials.map((t,i)=>({
-   name:liftNames[i]||t[1],kind:'lift',key:t[0],
-   targets:nfStrengthMilestoneTargets(t,strengthF)
- }));
+ const liftTracks=trials.map((t,i)=>({name:liftNames[i]||t[1],kind:'lift',key:t[0],targets:nfStrengthMilestoneTargets(t,strengthF)}));
  const tracks=[...liftTracks,...nfOtherSkillTracks()];
  const groups=[
-  {name:'Strength',color:'#2cf0a1',children:[0,1,2,3]},
-  {name:'Running',color:'#ffd354',children:[4,5]},
-  {name:'Cycling',color:'#50bfff',children:[6,7]},
-  {name:'Athleticism',color:'#ba8cff',children:[8,9,10,11]}
+  {name:'Strength',color:'#39dfaa',angle:-135,angles:[-166,-146,-124,-104],children:[0,1,2,3],symbol:'◆'},
+  {name:'Running',color:'#f3c76f',angle:-45,angles:[-61,-29],children:[4,5],symbol:'↗'},
+  {name:'Cycling',color:'#72c3f1',angle:45,angles:[29,61],children:[6,7],symbol:'◈'},
+  {name:'Athleticism',color:'#c4a0f6',angle:135,angles:[104,124,146,166],children:[8,9,10,11],symbol:'✦'}
  ];
- const achieved=[
-  ...liftTracks.map(t=>nfStrengthCompleted(t.key,t.targets,best,bw)),
-  ...nfOtherSkillCompleted(tracks.slice(4),cardio,mobilityDays,tests)
- ];
+ const achieved=[...liftTracks.map(t=>nfStrengthCompleted(t.key,t.targets,best,bw)),...nfOtherSkillCompleted(tracks.slice(4),cardio,mobilityDays,tests)];
+ const progress=achieved.map(nodes=>nodes.filter(Boolean).length);
+ const frontier=achieved.map(nodes=>{const i=nodes.findIndex(done=>!done);return i<0?nodes.length:i});
  const description=(t,target)=>{
   if(t.kind==='lift')return `${(target*bw).toFixed(1)} kg estimated 1RM`;
   if(t.kind==='mobility')return `${target} mobility days`;
   if(t.kind==='test')return `${target} ${t.unit}`;
   if(t.kind==='run')return `${target[0]} km @ ${fmtPace(target[1])}/km`;
-  return `${target[0]} km @ ${target[1].toFixed(1)} km/h`;
+  return `${target[0]} km @ ${Number(target[1]).toFixed(1)} km/h`;
  };
  const W=1600,H=1600,cx=800,cy=800;
- const angleSets=[[-163,-141,-119,-97],[-70,-44],[-18,8],[36,59,82,105]];
  const polar=(r,deg)=>({x:cx+r*Math.cos(deg*Math.PI/180),y:cy+r*Math.sin(deg*Math.PI/180)});
- // Count earned nodes independently from the earliest unfinished one.
- // New advanced nodes may be inserted before already-earned legacy anchors.
- const progress=achieved.map(nodes=>nodes.filter(Boolean).length);
- const frontier=achieved.map(nodes=>{const i=nodes.findIndex(done=>!done);return i<0?nodes.length:i});
- const nodeRadii=t=>t.targets.map((_,i)=>260+i*420/Math.max(1,t.targets.length-1));
+ const pxy=p=>`${p.x.toFixed(1)} ${p.y.toFixed(1)}`;
+ // Continuous cubic curves: the path bends between actual milestone points, unlike straight spokes.
+ const smoothPath=points=>{
+  if(points.length<2)return '';
+  let path=`M ${pxy(points[0])}`;
+  for(let j=0;j<points.length-1;j++){
+   const a=points[Math.max(0,j-1)],b=points[j],c=points[j+1],d=points[Math.min(points.length-1,j+2)];
+   const p1={x:b.x+(c.x-a.x)/6,y:b.y+(c.y-a.y)/6};
+   const p2={x:c.x-(d.x-b.x)/6,y:c.y-(d.y-b.y)/6};
+   path+=` C ${pxy(p1)} ${pxy(p2)} ${pxy(c)}`;
+  }
+  return path;
+ };
+ const total=tracks.reduce((n,t)=>n+t.targets.length,0),earned=progress.reduce((n,v)=>n+v,0);
+ const safeName=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+ const branchNames=['Foundation','Advanced','Mastery'];
+ const branchStage=i=>i<6?branchNames[0]:i<18?branchNames[1]:branchNames[2];
  const paths=groups.map((g,gi)=>{
-  const angles=angleSets[gi],anchor=polar(185,angles.reduce((x,y)=>x+y,0)/angles.length);
-  const stems=g.children.map((ti,j)=>{
-   const t=tracks[ti],angle=angles[j],n=frontier[ti],milestoneRadii=nodeRadii(t),dense=t.targets.length>10;
-   const root=polar(220,angle),lastEarned=achieved[ti].findLastIndex(Boolean),far=polar(milestoneRadii[Math.min(t.targets.length-1,Math.max(n+1,lastEarned,0))]+8,angle);
-   const line=`<path d="M${root.x} ${root.y} L${far.x} ${far.y}" stroke="${g.color}" stroke-opacity=".35" stroke-width="3" fill="none"/>`;
-   const visible=t.targets.map((target,k)=>{
-    if(k>n+1&&!achieved[ti][k])return '';
-    const p=polar(milestoneRadii[k],angle),done=achieved[ti][k],opacity=done?1:k===n?.88:.17;
-    const label=done?'✓':String(k+1);
-    return `<g opacity="${opacity}"><title>${t.name}${dense?' · '+nfStrengthStage(k):''}: ${description(t,target)} — ${done?'Unlocked':k===n?'Next milestone':'Later milestone'}</title><circle cx="${p.x}" cy="${p.y}" r="${dense?(done?10:11):(done?17:19)}" fill="${done?g.color:'#162330'}" stroke="${g.color}" stroke-width="${done?2.5:2}"/><text x="${p.x}" y="${p.y+(dense?3.5:5)}" font-size="${dense?10:14}" text-anchor="middle" fill="${done?'#102020':'#edf7fa'}" font-weight="800">${label}</text>${k===n?`<text class="skill-node-detail" x="${p.x}" y="${p.y+(dense?28:38)}" font-size="${dense?11:12}" text-anchor="middle" fill="currentColor">${description(t,target)}</text>`:''}</g>`;
+  const center=g.angle,hub=polar(184,center),roots=polar(87,center-3);
+  const trunk=`M ${pxy(roots)} C ${pxy(polar(120,center-12))} ${pxy(polar(162,center+8))} ${pxy(hub)}`;
+  const twigs=g.children.map((ti,j)=>{
+   const t=tracks[ti],angle=g.angles[j],diff=angle-center,done=achieved[ti];
+   const stemPoints=t.targets.map((_,k)=>{
+    const fraction=k/Math.max(1,t.targets.length-1);
+    const radius=270+fraction*433;
+    const bend=Math.sin(fraction*7.3+ti*.87)*2.7*Math.sin(Math.PI*fraction);
+    return polar(radius,center+diff*(.66+.34*fraction)+bend);
+   });
+   const allStem=[hub,...stemPoints],stem=smoothPath(allStem);
+   const completedStem=[hub,...stemPoints.slice(0,frontier[ti])];
+   const lit=completedStem.length>1?smoothPath(completedStem):'';
+   const buds=stemPoints.map((stemPoint,k)=>{
+    const isEarned=!!done[k],isNext=k===frontier[ti],mastery=k>=18;
+    const sign=(k%2===0?1:-1),a=(angle+90)*Math.PI/180;
+    const offset=(mastery?21:16)+Math.sin(k*.8+ti)*3;
+    const x=stemPoint.x+Math.cos(a)*sign*offset,y=stemPoint.y+Math.sin(a)*sign*offset;
+    const tangent={x:x+Math.cos(a)*sign*(mastery?3:2),y:y+Math.sin(a)*sign*(mastery?3:2)};
+    const leafLength=mastery?18:isNext?16:13,leafWidth=mastery?10:8;
+    const rotate=angle+(sign>0?36:-36);
+    const dot=isEarned?'✓':isNext?'•':'';
+    const status=isEarned?'Earned':isNext?'Next':'Locked';
+    const label=safeName(`${t.name} · ${branchStage(k)} ${k+1}: ${description(t,t.targets[k])} · ${status}`);
+    const twig=`M ${pxy(stemPoint)} Q ${pxy({x:(x+stemPoint.x)/2+Math.cos(a)*sign*3,y:(y+stemPoint.y)/2+Math.sin(a)*sign*3})} ${pxy(tangent)}`;
+    return `<g class="nf-tree-bud ${isEarned?'earned':isNext?'next':'locked'} ${mastery?'mastery':''}" role="button" tabindex="0" data-nf-node-track="${ti}" data-nf-node-index="${k}" aria-label="${label}">
+      <title>${label}</title>
+      <path d="${twig}" stroke="${g.color}" stroke-width="${mastery?2.8:1.9}" stroke-opacity="${isEarned?.84:isNext?.62:.23}" fill="none"/>
+      ${isNext?`<ellipse class="nf-tree-next-halo" cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" rx="${leafLength+9}" ry="${leafWidth+9}" fill="${g.color}" fill-opacity=".12" transform="rotate(${rotate} ${x.toFixed(1)} ${y.toFixed(1)})"/>`:''}
+      ${mastery?`<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="${leafLength+10}" stroke="${g.color}" stroke-opacity="${isEarned?.65:.19}" stroke-width="2" stroke-dasharray="3 7" fill="none"/>`:''}
+      <g transform="translate(${x.toFixed(1)} ${y.toFixed(1)}) rotate(${rotate})"><path d="M ${-leafLength} 0 Q 0 ${-leafWidth*1.8} ${leafLength} 0 Q 0 ${leafWidth*1.8} ${-leafLength} 0Z" fill="${isEarned?g.color:isNext?'#263b41':'#172630'}" fill-opacity="${isEarned?.95:isNext?1:.6}" stroke="${g.color}" stroke-opacity="${isEarned?1:isNext?.94:.32}" stroke-width="${mastery?2.5:1.7}" ${isEarned?'filter="url(#nfBranchGlow)"':''}/>${isEarned?`<path d="M ${-leafLength+6} 0 Q 0 -1 ${leafLength-6} 0" stroke="#fff" stroke-opacity=".52" fill="none" stroke-width="1.2"/>`:''}</g>
+      ${dot?`<text x="${x.toFixed(1)}" y="${(y+4).toFixed(1)}" text-anchor="middle" fill="${isEarned?'#10312b':g.color}" font-size="12" font-weight="900" pointer-events="none">${dot}</text>`:''}
+      <circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="25" fill="transparent"/>
+    </g>`;
    }).join('');
-   const title=polar(735,angle);
-   return `<g>${line}${visible}<text x="${title.x}" y="${title.y}" text-anchor="middle" font-size="15" font-weight="700" fill="${g.color}">${t.name.split(' · ').pop()}</text></g>`;
+   const tip=stemPoints[stemPoints.length-1],end=polar(745,angle);
+   const title=t.name.split(' · ').pop();
+   return `<g class="nf-tree-track"><path class="nf-tree-stem-shadow" d="${stem}" stroke="${g.color}" stroke-width="8" stroke-opacity=".10" fill="none" stroke-linecap="round"/><path d="${stem}" stroke="${g.color}" stroke-width="3.2" stroke-opacity=".38" fill="none" stroke-linecap="round"/>${lit?`<path class="nf-tree-grown" d="${lit}" stroke="${g.color}" stroke-width="5" fill="none" stroke-linecap="round" filter="url(#nfBranchGlow)"/>`:''}
+   ${buds}<path d="M ${pxy(tip)} Q ${pxy(polar(725,angle+1))} ${pxy(end)}" stroke="${g.color}" stroke-opacity=".25" fill="none" stroke-width="1.5"/>
+   <text class="nf-tree-track-name" x="${end.x.toFixed(1)}" y="${end.y.toFixed(1)}" text-anchor="middle" dominant-baseline="middle" fill="${g.color}" font-size="16" font-weight="700">${safeName(title)}</text></g>`;
   }).join('');
-  return `<g><circle cx="${anchor.x}" cy="${anchor.y}" r="45" fill="#15222f" stroke="${g.color}" stroke-width="3"/><text x="${anchor.x}" y="${anchor.y+5}" text-anchor="middle" font-size="16" font-weight="800" fill="${g.color}">${g.name}</text>${stems}</g>`;
+  const groupEarned=g.children.reduce((n,i)=>n+progress[i],0),groupTotal=g.children.reduce((n,i)=>n+tracks[i].targets.length,0);
+  return `<g class="nf-tree-limb"><path d="${trunk}" fill="none" stroke="${g.color}" stroke-opacity=".16" stroke-width="32" stroke-linecap="round" filter="url(#nfWideGlow)"/><path d="${trunk}" fill="none" stroke="${g.color}" stroke-opacity=".62" stroke-width="10" stroke-linecap="round"/><path d="${trunk}" fill="none" stroke="#d9fff0" stroke-opacity=".23" stroke-width="2.2" stroke-linecap="round"/>
+   ${twigs}
+   <g class="nf-tree-hub" tabindex="0" role="button" data-nf-group="${gi}" aria-label="Focus ${g.name} branch, ${groupEarned} of ${groupTotal} milestones earned">
+   <circle cx="${hub.x.toFixed(1)}" cy="${hub.y.toFixed(1)}" r="62" fill="${g.color}" fill-opacity=".055" stroke="${g.color}" stroke-opacity=".14" stroke-width="3"/>
+   <circle cx="${hub.x.toFixed(1)}" cy="${hub.y.toFixed(1)}" r="46" fill="#10222c" stroke="${g.color}" stroke-width="3.5"/>
+   <text x="${hub.x.toFixed(1)}" y="${(hub.y-8).toFixed(1)}" text-anchor="middle" fill="${g.color}" font-size="15" font-weight="900" letter-spacing=".8">${g.name.toUpperCase()}</text>
+   <text x="${hub.x.toFixed(1)}" y="${(hub.y+17).toFixed(1)}" text-anchor="middle" fill="#eaf7f6" font-size="17" font-weight="700">${groupEarned} / ${groupTotal}</text>
+   </g></g>`;
  }).join('');
- const details=groups.map(g=>`<details class="asc-skill-detail"><summary style="color:${g.color}">${g.name} <small>${g.children.reduce((n,i)=>n+progress[i],0)}/${g.children.reduce((n,i)=>n+tracks[i].targets.length,0)} unlocked</small></summary>${g.children.map(i=>{
-  const t=tracks[i],n=frontier[i];
-  return `<details class="asc-skill-detail" style="margin-top:9px"><summary>${t.name} <small>${n}/${t.targets.length}</small></summary><p class="muted" style="margin:5px 0 8px">6 Foundation · 12 Advanced · 2 Mastery. Earned nodes are permanent.</p>${t.targets.map((target,j)=>j>n+1&&!achieved[i][j]?'':`<div class="asc-skill-milestone ${achieved[i][j]?'done':''}" style="opacity:${achieved[i][j]?1:j===n?.9:.25}"><span>${j+1}. <b>${nfStrengthStage(j)} · </b>${description(t,target)}</span><strong>${achieved[i][j]?'✓':j===n?'NEXT':'◌'}</strong></div>`).join('')}</details>`;
- }).join('')}</details>`).join('');
- $u('skillTrees').innerHTML=`<p class="asc-tree-intro">Four paths radiate from your character. Strength, Running, Cycling and Athleticism now have 20 milestones per track: 6 Foundation, 12 Advanced and 2 Mastery. Original goals and earned nodes are retained. Zoom in to inspect each milestone. Zoom and drag to explore.</p><div class="asc-tree-toolbar"><button type="button" class="secondary" id="skillZoomOut">−</button><span id="skillZoomLabel" class="asc-tree-zoom-readout">100%</span><button type="button" class="secondary" id="skillZoomIn">+</button><button type="button" class="secondary" id="skillZoomFit">Fit all</button></div><div class="asc-unified-tree asc-tree-viewport nf-radial-tree" id="skillTreeViewport"><svg id="skillTreeSvg" viewBox="0 0 ${W} ${H}" role="img" aria-label="Circular NEXTFORM skill tree with progressive milestone visibility"><defs><circle id="nfCenter" cx="${cx}" cy="${cy}" r="76"/></defs><circle cx="${cx}" cy="${cy}" r="720" fill="none" stroke="currentColor" stroke-opacity=".06" stroke-width="2"/><circle cx="${cx}" cy="${cy}" r="235" fill="none" stroke="currentColor" stroke-opacity=".14" stroke-dasharray="4 12"/>${paths}<circle cx="${cx}" cy="${cy}" r="82" fill="#142530" stroke="#70f0b1" stroke-width="5"/><text x="${cx}" y="${cy-8}" font-size="23" font-weight="900" text-anchor="middle" fill="#effff9">THE</text><text x="${cx}" y="${cy+22}" font-size="23" font-weight="900" text-anchor="middle" fill="#70f0b1">SYSTEM</text></svg></div><p class="asc-tree-help">Unlocked ● · Next milestone ◉ · One beyond ◌ · Future milestones hidden</p><h3>Available Milestones</h3><div class="asc-skill-details">${details}</div>`;
- initSkillTreeZoom(W,H);
-
+ const rings=[365,530,715].map((r,i)=>{
+  const pts=Array.from({length:101},(_,j)=>{
+   const a=j*360/100,variation=7*Math.sin(a*Math.PI/30+i)+5*Math.cos(a*Math.PI/23-i);
+   return polar(r+variation,a);
+  });
+  return `<path d="${smoothPath(pts)}Z" fill="none" stroke="#b3d8d0" stroke-opacity="${i===2?.085:.065}" stroke-width="2" stroke-dasharray="${i===1?'4 17':'3 13'}"/>`;
+ }).join('');
+ const details=groups.map(g=>{
+  const gEarned=g.children.reduce((n,i)=>n+progress[i],0),gTotal=g.children.reduce((n,i)=>n+tracks[i].targets.length,0);
+  return `<details class="asc-skill-detail nf-organic-detail"><summary style="color:${g.color}">${g.name}<small>${gEarned}/${gTotal} earned</small></summary>${g.children.map(i=>{
+   const t=tracks[i],n=frontier[i];
+   return `<details class="asc-skill-detail nf-organic-detail-track"><summary>${safeName(t.name)}<small>${progress[i]}/${t.targets.length}</small></summary><p class="muted" style="margin:9px 0">6 Foundation · 12 Advanced · 2 Mastery. Earned nodes remain unlocked.</p>${t.targets.map((target,j)=>`<div class="asc-skill-milestone ${achieved[i][j]?'done':j===n?'nf-milestone-next':'nf-milestone-future'}"><span><b>${j+1}. ${branchStage(j)}</b> · ${description(t,target)}</span><strong>${achieved[i][j]?'✓':j===n?'NEXT':'◌'}</strong></div>`).join('')}</details>`;
+  }).join('')}</details>`;
+ }).join('');
+ const branchControls=groups.map((g,i)=>{
+  const e=g.children.reduce((n,j)=>n+progress[j],0),n=g.children.reduce((n,j)=>n+tracks[j].targets.length,0);
+  return `<button type="button" class="nf-tree-focus" data-nf-tree-focus="${i}" aria-pressed="false" style="--nf-tree-accent:${g.color}"><span class="nf-tree-focus-name">${g.name}</span><small>${e} / ${n}</small></button>`;
+ }).join('');
+ $u('skillTrees').innerHTML=`<div class="nf-tree-forest-head"><div class="nf-tree-head-row"><div><span class="nf-tree-eyebrow">THE SYSTEM · GROWTH MAP</span><h3>Every milestone grows your path.</h3></div><strong>${earned} <span>/ ${total}</span></strong></div><div class="nf-tree-global-track"><div style="width:${total?earned/total*100:0}%"></div></div><p>Each discipline branches into its own achievements. Bright leaves are earned; the pulsing bud is your next challenge. All original unlocks and milestones are preserved.</p></div>
+ <div class="nf-tree-focus-row" role="group" aria-label="Explore a skill branch"><button type="button" class="nf-tree-focus all" data-nf-tree-focus="all" aria-pressed="true">Whole tree<small>${earned} / ${total}</small></button>${branchControls}</div>
+ <div class="asc-tree-toolbar nf-organic-toolbar"><span class="nf-tree-map-hint">Drag to explore · pinch to zoom · tap a leaf</span><button type="button" class="secondary" id="skillZoomOut" aria-label="Zoom out">−</button><span id="skillZoomLabel" class="asc-tree-zoom-readout">100%</span><button type="button" class="secondary" id="skillZoomIn" aria-label="Zoom in">+</button><button type="button" class="secondary" id="skillZoomFit">Fit all</button></div>
+ <div class="asc-unified-tree asc-tree-viewport nf-radial-tree nf-organic-tree" id="skillTreeViewport"><svg id="skillTreeSvg" viewBox="0 0 ${W} ${H}" role="group" aria-label="Organic branching NEXTFORM skill tree. Tap leaves to inspect milestones."><defs><filter id="nfBranchGlow" x="-70%" y="-70%" width="240%" height="240%"><feGaussianBlur stdDeviation="2.3" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter><filter id="nfWideGlow" x="-100%" y="-100%" width="300%" height="300%"><feGaussianBlur stdDeviation="12"/></filter><radialGradient id="nfOrganicCore"><stop offset="0%" stop-color="#244e43"/><stop offset="77%" stop-color="#122c2e"/><stop offset="100%" stop-color="#101f29"/></radialGradient></defs>
+ ${rings}
+ <circle cx="${cx}" cy="${cy}" r="110" fill="#55d8a5" fill-opacity=".055" stroke="#76ecb9" stroke-opacity=".10" stroke-width="2"/>
+ ${paths}
+ <circle cx="${cx}" cy="${cy}" r="85" fill="url(#nfOrganicCore)" stroke="#70f0b1" stroke-width="5" filter="url(#nfBranchGlow)"/>
+ <circle cx="${cx}" cy="${cy}" r="70" fill="none" stroke="#a7f9d5" stroke-opacity=".3" stroke-width="1.3" stroke-dasharray="3 9"/>
+ <text x="${cx}" y="${cy-10}" font-size="24" font-weight="900" text-anchor="middle" fill="#f2fff9" letter-spacing="1.6">THE</text><text x="${cx}" y="${cy+22}" font-size="24" font-weight="900" text-anchor="middle" fill="#70f0b1" letter-spacing="1">SYSTEM</text></svg></div>
+ <div class="nf-tree-inspect" id="nfTreeSelection" aria-live="polite"><div class="nf-tree-inspect-icon">✦</div><div><strong>Your next challenge is waiting</strong><p>Tap a leaf on the map to inspect its goal, or select a discipline above to zoom into that branch.</p></div></div>
+ <div class="nf-tree-legend"><span><i class="nf-legend-leaf earned"></i> Earned</span><span><i class="nf-legend-leaf next"></i> Next</span><span><i class="nf-legend-leaf locked"></i> Future</span><span>✧ Mastery</span></div>
+ <h3 class="nf-tree-details-heading">Milestones by discipline</h3><div class="asc-skill-details">${details}</div>`;
+ const showNode=(ti,k)=>{
+  const t=tracks[ti],group=groups.find(g=>g.children.includes(ti)),state=achieved[ti][k]?'Earned':k===frontier[ti]?'Next challenge':'Not yet unlocked';
+  const inspector=document.getElementById('nfTreeSelection');if(!inspector)return;
+  inspector.style.setProperty('--nf-tree-inspect-color',group.color);
+  inspector.innerHTML=`<div class="nf-tree-inspect-icon">${achieved[ti][k]?'✓':k===frontier[ti]?'◈':'◌'}</div><div><strong>${safeName(t.name)} · ${branchStage(k)} ${k+1}</strong><p>${description(t,t.targets[k])} <span class="nf-tree-inspect-status">${state}</span></p></div>`;
+ };
+ initSkillTreeZoom(W,H,showNode,groups);
 }
 
-
-function initSkillTreeZoom(W,H){
+function initSkillTreeZoom(W,H,onSelect,groups){
  const viewport=document.getElementById('skillTreeViewport'),svg=document.getElementById('skillTreeSvg');
  if(!viewport||!svg)return;
  const label=document.getElementById('skillZoomLabel');
@@ -1227,16 +1370,23 @@ function initSkillTreeZoom(W,H){
   const anchorX=centerX+(x-.5)*oldW,anchorY=centerY+(y-.5)*oldH;
   zoom=clamp(zoom*factor,.65,5);
   centerX=anchorX-(x-.5)*W/zoom;
-  centerY=anchorY-(y-.5)*H/zoom;
-  draw();
+  centerY=anchorY-(y-.5)*H/zoom;draw();
  }
  function point(e){const r=svg.getBoundingClientRect();return {x:(e.clientX-r.left)/r.width,y:(e.clientY-r.top)/r.height,clientX:e.clientX,clientY:e.clientY}}
  function distance(a,b){return Math.hypot(a.clientX-b.clientX,a.clientY-b.clientY)}
+ function focus(which){
+  if(which==='all'){zoom=1;centerX=W/2;centerY=H/2;}
+  else {const g=groups[Number(which)];if(!g)return;zoom=2.1;centerX=W/2+420*Math.cos(g.angle*Math.PI/180);centerY=H/2+420*Math.sin(g.angle*Math.PI/180);}
+  draw();
+  document.querySelectorAll('[data-nf-tree-focus]').forEach(button=>button.setAttribute('aria-pressed',button.dataset.nfTreeFocus===String(which)?'true':'false'));
+ }
+ document.querySelectorAll('[data-nf-tree-focus]').forEach(b=>b.addEventListener('click',()=>focus(b.dataset.nfTreeFocus)));
  svg.addEventListener('wheel',e=>{e.preventDefault();const p=point(e);zoomAt(Math.exp(-e.deltaY*.0015),p.x,p.y)},{passive:false});
  viewport.addEventListener('pointerdown',e=>{
   if(e.pointerType==='mouse'&&e.button!==0)return;
+  const target=e.target.closest?.('[data-nf-node-track],[data-nf-group]');
   e.preventDefault();viewport.setPointerCapture(e.pointerId);pointers.set(e.pointerId,point(e));
-  if(pointers.size===1)gesture={kind:'pan',point:point(e),centerX,centerY};
+  if(pointers.size===1)gesture={kind:'pan',point:point(e),centerX,centerY,tapTarget:target,startX:e.clientX,startY:e.clientY};
   else if(pointers.size===2){const [a,b]=[...pointers.values()];gesture={kind:'pinch',distance:distance(a,b),zoom,centerX,centerY,midX:(a.x+b.x)/2,midY:(a.y+b.y)/2}}
   viewport.classList.add('dragging');
  });
@@ -1252,11 +1402,27 @@ function initSkillTreeZoom(W,H){
    centerY=gesture.centerY+(gesture.midY-midY)*H/zoom;draw();
   }
  });
- function finish(e){pointers.delete(e.pointerId);gesture=null;if(pointers.size===1){const p=[...pointers.values()][0];gesture={kind:'pan',point:p,centerX,centerY}}if(!pointers.size)viewport.classList.remove('dragging')}
+ function finish(e){
+  const tap=gesture?.kind==='pan'&&pointers.size===1&&Math.hypot(e.clientX-gesture.startX,e.clientY-gesture.startY)<10?gesture.tapTarget:null;
+  pointers.delete(e.pointerId);gesture=null;
+  if(tap){
+   if(tap.hasAttribute('data-nf-node-track'))onSelect(Number(tap.dataset.nfNodeTrack),Number(tap.dataset.nfNodeIndex));
+   else if(tap.hasAttribute('data-nf-group'))focus(tap.dataset.nfGroup);
+  }
+  if(pointers.size===1){const p=[...pointers.values()][0];gesture={kind:'pan',point:p,centerX,centerY}}
+  if(!pointers.size)viewport.classList.remove('dragging');
+ }
  viewport.addEventListener('pointerup',finish);viewport.addEventListener('pointercancel',finish);viewport.addEventListener('lostpointercapture',finish);
+ svg.addEventListener('keydown',e=>{
+  if(e.key!=='Enter'&&e.key!==' ')return;
+  const t=e.target.closest?.('[data-nf-node-track],[data-nf-group]');if(!t)return;
+  e.preventDefault();
+  if(t.hasAttribute('data-nf-node-track'))onSelect(Number(t.dataset.nfNodeTrack),Number(t.dataset.nfNodeIndex));
+  else focus(t.dataset.nfGroup);
+ });
  document.getElementById('skillZoomIn').onclick=()=>zoomAt(1.4);
  document.getElementById('skillZoomOut').onclick=()=>zoomAt(1/1.4);
- document.getElementById('skillZoomFit').onclick=()=>{zoom=1;centerX=W/2;centerY=H/2;draw()};
+ document.getElementById('skillZoomFit').onclick=()=>focus('all');
  draw();
 }
 
