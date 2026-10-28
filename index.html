@@ -396,6 +396,42 @@ body[data-nf-theme="future"] .nf-cosmetic{background:#edf3ef;color:#142b27;borde
 @keyframes nfTreeBreathe{0%,100%{opacity:.36}50%{opacity:1}}
 @media(prefers-reduced-motion:reduce){.nf-organic-tree .nf-tree-next-halo{animation:none}}
 @media(max-width:550px){.nf-tree-focus-row{grid-template-columns:repeat(5,minmax(0,1fr));gap:4px}.nf-tree-focus{padding:8px 2px!important;min-height:53px!important}.nf-tree-focus-name{font-size:9px}.nf-tree-map-hint{flex-basis:100%;font-size:10px}.nf-organic-toolbar{justify-content:flex-end}.nf-tree-forest-head{padding:13px}.nf-tree-head-row>strong{font-size:22px}}
+
+/* Contextual goal labels: visible once a branch is zoomed in; preserve readable sizes during pinch zoom. */
+.nf-organic-tree .nf-tree-node-label{opacity:0;visibility:hidden;pointer-events:none;transition:opacity .12s}
+.nf-organic-tree.detail .nf-tree-node-label{opacity:1;visibility:visible}
+.nf-organic-tree .nf-tree-node-label text{font-family:inherit;font-size:21px;font-weight:750;paint-order:stroke}
+.nf-organic-tree .nf-tree-node-label rect{stroke-width:2}
+.nf-organic-tree .nf-tree-bud.nf-selected-leaf>circle:last-child{stroke:#fff;stroke-width:2;stroke-opacity:.9}
+.nf-tree-goals{margin:10px 0 12px;border:1px solid #3b6b60;background:linear-gradient(135deg,#123129,#101f2c);border-radius:15px;padding:13px;box-shadow:0 8px 20px #06131a36}
+.nf-tree-goals-title{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:9px}
+.nf-tree-goals-title strong{font-size:15px;color:#eafff4}
+.nf-tree-goals-title span{font-size:11px;color:#8ccfb4}
+.nf-tree-goals-subtitle{font-size:11px;color:#a8c5bd;line-height:1.45;margin:0 0 8px}
+.nf-tree-goals-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.nf-tree-goal-card{min-width:0;background:#122631;border:1px solid #314f57;border-radius:11px;padding:10px;overflow-wrap:anywhere}
+.nf-tree-goal-card h4{font-size:12px;margin:0 0 5px!important;color:#e0f7eb}
+.nf-tree-goal-card h4 small{font-size:10px;float:right;color:#9ec8ba}
+.nf-tree-goal-next{font-size:12px;line-height:1.48;color:#f2fafa;margin:4px 0 5px}
+.nf-tree-goal-next b{color:#83f4bd}
+.nf-tree-goal-earned{font-size:11px;line-height:1.5;color:#bfd8cb;margin:5px 0 0}
+.nf-tree-goal-earned b{color:#99e5c2}
+.nf-tree-goal-history{margin-top:6px;font-size:11px;color:#b7d4c7}
+.nf-tree-goal-history summary{cursor:pointer;font-weight:750;color:#87dcb9;padding:5px 0}
+.nf-tree-goal-history ul{margin:4px 0 0;padding-left:17px;line-height:1.6}
+.nf-tree-goal-history li{padding:2px 0}
+.nf-tree-goals.is-overview .nf-tree-goal-card{border-top:3px solid var(--nf-skill-accent,#7bd9b4)}
+.nf-tree-goal-track-open{font-size:11px;border:0!important;background:transparent!important;color:#88e4bb!important;padding:4px 0!important;min-height:unset!important;text-decoration:underline;cursor:pointer}
+@media(max-width:650px){.nf-tree-goals-grid{grid-template-columns:1fr}.nf-tree-goals{padding:11px}.nf-tree-goal-card{padding:10px}}
+body[data-nf-theme="future"] .nf-tree-goals{background:linear-gradient(135deg,#e0f2e9,#e7f1ef);border-color:#a1cabc}
+body[data-nf-theme="future"] .nf-tree-goals-title strong,body[data-nf-theme="future"] .nf-tree-goal-card h4{color:#1d453d}
+body[data-nf-theme="future"] .nf-tree-goals-subtitle,body[data-nf-theme="future"] .nf-tree-goals-title span{color:#507468}
+body[data-nf-theme="future"] .nf-tree-goal-card{background:#f7fcf8;border-color:#c3dcd1}
+body[data-nf-theme="future"] .nf-tree-goal-next{color:#284840}
+body[data-nf-theme="future"] .nf-tree-goal-next b,body[data-nf-theme="future"] .nf-tree-goal-earned b{color:#136d50}
+body[data-nf-theme="future"] .nf-tree-goal-earned,body[data-nf-theme="future"] .nf-tree-goal-history{color:#4b6962}
+body[data-nf-theme="future"] .nf-tree-goal-history summary{color:#187f5e}
+
 /* The separate pale theme retains contrast in the organic map and related controls. */
 body[data-nf-theme="future"] .nf-tree-forest-head{background:linear-gradient(130deg,#dff1ea,#edf4f3);border-color:#afd9c7}
 body[data-nf-theme="future"] .nf-tree-head-row h3{color:#193c3c}
@@ -1279,6 +1315,16 @@ function renderSkills(){
     const leafLength=mastery?18:isNext?16:13,leafWidth=mastery?10:8;
     const rotate=angle+(sign>0?36:-36);
     const dot=isEarned?'✓':isNext?'•':'';
+    // Show the next target and latest previously earned target directly on the map when zoomed in.
+    // All other goals remain accessible through the focus panel and expanded milestone lists.
+    const lastEarned=done.findLastIndex(Boolean);
+    const showZoomLabel=isNext||(isEarned&&k===lastEarned);
+    const zoomLabel=showZoomLabel?(isNext?'NEXT · ':'✓ ')+description(t,t.targets[k]):'';
+    const zoomLabelShort=zoomLabel.length>29?zoomLabel.slice(0,28)+'…':zoomLabel;
+    const labelWidth=Math.min(360,Math.max(155,zoomLabelShort.length*12.6+26));
+    const signLabel=x>cx?-1:1;
+    const lx=x+signLabel*35,ly=y-(isNext?43:5);
+    const zoomNodeLabel=showZoomLabel?`<g class="nf-tree-node-label ${isNext?'nf-tree-label-next':'nf-tree-label-earned'}" data-nf-label-x="${lx.toFixed(1)}" data-nf-label-y="${ly.toFixed(1)}" data-nf-label-priority="${isNext?0:1}" transform="translate(${lx.toFixed(1)} ${ly.toFixed(1)})"><rect x="${signLabel===1?0:-labelWidth}" y="-27" width="${labelWidth}" height="39" rx="11" fill="#0c202a" fill-opacity=".97" stroke="${g.color}" stroke-opacity="${isNext?1:.75}"/><text x="${signLabel===1?12:-labelWidth+12}" y="0" fill="${isNext?'#eefff9':'#bce9d5'}">${safeName(zoomLabelShort)}</text></g>`:'';
     const status=isEarned?'Earned':isNext?'Next':'Locked';
     const label=safeName(`${t.name} · ${branchStage(k)} ${k+1}: ${description(t,t.targets[k])} · ${status}`);
     const twig=`M ${pxy(stemPoint)} Q ${pxy({x:(x+stemPoint.x)/2+Math.cos(a)*sign*3,y:(y+stemPoint.y)/2+Math.sin(a)*sign*3})} ${pxy(tangent)}`;
@@ -1290,7 +1336,7 @@ function renderSkills(){
       <g transform="translate(${x.toFixed(1)} ${y.toFixed(1)}) rotate(${rotate})"><path d="M ${-leafLength} 0 Q 0 ${-leafWidth*1.8} ${leafLength} 0 Q 0 ${leafWidth*1.8} ${-leafLength} 0Z" fill="${isEarned?g.color:isNext?'#263b41':'#172630'}" fill-opacity="${isEarned?.95:isNext?1:.6}" stroke="${g.color}" stroke-opacity="${isEarned?1:isNext?.94:.32}" stroke-width="${mastery?2.5:1.7}" ${isEarned?'filter="url(#nfBranchGlow)"':''}/>${isEarned?`<path d="M ${-leafLength+6} 0 Q 0 -1 ${leafLength-6} 0" stroke="#fff" stroke-opacity=".52" fill="none" stroke-width="1.2"/>`:''}</g>
       ${dot?`<text x="${x.toFixed(1)}" y="${(y+4).toFixed(1)}" text-anchor="middle" fill="${isEarned?'#10312b':g.color}" font-size="12" font-weight="900" pointer-events="none">${dot}</text>`:''}
       <circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="25" fill="transparent"/>
-    </g>`;
+    </g>${zoomNodeLabel}`;
    }).join('');
    const tip=stemPoints[stemPoints.length-1],end=polar(745,angle);
    const title=t.name.split(' · ').pop();
@@ -1328,7 +1374,8 @@ function renderSkills(){
  }).join('');
  $u('skillTrees').innerHTML=`<div class="nf-tree-forest-head"><div class="nf-tree-head-row"><div><span class="nf-tree-eyebrow">THE SYSTEM · GROWTH MAP</span><h3>Every milestone grows your path.</h3></div><strong>${earned} <span>/ ${total}</span></strong></div><div class="nf-tree-global-track"><div style="width:${total?earned/total*100:0}%"></div></div><p>Each discipline branches into its own achievements. Bright leaves are earned; the pulsing bud is your next challenge. All original unlocks and milestones are preserved.</p></div>
  <div class="nf-tree-focus-row" role="group" aria-label="Explore a skill branch"><button type="button" class="nf-tree-focus all" data-nf-tree-focus="all" aria-pressed="true">Whole tree<small>${earned} / ${total}</small></button>${branchControls}</div>
- <div class="asc-tree-toolbar nf-organic-toolbar"><span class="nf-tree-map-hint">Drag to explore · pinch to zoom · tap a leaf</span><button type="button" class="secondary" id="skillZoomOut" aria-label="Zoom out">−</button><span id="skillZoomLabel" class="asc-tree-zoom-readout">100%</span><button type="button" class="secondary" id="skillZoomIn" aria-label="Zoom in">+</button><button type="button" class="secondary" id="skillZoomFit">Fit all</button></div>
+ <div class="nf-tree-goals is-overview" id="nfTreeGoals" aria-live="polite"></div>
+ <div class="asc-tree-toolbar nf-organic-toolbar"><span class="nf-tree-map-hint">Drag to explore · pinch to zoom · tap a leaf · goals appear when zoomed in</span><button type="button" class="secondary" id="skillZoomOut" aria-label="Zoom out">−</button><span id="skillZoomLabel" class="asc-tree-zoom-readout">100%</span><button type="button" class="secondary" id="skillZoomIn" aria-label="Zoom in">+</button><button type="button" class="secondary" id="skillZoomFit">Fit all</button></div>
  <div class="asc-unified-tree asc-tree-viewport nf-radial-tree nf-organic-tree" id="skillTreeViewport"><svg id="skillTreeSvg" viewBox="0 0 ${W} ${H}" role="group" aria-label="Organic branching NEXTFORM skill tree. Tap leaves to inspect milestones."><defs><filter id="nfBranchGlow" x="-70%" y="-70%" width="240%" height="240%"><feGaussianBlur stdDeviation="2.3" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter><filter id="nfWideGlow" x="-100%" y="-100%" width="300%" height="300%"><feGaussianBlur stdDeviation="12"/></filter><radialGradient id="nfOrganicCore"><stop offset="0%" stop-color="#244e43"/><stop offset="77%" stop-color="#122c2e"/><stop offset="100%" stop-color="#101f29"/></radialGradient></defs>
  ${rings}
  <circle cx="${cx}" cy="${cy}" r="110" fill="#55d8a5" fill-opacity=".055" stroke="#76ecb9" stroke-opacity=".10" stroke-width="2"/>
@@ -1339,22 +1386,60 @@ function renderSkills(){
  <div class="nf-tree-inspect" id="nfTreeSelection" aria-live="polite"><div class="nf-tree-inspect-icon">✦</div><div><strong>Your next challenge is waiting</strong><p>Tap a leaf on the map to inspect its goal, or select a discipline above to zoom into that branch.</p></div></div>
  <div class="nf-tree-legend"><span><i class="nf-legend-leaf earned"></i> Earned</span><span><i class="nf-legend-leaf next"></i> Next</span><span><i class="nf-legend-leaf locked"></i> Future</span><span>✧ Mastery</span></div>
  <h3 class="nf-tree-details-heading">Milestones by discipline</h3><div class="asc-skill-details">${details}</div>`;
+ // Display exact next goals and past successes without needing precision taps on small leaves.
+ let goalContext='all',goalTrack=null;
+ const goalCard=ti=>{
+  const t=tracks[ti],n=frontier[ti];
+  const done=achieved[ti].map((v,k)=>v?k:-1).filter(k=>k>=0);
+  const recent=done.slice(-2).reverse();
+  const isComplete=n>=t.targets.length;
+  const nextLabel=isComplete?'Every milestone in this track has been earned':`<b>#${n+1} ${branchStage(n)}:</b> ${safeName(description(t,t.targets[n]))}`;
+  const history=done.length?`<details class="nf-tree-goal-history"><summary>View all ${done.length} earned milestones</summary><ul>${done.slice().reverse().map(k=>`<li>✓ #${k+1} ${branchStage(k)} · ${safeName(description(t,t.targets[k]))}</li>`).join('')}</ul></details>`:'';
+  return `<article class="nf-tree-goal-card" data-nf-goal-track="${ti}"><h4>${safeName(t.name)} <small>${progress[ti]} / ${t.targets.length}</small></h4><p class="nf-tree-goal-next">${nextLabel}</p><p class="nf-tree-goal-earned"><b>Previously achieved:</b> ${recent.length?recent.map(k=>`#${k+1} ${safeName(description(t,t.targets[k]))}`).join(' · '):'No completed goals yet'}</p>${history}</article>`;
+ };
+ const renderGoalPanel=(which='all',selectedTrack=null)=>{
+  const box=document.getElementById('nfTreeGoals');if(!box)return;
+  goalContext=String(which);goalTrack=selectedTrack;
+  const overview=which==='all'&&selectedTrack==null;
+  let selected=selectedTrack!=null?[selectedTrack]:overview?groups.map(g=>g.children.find(i=>frontier[i]<tracks[i].targets.length)??g.children[0]):groups[Number(which)]?.children||[];
+  selected=selected.filter(i=>Number.isInteger(i)&&tracks[i]);
+  const name=selectedTrack!=null?tracks[selectedTrack].name:overview?'Your next goals across all disciplines':groups[Number(which)]?.name+' goals';
+  box.classList.toggle('is-overview',overview);
+  box.innerHTML=`<div class="nf-tree-goals-title"><strong>${safeName(name)}</strong><span>${selectedTrack!=null?'Selected milestone':overview?'Four disciplines':'Selected branch'}</span></div><p class="nf-tree-goals-subtitle">${overview?'Choose a branch above to see each individual track, or zoom in to inspect its goals.':'Next targets and previous achievements remain visible while you explore. Tap a leaf for its exact status.'}</p><div class="nf-tree-goals-grid">${selected.map(i=>{const g=groups.find(g=>g.children.includes(i));return goalCard(i).replace('class="nf-tree-goal-card"',`class="nf-tree-goal-card" style="--nf-skill-accent:${g.color}"`)}).join('')}</div>`;
+ };
  const showNode=(ti,k)=>{
   const t=tracks[ti],group=groups.find(g=>g.children.includes(ti)),state=achieved[ti][k]?'Earned':k===frontier[ti]?'Next challenge':'Not yet unlocked';
   const inspector=document.getElementById('nfTreeSelection');if(!inspector)return;
   inspector.style.setProperty('--nf-tree-inspect-color',group.color);
-  inspector.innerHTML=`<div class="nf-tree-inspect-icon">${achieved[ti][k]?'✓':k===frontier[ti]?'◈':'◌'}</div><div><strong>${safeName(t.name)} · ${branchStage(k)} ${k+1}</strong><p>${description(t,t.targets[k])} <span class="nf-tree-inspect-status">${state}</span></p></div>`;
+  const prior=achieved[ti].map((hit,j)=>hit&&j<k?j:-1).filter(j=>j>=0).at(-1);
+  const next=frontier[ti];
+  const priorText=prior===undefined?'None yet':`#${prior+1} ${safeName(description(t,t.targets[prior]))}`;
+  const upcoming=next>=t.targets.length?'Track complete':`#${next+1} ${safeName(description(t,t.targets[next]))}`;
+  inspector.innerHTML=`<div class="nf-tree-inspect-icon">${achieved[ti][k]?'✓':k===frontier[ti]?'◈':'◌'}</div><div><strong>${safeName(t.name)} · ${branchStage(k)} ${k+1}</strong><p>${safeName(description(t,t.targets[k]))} <span class="nf-tree-inspect-status">${state}</span></p><p><b>Next:</b> ${upcoming} · <b>Previously earned:</b> ${priorText}</p></div>`;
+  renderGoalPanel('track',ti);
+  document.querySelectorAll('.nf-tree-bud.nf-selected-leaf').forEach(el=>el.classList.remove('nf-selected-leaf'));
+  document.querySelector(`.nf-tree-bud[data-nf-node-track="${ti}"][data-nf-node-index="${k}"]`)?.classList.add('nf-selected-leaf');
  };
- initSkillTreeZoom(W,H,showNode,groups);
+ renderGoalPanel('all');
+ initSkillTreeZoom(W,H,showNode,groups,renderGoalPanel);
 }
 
-function initSkillTreeZoom(W,H,onSelect,groups){
+function initSkillTreeZoom(W,H,onSelect,groups,onFocus){
  const viewport=document.getElementById('skillTreeViewport'),svg=document.getElementById('skillTreeSvg');
  if(!viewport||!svg)return;
  const label=document.getElementById('skillZoomLabel');
  let zoom=1,centerX=W/2,centerY=H/2;
- const pointers=new Map();let gesture=null;
+ const pointers=new Map();let gesture=null,lastVisibleFocus='all';
+ const labelGroups=[...svg.querySelectorAll('.nf-tree-node-label')];
  const clamp=(v,min,max)=>Math.min(max,Math.max(min,v));
+ function nearestGroup(){
+  const dx=centerX-W/2,dy=centerY-H/2;
+  if(zoom<1.8||Math.hypot(dx,dy)<160)return 'all';
+  const a=Math.atan2(dy,dx)*180/Math.PI;
+  let best=0,dist=Infinity;
+  groups.forEach((g,i)=>{const d=Math.abs((a-g.angle+540)%360-180);if(d<dist){dist=d;best=i}});
+  return String(best);
+ }
  function draw(){
   zoom=clamp(zoom,.65,5);
   const w=W/zoom,h=H/zoom;
@@ -1363,7 +1448,35 @@ function initSkillTreeZoom(W,H,onSelect,groups){
   svg.setAttribute('viewBox',`${centerX-w/2} ${centerY-h/2} ${w} ${h}`);
   label.textContent=Math.round(zoom*100)+'%';
   viewport.classList.toggle('overview',zoom<.85);
-  viewport.classList.toggle('detail',zoom>=2);
+  viewport.classList.toggle('detail',zoom>=1.8);
+  // Keep goal labels roughly the same on-screen size while pinch-zooming.
+  const labelScale=Math.min(1.5,Math.max(.35,2.2/zoom));
+  // Avoid the cramped cluster of labels near branch roots; show only legible, non-overlapping goals.
+  const left=centerX-w/2,right=centerX+w/2,top=centerY-h/2,bottom=centerY+h/2;
+  const candidates=labelGroups.map(node=>{
+   const x=Number(node.dataset.nfLabelX),y=Number(node.dataset.nfLabelY);
+   const rect=node.querySelector('rect'),rx=Number(rect.getAttribute('x')),ry=Number(rect.getAttribute('y')),
+         rw=Number(rect.getAttribute('width')),rh=Number(rect.getAttribute('height'));
+   return {node,x,y,rx,ry,rw,rh,rank:Number(node.dataset.nfLabelPriority),distance:Math.hypot(x-centerX,y-centerY)};
+  }).filter(c=>c.x>left-30&&c.x<right+30&&c.y>top-30&&c.y<bottom+30)
+    .sort((a,b)=>a.rank-b.rank||a.distance-b.distance);
+  labelGroups.forEach(node=>node.style.visibility='hidden');
+  const placed=[];
+  for(const c of candidates){
+   if(placed.length>=(zoom<3.5?2:3))break;
+   const labelWidth=c.rw*labelScale,labelHeight=c.rh*labelScale;
+   let tx=clamp(c.x,left+12-c.rx*labelScale,right-12-(c.rx+c.rw)*labelScale);
+   let ty=clamp(c.y,top+12-c.ry*labelScale,bottom-12-(c.ry+c.rh)*labelScale);
+   const b={x:tx+c.rx*labelScale,y:ty+c.ry*labelScale,w:labelWidth,h:labelHeight};
+   // Small breathing room around labels, in viewBox coordinates.
+   const pad=16/Math.max(1,zoom);
+   if(placed.some(a=>b.x<a.x+a.w+pad&&b.x+b.w+pad>a.x&&b.y<a.y+a.h+pad&&b.y+b.h+pad>a.y))continue;
+   c.node.style.visibility=zoom>=1.8?'visible':'hidden';
+   c.node.setAttribute('transform',`translate(${tx.toFixed(1)} ${ty.toFixed(1)}) scale(${labelScale.toFixed(3)})`);
+   placed.push(b);
+  }
+  const branch=nearestGroup();
+  if(branch!==lastVisibleFocus){lastVisibleFocus=branch;onFocus?.(branch);}
  }
  function zoomAt(factor,x=.5,y=.5){
   const oldW=W/zoom,oldH=H/zoom;
@@ -1378,6 +1491,7 @@ function initSkillTreeZoom(W,H,onSelect,groups){
   if(which==='all'){zoom=1;centerX=W/2;centerY=H/2;}
   else {const g=groups[Number(which)];if(!g)return;zoom=2.1;centerX=W/2+420*Math.cos(g.angle*Math.PI/180);centerY=H/2+420*Math.sin(g.angle*Math.PI/180);}
   draw();
+  lastVisibleFocus=String(which);onFocus?.(which);
   document.querySelectorAll('[data-nf-tree-focus]').forEach(button=>button.setAttribute('aria-pressed',button.dataset.nfTreeFocus===String(which)?'true':'false'));
  }
  document.querySelectorAll('[data-nf-tree-focus]').forEach(b=>b.addEventListener('click',()=>focus(b.dataset.nfTreeFocus)));
