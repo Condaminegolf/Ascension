@@ -1,0 +1,19 @@
+{
+  "version": "2026-10-28-collections",
+  "base": "NEXTFORM_Friends_Leaderboards_Sync_Reliability_All_In_One_GitHub.zip",
+  "titles_added": 12,
+  "total_titles": 20,
+  "collections": [
+    "iron",
+    "velocity",
+    "steadfast",
+    "ascendant"
+  ],
+  "equipment_asset_count": 40,
+  "genders": [
+    "male",
+    "female"
+  ],
+  "avatar_alignment": "existing 14 per-rank fitting matrices",
+  "requires_database_migration": false
+}
