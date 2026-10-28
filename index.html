@@ -690,7 +690,63 @@ body.nf-input-focus .nf-bottom-nav{transform:translateY(calc(100% + var(--nf-saf
 .nf-cloud-conflict.hidden{display:none!important}
 @media(max-width:520px){.nf-cloud-conflict-actions{flex-direction:column}.nf-cloud-conflict-actions button{width:100%}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto!important}*,*::before,*::after{transition-duration:.01ms!important;animation-duration:.01ms!important;animation-iteration-count:1!important}}
-</style></head><body><div class="wrap"><header class="top"><div><div class="nf-brand-lockup"><img src="./icon-192.png" alt="NEXTFORM logo" class="nf-header-logo"><div><div class="brand">NEXTFORM<span class="brand-mark">_</span></div><div class="tag">THE SYSTEM <span class="system-dot">●</span> ONLINE</div></div></div><div class="nf-header-controls"><button class="nf-sync-chip" id="nfSyncChip" type="button" data-state="local" aria-label="View save and sync status">Local save</button><button class="secondary" onclick="exportData()">Export Save</button></div></header><section class="nf-compact-status panel" id="nfCompactStatus" aria-label="Training rank and attribute radar" hidden>
+</style><style id="nf-tactile-motion">
+/* NEXTFORM tactile controls. Transform/opacity only: no layout or scroll movement. */
+button.nf-tactile{transform-origin:center center;-webkit-tap-highlight-color:transparent;
+  transition:transform .205s cubic-bezier(.18,1.64,.34,1),filter .14s ease,box-shadow .2s ease;
+  touch-action:manipulation;}
+button.nf-tactile:not(:disabled):not([aria-disabled="true"]).nf-is-pressed{
+  transform:translateY(1.5px) scale(.965)!important;
+  filter:brightness(1.13) saturate(1.07);
+  box-shadow:inset 0 2px 10px #0004!important;
+  transition-duration:.065s!important;}
+button.nf-tactile:not(:disabled):not([aria-disabled="true"]).nf-is-tapped{
+  filter:brightness(1.1);
+}
+/* Ripples clip inside buttons; never cover their text or interfere with taps. */
+button.nf-tactile.nf-has-ripple{overflow:hidden;isolation:isolate;}
+.nf-tactile-ripple{position:absolute;z-index:0;display:block;pointer-events:none;border-radius:50%;
+  background:radial-gradient(circle,#b9fff3a8 0%,#85d9ee4d 48%,transparent 72%);
+  width:var(--nf-ripple-size);height:var(--nf-ripple-size);
+  left:var(--nf-ripple-x);top:var(--nf-ripple-y);
+  opacity:0;transform:translate(-50%,-50%) scale(.05);
+  animation:nf-tactile-ripple .49s ease-out forwards;
+}
+.nf-tactile-ripple::selection{background:transparent}
+@keyframes nf-tactile-ripple{0%{opacity:.53;transform:translate(-50%,-50%) scale(.05)}
+  60%{opacity:.26}100%{opacity:0;transform:translate(-50%,-50%) scale(1)}}
+/* Keyboard users see focus without distracting touch outlines. */
+button.nf-tactile:focus-visible{outline:2px solid #80ebce!important;outline-offset:3px!important}
+/* Persistent selection looks responsive without jumping or changing width. */
+.nf-bottom-nav button.active,.days button.active,.nf-equip-filter[aria-selected="true"],
+.nf-title-choice[aria-pressed="true"],button[data-nf-tree-focus][aria-pressed="true"]{
+  box-shadow:inset 0 0 0 1px #86f6ce32,0 0 12px #62d5b219;
+}
+.nf-bottom-nav button.active{position:relative}
+.nf-bottom-nav button.active::after{content:"";position:absolute;top:5px;right:7px;
+  width:5px;height:5px;border-radius:50%;background:#83f5cb;
+  box-shadow:0 0 8px #4cdeb5aa;pointer-events:none;
+  animation:nf-tactile-active-dot .22s ease-out both;}
+@keyframes nf-tactile-active-dot{from{opacity:.1;transform:scale(.35)}to{opacity:1;transform:scale(1)}}
+/* Completed workout sets and checked daily quests get a discrete confirmation. */
+.set button.done{box-shadow:inset 0 0 0 1px #85f2c94d,0 0 10px #32cf9922}
+.quest input[type="checkbox"],.nf-daily-quest input[type="checkbox"]{transition:filter .16s ease,transform .16s ease}
+.quest input[type="checkbox"]:checked,.nf-daily-quest input[type="checkbox"]:checked{
+  transform:scale(1.08);filter:drop-shadow(0 0 5px #59e6b28c)}
+/* Never animate the organic map container or its leaf positions. */
+.nf-organic-tree button.nf-tactile{transition:filter .14s ease;}
+.nf-organic-tree button.nf-tactile.nf-is-pressed{transform:none!important;}
+@media(hover:hover) and (pointer:fine){
+  button.nf-tactile:not(:disabled):not([aria-disabled="true"]):hover:not(.nf-is-pressed){filter:brightness(1.075)}
+}
+@media(prefers-reduced-motion:reduce){
+  button.nf-tactile,.quest input[type="checkbox"],.nf-daily-quest input[type="checkbox"]{
+   animation:none!important;transition:none!important;transform:none!important;filter:none!important;}
+  .nf-tactile-ripple{display:none!important;animation:none!important}
+  .nf-bottom-nav button.active::after{animation:none!important}
+}
+</style>
+</head><body><div class="wrap"><header class="top"><div><div class="nf-brand-lockup"><img src="./icon-192.png" alt="NEXTFORM logo" class="nf-header-logo"><div><div class="brand">NEXTFORM<span class="brand-mark">_</span></div><div class="tag">THE SYSTEM <span class="system-dot">●</span> ONLINE</div></div></div><div class="nf-header-controls"><button class="nf-sync-chip" id="nfSyncChip" type="button" data-state="local" aria-label="View save and sync status">Local save</button><button class="secondary" onclick="exportData()">Export Save</button></div></header><section class="nf-compact-status panel" id="nfCompactStatus" aria-label="Training rank and attribute radar" hidden>
   <div class="nf-compact-identity">
     <span class="nf-compact-rank" id="nfCompactRank">F</span>
     <span class="nf-compact-rank-copy"><span class="nf-compact-kicker">TRAINING RANK</span><strong id="nfCompactRankName">Foundation</strong></span>
@@ -3031,4 +3087,69 @@ window.addEventListener('nf:social-auth-changed',()=>{showStatus();if(!$('friend
 showStatus();
 })();
 
-</script></body></html>
+</script><script id="nf-tactile-motion-js">
+(()=>{
+ 'use strict';
+ // Input handling is delegated so re-rendered workout, collection and quest controls keep working.
+ const reduced=window.matchMedia?.('(prefers-reduced-motion: reduce)');
+ let held=null,keyboardHeld=null,releaseTimer=null;
+ const isElement=e=>e instanceof Element;
+ function targetControl(e){
+  const target=e.target;
+  if(!isElement(target))return null;
+  const b=target.closest('button');
+  if(!b||b.disabled||b.getAttribute('aria-disabled')==='true'||b.closest('[hidden]'))return null;
+  // Keep the organic tree's pointer gestures untouched and stationary.
+  if(b.closest('.nf-organic-map, .nf-tree-map, .nf-tree-canvas, .nf-tree-viewport'))return null;
+  return b;
+ }
+ function prepare(b){if(!b)return; b.classList.add('nf-tactile');}
+ function release(b){if(!b)return;b.classList.remove('nf-is-pressed');if(held===b)held=null;if(keyboardHeld===b)keyboardHeld=null;}
+ document.addEventListener('pointerover',e=>prepare(targetControl(e)),{passive:true,capture:true});
+ document.addEventListener('focusin',e=>prepare(targetControl(e)),true);
+ document.addEventListener('pointerdown',e=>{
+  if(e.button!==0||(!e.isPrimary&&e.pointerType!=='mouse'))return;
+  const b=targetControl(e);if(!b)return;
+  if(held&&held!==b)release(held);
+  prepare(b);held=b;b.classList.add('nf-is-pressed');
+ },{capture:true,passive:true});
+ function up(e){if(held)release(held);}
+ document.addEventListener('pointerup',up,{capture:true,passive:true});
+ document.addEventListener('pointercancel',up,{capture:true,passive:true});
+ window.addEventListener('blur',()=>{release(held);release(keyboardHeld)}, {passive:true});
+ document.addEventListener('keydown',e=>{
+  if(e.repeat||!['Enter',' '].includes(e.key))return;
+  const b=targetControl(e);if(!b)return;
+  prepare(b);keyboardHeld=b;b.classList.add('nf-is-pressed');
+ },true);
+ document.addEventListener('keyup',e=>{
+  if(['Enter',' '].includes(e.key)&&keyboardHeld)release(keyboardHeld);
+ },true);
+ document.addEventListener('click',e=>{
+  const b=targetControl(e);if(!b)return;
+  prepare(b);if(!(e.detail===0&&keyboardHeld===b))release(b);
+  if(reduced?.matches)return;
+  // One bounded, pointer-transparent ripple. DOM replacement is safe: removed buttons carry their own cleanup.
+  const rect=b.getBoundingClientRect();
+  if(rect.width<1||rect.height<1)return;
+  // Avoid massive ripples on full-width panels; small controls get the nicest feedback.
+  if(rect.width>540||rect.height>145)return;
+  const pointX=e.detail===0?rect.width/2:e.clientX-rect.left;
+  const pointY=e.detail===0?rect.height/2:e.clientY-rect.top;
+  const x=Math.max(0,Math.min(rect.width,pointX)),y=Math.max(0,Math.min(rect.height,pointY));
+  const computed=window.getComputedStyle(b);
+  if(computed.position==='static')b.style.position='relative';
+  b.classList.add('nf-has-ripple');
+  b.querySelectorAll(':scope > .nf-tactile-ripple').forEach(n=>n.remove());
+  const ripple=document.createElement('span');ripple.className='nf-tactile-ripple';ripple.setAttribute('aria-hidden','true');
+  ripple.style.setProperty('--nf-ripple-x',x+'px');
+  ripple.style.setProperty('--nf-ripple-y',y+'px');
+  ripple.style.setProperty('--nf-ripple-size',Math.min(390,Math.max(75,Math.hypot(rect.width,rect.height)*1.8))+'px');
+  b.appendChild(ripple);
+  ripple.addEventListener('animationend',()=>ripple.remove(),{once:true});
+  window.setTimeout(()=>ripple.remove(),600);
+ },true);
+ // Explicitly do not scroll, focus, rerender, or mutate the Skill Tree or save state.
+})();
+</script>
+</body></html>
