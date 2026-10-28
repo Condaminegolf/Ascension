@@ -547,7 +547,33 @@ body[data-nf-theme="future"] #hunter #nfNextFormsPanel,body[data-nf-theme="futur
 body[data-nf-theme="future"] #hunter #nfTreeGoalsDisclosure>summary{color:#1b463b}
 body[data-nf-theme="future"] #hunter #nfTreeGoalsDisclosure>summary .nf-disclosure-hint{color:#357d61}
 @media(prefers-reduced-motion:reduce){#hunter .nf-collapse-chevron,#hunter .nf-disclosure-arrow{transition:none!important}}
-</style></head><body><div class="wrap"><header class="top"><div><div class="nf-brand-lockup"><img src="./icon-192.png" alt="NEXTFORM logo" class="nf-header-logo"><div><div class="brand">NEXTFORM<span class="brand-mark">_</span></div><div class="tag">THE SYSTEM <span class="system-dot">●</span> ONLINE</div></div></div><button class="secondary" onclick="exportData()">Export Save</button></header><div class="panel hero"><div><div class="rank" id="rank">F</div><div style="text-align:center" class="muted">TRAINING RANK</div></div><div><div class="muted">XP LEVEL <span id="level">1</span> · <span id="xp">0</span> TOTAL XP</div><div class="big" id="rankTitle">Foundation</div><div class="nf-rank-bar-label"><span>NEXT RANK READINESS</span><strong id="rankProgressPercent">0%</strong></div><div class="bar nf-rank-main-track" id="rankProgressTrack" role="progressbar" aria-label="Progress toward next rank" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"><div class="fill" id="xpbar" style="width:0%"></div></div><div class="muted" id="nextRank">Progress to E Rank</div><div class="muted" id="decayStatus" style="margin-top:6px"></div></div></div><section class="command-dashboard" aria-label="Progress overview">
+</style>
+<style id="nf-secondary-compact-header-css">
+/* The full dashboard remains unchanged on Home. All other tabs get a slim rank + radar strip. */
+.nf-compact-status{display:none!important}
+body.nf-secondary-view .nf-compact-status{display:flex!important;align-items:center;justify-content:space-between;gap:12px;margin:10px 0 12px!important;padding:10px 17px!important;min-height:94px;max-height:108px;border-radius:19px}
+body.nf-secondary-view .hero,body.nf-secondary-view .command-dashboard,body.nf-secondary-view .stats{display:none!important}
+.nf-compact-identity{display:flex;gap:12px;align-items:center;min-width:0;flex:1}
+.nf-compact-rank{font-size:46px;line-height:1;font-weight:950;color:#70e5b2;text-shadow:0 0 14px #39af8555;min-width:38px;text-align:center}
+.nf-compact-rank-copy{min-width:0;display:flex;flex-direction:column;gap:4px}
+.nf-compact-kicker,.nf-compact-radar-label{font-size:9px;letter-spacing:1.5px;font-weight:800;color:#89a5b3}
+.nf-compact-rank-copy strong{font-size:clamp(16px,4.4vw,23px);line-height:1.2;white-space:normal;color:#eef8f9}
+.nf-compact-radar-col{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px;flex-shrink:0}
+.nf-compact-radar{width:91px;height:76px;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.nf-compact-radar svg{display:block!important;width:84px!important;height:76px!important;max-width:none!important}
+.nf-compact-radar-label{font-size:8px;letter-spacing:1px}
+body[data-nf-theme="future"] .nf-compact-rank-copy strong{color:#244442}
+body[data-nf-theme="future"] .nf-compact-rank{color:#167954;text-shadow:none}
+body[data-nf-theme="future"] .nf-compact-kicker,body[data-nf-theme="future"] .nf-compact-radar-label{color:#597775}
+@media(max-width:360px){body.nf-secondary-view .nf-compact-status{padding:9px 11px!important;gap:8px}.nf-compact-rank{font-size:40px}.nf-compact-radar{width:80px}.nf-compact-radar svg{width:77px!important}}
+@media(prefers-reduced-motion:reduce){.nf-compact-status *{transition:none!important}}
+</style></head><body><div class="wrap"><header class="top"><div><div class="nf-brand-lockup"><img src="./icon-192.png" alt="NEXTFORM logo" class="nf-header-logo"><div><div class="brand">NEXTFORM<span class="brand-mark">_</span></div><div class="tag">THE SYSTEM <span class="system-dot">●</span> ONLINE</div></div></div><button class="secondary" onclick="exportData()">Export Save</button></header><section class="nf-compact-status panel" id="nfCompactStatus" aria-label="Training rank and attribute radar" hidden>
+  <div class="nf-compact-identity">
+    <span class="nf-compact-rank" id="nfCompactRank">F</span>
+    <span class="nf-compact-rank-copy"><span class="nf-compact-kicker">TRAINING RANK</span><strong id="nfCompactRankName">Foundation</strong></span>
+  </div>
+  <div class="nf-compact-radar-col"><div class="nf-compact-radar" id="nfCompactRadar" aria-label="Your training attributes"></div><span class="nf-compact-radar-label">ATTRIBUTES</span></div>
+</section><div class="panel hero"><div><div class="rank" id="rank">F</div><div style="text-align:center" class="muted">TRAINING RANK</div></div><div><div class="muted">XP LEVEL <span id="level">1</span> · <span id="xp">0</span> TOTAL XP</div><div class="big" id="rankTitle">Foundation</div><div class="nf-rank-bar-label"><span>NEXT RANK READINESS</span><strong id="rankProgressPercent">0%</strong></div><div class="bar nf-rank-main-track" id="rankProgressTrack" role="progressbar" aria-label="Progress toward next rank" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"><div class="fill" id="xpbar" style="width:0%"></div></div><div class="muted" id="nextRank">Progress to E Rank</div><div class="muted" id="decayStatus" style="margin-top:6px"></div></div></div><section class="command-dashboard" aria-label="Progress overview">
 <div class="panel command-power"><div class="command-label">PERFORMANCE INDEX</div><div class="command-power-top"><div><div class="command-number" id="overviewPower">0 <small>/ 100</small></div><div class="muted">Combined training and wellness progress</div></div><div class="command-mini" id="overviewBreakdown"></div></div></div>
 <div class="panel command-radar"><div class="command-label">ATTRIBUTE RADAR · LIVE PROGRESSION</div><div id="overviewRadar" class="radar-slot"></div><div class="muted" style="text-align:center">Strength · Endurance · Discipline · Recovery · Mobility</div></div>
 </section><div class="stats" style="margin-top:12px"><div class="stat"><strong id="sessions">0</strong><span class="muted">Workouts</span></div><div class="stat"><strong id="streak">0</strong><span class="muted">Day streak</span></div><div class="stat"><strong id="sets">0</strong><span class="muted">Sets logged</span></div></div><nav class="tabs nf-bottom-nav" id="tabs"><button class="active" data-tab="home">⌂<span>Home</span></button><button data-tab="train">＋<span>Train</span></button><button data-tab="hunter">◇<span>Character</span></button><button data-tab="records">▥<span>Records</span></button><button data-tab="more">☷<span>More</span></button></nav><div id="nfHiddenNav" hidden><button data-tab="quests">Challenges</button><button data-tab="progress">Progress</button><button data-tab="ranks">Ranks</button><button data-tab="analytics">Analytics</button><button data-tab="calendar">Calendar</button><button data-tab="settings">Settings</button></div><main id="home"><section class="panel nf-rank-requirements" aria-label="Rank requirements overview"><div class="tag">NEXT RANK / PROMOTION REQUIREMENTS</div><div class="nf-rank-home-head"><h2 id="rankHomeHeading">F → E RANK</h2><strong id="rankHomePercent">0%</strong></div><p class="muted" id="rankHomeSummary">Your progress toward the next rank across every requirement.</p><div id="rankRequirementBars" class="nf-rank-requirement-rows"></div><div class="nf-rank-home-foot" id="rankHomeTip">Each requirement contributes to your overall rank progress.</div><button type="button" class="secondary nf-rank-details-btn" onclick="nfGo('ranks')">View full rank requirements</button></section><section class="panel nf-alert-panel" id="nfNotificationsPanel" aria-label="Achievement notifications">
@@ -2342,5 +2368,51 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
    try{localStorage.setItem(KEY,JSON.stringify(preferences))}catch(_e){}
   });
  });
+})();
+</script><script id="nf-secondary-compact-header-js">
+(function(){
+ const home=document.getElementById('home');
+ const panel=document.getElementById('nfCompactStatus');
+ const rank=document.getElementById('rank');
+ const rankTitle=document.getElementById('rankTitle');
+ const originalRadar=document.getElementById('overviewRadar');
+ const miniRank=document.getElementById('nfCompactRank');
+ const miniName=document.getElementById('nfCompactRankName');
+ const miniChart=document.getElementById('nfCompactRadar');
+ if(!home||!panel||!rank||!rankTitle||!miniRank||!miniChart)return;
+ let queued=false;
+ function render(){
+   const isHome=!home.classList.contains('hidden');
+   document.body.classList.toggle('nf-secondary-view',!isHome);
+   panel.hidden=isHome;
+   if(isHome)return;
+   miniRank.textContent=rank.textContent||'F';
+   miniName.textContent=rankTitle.textContent||'Foundation';
+   // Read the same power metrics used by the full-sized Home radar.
+   let attributes=[];
+   try{if(typeof window.ascensionPower==='function')attributes=window.ascensionPower().map(a=>({name:String(a[0]),value:Math.max(0,Math.min(100,Number(a[1])||0))}))}catch(_e){}
+   if(!attributes.length){miniChart.textContent='—';return;}
+   const n=attributes.length,cx=60,cy=60,r=42;
+   const p=(i,f)=>[cx+Math.sin(i*2*Math.PI/n)*r*f,cy-Math.cos(i*2*Math.PI/n)*r*f];
+   const pts=f=>attributes.map((_,i)=>p(i,f).map(x=>x.toFixed(1)).join(',')).join(' ');
+   const rings=[.25,.5,.75,1].map(f=>'<polygon points="'+pts(f)+'" fill="none" stroke="#587082" stroke-opacity=".58" stroke-width="1"/>').join('');
+   const axes=attributes.map((_,i)=>{const pt=p(i,1);return '<line x1="60" y1="60" x2="'+pt[0].toFixed(1)+'" y2="'+pt[1].toFixed(1)+'" stroke="#607789" stroke-opacity=".65" stroke-width="1"/>'}).join('');
+   const polygon=attributes.map((a,i)=>p(i,a.value/100).map(x=>x.toFixed(1)).join(',')).join(' ');
+   const dots=attributes.map((a,i)=>{const pt=p(i,a.value/100);return '<circle cx="'+pt[0].toFixed(1)+'" cy="'+pt[1].toFixed(1)+'" r="2.7" fill="#eac48b"/>'}).join('');
+   const label=attributes.map(a=>a.name+' '+a.value+'/100').join(', ');
+   miniChart.setAttribute('aria-label',label);
+   miniChart.innerHTML='<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-label="Compact training attribute radar">'+rings+axes+'<polygon points="'+polygon+'" fill="#82bbcf" fill-opacity=".34" stroke="#e5c28b" stroke-width="2.3"/>'+dots+'</svg>';
+ }
+ function queue(){if(queued)return;queued=true;requestAnimationFrame(()=>{queued=false;render()})}
+ // Navigation and data changes already update these elements; do not change app state.
+ new MutationObserver(queue).observe(home,{attributes:true,attributeFilter:['class']});
+ new MutationObserver(queue).observe(rank,{childList:true,characterData:true,subtree:true});
+ new MutationObserver(queue).observe(rankTitle,{childList:true,characterData:true,subtree:true});
+ if(originalRadar)new MutationObserver(queue).observe(originalRadar,{childList:true});
+ document.querySelectorAll('[data-tab]').forEach(b=>b.addEventListener('click',queue));
+ // Latest saved state might update the scores without changing the rank, e.g. while remaining on Train.
+ document.addEventListener('visibilitychange',()=>{if(!document.hidden)queue()});
+ window.addEventListener('focus',queue);
+ queue();
 })();
 </script></body></html>
