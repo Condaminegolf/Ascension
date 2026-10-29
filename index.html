@@ -920,6 +920,12 @@ button.nf-tactile:focus-visible{outline:2px solid #80ebce!important;outline-offs
 @media(max-width:550px){#train #nfAIPlanner .nf-coach-preferences .grid2{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:380px){#train #nfAIPlanner .nf-coach-preferences{padding:10px}#train #nfAIPlanner .nf-coach-preferences .grid2{gap:10px}#train #nfAIPlanner .nf-coach-metrics strong{font-size:17px}#train #nfAIPlanner .nf-coach-metrics span{font-size:9px}#train #nfAIPlanner .nf-ai-ex{grid-template-columns:minmax(0,1fr) 49px 45px 45px;gap:4px}#train #nfAIPlanner .nf-hybrid-controls{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(prefers-reduced-motion:reduce){#train #nfAIPlanner button.nf-coach-day-tab{transition:none}}
+</style><style id="nf-equipment-icon-repair-20261029">
+/* Separate the collectible thumbnails from tiny body-fitted/avatar overlays. */
+.nf-equip-card img.nf-equip-inventory-thumbnail{display:block!important;width:100%!important;height:128px!important;aspect-ratio:auto!important;object-fit:contain!important;object-position:center!important;padding:5px 3px 2px!important;box-sizing:border-box!important;filter:drop-shadow(0 4px 5px rgba(0,0,0,.35))!important}
+.nf-equip-card{overflow:hidden!important;display:flex!important;flex-direction:column!important;align-items:stretch!important;justify-content:space-between!important}
+.nf-equip-card span{margin-top:auto;padding-top:5px;min-height:19px;text-align:center}
+@media(max-width:520px){.nf-equip-card img.nf-equip-inventory-thumbnail{height:119px!important;padding:4px 2px 1px!important}}
 </style></head><body><div class="wrap"><header class="top"><div><div class="nf-brand-lockup"><img src="./icon-192.png" alt="NEXTFORM logo" class="nf-header-logo"><div><div class="brand">NEXTFORM<span class="brand-mark">_</span></div><div class="tag">THE SYSTEM <span class="system-dot">●</span> ONLINE</div></div></div><div class="nf-header-controls"><button class="nf-sync-chip" id="nfSyncChip" type="button" data-state="local" aria-label="View save and sync status">Local save</button><button class="secondary" onclick="exportData()">Export Save</button></div></header><section class="nf-compact-status panel" id="nfCompactStatus" aria-label="Training rank and attribute radar" hidden>
   <div class="nf-compact-identity">
     <span class="nf-compact-rank" id="nfCompactRank">F</span>
@@ -1856,6 +1862,12 @@ document.addEventListener('click',e=>{
  nfRenderCosmetics();
  document.querySelector('[data-nf-equip-filter="'+category+'"]')?.focus({preventScroll:true});
 });
+// Dedicated inventory renders: complete, centred icons. Avatar overlays stay separate.
+function nfEquipmentInventoryThumbnail(type,rank,femaleAvatar){
+ const approvedType=(type==='shorts'&&femaleAvatar)?'female-shorts':type;
+ if(!['top','shorts','female-shorts','shoes','watch','sunglasses'].includes(approvedType)||!['f','e','d','c','b','a','s'].includes(rank))return '';
+ return './equipment/inventory-v2/'+approvedType+'/rank-'+rank+'.webp?v=20261029icons2';
+}
 function nfMaleEquipmentPanel(){
  const femaleAvatar=nfCharacterType()==='female';
  const e=femaleAvatar?nfSelectedFemaleEquipment():nfSelectedMaleEquipment();
@@ -1866,7 +1878,7 @@ function nfMaleEquipmentPanel(){
   const cfg=NF_EQUIPMENT_REQUIREMENTS[type],u=nfEquipmentUnlocks(type);
   return `<div class="nf-equip-group"><h4>${label}</h4><p class="nf-equip-note">${cfg.name}: ${u.progress} completed · ${cfg.unit}</p><div class="nf-equip-row">${NF_MALE_EQUIPMENT_RANKS.map((rank,i)=>{
    const locked=!u.levels[i],selected=e[type]===rank&&!nfSelectedSpecialItem(type)&&!locked;
-   return `<button type="button" class="nf-equip-card ${selected?'selected':''}" ${locked?'disabled':''} data-nf-equip-type="${type}" data-nf-equip-rank="${rank}" aria-pressed="${selected}"><img src="${femaleAvatar?(type==='shorts'?NF_FEMALE_SHORTS_THUMBNAILS[rank]:nfFemaleEquipmentImage(type,rank)):nfEquipmentImage(type,rank)}" alt="${label} ${rank.toUpperCase()} tier" loading="lazy"><span>${rank.toUpperCase()} ${selected?'✓ EQUIPPED':locked?'🔒 '+u.progress+'/'+cfg.levels[i]:'EQUIP'}</span></button>`;
+   return `<button type="button" class="nf-equip-card ${selected?'selected':''}" ${locked?'disabled':''} data-nf-equip-type="${type}" data-nf-equip-rank="${rank}" aria-pressed="${selected}"><img class="nf-equip-inventory-thumbnail" src="${nfEquipmentInventoryThumbnail(type,rank,femaleAvatar)}" alt="${label} ${rank.toUpperCase()} tier" loading="lazy" onerror="this.onerror=null;this.src=nfEquipmentImage('${type}','${rank}')" ><span>${rank.toUpperCase()} ${selected?'✓ EQUIPPED':locked?'🔒 '+u.progress+'/'+cfg.levels[i]:'EQUIP'}</span></button>`;
   }).join('')}</div></div>`;
  }).join('')}
  <p class="nf-equip-note">Equipment milestones are game achievements. They do not award extra XP. Gear appears on your avatar when equipped. Equipment positioning is individually calibrated for all seven male and female character ranks. Slight pose and artwork differences may still require future refinement.</p></section>`;
