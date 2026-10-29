@@ -1050,7 +1050,27 @@ body.nf-tour-open{overflow:hidden}
 @media(max-width:350px){html.nf-detailed-workout #train .set{grid-template-columns:21px minmax(0,1fr) minmax(0,1fr) 54px 35px;gap:3px}#train .set .nf-rpe-select{font-size:10px}}
 @media(prefers-reduced-motion:reduce){.nf-tour-card,.nf-tip-card{scroll-behavior:auto}}
 </style>
-</head><body><div class="wrap"><header class="top"><div><div class="nf-brand-lockup"><img src="./icon-192.png" alt="NEXTFORM logo" class="nf-header-logo"><div><div class="brand">NEXTFORM<span class="brand-mark">_</span></div><div class="tag">THE SYSTEM <span class="system-dot">●</span> ONLINE</div></div></div><div class="nf-header-controls"><button class="nf-sync-chip" id="nfSyncChip" type="button" data-state="local" aria-label="View save and sync status">Local save</button><button class="nf-menu-toggle" id="nfMenuToggle" type="button" aria-label="Open navigation menu" aria-controls="nfQuickMenu" aria-expanded="false"><svg viewBox="0 0 24 24" width="23" height="23" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button></div></header>
+<style id="nf-oura-recovery-and-notification-v1">
+#nfMenuToggle{position:relative;overflow:visible}
+.nf-unread-badge{display:inline-flex;align-items:center;justify-content:center;min-width:19px;height:19px;padding:0 5px;box-sizing:border-box;border-radius:999px;background:#ed6f63;color:#1d1110;border:2px solid #0d2329;font-size:10px;line-height:1;font-weight:900;font-variant-numeric:tabular-nums;box-shadow:0 1px 5px rgba(0,0,0,.36)}
+.nf-unread-badge[hidden]{display:none!important}
+.nf-header-unread{position:absolute;top:-6px;right:-7px;z-index:1;pointer-events:none}
+.nf-drawer-unread{position:relative;margin-left:auto;flex:none;pointer-events:none}
+.nf-menu-link[data-nf-menu="notices"] .nf-menu-arrow{margin-left:0}
+.nf-oura-today[hidden]{display:none!important}
+.nf-oura-today{border:1px solid #39675d;border-radius:12px;background:linear-gradient(140deg,#153b36,#102c35);padding:11px 13px;margin:11px 0;line-height:1.5}
+.nf-oura-today strong,.nf-oura-summary strong{display:block;color:#e6f7ef;font-size:13px}
+.nf-oura-today p,.nf-oura-summary p{font-size:12px;color:#afc7c3;margin:4px 0 0;line-height:1.5}
+.nf-oura-today small,.nf-oura-summary small{color:#91b2b5;font-size:11px;line-height:1.45}
+.nf-oura-summary{border:1px solid #3d6a69;background:#133339;border-radius:11px;padding:10px 12px;margin:11px 0}
+.nf-oura-status{display:inline-block;vertical-align:middle;margin-left:7px;padding:2px 7px;border-radius:999px;background:#245a4b;color:#b8f5d6;font-size:10px;font-weight:800}
+.nf-oura-status.nf-oura-caution{background:#584328;color:#ffe0a5}
+.nf-oura-ai-consent{display:flex;align-items:flex-start;gap:10px;margin:12px 0 0;border-radius:11px;background:#102d35;border:1px solid #345965;padding:10px 11px;cursor:pointer}
+.nf-oura-ai-consent input{margin:4px 0 0;accent-color:#7ce7b7;width:19px;height:19px;flex:none}
+.nf-oura-ai-consent strong{display:block;color:#e0f6ed;font-size:12px}
+.nf-oura-ai-consent small{display:block;color:#a3bcc3;font-size:11px;line-height:1.5;margin-top:3px}
+</style>
+</head><body><div class="wrap"><header class="top"><div><div class="nf-brand-lockup"><img src="./icon-192.png" alt="NEXTFORM logo" class="nf-header-logo"><div><div class="brand">NEXTFORM<span class="brand-mark">_</span></div><div class="tag">THE SYSTEM <span class="system-dot">●</span> ONLINE</div></div></div><div class="nf-header-controls"><button class="nf-sync-chip" id="nfSyncChip" type="button" data-state="local" aria-label="View save and sync status">Local save</button><button class="nf-menu-toggle" id="nfMenuToggle" type="button" aria-label="Open navigation menu" aria-controls="nfQuickMenu" aria-expanded="false"><span id="nfMenuUnreadBadge" class="nf-unread-badge nf-header-unread" hidden aria-hidden="true"></span><svg viewBox="0 0 24 24" width="23" height="23" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button></div></header>
 <div class="nf-menu-shell" id="nfQuickMenu" hidden>
   <button class="nf-menu-backdrop" id="nfMenuBackdrop" type="button" aria-label="Close navigation menu" tabindex="-1"></button>
   <aside class="nf-menu-drawer" id="nfMenuDialog" role="dialog" aria-modal="true" aria-labelledby="nfMenuTitle" tabindex="-1">
@@ -1064,7 +1084,7 @@ body.nf-tour-open{overflow:hidden}
       </div>
       <div class="nf-menu-group"><div class="nf-menu-section-heading">MY PROGRESS</div>
         <button class="nf-menu-link" data-nf-menu="quests" type="button"><span class="nf-menu-glyph">✓</span><span><strong>Daily quests</strong><small>Your daily habits and goals</small></span><span class="nf-menu-arrow">›</span></button>
-        <button class="nf-menu-link" data-nf-menu="notices" type="button"><span class="nf-menu-glyph">◈</span><span><strong>Notifications</strong><small>Unlocks and milestones</small></span><span class="nf-menu-arrow">›</span></button>
+        <button class="nf-menu-link" data-nf-menu="notices" type="button"><span class="nf-menu-glyph">◈</span><span><strong>Notifications</strong><small>Unlocks and milestones</small></span><span id="nfMenuNoticeBadge" class="nf-unread-badge nf-drawer-unread" hidden aria-hidden="true"></span><span class="nf-menu-arrow">›</span></button>
         <button class="nf-menu-link" data-nf-menu="ranks" type="button"><span class="nf-menu-glyph">◇</span><span><strong>Ranks &amp; Skill Tree</strong><small>Requirements and achievements</small></span><span class="nf-menu-arrow">›</span></button>
         <button class="nf-menu-link" data-nf-menu="progress" type="button"><span class="nf-menu-glyph">◌</span><span><strong>Body &amp; recovery</strong><small>Goals, measurements and wellness</small></span><span class="nf-menu-arrow">›</span></button>
         <button class="nf-menu-link" data-nf-menu="analytics" type="button"><span class="nf-menu-glyph">▥</span><span><strong>Analytics</strong><small>Charts and training trends</small></span><span class="nf-menu-arrow">›</span></button>
@@ -1092,7 +1112,7 @@ body.nf-tour-open{overflow:hidden}
 </section><div class="stats" style="margin-top:12px"><div class="stat"><strong id="sessions">0</strong><span class="muted">Workouts</span></div><div class="stat"><strong id="streak">0</strong><span class="muted">Day streak</span></div><div class="stat"><strong id="sets">0</strong><span class="muted">Sets logged</span></div></div><nav class="tabs nf-bottom-nav" id="tabs"><button class="active" data-tab="home">⌂<span>Home</span></button><button data-tab="train">＋<span>Train</span></button><button data-tab="hunter">◇<span>Character</span></button><button data-tab="records">▥<span>Records</span></button><button data-tab="more">☷<span>More</span></button></nav><div id="nfHiddenNav" hidden><button data-tab="quests">Challenges</button><button data-tab="progress">Progress</button><button data-tab="ranks">Ranks</button><button data-tab="analytics">Analytics</button><button data-tab="calendar">Calendar</button><button data-tab="settings">Settings</button><button data-tab="friends">Friends</button></div><main id="home"><section class="panel nf-home-focus nf-today-panel" id="nfHomeFocus" aria-label="Today's training">
   <div class="nf-home-focus-head"><div><div class="tag">TODAY <span aria-hidden="true">·</span> <span id="nfTodayDate">YOUR TRAINING</span></div><h2 id="nfTodayHeading">Your next move</h2><p class="muted" id="nfTodaySubtitle">One thing at a time.</p></div><span class="nf-home-focus-mark" aria-hidden="true">✧</span></div>
   <div class="nf-today-primary" id="nfTodayPrimary" aria-live="polite">Checking your training schedule…</div>
-  <div class="nf-today-session-list" id="nfTodaySessions" aria-label="Sessions planned for today"></div>
+  <div class="nf-today-session-list" id="nfTodaySessions" aria-label="Sessions planned for today"></div><div id="nfOuraTodayRecovery" class="nf-oura-today" hidden aria-live="polite"></div>
   <div class="nf-home-focus-actions"><button type="button" class="primary" data-nf-today-action="start" id="nfTodayStart">Start training</button><button type="button" class="secondary" data-nf-today-action="week">View my week</button></div>
   <div class="nf-home-at-a-glance"><span><b id="nfSimpleQuestCount">—</b><small>Daily quests</small></span><span><b id="nfSimpleNoticeCount">—</b><small>New rewards</small></span><span><b id="nfSimpleRank">F</b><small>Current rank</small></span></div>
   <div class="nf-home-shortcuts"><button type="button" data-nf-focus="quests">Daily quests</button><button type="button" data-nf-focus="notices">Rewards</button><button type="button" data-nf-focus="dashboard">Full dashboard</button></div>
@@ -1117,6 +1137,7 @@ body.nf-tour-open{overflow:hidden}
 <div class="nf-coach-intro"><span class="nf-coach-intro-icon" aria-hidden="true">✦</span><div><strong>Build a week that works together</strong><p>Make a week that fits your schedule. <button class="nf-tip-trigger" type="button" data-nf-tip="coach" aria-label="How the AI Coach works">ⓘ</button></p></div></div>
 <div class="nf-coach-step-head"><span class="nf-coach-step-index">01</span><div><strong>Plan your week</strong><small>Set your schedule and priorities</small></div></div>
 <div class="nf-coach-preferences"><div class="grid2"><div class="field"><label for="nfAIWeek">Week starting (Monday)</label><input id="nfAIWeek" type="date"></div><div class="field"><label for="nfAIGoal">Priority</label><select id="nfAIGoal"><option value="strength">Strength + muscle</option><option value="balanced">Balanced fitness</option><option value="endurance">Endurance</option><option value="fat_loss">Fat loss</option></select></div><div class="field"><label for="nfAIRunDay">Run day</label><select id="nfAIRunDay"><option value="0">Monday</option><option value="1" selected>Tuesday</option><option value="2">Wednesday</option><option value="3">Thursday</option><option value="4">Friday</option><option value="5">Saturday</option><option value="6">Sunday</option></select></div><div class="field"><label for="nfAIRideDay">Ride day</label><select id="nfAIRideDay"><option value="0">Monday</option><option value="1">Tuesday</option><option value="2">Wednesday</option><option value="3">Thursday</option><option value="4">Friday</option><option value="5" selected>Saturday</option><option value="6">Sunday</option></select></div><div class="field"><label for="nfAIMinutes">Strength minutes/session</label><input id="nfAIMinutes" type="number" min="15" max="120" value="30"></div><div class="field"><label for="nfAIRideMinutes">Ride minutes</label><input id="nfAIRideMinutes" type="number" min="10" max="300" value="75"></div></div><div class="field nf-coach-notes"><label for="nfAINotes">Notes for your coach <span class="nf-coach-optional">Optional</span></label><textarea id="nfAINotes" rows="3" maxlength="500" placeholder="Keep Friday for arms and shoulders. Easy run Tuesday. Don't overload legs before Saturday's ride."></textarea><small class="nf-coach-help">Include events, training preferences or anything you want the coach to consider.</small></div></div>
+<label class="nf-oura-ai-consent"><input type="checkbox" id="nfAIOuraConsent"><span><strong>Use Oura insights with OpenAI</strong><small>Optional: share only a short readiness, sleep, HRV and resting-HR summary when you tap Refine with AI. Leave off for local-only recovery advice.</small></span></label>
 <div class="nf-coach-generate-bar"><button class="primary" id="nfAIGenerate" type="button"><span aria-hidden="true">✧</span> Generate my week</button><button class="secondary" id="nfAIImprove" type="button"><span aria-hidden="true">✦</span> Refine with AI</button></div>
 <div class="nf-coach-subcaption">Adaptive plans work offline. AI refinement is optional and requires your cloud account.</div>
 <p id="nfAIStatus" class="nf-coach-status" role="status" aria-live="polite"></p>
@@ -3147,7 +3168,7 @@ function importOuraWorkouts(rows){
 nfMigrateOuraExerciseSessions();
 const nfExistingRenderAll=renderAll;
 renderAll=function(...args){nfMigrateOuraExerciseSessions();return nfExistingRenderAll(...args);};
-async function syncOura(){const r=await api('sync',{provider:'oura'});db.ouraConnected=true;db.ouraSyncFailed=false;db.ouraRecovery??={};for(const x of r.recovery||[])db.ouraRecovery[x.date]=x;applyOuraHabits(r.recovery||[]);const w=importOuraWorkouts(r.workouts||[]);save();renderRecovery();renderQuests();if(w.added)refreshViews();window.nfAuditImport?.('Oura',{message:`${w.added} imported, ${w.duplicates} duplicates skipped, ${w.uncertain} uncertain`});say('Oura: '+(r.recovery||[]).length+' recovery days, '+w.added+' native workouts imported, '+w.duplicates+' duplicates skipped, '+w.uncertain+' uncertain-source workouts skipped.'+(r.workoutPermissionMissing?' Reconnect Oura to grant Workout access.':''));}
+async function syncOura(){const r=await api('sync',{provider:'oura'});db.ouraConnected=true;db.ouraSyncFailed=false;db.ouraRecovery??={};for(const x of r.recovery||[])db.ouraRecovery[x.date]=x;applyOuraHabits(r.recovery||[]);const w=importOuraWorkouts(r.workouts||[]);save();renderRecovery();renderQuests();window.dispatchEvent(new Event('nf:oura-synced'));if(w.added)refreshViews();window.nfAuditImport?.('Oura',{message:`${w.added} imported, ${w.duplicates} duplicates skipped, ${w.uncertain} uncertain`});say('Oura: '+(r.recovery||[]).length+' recovery days, '+w.added+' native workouts imported, '+w.duplicates+' duplicates skipped, '+w.uncertain+' uncertain-source workouts skipped.'+(r.workoutPermissionMissing?' Reconnect Oura to grant Workout access.':''));}
 // Sync on launch and at most every 15/30 minutes while the page is open.
 // Browsers may suspend timers in background tabs; foregrounding triggers a catch-up.
 async function autoSync(force=false){
@@ -3516,6 +3537,61 @@ showStatus();
  // Explicitly do not scroll, focus, rerender, or mutate the Skill Tree or save state.
 })();
 </script>
+<script id="nf-oura-readiness-coach-js">
+(()=>{
+ 'use strict';
+ const clamp=(v,lo,hi)=>Math.min(hi,Math.max(lo,v));
+ const safe=x=>String(x??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+ const number=(x,lo,hi)=>{if(x===null||x===undefined||x==='')return null;const n=Number(x);return Number.isFinite(n)&&n>=lo&&n<=hi?n:null};
+ const dateValid=x=>/^\d{4}-\d{2}-\d{2}$/.test(String(x||''));
+ const dayDiff=(a,b)=>Math.round((new Date(a+'T12:00:00')-new Date(b+'T12:00:00'))/86400000);
+ const median=list=>{if(!list.length)return null;const v=[...list].sort((a,b)=>a-b),m=v.length>>1;return v.length%2?v[m]:(v[m-1]+v[m])/2};
+ function snapshot(sessionDay=null){
+  if(typeof db==='undefined'||!db||typeof today!=='function')return null;
+  const now=today(),rows=Object.values(db.ouraRecovery||{}).filter(x=>x&&dateValid(x.date)&&x.date<=now&&[x.readiness,x.sleepHours,x.hrv,x.restingHR].some(v=>v!==null&&v!==undefined)).sort((a,b)=>String(b.date).localeCompare(String(a.date)));
+  if(!rows.length)return null;
+  const current=rows[0],age=dayDiff(now,current.date);
+  const previous=rows.slice(1,14);
+  const hrv=number(current.hrv,5,250),restingHR=number(current.restingHR,25,180),readiness=number(current.readiness,0,100),sleepHours=number(current.sleepHours,0,24);
+  const hrvBase=median(previous.map(x=>number(x.hrv,5,250)).filter(x=>x!==null));
+  const hrBase=median(previous.map(x=>number(x.restingHR,25,180)).filter(x=>x!==null));
+  const baselineHrvCount=previous.filter(x=>number(x.hrv,5,250)!==null).length;
+  const baselineHrCount=previous.filter(x=>number(x.restingHR,25,180)!==null).length;
+  const signals=[];
+  if(readiness!==null&&readiness<70)signals.push('Readiness '+Math.round(readiness)+'/100');
+  if(sleepHours!==null&&sleepHours<6.5)signals.push('Sleep '+sleepHours.toFixed(1)+' h');
+  if(baselineHrvCount>=5&&hrvBase!==null&&hrv!==null&&hrv<hrvBase*.80)signals.push('HRV below your recent baseline');
+  if(baselineHrCount>=5&&hrBase!==null&&restingHR!==null&&restingHR>=hrBase+5)signals.push('Resting HR above your recent baseline');
+  const recentPoorReadiness=rows.slice(0,3).filter(x=>number(x.readiness,0,100)!==null&&Number(x.readiness)<70).length;
+  const fresh=age>=0&&age<=2;
+  let level='steady';
+  if(fresh&&signals.length>=2)level='caution';
+  if(fresh&&signals.length>=3&&recentPoorReadiness>=2)level='higher';
+  const target=sessionDay||now;
+  const offset=dateValid(target)?dayDiff(target,now):99;
+  const applies=fresh&&offset>=0&&offset<=2;
+  const reason=signals.length?signals.join(' · '):'No combined recovery warning detected';
+  return {source:'oura',date:current.date,age,readiness,sleepHours,hrv,restingHR,hrvBaseline:baselineHrvCount>=5?hrvBase:null,hrBaseline:baselineHrCount>=5?hrBase:null,signals,reason,level,fresh,applies,offset,availableDays:rows.length};
+ }
+ function todayCard(){
+  const box=document.getElementById('nfOuraTodayRecovery');if(!box)return;
+  const snap=snapshot();if(!snap){box.hidden=true;box.innerHTML='';return;}
+  const name=snap.level==='higher'?'Extra recovery suggested':snap.level==='caution'?'Check recovery today':'Recovery insight';
+  let explanation=snap.age>2?'Oura readings are out of date. Sync to refresh recovery guidance.':snap.level==='higher'?'Several recovery signals are below your normal range. Consider an easier session or less volume, and check how you feel.':snap.level==='caution'?'Some recovery signals are below baseline. Start easy, monitor effort and adjust if needed.':'Continue with your plan if you feel well; listen to your body during warm-ups.';
+  box.hidden=false;
+  box.innerHTML='<strong>◉ Oura · '+safe(name)+'</strong><p>'+safe(explanation)+'</p><small>'+safe('Last reading '+snap.date+(snap.readiness!==null?' · Readiness '+Math.round(snap.readiness):'')+(snap.sleepHours!==null?' · Sleep '+snap.sleepHours.toFixed(1)+' h':''))+'</small>';
+ }
+ window.nfOuraReadinessForCoach=snapshot;
+ window.nfOuraRenderToday=todayCard;
+ document.addEventListener('DOMContentLoaded',todayCard,{once:true});
+ window.addEventListener('nf:oura-synced',todayCard);
+ window.addEventListener('nf:cloud-save-loaded',todayCard);
+ let refreshPending=false;
+ const primary=document.getElementById('nfTodayPrimary');
+ if(primary)new MutationObserver(()=>{if(refreshPending)return;refreshPending=true;requestAnimationFrame(()=>{refreshPending=false;todayCard()})}).observe(primary,{childList:true,characterData:true,subtree:true});
+ todayCard();
+})();
+</script>
 <script>
 (()=>{
 'use strict';
@@ -3583,8 +3659,11 @@ function fatigueFor(dayIndex){
  if(same>0)cautions.push(`${day.sessions.filter(s=>s.kind==='run'||s.kind==='cycle').map(s=>`${s.minutes} min ${s.intensity} ${s.kind}`).join(' + ')} on the same day`);
  if(before>=.7)cautions.push('cardio the previous day');
  if(after>=.65&&lower)cautions.push('endurance training the following day');
- if(earlier)cautions.push('cardio scheduled before lifting');
- const level=score>=2.8?'high':score>=1.4?'moderate':'low';
+  if(earlier)cautions.push('cardio scheduled before lifting');
+  const oura=window.nfOuraReadinessForCoach?.(day.date);
+  const hasOuraConcern=!!(oura?.applies&&oura.level!=='steady');
+  if(hasOuraConcern)cautions.push('recent Oura recovery signals: '+oura.reason);
+  const level=score>=2.8||oura?.applies&&oura.level==='higher'?'high':score>=1.4||hasOuraConcern?'moderate':'low';
  const recommendations=[];
  for(const ex of strength.exercises){
   const base=Math.max(1,Number(ex.baseSets??ex.sets)||3);
@@ -3599,8 +3678,9 @@ function fatigueFor(dayIndex){
   if(proposed<base||(Number.isFinite(kg)&&Number.isFinite(ex.baseKg)&&kg<ex.baseKg))recommendations.push({exercise:ex.name,sets:proposed,kg,from:base});
  }
  let guidance=level==='high'?'High combined training load: consider an easy cardio session or more recovery.':level==='moderate'?'Moderate combined load: consider reducing lower-body volume and holding weight progressions.':'No major overlap detected; keep monitoring perceived effort and recovery.';
- if(earlier)guidance+=' When strength performance is the priority, lift before endurance work if practical.';
- return {level,score:+score.toFixed(1),cautions,recommendations,guidance};
+  if(earlier)guidance+=' When strength performance is the priority, lift before endurance work if practical.';
+  if(hasOuraConcern)guidance+=' Oura suggests lower recovery today; adjust only when the session is within two days and confirm with your own effort and warm-ups.';
+ return {level,score:+score.toFixed(1),cautions,recommendations,guidance,oura};
 }
 function applyRecoveryTargets(onlyAuto=false){
  if(!draftAI)return;
@@ -3608,7 +3688,7 @@ function applyRecoveryTargets(onlyAuto=false){
   const rec=fatigueFor(i);if(!rec)continue;
   const strength=draftAI.days[i].sessions.find(s=>s.kind==='strength');
   for(const ex of strength.exercises){
-   if(onlyAuto&&ex.userEdited)continue;
+   if(ex.userEdited)continue; // A user-edited target is never overwritten by automated recovery adjustments.
    const suggestion=rec.recommendations.find(r=>r.exercise===ex.name);
    ex.sets=suggestion?suggestion.sets:(ex.baseSets??ex.sets);
    ex.kg=suggestion?suggestion.kg:(ex.baseKg??ex.kg);
@@ -3632,7 +3712,7 @@ function build(){
  // Cardio selections may coincide with each other or with strength training.
  for(const d of days)d.sessions.sort((a,b)=>(parseTime(a.time)||0)-(parseTime(b.time)||0));
  nfCoachSelectedDay=0;nfCoachShowAll=false;
- draftAI={weekStart:p.weekStart,prefs:p,days,coachNote:'Generated from your recorded workout history and planned endurance sessions. Recovery recommendations account for cardio duration, effort, timing and adjacent days.',createdAt:new Date().toISOString(),approved:false};
+  draftAI={weekStart:p.weekStart,prefs:p,days,coachNote:'Generated from your recorded workout history and planned endurance sessions. Cardio load is considered throughout the week. Fresh Oura readings may provide conservative near-term recovery guidance; they never determine next week’s loads on their own.',createdAt:new Date().toISOString(),approved:false};
  syncAll();applyRecoveryTargets(true);
  const alert=draftAI.days.map((_,i)=>fatigueFor(i)).find(x=>x?.level==='high');
  $ai('nfAIStatus').textContent=alert?'Hybrid week ready. Higher-fatigue days are flagged for review.':'Hybrid week ready. You can schedule multiple sessions on one day.';
@@ -3670,8 +3750,15 @@ function recoverHtml(i){
  const rec=fatigueFor(i);if(!rec)return '';
  const label=rec.level==='high'?'Higher recovery demand':rec.level==='moderate'?'Moderate recovery demand':'Recovery outlook';
  const badge=rec.level==='high'?'high':rec.level==='moderate'?'medium':'low';
- return `<div class="nf-hybrid-recovery ${badge}"><div class="nf-hybrid-recovery-title">◈ ${esc(label)} · load index ${rec.score}</div><p>${esc(rec.guidance)}</p>${rec.cautions.length?`<p class="nf-hybrid-small">Factors: ${esc(rec.cautions.join(' · '))}</p>`:''}${rec.recommendations.length?`<p class="nf-hybrid-small">Proposed adjustments: ${rec.recommendations.map(r=>esc(r.exercise)+' '+r.from+' → '+r.sets+' sets').join(' · ')}</p>`:''}</div>`;
+  return `<div class="nf-hybrid-recovery ${badge}"><div class="nf-hybrid-recovery-title">◈ ${esc(label)} · cardio load index ${rec.score}</div><p>${esc(rec.guidance)}</p>${rec.cautions.length?`<p class="nf-hybrid-small">Factors: ${esc(rec.cautions.join(' · '))}</p>`:''}${rec.recommendations.length?`<p class="nf-hybrid-small">Proposed adjustments: ${rec.recommendations.map(r=>esc(r.exercise)+' '+r.from+' → '+r.sets+' sets').join(' · ')}</p>`:''}</div>`;
 }
+ function ouraCoachHtml(){
+  const snap=window.nfOuraReadinessForCoach?.();
+  if(!snap)return '<div class="nf-oura-summary"><strong>Oura recovery · No synced readings</strong><p>Connect or sync Oura in Settings to add optional recovery guidance. Workout planning still works without it.</p></div>';
+  const label=snap.age>2?'Needs sync':snap.level==='higher'?'Higher demand':snap.level==='caution'?'Review recovery':'Recent recovery';
+  const statement=snap.age>2?'Latest Oura data is out of date; it will not adjust workouts.':snap.level==='steady'?'Recovery measurements are available. Keep using how you feel and completed training to guide effort.':'Recent signals suggest keeping training conservative if a session is within the next two days.';
+  return `<div class="nf-oura-summary"><strong>◉ Oura recovery <span class="nf-oura-status ${snap.level==='steady'?'':'nf-oura-caution'}">${esc(label)}</span></strong><p>${esc(statement)}</p><small>${esc('Latest '+snap.date+(snap.readiness!==null?' · Readiness '+Math.round(snap.readiness):'')+(snap.sleepHours!==null?' · '+snap.sleepHours.toFixed(1)+' h sleep':''))} · Longer-term plans are not reduced based on today’s readings.</small></div>`;
+ }
 function render(){
  if(!draftAI)return;
  syncAll();
@@ -3686,7 +3773,8 @@ function render(){
   <div class="nf-coach-step-head"><span class="nf-coach-step-index">02</span><div><strong>Review your training week</strong><small>Tap a day to edit sessions, exercise targets and recovery</small></div></div>
   <div class="nf-coach-metrics"><div><strong>${totalSessions}</strong><span>Sessions</span></div><div><strong>${strengthCount} + ${cardioCount}</strong><span>Strength + cardio</span></div><div><strong>${Math.round(totalMinutes/60*10)/10}h</strong><span>Planned time</span></div></div>
   <div class="nf-coach-tree-status"><span aria-hidden="true">✦</span> Skill Tree coverage <strong>${protectedScheduled} / ${required.length} lifts</strong></div>
-  <div class="nf-coach-coachnote"><span class="nf-coach-coachnote-symbol" aria-hidden="true">✧</span><div><strong>Coach's notes</strong><p>${esc(draftAI.coachNote)}</p></div></div>
+   ${ouraCoachHtml()}
+   <div class="nf-coach-coachnote"><span class="nf-coach-coachnote-symbol" aria-hidden="true">✧</span><div><strong>Coach's notes</strong><p>${esc(draftAI.coachNote)}</p></div></div>
  </section>`;
  const weeklyNav=`<div class="nf-coach-week-heading"><strong>This week</strong><span>${esc(draftAI.weekStart)} · ${totalSessions} sessions</span></div>
  <div class="nf-coach-week-scroll"><div class="nf-coach-week-nav" role="group" aria-label="Select a training day">
@@ -3821,8 +3909,11 @@ async function improve(){
  try{
   syncAll();
   const history=Object.fromEntries(required.map(name=>[name,recentSets(name)]));
-  const cardioHistory=(db.cardio||[]).filter(c=>c.type==='run'||c.type==='cycle').slice(-20).map(c=>({date:c.date,type:c.type,distance:c.distance,minutes:c.minutes}));
-  const payload={weekStart:draftAI.weekStart,prefs:draftAI.prefs,days:draftAI.days,history,cardioHistory};
+  const cardioHistory=(db.cardio||[]).filter(c=>(c.type==='run'||c.type==='cycle')&&!c.stravaId&&c.source!=='strava').slice(-20).map(c=>({date:c.date,type:c.type,distance:c.distance,minutes:c.minutes}));
+  const snap=window.nfOuraReadinessForCoach?.();
+  const consent=!!$ai('nfAIOuraConsent')?.checked;
+  const ouraContext=consent&&snap?{date:snap.date,readiness:snap.readiness,sleepHours:snap.sleepHours,hrv:snap.hrv,restingHR:snap.restingHR,hrvBaseline:snap.hrvBaseline,hrBaseline:snap.hrBaseline,level:snap.level,signals:snap.signals,stale:!snap.fresh}:undefined;
+  const payload={weekStart:draftAI.weekStart,prefs:draftAI.prefs,days:draftAI.days,history,cardioHistory,...(ouraContext?{ouraContext}:{})};
   const {data,error}=await client.functions.invoke('nextform-ai-coach',{body:payload});
   if(error)throw await explainFunctionError(error);if(data?.error)throw Error(data.error);
   if(typeof data.coachNote==='string')draftAI.coachNote=data.coachNote.slice(0,500);
@@ -4052,6 +4143,25 @@ window.nfAIGetApprovedWeek=()=>db.nfAIPlans?.[monday(today())]||null;
  const welcome=byId('nfWelcomeOverlay');if(welcome)new MutationObserver(()=>{if(welcome.classList.contains('hidden'))setTimeout(maybeTour,350)}).observe(welcome,{attributes:true,attributeFilter:['class']});
  setTimeout(maybeTour,1500);
  scheduleToday();
+})();
+</script>
+<script id="nf-unread-menu-badges-js">
+(()=>{
+ 'use strict';
+ const countEl=document.getElementById('nfNoticeCount');
+ const menuButton=document.getElementById('nfMenuToggle');
+ const ids=['nfMenuUnreadBadge','nfMenuNoticeBadge'];
+ function refresh(){
+  const count=Math.max(0,Math.floor(Number(countEl?.textContent)||0));
+  for(const id of ids){const badge=document.getElementById(id);if(!badge)continue;badge.hidden=count===0;badge.textContent=count>99?'99+':String(count);}
+  const menuOpen=menuButton?.getAttribute('aria-expanded')==='true';
+  if(menuButton)menuButton.setAttribute('aria-label',(menuOpen?'Close':'Open')+' navigation menu'+(count?' ('+count+' unread notification'+(count===1?'':'s')+')':''));
+  const link=document.querySelector('[data-nf-menu="notices"]');
+  if(link)link.setAttribute('aria-label','Notifications'+(count?' ('+count+' unread)':''));
+ }
+ if(countEl)new MutationObserver(refresh).observe(countEl,{childList:true,subtree:true,characterData:true});
+ if(menuButton)new MutationObserver(refresh).observe(menuButton,{attributes:true,attributeFilter:['aria-expanded']});
+ refresh();
 })();
 </script>
 </body></html>
