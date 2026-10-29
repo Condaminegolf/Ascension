@@ -1035,6 +1035,15 @@ html:not(.nf-detailed-workout) #train #overloadTrainTip{display:none!important}
 .nf-tour-actions .nf-tour-forward{background:#338d65;color:white;border:1px solid #84e7b5;flex:1}
 .nf-tour-actions .nf-tour-back{border:1px solid #456b67;background:#1c343b;color:#e4faf4}
 .nf-tour-skip{border:0;background:transparent;color:#a9d2c6;text-decoration:underline;margin-top:15px;padding:8px;font-size:12px}
+.nf-tour-connections[hidden]{display:none!important}
+.nf-tour-connections{display:grid;gap:9px;margin:15px 0 7px}
+.nf-tour-provider{display:flex;align-items:center;gap:12px;border:1px solid #436b67;border-radius:12px;background:#142e35;padding:11px 12px;min-width:0}
+.nf-tour-provider-icon{display:grid;place-items:center;flex:0 0 34px;width:34px;height:34px;border-radius:10px;background:#225a46;color:#92f4c2;font-size:21px;font-weight:800}
+.nf-tour-provider strong{display:block;font-size:14px;color:#f0fff8}
+.nf-tour-provider small{display:block;color:#bbd0d1;font-size:12px;line-height:1.45;margin-top:3px}
+.nf-tour-connect-action{width:100%;min-height:46px;display:flex;align-items:center;justify-content:space-between;border:1px solid #8deec1;border-radius:11px;background:#25875f;color:white;padding:10px 15px;font-size:14px;font-weight:800;cursor:pointer}
+.nf-tour-connect-action:focus-visible{outline:3px solid #bbffd9;outline-offset:3px}
+.nf-tour-privacy{color:#a7c7bf;text-align:center;font-size:10px;line-height:1.5}
 .nf-tip-card .nf-tip-close{width:100%;background:#236347;border:1px solid #7bdbac;color:white}
 body.nf-tour-open{overflow:hidden}
 @media(max-width:420px){.nf-today-session{padding:9px}.nf-advanced-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.nf-training-mode button{font-size:11px;padding:8px}.nf-tour-card,.nf-tip-card{padding:20px}}
@@ -1061,9 +1070,10 @@ body.nf-tour-open{overflow:hidden}
         <button class="nf-menu-link" data-nf-menu="analytics" type="button"><span class="nf-menu-glyph">▥</span><span><strong>Analytics</strong><small>Charts and training trends</small></span><span class="nf-menu-arrow">›</span></button>
         <button class="nf-menu-link" data-nf-menu="friends" type="button"><span class="nf-menu-glyph">♧</span><span><strong>Friends &amp; leaderboard</strong><small>Optional social features</small></span><span class="nf-menu-arrow">›</span></button>
       </div>
-      <div class="nf-menu-group"><div class="nf-menu-section-heading">GETTING STARTED</div><button class="nf-menu-link" data-nf-menu="tour" type="button"><span class="nf-menu-glyph">?</span><span><strong>Quick app walkthrough</strong><small>See the 4 main parts of NEXTFORM</small></span><span class="nf-menu-arrow">›</span></button></div>
+      <div class="nf-menu-group"><div class="nf-menu-section-heading">GETTING STARTED</div><button class="nf-menu-link" data-nf-menu="tour" type="button"><span class="nf-menu-glyph">?</span><span><strong>Quick app walkthrough</strong><small>See the 5 essentials of NEXTFORM</small></span><span class="nf-menu-arrow">›</span></button></div>
       <div class="nf-menu-group"><div class="nf-menu-section-heading">PREFERENCES &amp; ACCOUNT</div>
         <label class="nf-menu-preference"><span><strong>Simple view</strong><small>Show only essentials by default</small></span><input type="checkbox" id="nfSimpleMode" checked aria-label="Use simplified view"></label>
+        <button class="nf-menu-link" data-nf-menu="integrations" type="button"><span class="nf-menu-glyph">↗</span><span><strong>Connect Strava &amp; Oura</strong><small>Optional activity and recovery sync</small></span><span class="nf-menu-arrow">›</span></button>
         <button class="nf-menu-link" data-nf-menu="settings" type="button"><span class="nf-menu-glyph">⚙</span><span><strong>Settings &amp; integrations</strong><small>Account, cloud sync and appearance</small></span><span class="nf-menu-arrow">›</span></button>
         <button class="nf-menu-link" data-nf-menu="backup" type="button"><span class="nf-menu-glyph">↓</span><span><strong>Export save backup</strong><small>Download a copy of your progress</small></span><span class="nf-menu-arrow">›</span></button>
       </div>
@@ -3887,6 +3897,7 @@ window.nfAIGetApprovedWeek=()=>db.nfAIPlans?.[monday(today())]||null;
    if(action==='strength'){nav('train');const el=byId('workoutTitle');expandAndScroll(el);return}
    if(action==='cardio'){nav('train');if(cardio)cardio.open=true;expandAndScroll(byId('cardioPanel'));return}
    if(action==='coach'){nav('train');if(coach)coach.open=true;expandAndScroll(coach);return}
+   if(action==='integrations'){if(nav('settings'))expandAndScroll(byId('ascConnectedApps'));return}
    if(action==='quests'||action==='notices'){nav('home');revealCard(action);return}
    nav(action);
  }
@@ -3902,7 +3913,14 @@ window.nfAIGetApprovedWeek=()=>db.nfAIPlans?.[monday(today())]||null;
 })();
 </script>
 <div class="nf-tour-overlay" id="nfProductTour" hidden role="dialog" aria-modal="true" aria-labelledby="nfProductTourTitle">
- <div class="nf-tour-card" tabindex="-1"><div class="nf-tour-kicker" id="nfTourStepLabel">QUICK START · 1 OF 4</div><span class="nf-tour-symbol" id="nfTourSymbol" aria-hidden="true">⌂</span><h2 id="nfProductTourTitle">Welcome to NEXTFORM</h2><p id="nfTourText">See the essentials in a few steps.</p><div id="nfTourDots" class="nf-tour-dots" aria-hidden="true"></div><div class="nf-tour-actions"><button type="button" class="nf-tour-back" id="nfTourBack">Back</button><button type="button" class="nf-tour-forward" id="nfTourNext">Next</button></div><button type="button" class="nf-tour-skip" id="nfTourSkip">Skip for now</button></div>
+ <div class="nf-tour-card" tabindex="-1"><div class="nf-tour-kicker" id="nfTourStepLabel">QUICK START · 1 OF 5</div><span class="nf-tour-symbol" id="nfTourSymbol" aria-hidden="true">⌂</span><h2 id="nfProductTourTitle">Welcome to NEXTFORM</h2><p id="nfTourText">See the essentials in a few steps.</p>
+ <div class="nf-tour-connections" id="nfTourConnections" hidden>
+   <div class="nf-tour-provider"><span class="nf-tour-provider-icon" aria-hidden="true">↗</span><span><strong>Strava</strong><small>Bring your runs, rides and activity history into NEXTFORM.</small></span></div>
+   <div class="nf-tour-provider"><span class="nf-tour-provider-icon" aria-hidden="true">◉</span><span><strong>Oura</strong><small>See sleep and recovery information alongside your training.</small></span></div>
+   <button class="nf-tour-connect-action" id="nfTourConnectNow" type="button">Set up connections <span aria-hidden="true">›</span></button>
+   <span class="nf-tour-privacy">Optional · Connect with your provider accounts · Disconnect any time</span>
+ </div>
+ <div id="nfTourDots" class="nf-tour-dots" aria-hidden="true"></div><div class="nf-tour-actions"><button type="button" class="nf-tour-back" id="nfTourBack">Back</button><button type="button" class="nf-tour-forward" id="nfTourNext">Next</button></div><button type="button" class="nf-tour-skip" id="nfTourSkip">Skip for now</button></div>
 </div><div class="nf-tip-overlay" id="nfTipOverlay" hidden role="dialog" aria-modal="true" aria-labelledby="nfTipTitle"><div class="nf-tip-card" tabindex="-1"><div class="nf-tour-kicker">QUICK EXPLANATION</div><h2 id="nfTipTitle">More information</h2><p id="nfTipText"></p><button class="nf-tip-close" type="button" id="nfTipClose">Got it</button></div></div>
 <script id="nf-four-usability-js">
 (()=>{
@@ -3994,16 +4012,18 @@ window.nfAIGetApprovedWeek=()=>db.nfAIPlans?.[monday(today())]||null;
  document.addEventListener('click',e=>{const trigger=e.target.closest('[data-nf-tip]');if(!trigger||!tipOverlay)return;
    const item=tips[trigger.dataset.nfTip];if(!item)return;tipFocus=trigger;byId('nfTipTitle').textContent=item[0];byId('nfTipText').textContent=item[1];tipOverlay.hidden=false;byId('nfTipClose').focus({preventScroll:true})});
  byId('nfTipClose')?.addEventListener('click',closeTip);tipOverlay?.addEventListener('click',e=>{if(e.target===tipOverlay)closeTip()});
- // A four-step product tour runs once AFTER account setup and can be replayed from the side drawer.
+ // A five-step product tour runs once AFTER account setup and can be replayed from the side drawer.
  const tour=byId('nfProductTour');const tourKey='nextform:product-tour:v1';let tourStep=0;let tourReturn=null;
  const steps=[
   {symbol:'⌂',title:'Today, not everything',description:'Home shows the next workout and a single action. Tap View my week when you want the full schedule.'},
   {symbol:'＋',title:'Train, then save',description:'Log weights and reps as you go. Simple view has the essentials; Detailed reveals performance insights and optional effort ratings.'},
   {symbol:'◇',title:'Unlock as you progress',description:'Your completed workouts count toward XP, skills and equipment. Plans and suggested sessions never count as completed training.'},
-  {symbol:'☰',title:'More when you need it',description:'Keep the five bottom tabs for everyday navigation. The top-right three-line menu opens advanced tools, the AI Coach and your settings.'}
+  {symbol:'☰',title:'More when you need it',description:'Keep the five bottom tabs for everyday navigation. The top-right three-line menu opens advanced tools, the AI Coach and your settings.'},
+  {symbol:'↗',title:'Connect Strava & Oura',description:'Link your accounts if you like — it is completely optional, and you can set it up later. Sign in to NEXTFORM to get started.',connections:true}
  ];
- function drawTour(){const x=steps[tourStep];byId('nfTourStepLabel').textContent='YOUR 4-STEP GUIDE · '+(tourStep+1)+' OF '+steps.length;
+ function drawTour(){const x=steps[tourStep];byId('nfTourStepLabel').textContent='YOUR '+steps.length+'-STEP GUIDE · '+(tourStep+1)+' OF '+steps.length;
    byId('nfTourSymbol').textContent=x.symbol;byId('nfProductTourTitle').textContent=x.title;byId('nfTourText').textContent=x.description;
+   byId('nfTourConnections').hidden=!x.connections;
    byId('nfTourDots').innerHTML=steps.map((_,i)=>'<span class="'+(i===tourStep?'active':'')+'"></span>').join('');
    byId('nfTourBack').hidden=tourStep===0;byId('nfTourNext').textContent=tourStep===steps.length-1?'Finish':'Next';
  }
@@ -4011,6 +4031,14 @@ window.nfAIGetApprovedWeek=()=>db.nfAIPlans?.[monday(today())]||null;
  function closeTour(){if(!tour||tour.hidden)return;tour.hidden=true;document.body.classList.remove('nf-tour-open');try{localStorage.setItem(tourKey,'seen')}catch(_){}tourReturn?.focus?.({preventScroll:true})}
  byId('nfTourNext')?.addEventListener('click',()=>{if(tourStep===steps.length-1)closeTour();else{tourStep++;drawTour()}});
  byId('nfTourBack')?.addEventListener('click',()=>{tourStep=Math.max(0,tourStep-1);drawTour()});
+ byId('nfTourConnectNow')?.addEventListener('click',()=>{
+   closeTour();
+   // Use the existing Settings navigation and provider OAuth buttons.
+   const shortcut=document.querySelector('[data-nf-menu="integrations"]');
+   if(shortcut)shortcut.click();
+   const connect=document.getElementById('ascStravaConnect');
+   if(connect)requestAnimationFrame(()=>connect.focus({preventScroll:true}));
+ });
  byId('nfTourSkip')?.addEventListener('click',closeTour);
  tour?.addEventListener('click',e=>{if(e.target===tour)closeTour()});
  document.addEventListener('click',e=>{if(e.target.closest('[data-nf-menu="tour"]'))openTour()});
