@@ -763,7 +763,18 @@ button.nf-tactile:focus-visible{outline:2px solid #80ebce!important;outline-offs
 #train #nfAIPlanner .nf-ai-actions button{min-height:45px}
 @media(max-width:550px){#train #nfAIPlanner .grid2{grid-template-columns:minmax(0,1fr)}#train #nfAIPlanner .field{min-width:0}#train #nfAIPlanner .field select,#train #nfAIPlanner .field input{width:100%;max-width:100%;box-sizing:border-box;min-height:46px}}
 @media(prefers-reduced-motion:reduce){#train #nfAIPlanner .nf-ai-collapse-chevron{transition:none}}
-</style><style>#nfAIPlanner{border:1px solid #4b927f}#nfAIPlanner .nf-ai-actions{display:flex;flex-wrap:wrap;gap:9px;margin:12px 0}#nfAIPlanner .nf-ai-day{border:1px solid #36505b;border-radius:12px;padding:12px;margin:9px 0;background:#102331}#nfAIPlanner .nf-ai-title{display:flex;justify-content:space-between;align-items:center;gap:8px}#nfAIPlanner .nf-ai-ex{display:grid;grid-template-columns: minmax(110px,1fr) 62px 60px 60px;gap:5px;align-items:center;padding:6px 0;border-bottom:1px solid #294450}#nfAIPlanner .nf-ai-ex input{width:100%;min-width:0}#nfAIPlanner .nf-ai-day select{width:100%;max-width:230px}#nfAIPlanner .nf-ai-warning{color:#f0c58c;font-size:12px}#nfAIPlanner .nf-ai-description{font-size:12px;color:#a7c9c7}#nfAIPlanner .nf-ai-protected{color:#99e8ad;font-size:11px}#nfAIPlanner .nf-ai-exhead{font-size:11px;opacity:.7} @media(max-width:500px){#nfAIPlanner .nf-ai-ex{grid-template-columns:minmax(90px,1fr) 55px 48px 48px;font-size:12px}}</style></head><body><div class="wrap"><header class="top"><div><div class="nf-brand-lockup"><img src="./icon-192.png" alt="NEXTFORM logo" class="nf-header-logo"><div><div class="brand">NEXTFORM<span class="brand-mark">_</span></div><div class="tag">THE SYSTEM <span class="system-dot">●</span> ONLINE</div></div></div><div class="nf-header-controls"><button class="nf-sync-chip" id="nfSyncChip" type="button" data-state="local" aria-label="View save and sync status">Local save</button><button class="secondary" onclick="exportData()">Export Save</button></div></header><section class="nf-compact-status panel" id="nfCompactStatus" aria-label="Training rank and attribute radar" hidden>
+</style><style>#nfAIPlanner{border:1px solid #4b927f}#nfAIPlanner .nf-ai-actions{display:flex;flex-wrap:wrap;gap:9px;margin:12px 0}#nfAIPlanner .nf-ai-day{border:1px solid #36505b;border-radius:12px;padding:12px;margin:9px 0;background:#102331}#nfAIPlanner .nf-ai-title{display:flex;justify-content:space-between;align-items:center;gap:8px}#nfAIPlanner .nf-ai-ex{display:grid;grid-template-columns: minmax(110px,1fr) 62px 60px 60px;gap:5px;align-items:center;padding:6px 0;border-bottom:1px solid #294450}#nfAIPlanner .nf-ai-ex input{width:100%;min-width:0}#nfAIPlanner .nf-ai-day select{width:100%;max-width:230px}#nfAIPlanner .nf-ai-warning{color:#f0c58c;font-size:12px}#nfAIPlanner .nf-ai-description{font-size:12px;color:#a7c9c7}#nfAIPlanner .nf-ai-protected{color:#99e8ad;font-size:11px}#nfAIPlanner .nf-ai-exhead{font-size:11px;opacity:.7} @media(max-width:500px){#nfAIPlanner .nf-ai-ex{grid-template-columns:minmax(90px,1fr) 55px 48px 48px;font-size:12px}}</style><style id="nf-ai-exercise-builder-css">
+#nfAIPlanner .nf-ai-exname{min-width:0;overflow-wrap:anywhere;line-height:1.35}
+#nfAIPlanner .nf-ai-ex input{font-size:16px;max-width:100%;box-sizing:border-box}
+#nfAIPlanner .nf-ai-remove{margin-top:5px;display:block;background:transparent;border:0;color:#e4b3a0;text-decoration:underline;padding:2px 0;font-size:11px;min-height:26px;cursor:pointer}
+#nfAIPlanner .nf-ai-add{border:1px dashed #416a72;border-radius:10px;padding:12px;margin-top:12px;background:rgba(23,54,64,.45)}
+#nfAIPlanner .nf-ai-add>label{display:block;color:#adcdc9;font-size:12px;margin-bottom:8px}
+#nfAIPlanner .nf-ai-addrow{display:flex;gap:7px;margin-top:7px;align-items:stretch;max-width:100%}
+#nfAIPlanner .nf-ai-addrow input,#nfAIPlanner .nf-ai-addrow select{flex:1;min-width:0;max-width:100%;box-sizing:border-box;border-radius:8px;padding:10px;font-size:16px;height:auto}
+#nfAIPlanner .nf-ai-addrow button{flex:0 0 auto;min-height:44px;font-size:13px;padding:8px 12px}
+#nfAIPlanner .nf-ai-exhead{font-size:11px}
+@media(max-width:390px){#nfAIPlanner .nf-ai-addrow button{padding:7px 9px;font-size:12px}#nfAIPlanner .nf-ai-ex{grid-template-columns:minmax(85px,1fr) 49px 45px 45px;gap:4px}}
+</style></head><body><div class="wrap"><header class="top"><div><div class="nf-brand-lockup"><img src="./icon-192.png" alt="NEXTFORM logo" class="nf-header-logo"><div><div class="brand">NEXTFORM<span class="brand-mark">_</span></div><div class="tag">THE SYSTEM <span class="system-dot">●</span> ONLINE</div></div></div><div class="nf-header-controls"><button class="nf-sync-chip" id="nfSyncChip" type="button" data-state="local" aria-label="View save and sync status">Local save</button><button class="secondary" onclick="exportData()">Export Save</button></div></header><section class="nf-compact-status panel" id="nfCompactStatus" aria-label="Training rank and attribute radar" hidden>
   <div class="nf-compact-identity">
     <span class="nf-compact-rank" id="nfCompactRank">F</span>
     <span class="nf-compact-rank-copy"><span class="nf-compact-kicker">TRAINING RANK</span><strong id="nfCompactRankName">Foundation</strong></span>
@@ -3185,19 +3196,125 @@ function dateAt(base,n){const d=new Date(base+'T12:00:00');d.setDate(d.getDate()
 function recentSets(name){return (db.workouts||[]).filter(w=>w.date&&Array.isArray(w.sets)&&w.sets.some(x=>x.exercise===name)).sort((a,b)=>String(b.date).localeCompare(String(a.date))).slice(0,3).map(w=>({date:w.date,sets:w.sets.filter(x=>x.exercise===name&&Number(x.reps)>0&&Number(x.kg)>=0).map(x=>({kg:Number(x.kg),reps:Number(x.reps)}))})).filter(x=>x.sets.length)}
 function target(name,low=8){const history=recentSets(name), last=history[0]?.sets||[];if(!last.length)return {name,kg:null,sets:3,reps:low,reason:'No verified prior load; choose a comfortable working weight.',protected:true};const kg=Number(last.map(x=>x.kg).sort((a,b)=>a-b)[Math.floor(last.length/2)]),done=last.filter(x=>x.kg===kg),allTop=done.length>=3&&done.every(x=>x.reps>=low+2);const trend=history.length>=2&&history[1].sets.some(x=>x.kg>=kg&&x.reps<low);const next=kg>0?Math.max(0,+(kg+(allTop&&!trend?2.5:0)).toFixed(1)):kg;return {name,kg:next,sets:3,reps:low,reason:allTop&&!trend?'All last sets met the top range; small progressive overload.':'Hold load and build consistent reps before increasing.',protected:true}}
 function getPrefs(){const weekStart=monday($ai('nfAIWeek').value||today());return {weekStart,goal:$ai('nfAIGoal').value,runDay:Number($ai('nfAIRunDay').value),rideDay:Number($ai('nfAIRideDay').value),strengthMinutes:Math.max(15,Math.min(120,Number($ai('nfAIMinutes').value)||30)),rideMinutes:Math.max(10,Math.min(300,Number($ai('nfAIRideMinutes').value)||75)),notes:$ai('nfAINotes').value.slice(0,500)}}
+function repTarget(raw){const n=parseInt(String(raw??'8').match(/\d+/)?.[0]||'8',10);return Math.min(30,Math.max(1,n));}
+function plannedExercise(name,sets=3,reps=12){
+ const latest=recentSets(name)[0]?.sets||[];
+ const kg=latest.length?Number(latest.map(x=>x.kg).sort((a,b)=>a-b)[Math.floor(latest.length/2)]):null;
+ return {name,kg,sets:Math.max(1,Math.min(6,Math.round(Number(sets)||3))),reps:repTarget(reps),reason:latest.length?'Working load based on the last recorded session.':'Select a comfortable working weight.',protected:required.includes(name)};
+}
+function fromCurrentWorkout(index){return (Array.isArray(plan?.[index]?.ex)?plan[index].ex:[]).filter(x=>Array.isArray(x)&&String(x[0]||'').trim()).map(x=>plannedExercise(String(x[0]).trim(),x[1],x[2]));}
+function workoutSuggestions(){
+ const names=new Set(required);
+ for(const p of plan||[])for(const e of p.ex||[])if(e&&typeof e[0]==='string'&&e[0].trim())names.add(e[0].trim());
+ for(const w of (db.workouts||[]).slice(-35))for(const e of w.sets||[])if(e&&typeof e.exercise==='string'&&e.exercise.trim())names.add(e.exercise.trim());
+ for(const n of ['Cable Row','Cable Lateral Raise','Cable Triceps Pressdown','Cable Biceps Curl','Cable Pallof Press','Dumbbell Lateral Raise','Dumbbell Hammer Curl','Dumbbell Bench Press','Ab Wheel Rollout','Cable Face Pull'])names.add(n);
+ return [...names].filter(n=>n.length<=80).sort((a,b)=>a.localeCompare(b)).slice(0,160);
+}
+function combineExerciseList(core,custom,minimum=4){
+ const rows=core.map(x=>({...x}));const seen=new Set(rows.map(x=>x.name.toLowerCase()));
+ for(const e of custom){const name=String(e.name||'').trim();if(!name||seen.has(name.toLowerCase())||rows.length>=15)continue;rows.push({...e,protected:required.includes(name)});seen.add(name.toLowerCase());}
+ const fallback=['Cable Row','Cable Lateral Raise','Cable Triceps Pressdown','Cable Biceps Curl','Cable Pallof Press'];
+ for(const name of fallback){if(rows.length>=minimum)break;if(!seen.has(name.toLowerCase())){rows.push(plannedExercise(name,2,12));seen.add(name.toLowerCase());}}
+ return rows;
+}
 function build(){const p=getPrefs();if(p.runDay===p.rideDay){$ai('nfAIStatus').textContent='Choose different run and ride days.';return}const days=MON.map((day,i)=>({day,date:dateAt(p.weekStart,i),kind:'rest',title:'Recovery',minutes:0,exercises:[],notes:''}));const free=[0,1,2,3,4,5,6].filter(i=>i!==p.runDay&&i!==p.rideDay);const strength=[0,2,4].map(i=>free.includes(i)?i:null);for(let j=0;j<strength.length;j++)if(strength[j]===null){const available=free.filter(n=>!strength.includes(n));strength[j]=available[0]}
- const templates=[{title:'Upper Strength',ex:[target(required[0]),target(required[3]),{name:'Cable Row',kg:null,sets:2,reps:12,reason:'Upper-back balance.'}]},{title:'Lower Strength',ex:[target(required[1]),target(required[2]),{name:'Cable Pallof Press',kg:null,sets:2,reps:10,reason:'Trunk stability.'}]},{title:'Shoulders + Arms',ex:[{name:'Cable Lateral Raise',kg:null,sets:2,reps:12,reason:'Shoulder accessory.'},{name:'Cable Biceps Curl',kg:null,sets:3,reps:12,reason:'Arm accessory.'},{name:'Cable Triceps Pressdown',kg:null,sets:3,reps:12,reason:'Arm accessory.'}]}];
+ const templates=[
+  {title:'Upper Strength',ex:combineExerciseList([target(required[0]),target(required[3])],fromCurrentWorkout(0),4)},
+  {title:'Lower Strength',ex:combineExerciseList([target(required[1]),target(required[2])],fromCurrentWorkout(2),4)},
+  {title:'Shoulders + Arms',ex:combineExerciseList([],fromCurrentWorkout(4).filter(x=>x.name!==required[3]),4)}
+ ];
  strength.forEach((idx,j)=>Object.assign(days[idx],{kind:'strength',title:templates[j].title,minutes:p.strengthMinutes,exercises:templates[j].ex.map(x=>({...x}))}));Object.assign(days[p.runDay],{kind:'run',title:'Easy Run',minutes:30,notes:'Conversational effort; adapt distance from recent logged runs.'});Object.assign(days[p.rideDay],{kind:'cycle',title:'Endurance Ride',minutes:p.rideMinutes,notes:'Mostly easy effort; adjust to cycling history.'});
  // Always preserve protected lifts; place any not yet covered into an upper/lower strength session.
  for(const name of required)if(!days.some(x=>x.exercises.some(y=>y.name===name))){const idx=days.findIndex(x=>x.kind==='strength'&&(name.includes('Squat')||name.includes('Deadlift')?x.title==='Lower Strength':x.title==='Upper Strength'));if(idx>=0)days[idx].exercises.push(target(name));}
  const hard=days.findIndex((x,i)=>x.kind==='strength'&&x.title==='Lower Strength'&&((i+1)%7===p.rideDay||i===p.rideDay));
  draftAI={weekStart:p.weekStart,prefs:p,days,coachNote:'Adaptive plan generated from your actual logged workouts. Review all loads and dates before approval.',createdAt:new Date().toISOString(),approved:false};$ai('nfAIStatus').textContent=hard>=0?'Caution: lower-body strength is close to your planned ride. Consider adjusting intensity.':'Adaptive week ready. You can edit it before approval.';render();}
-function checkPlan(){if(!draftAI||draftAI.days.length!==7)return 'Generate a plan first.';if(draftAI.days.some((x,i)=>x.date!==dateAt(draftAI.weekStart,i)))return 'Week dates are invalid.';for(const name of required)if(!draftAI.days.some(x=>x.kind==='strength'&&x.exercises.some(y=>y.name===name)))return 'Required Skill Tree lift missing: '+name;for(const x of draftAI.days)for(const e of x.exercises)if(!Number.isInteger(e.sets)||e.sets<1||e.sets>6||!Number.isInteger(e.reps)||e.reps<1||e.reps>30||e.kg!==null&&(!Number.isFinite(e.kg)||e.kg<0||e.kg>500))return 'Check sets, reps and kg values.';return ''}
-function render(){if(!draftAI)return;const out=$ai('nfAIOutput');out.innerHTML=`<p class="muted">${esc(draftAI.coachNote)}</p>`+draftAI.days.map((d,i)=>`<div class="nf-ai-day"><div class="nf-ai-title"><strong>${esc(d.day)} · ${esc(d.date)}</strong><select aria-label="Session type ${esc(d.day)}" data-day="${i}" data-field="kind"><option value="strength" ${d.kind==='strength'?'selected':''}>Strength</option><option value="run" ${d.kind==='run'?'selected':''}>Run</option><option value="cycle" ${d.kind==='cycle'?'selected':''}>Cycle</option><option value="rest" ${d.kind==='rest'?'selected':''}>Rest</option></select></div><div class="nf-ai-description">${esc(d.title)} · <input style="max-width:64px" type="number" min="0" max="300" data-day="${i}" data-field="minutes" value="${d.minutes}"> min ${d.kind==='run'||d.kind==='cycle'?esc(d.notes):''}</div>${d.kind==='strength'?`<div class="nf-ai-ex nf-ai-exhead"><span>Exercise</span><span>kg</span><span>Sets</span><span>Reps</span></div>`+d.exercises.map((e,j)=>`<div class="nf-ai-ex"><span>${esc(e.name)}${e.protected?'<div class="nf-ai-protected">SKILL TREE</div>':''}</span><input aria-label="kg" data-day="${i}" data-ex="${j}" data-field="kg" type="number" step="0.5" min="0" max="500" value="${e.kg??''}" placeholder="—"><input aria-label="sets" data-day="${i}" data-ex="${j}" data-field="sets" type="number" min="1" max="6" value="${e.sets}"><input aria-label="reps" data-day="${i}" data-ex="${j}" data-field="reps" type="number" min="1" max="30" value="${e.reps}"></div>`).join(''):''}</div>`).join('')+`<p class="nf-ai-warning" id="nfAIValidation"></p><button class="primary" id="nfAIApprove" type="button">Approve &amp; save to calendar</button><p class="muted">Approving schedules sessions only. Actual results are recorded using the existing workout and cardio loggers.</p>`;
- out.querySelectorAll('[data-field]').forEach(el=>el.addEventListener('change',()=>{const d=draftAI.days[Number(el.dataset.day)],f=el.dataset.field;if(el.dataset.ex!==undefined){const e=d.exercises[Number(el.dataset.ex)];e[f]=f==='kg'?(el.value===''?null:Number(el.value)):Number(el.value)}else if(f==='kind'){d.kind=el.value;if(d.kind==='strength'&&!d.exercises.length){d.exercises=[target(required[0])]}if(d.kind==='run')d.title='Easy Run';else if(d.kind==='cycle')d.title='Endurance Ride';else if(d.kind==='rest')d.title='Recovery';else d.title='Strength';render()}else d[f]=Number(el.value);$ai('nfAIValidation').textContent=checkPlan()}));$ai('nfAIApprove').onclick=approve;}
+function checkPlan(){
+ if(!draftAI||draftAI.days.length!==7)return 'Generate a plan first.';
+ if(draftAI.days.some((x,i)=>x.date!==dateAt(draftAI.weekStart,i)))return 'Week dates are invalid.';
+ for(const name of required)if(!draftAI.days.some(x=>x.kind==='strength'&&x.exercises.some(y=>y.name===name)))return 'Required Skill Tree lift missing: '+name;
+ for(const d of draftAI.days){
+  if(d.kind!=='strength')continue;
+  if(!Array.isArray(d.exercises)||d.exercises.length<1||d.exercises.length>15)return 'Strength workouts must have between 1 and 15 exercises.';
+  const seen=new Set();
+  for(const e of d.exercises){
+   const name=String(e.name||'').trim();if(!name||name.length>80)return 'Check exercise names.';
+   if(seen.has(name.toLowerCase()))return 'A strength day has duplicate exercises: '+name;
+   seen.add(name.toLowerCase());
+   if(!Number.isInteger(e.sets)||e.sets<1||e.sets>6||!Number.isInteger(e.reps)||e.reps<1||e.reps>30||e.kg!==null&&(!Number.isFinite(e.kg)||e.kg<0||e.kg>500))return 'Check sets, reps and kg values.';
+  }
+ }
+ return '';
+}
+function render(){
+ if(!draftAI)return;
+ const out=$ai('nfAIOutput');
+ const choices=workoutSuggestions();
+ out.innerHTML=`<p class="muted">${esc(draftAI.coachNote)}</p>`+draftAI.days.map((d,i)=>{
+  const head=`<div class="nf-ai-title"><strong>${esc(d.day)} · ${esc(d.date)}</strong><select aria-label="Session type ${esc(d.day)}" data-day="${i}" data-field="kind"><option value="strength" ${d.kind==='strength'?'selected':''}>Strength</option><option value="run" ${d.kind==='run'?'selected':''}>Run</option><option value="cycle" ${d.kind==='cycle'?'selected':''}>Cycle</option><option value="rest" ${d.kind==='rest'?'selected':''}>Rest</option></select></div>`;
+  const description=`<div class="nf-ai-description">${esc(d.title)} · <input style="max-width:64px" type="number" min="0" max="300" data-day="${i}" data-field="minutes" value="${d.minutes}"> min ${d.kind==='run'||d.kind==='cycle'?esc(d.notes):''}</div>`;
+  const exerciseRows=d.kind==='strength'?`
+   <div class="nf-ai-ex nf-ai-exhead"><span>Exercise</span><span>kg</span><span>Sets</span><span>Reps</span></div>
+   ${d.exercises.map((e,j)=>`<div class="nf-ai-ex"><span class="nf-ai-exname">${esc(e.name)}${required.includes(e.name)?'<div class="nf-ai-protected">SKILL TREE · LOCKED</div>':`<button class="nf-ai-remove" type="button" data-action="remove" data-day="${i}" data-ex="${j}" aria-label="Remove ${esc(e.name)} from ${esc(d.day)}">Remove</button>`}</span>
+   <input aria-label="${esc(e.name)} kg" data-day="${i}" data-ex="${j}" data-field="kg" type="number" step="0.5" min="0" max="500" value="${e.kg??''}" placeholder="—">
+   <input aria-label="${esc(e.name)} sets" data-day="${i}" data-ex="${j}" data-field="sets" type="number" min="1" max="6" value="${e.sets}">
+   <input aria-label="${esc(e.name)} reps" data-day="${i}" data-ex="${j}" data-field="reps" type="number" min="1" max="30" value="${e.reps}"></div>`).join('')}
+   <div class="nf-ai-add"><label for="nfAISelect${i}">Add an exercise</label><div class="nf-ai-addrow"><select id="nfAISelect${i}" aria-label="Choose an exercise for ${esc(d.day)}"><option value="">Choose from your workouts…</option>${choices.filter(n=>!d.exercises.some(e=>e.name.toLowerCase()===n.toLowerCase())).map(n=>`<option value="${esc(n)}">${esc(n)}</option>`).join('')}</select><button class="secondary" type="button" data-action="add-selected" data-day="${i}">Add</button></div><div class="nf-ai-addrow"><input id="nfAICustom${i}" maxlength="80" placeholder="Or type a custom exercise" aria-label="Custom exercise for ${esc(d.day)}"><button class="secondary" type="button" data-action="add-custom" data-day="${i}">Add custom</button></div></div>`:'';
+  return `<div class="nf-ai-day">${head}${description}${exerciseRows}</div>`;
+ }).join('')+`<p class="nf-ai-warning" id="nfAIValidation" role="alert"></p><button class="primary" id="nfAIApprove" type="button">Approve &amp; save to calendar</button><p class="muted">Approving schedules sessions only. Actual results are recorded using the existing workout and cardio loggers.</p>`;
+ $ai('nfAIValidation').textContent=checkPlan();
+ $ai('nfAIApprove').onclick=approve;
+}
+function addExercise(i,name){
+ if(!draftAI)return;
+ const d=draftAI.days[i];name=String(name||'').trim();
+ if(!d||d.kind!=='strength')return;
+ const v=$ai('nfAIValidation');
+ if(!name){v.textContent='Choose or enter an exercise first.';return}
+ if(name.length>80){v.textContent='Exercise names must be 80 characters or fewer.';return}
+ if(d.exercises.length>=15){v.textContent='Maximum 15 exercises per strength session.';return}
+ if(d.exercises.some(e=>e.name.toLowerCase()===name.toLowerCase())){v.textContent=name+' is already on this day.';return}
+ let source=null;
+ for(const p of plan||[])for(const e of p.ex||[])if(e[0]?.toLowerCase()===name.toLowerCase())source=e;
+ d.exercises.push(source?plannedExercise(name,source[1],source[2]):plannedExercise(name,3,10));
+ render();
+}
+function handleChange(el){
+ if(!draftAI)return;
+ const d=draftAI.days[Number(el.dataset.day)],f=el.dataset.field;
+ if(!d)return;
+ if(el.dataset.ex!==undefined){const e=d.exercises[Number(el.dataset.ex)];if(!e)return;e[f]=f==='kg'?(el.value===''?null:Number(el.value)):Number(el.value);}
+ else if(f==='kind'){
+  const old=d.kind;d.kind=el.value;
+  if(d.kind==='strength'&&!d.exercises.length)d.exercises=combineExerciseList([target(required[0])],fromCurrentWorkout(Number(el.dataset.day)%5),4);
+  if(d.kind==='run')d.title='Easy Run';else if(d.kind==='cycle')d.title='Endurance Ride';else if(d.kind==='rest')d.title='Recovery';else if(old!==d.kind)d.title='Strength';
+  render();
+ }else d[f]=Number(el.value);
+ const validation=$ai('nfAIValidation');if(validation)validation.textContent=checkPlan();
+}
+function onDraftClick(event){
+ const button=event.target.closest('[data-action]');if(!button||!draftAI)return;
+ const i=Number(button.dataset.day),j=Number(button.dataset.ex),d=draftAI.days[i];
+ if(button.dataset.action==='add-selected'){addExercise(i,$ai('nfAISelect'+i)?.value);return}
+ if(button.dataset.action==='add-custom'){addExercise(i,$ai('nfAICustom'+i)?.value);return}
+ if(button.dataset.action==='remove'&&d?.kind==='strength'&&d.exercises[j]&&!required.includes(d.exercises[j].name)){
+  d.exercises.splice(j,1);render();
+ }
+}
 function approve(){const error=checkPlan();if(error){$ai('nfAIValidation').textContent=error;return}draftAI.approved=true;draftAI.approvedAt=new Date().toISOString();db.nfAIPlans=db.nfAIPlans&&typeof db.nfAIPlans==='object'?db.nfAIPlans:{};db.nfAIPlans[draftAI.weekStart]=JSON.parse(JSON.stringify(draftAI));save();$ai('nfAIStatus').textContent='Week approved and saved locally; cloud sync will follow when connected. No XP awarded.';renderCalendar?.()}
-async function improve(){if(!draftAI)build();if(!draftAI)return;const ctx=window.nfSocialCloudContext?.();const user=ctx?.user,client=ctx?.client;if(!client||!user){$ai('nfAIStatus').textContent='Sign in to cloud to use OpenAI coaching. Adaptive planning works offline.';return}const button=$ai('nfAIImprove');button.disabled=true;$ai('nfAIStatus').textContent='Reviewing training history with AI…';try{const history=Object.fromEntries(required.map(name=>[name,recentSets(name)]));const cardioHistory=(db.cardio||[]).filter(c=>c.type==='run'||c.type==='cycle').slice(-20).map(c=>({date:c.date,type:c.type,distance:c.distance,minutes:c.minutes}));const payload={weekStart:draftAI.weekStart,prefs:draftAI.prefs,days:draftAI.days,history,cardioHistory};const {data,error}=await client.functions.invoke('nextform-ai-coach',{body:payload});if(error)throw error;if(data?.error)throw Error(data.error);if(typeof data.coachNote==='string')draftAI.coachNote=data.coachNote.slice(0,500);for(const a of data.adjustments||[]){if(!required.includes(a.exercise))continue;for(const day of draftAI.days.filter(x=>x.kind==='strength')){const ex=day.exercises.find(e=>e.name===a.exercise);if(!ex)continue;if(Number.isInteger(a.sets)&&a.sets>=1&&a.sets<=5)ex.sets=a.sets;if(Number.isInteger(a.reps)&&a.reps>=4&&a.reps<=15)ex.reps=a.reps;const prev=ex.kg;if(Number.isFinite(a.kg)&&a.kg>=0&&a.kg<=500&&(prev===null||Math.abs(a.kg-prev)<=Math.max(2.5,prev*.05)))ex.kg=a.kg;ex.reason=String(a.reason||'').slice(0,240)}}const check=checkPlan();if(check)throw Error(check);render();$ai('nfAIStatus').textContent='AI recommendations applied. Review and approve when ready.'}catch(e){$ai('nfAIStatus').textContent='AI refinement unavailable: '+String(e?.message||e).slice(0,180)+'. Your adaptive plan is still available.'}finally{button.disabled=false}}
-function setup(){const start=dateAt(monday(today()),7);$ai('nfAIWeek').value=start;$ai('nfAIWeek').addEventListener('change',()=>{$ai('nfAIWeek').value=monday($ai('nfAIWeek').value)||start});$ai('nfAIGenerate').onclick=build;$ai('nfAIImprove').onclick=improve;$ai('nfAINotes').value='Keep Friday for shoulders and arms. Protect recovery before my Saturday ride.';}
+async function explainFunctionError(error){
+ const res=error?.context;
+ let detail=null;
+ try{if(res&&typeof res.clone==='function')detail=await res.clone().json();else if(res&&typeof res.json==='function')detail=await res.json();}catch{}
+ const status=Number(res?.status||0);
+ if(detail?.error){return new Error('HTTP '+(status||'error')+': '+String(detail.error).slice(0,250));}
+ if(status===503)return new Error('HTTP 503: check OPENAI_API_KEY in the Ascension Supabase Edge Function Secrets, and confirm the AI request quota table exists.');
+ if(status===401||status===403)return new Error('HTTP '+status+': sign out and sign in under Settings → Profile & Cloud Sync, then retry.');
+ if(status===429)return new Error('HTTP 429: AI request limit reached. Try another day; adaptive planning still works.');
+ if(status===502)return new Error('HTTP 502: OpenAI request failed. Check your API key, project billing/credits, and model settings.');
+ return new Error((status?'HTTP '+status+': ':'')+String(error?.message||'AI connection failed.'));
+}
+async function improve(){if(!draftAI)build();if(!draftAI)return;const ctx=window.nfSocialCloudContext?.();const user=ctx?.user,client=ctx?.client;if(!client||!user){$ai('nfAIStatus').textContent='Sign in to cloud to use OpenAI coaching. Adaptive planning works offline.';return}const button=$ai('nfAIImprove');button.disabled=true;$ai('nfAIStatus').textContent='Reviewing training history with AI…';try{const history=Object.fromEntries(required.map(name=>[name,recentSets(name)]));const cardioHistory=(db.cardio||[]).filter(c=>c.type==='run'||c.type==='cycle').slice(-20).map(c=>({date:c.date,type:c.type,distance:c.distance,minutes:c.minutes}));const payload={weekStart:draftAI.weekStart,prefs:draftAI.prefs,days:draftAI.days,history,cardioHistory};const {data,error}=await client.functions.invoke('nextform-ai-coach',{body:payload});if(error)throw await explainFunctionError(error);if(data?.error)throw Error(data.error);if(typeof data.coachNote==='string')draftAI.coachNote=data.coachNote.slice(0,500);for(const a of data.adjustments||[]){if(!required.includes(a.exercise))continue;for(const day of draftAI.days.filter(x=>x.kind==='strength')){const ex=day.exercises.find(e=>e.name===a.exercise);if(!ex)continue;if(Number.isInteger(a.sets)&&a.sets>=1&&a.sets<=5)ex.sets=a.sets;if(Number.isInteger(a.reps)&&a.reps>=4&&a.reps<=15)ex.reps=a.reps;const prev=ex.kg;if(Number.isFinite(a.kg)&&a.kg>=0&&a.kg<=500&&(prev===null||Math.abs(a.kg-prev)<=Math.max(2.5,prev*.05)))ex.kg=a.kg;ex.reason=String(a.reason||'').slice(0,240)}}const check=checkPlan();if(check)throw Error(check);render();$ai('nfAIStatus').textContent='AI recommendations applied. Review and approve when ready.'}catch(e){$ai('nfAIStatus').textContent='AI refinement unavailable: '+String(e?.message||e).slice(0,280).replace(/[.!?]+$/,'')+'. Your adaptive plan is still available.'}finally{button.disabled=false}}
+function setup(){const start=dateAt(monday(today()),7);$ai('nfAIWeek').value=start;$ai('nfAIWeek').addEventListener('change',()=>{$ai('nfAIWeek').value=monday($ai('nfAIWeek').value)||start});$ai('nfAIGenerate').onclick=build;$ai('nfAIImprove').onclick=improve;$ai('nfAIOutput').addEventListener('change',e=>{if(e.target.matches('[data-field]'))handleChange(e.target)});$ai('nfAIOutput').addEventListener('click',onDraftClick);$ai('nfAINotes').value='Keep Friday for shoulders and arms. Protect recovery before my Saturday ride.';}
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',setup);else setup();
 window.nfAIGetApprovedWeek=()=>db.nfAIPlans?.[monday(today())]||null;
 })();
