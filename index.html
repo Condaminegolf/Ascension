@@ -1070,7 +1070,43 @@ body.nf-tour-open{overflow:hidden}
 .nf-oura-ai-consent strong{display:block;color:#e0f6ed;font-size:12px}
 .nf-oura-ai-consent small{display:block;color:#a3bcc3;font-size:11px;line-height:1.5;margin-top:3px}
 </style>
-</head><body><div class="wrap"><header class="top"><div><div class="nf-brand-lockup"><img src="./icon-192.png" alt="NEXTFORM logo" class="nf-header-logo"><div><div class="brand">NEXTFORM<span class="brand-mark">_</span></div><div class="tag">THE SYSTEM <span class="system-dot">●</span> ONLINE</div></div></div><div class="nf-header-controls"><button class="nf-sync-chip" id="nfSyncChip" type="button" data-state="local" aria-label="View save and sync status">Local save</button><button class="nf-menu-toggle" id="nfMenuToggle" type="button" aria-label="Open navigation menu" aria-controls="nfQuickMenu" aria-expanded="false"><span id="nfMenuUnreadBadge" class="nf-unread-badge nf-header-unread" hidden aria-hidden="true"></span><svg viewBox="0 0 24 24" width="23" height="23" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button></div></header>
+<style id="nf-daily-coach-styles">
+.nf-daily-coach{margin:14px 0;background:linear-gradient(140deg,#122b32,#102c2b);border:1px solid #3c7965;border-radius:15px;overflow:hidden}
+.nf-daily-coach-header{list-style:none!important;display:flex;align-items:center;gap:12px;min-height:72px;padding:14px;cursor:pointer;color:#eafff4}
+.nf-daily-coach-header::-webkit-details-marker{display:none}.nf-daily-coach-header:focus-visible{outline:3px solid #a0f9c7;outline-offset:-3px}
+.nf-daily-coach-spark{width:40px;height:40px;display:grid;place-items:center;font-size:23px;border-radius:12px;background:#235b45;border:1px solid #589e7c;color:#c4ffda;flex:none}
+.nf-daily-coach-label{display:flex;flex-direction:column;gap:3px;min-width:0;flex:1}
+.nf-daily-coach-label small{font-size:9px;letter-spacing:.14em;color:#96e9c2;font-weight:850}
+.nf-daily-coach-label strong{font-size:16px;color:#f3fff9;line-height:1.25}
+.nf-daily-coach-label em{font-style:normal;font-size:11px;color:#9dbfba}
+.nf-daily-coach-arrow{font-size:23px;color:#91dcbc;transition:transform .22s ease}
+.nf-daily-coach[open] .nf-daily-coach-arrow{transform:rotate(180deg)}
+.nf-daily-coach-body{padding:0 14px 16px;border-top:1px solid #315347}
+.nf-daily-coach-intro{font-size:12px;line-height:1.6;color:#bad5d0;margin:13px 0}
+.nf-daily-coach-factors{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px}
+.nf-daily-coach-factor{min-width:0;border:1px solid #3b5f61;border-radius:10px;padding:10px 8px;background:#1a353b}
+.nf-daily-coach-factor small{font-size:10px;display:block;color:#a4c9c4}
+.nf-daily-coach-factor strong{font-size:12px;line-height:1.4;display:block;margin:5px 0;color:#edfff7;overflow-wrap:anywhere}
+.nf-daily-coach-factor span{font-size:10px;color:#93b8b6;line-height:1.35;display:block}
+.nf-daily-coach-feel{display:flex;align-items:center;justify-content:space-between;gap:12px;font-size:12px;color:#cde7dc;margin:14px 0}
+.nf-daily-coach-feel select{width:min(55%,210px);background:#172f34;border:1px solid #477e70;color:#eafff3;border-radius:9px;padding:9px;min-height:43px}
+.nf-daily-coach-result,.nf-daily-coach-ai{border:1px solid #407668;border-radius:12px;padding:13px;margin:10px 0;background:#173e37;font-size:12px;line-height:1.58;color:#d4ebe0}
+.nf-daily-coach-result h3,.nf-daily-coach-ai h3{font-size:15px;color:#ecfff4;margin:0 0 7px}
+.nf-daily-coach-result p,.nf-daily-coach-ai p{margin:7px 0;color:#d1e6dc;font-size:12px}
+.nf-daily-coach-result ul,.nf-daily-coach-ai ul{margin:8px 0 0 0;padding-left:18px}
+.nf-daily-coach-result li,.nf-daily-coach-ai li{margin:6px 0;color:#c5e1d6;font-size:12px}
+.nf-daily-coach-ex-title{font-size:12px;margin:13px 0 6px;color:#d5f0e1}.nf-daily-coach-exercises{padding-left:15px!important}.nf-daily-coach-exercises li{margin:8px 0!important}.nf-daily-coach-exercises small{display:block;margin-top:3px;color:#a8c5c4;font-size:11px}.nf-daily-coach-caption{color:#94c0b2;font-size:10px;margin-top:8px}
+.nf-daily-coach-actions{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:12px}
+.nf-daily-coach-actions button{min-height:44px;margin:0!important;padding:8px!important;font-size:12px}
+.nf-daily-coach-consent{display:flex;align-items:flex-start;gap:10px;background:#10272d;border-radius:9px;border:1px solid #37575c;padding:10px;margin-top:12px;cursor:pointer}
+.nf-daily-coach-consent input{margin:3px 0 0;width:18px;height:18px;flex:none;accent-color:#73e3b1}
+.nf-daily-coach-consent strong{display:block;color:#d9f2e5;font-size:11px}
+.nf-daily-coach-consent small{display:block;color:#a3c0c1;font-size:10px;line-height:1.5;margin-top:4px}
+.nf-daily-coach-note{font-size:10px;line-height:1.5;color:#94b8b8;margin:10px 0 0}
+.nf-daily-coach-ai[hidden]{display:none!important}
+@media(max-width:355px){.nf-daily-coach-factors{grid-template-columns:1fr}.nf-daily-coach-feel{flex-direction:column;align-items:stretch}.nf-daily-coach-feel select{width:100%}}
+@media(prefers-reduced-motion:reduce){.nf-daily-coach-arrow{transition:none}}
+</style></head><body><div class="wrap"><header class="top"><div><div class="nf-brand-lockup"><img src="./icon-192.png" alt="NEXTFORM logo" class="nf-header-logo"><div><div class="brand">NEXTFORM<span class="brand-mark">_</span></div><div class="tag">THE SYSTEM <span class="system-dot">●</span> ONLINE</div></div></div><div class="nf-header-controls"><button class="nf-sync-chip" id="nfSyncChip" type="button" data-state="local" aria-label="View save and sync status">Local save</button><button class="nf-menu-toggle" id="nfMenuToggle" type="button" aria-label="Open navigation menu" aria-controls="nfQuickMenu" aria-expanded="false"><span id="nfMenuUnreadBadge" class="nf-unread-badge nf-header-unread" hidden aria-hidden="true"></span><svg viewBox="0 0 24 24" width="23" height="23" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button></div></header>
 <div class="nf-menu-shell" id="nfQuickMenu" hidden>
   <button class="nf-menu-backdrop" id="nfMenuBackdrop" type="button" aria-label="Close navigation menu" tabindex="-1"></button>
   <aside class="nf-menu-drawer" id="nfMenuDialog" role="dialog" aria-modal="true" aria-labelledby="nfMenuTitle" tabindex="-1">
@@ -1142,7 +1178,19 @@ body.nf-tour-open{overflow:hidden}
 <div class="nf-coach-subcaption">Adaptive plans work offline. AI refinement is optional and requires your cloud account.</div>
 <p id="nfAIStatus" class="nf-coach-status" role="status" aria-live="polite"></p>
 <div id="nfAIOutput"></div>
-</div></details><div class="panel nf-strength-workspace" id="nfStrengthWorkspace"><div class="nf-strength-toolbar"><div><div class="tag">STRENGTH WORKOUT</div><h2 class="nf-strength-toolbar-heading">Log your sets</h2></div><div class="nf-training-mode" role="group" aria-label="Workout detail level"><button type="button" id="nfBeginnerMode" data-nf-workout-view="beginner" aria-pressed="true">Simple</button><button type="button" id="nfAdvancedMode" data-nf-workout-view="advanced" aria-pressed="false">Detailed</button></div></div><p class="nf-workout-one-line">Enter the weight and reps, then tick each completed set. <button class="nf-tip-trigger" type="button" data-nf-tip="sets" aria-label="How to log a set">ⓘ</button></p><div class="days" id="days"></div><h2 id="workoutTitle" style="margin-bottom:3px"></h2><div class="muted" id="workoutSub"></div><div id="exercises"></div><div class="exercise" id="overloadTrainTip"></div><div id="nfAdvancedMetrics" class="nf-advanced-metrics nf-workout-advanced" aria-live="polite"></div><div class="nf-simple-edit"><button type="button" class="secondary" data-nf-edit-workout="true">Edit exercises</button></div><details class="workout-builder nf-workout-advanced" id="workoutBuilder"><summary>Customise this training day</summary><p class="muted">Change exercises, set counts and rep targets. Your five training days remain available. Previously logged workouts are never rewritten.</p><div id="builderRows"></div><div class="builder-actions"><button class="secondary" type="button" onclick="ascBuilderAdd()">+ Add exercise</button><button class="secondary" type="button" onclick="ascBuilderReset()">Restore default day</button></div><button class="primary" type="button" onclick="ascBuilderSave()">SAVE WORKOUT PLAN</button><p class="muted">Saving changes clears unsaved set drafts for this day, after confirmation.</p></details><button class="primary" onclick="finishWorkout()">SAVE COMPLETED SETS · FULL OR PARTIAL</button><div class="muted" id="draftStatus" style="margin-top:10px"></div><p class="foot">Check each set as you finish it. Enter the weight and repetitions actually performed. Save any number of completed sets when time runs out. You can return and finish the remaining sets later. XP is awarded only for newly saved sets; the session bonus is proportional to completed sets. Rank also requires cumulative reps, kg lifted (weight × reps), and from C Rank upward, bodyweight-relative strength trials. Inactivity lowers current rank after a 7-day grace period (one tier per 14 further days). Regain the first lost tier after 3 distinct active days, then one more tier per 5 additional active days; each tier also requires a workout or cardio day. Attributes lose 5 points per 7 inactive days after the grace period. Lifetime XP and records remain saved.</p></div><details class="nf-cardio-disclosure" id="nfCardioDisclosure"><summary><span class="nf-cardio-disclosure-icon">↗</span><span><strong>Run, cycle or other activity</strong><small>Open cardio and endurance logging</small></span><span class="nf-cardio-chevron" aria-hidden="true">⌄</span></summary><div class="panel" id="cardioPanel"><div class="tag">OPTIONAL ENDURANCE TRAINING</div><h2>Run · Cycle · Walk · Other Exercise</h2><p class="muted">Log distance activities or other exercise sessions (Yoga, HIIT, Pilates, Weight Training and more). Imported Strava and Oura sessions also appear in your history. Other Exercise contributes bounded XP and consistency, but not running, cycling or lifting milestones without those measurements.</p><div class="grid2"><div class="field"><label for="cardioType">Activity</label><select id="cardioType" onchange="renderCardioGoals()"><option value="run">Run</option><option value="cycle">Cycle</option><option value="walk">Walk</option><option value="exercise">Other Exercise</option></select></div><div class="field"><label for="cardioDate">Date</label><input type="date" id="cardioDate"></div><div class="field" id="cardioDistanceField"><label for="cardioDistance">Distance (km)</label><input type="number" min="0.01" step="0.1" id="cardioDistance" placeholder="e.g. 3.0"></div><div class="field" id="cardioActivityNameField" style="display:none"><label for="cardioActivityName">Exercise (optional)</label><input id="cardioActivityName" maxlength="65" placeholder="Yoga, HIIT, weights, Pilates…"></div><div class="field"><label for="cardioMinutes">Duration (minutes)</label><input type="number" min="1" step="1" id="cardioMinutes" placeholder="e.g. 25"></div></div><div id="cardioTargetInfo" class="cardio-target"></div><button class="primary" onclick="saveCardio()">LOG ACTIVITY & EARN XP</button><div id="cardioRecent" class="cardio-recent"></div></div></details></main><main id="quests" class="hidden"><div class="panel"><div class="tag">TRAINING CHALLENGES</div><h2>Challenges &amp; Goals</h2><p class="muted">Daily quests now live on Home. Your monthly challenges and distance targets remain here.</p><button type="button" class="secondary" onclick="nfShowHomeQuests()">Go to Daily Quests</button></div><div class="panel"><div class="tag">ENDURANCE TARGETS</div><h3>Weekly Activity Goals</h3><p class="muted">Edit your distance goals whenever you need. Goals are targets, not prerequisites for earning activity XP.</p><div id="cardioGoalControls"></div><button class="primary" onclick="saveCardioGoals()">SAVE DISTANCE GOALS</button><div id="cardioWeeklyProgress"></div></div><div class="panel" id="monthlyChallengesPanel"><div class="tag">MONTHLY PROGRESSION</div><h2>Monthly Challenges</h2><p class="muted">One-time rewards per challenge, per calendar month. Log real activity to unlock; claimed rewards are reversed if a deleted activity causes you to fall below the target.</p><div id="monthlyChallenges"></div></div></main><main id="progress" class="hidden"><div class="panel"><h2>Body & Recovery Log</h2><div class="grid2"><div class="field"><label>Body weight (kg)</label><input type="number" id="bodyWeight" step="0.1" placeholder="140"></div><div class="field"><label>Waist (cm)</label><input type="number" id="waist" step="0.1" placeholder="Optional"></div><div class="field"><label>Daily steps</label><input type="number" id="stepsInput" placeholder="e.g. 7500"></div><div class="field"><label>Sleep (hours)</label><input type="number" id="sleepInput" step="0.1" placeholder="e.g. 8"></div></div><button class="primary" onclick="saveMetrics()">SAVE TODAY'S METRICS</button></div><div class="panel"><h3>Recent Workout History</h3><div id="history"></div></div><div class="panel"><h3>Endurance History</h3><div id="cardioHistory"></div></div><div class="panel"><div class="tag">BODY COMPOSITION</div><h2>Weight & Waist Goals</h2><div class="grid2"><div class="field"><label>Target weight (kg)</label><input id="targetWeight" type="number" min="30" max="350" step="0.1" value="110"></div><div class="field"><label>Target waist (cm, optional)</label><input id="targetWaist" type="number" min="30" max="250" step="0.1" placeholder="Optional"></div></div><button class="primary" onclick="ascSaveGoals()">SAVE BODY GOALS</button><div id="bodyGoalOverview"></div></div><div class="panel"><h3>Weight History</h3><div id="weightHistory"></div></div></main><main id="ranks" class="hidden"><div class="panel"><div class="tag">ASCENSION PATH</div><h2>From F to S Rank</h2><p class="muted">Every rank requires XP, training sessions, total repetitions and total training volume (kg × reps). C Rank onward also requires strength trials scaled to bodyweight. Partial sessions count and can be continued without double-counting.</p><div id="rankList"></div></div><div class="panel"><h3>Achievement Badges</h3><div id="badges"></div></div><div class="panel"><h3>Strength Trials · Relative to Bodyweight</h3><p class="muted">Bench, squat, overhead press and Romanian deadlift milestones are scaled to your current bodyweight. Your best estimated 1-rep max (e1RM) is calculated from logged sets of 1–10 reps. These are game milestones, not medical or normative strength standards. Never attempt a max lift just to earn a badge.</p><div id="strengthBadges"></div></div><div class="panel"><div class="tag">YOUR MILESTONES</div><h2>Achievement Timeline</h2><p class="muted">Achievements are recorded when first reached and remain in your timeline. Milestone badges do not award extra XP.</p><div id="achievementTimeline"></div></div></main>
+</div></details><details class="panel nf-daily-coach" id="nfDailyCoachPanel" aria-label="Today’s training recommendation">
+ <summary class="nf-daily-coach-header"><span class="nf-daily-coach-spark" aria-hidden="true">✦</span><span class="nf-daily-coach-label"><small>THE SYSTEM / SESSION INTELLIGENCE</small><strong>Today’s AI recommendation</strong><em>Optional · Review before you train</em></span><span class="nf-daily-coach-arrow" aria-hidden="true">⌄</span></summary>
+ <div class="nf-daily-coach-body">
+  <p class="nf-daily-coach-intro">How to approach this session, based on your previous lifts, today’s training and Oura recovery.</p>
+  <div class="nf-daily-coach-factors" id="nfDailyCoachFactors" aria-live="polite"></div>
+  <label class="nf-daily-coach-feel" for="nfDailyCoachFeeling">How are you feeling right now? <select id="nfDailyCoachFeeling"><option value="normal">Normal</option><option value="fresh">Fresh and energetic</option><option value="tired">More tired than usual</option><option value="sore">Sore / recovering</option></select></label>
+  <div id="nfDailyCoachLocal" class="nf-daily-coach-result" role="status" aria-live="polite"></div>
+  <div class="nf-daily-coach-actions"><button type="button" id="nfDailyCoachRefresh" class="secondary">↻ Refresh recommendation</button><button type="button" id="nfDailyCoachOpenAI" class="primary">✦ Get AI review</button></div>
+  <label class="nf-daily-coach-consent"><input type="checkbox" id="nfDailyCoachShareOura"><span><strong>Include Oura measurements in AI review</strong><small>Optional. Only when enabled, a small recovery summary is sent securely to OpenAI. Local recommendations can use Oura without sharing it.</small></span></label>
+  <div id="nfDailyCoachAIResult" class="nf-daily-coach-ai" hidden aria-live="polite"></div>
+  <p class="nf-daily-coach-note">Advice only. Your sets, weights, XP and Skill Tree are not changed. If you have unusual pain, don't push through it.</p>
+ </div>
+</details><div class="panel nf-strength-workspace" id="nfStrengthWorkspace"><div class="nf-strength-toolbar"><div><div class="tag">STRENGTH WORKOUT</div><h2 class="nf-strength-toolbar-heading">Log your sets</h2></div><div class="nf-training-mode" role="group" aria-label="Workout detail level"><button type="button" id="nfBeginnerMode" data-nf-workout-view="beginner" aria-pressed="true">Simple</button><button type="button" id="nfAdvancedMode" data-nf-workout-view="advanced" aria-pressed="false">Detailed</button></div></div><p class="nf-workout-one-line">Enter the weight and reps, then tick each completed set. <button class="nf-tip-trigger" type="button" data-nf-tip="sets" aria-label="How to log a set">ⓘ</button></p><div class="days" id="days"></div><h2 id="workoutTitle" style="margin-bottom:3px"></h2><div class="muted" id="workoutSub"></div><div id="exercises"></div><div class="exercise" id="overloadTrainTip"></div><div id="nfAdvancedMetrics" class="nf-advanced-metrics nf-workout-advanced" aria-live="polite"></div><div class="nf-simple-edit"><button type="button" class="secondary" data-nf-edit-workout="true">Edit exercises</button></div><details class="workout-builder nf-workout-advanced" id="workoutBuilder"><summary>Customise this training day</summary><p class="muted">Change exercises, set counts and rep targets. Your five training days remain available. Previously logged workouts are never rewritten.</p><div id="builderRows"></div><div class="builder-actions"><button class="secondary" type="button" onclick="ascBuilderAdd()">+ Add exercise</button><button class="secondary" type="button" onclick="ascBuilderReset()">Restore default day</button></div><button class="primary" type="button" onclick="ascBuilderSave()">SAVE WORKOUT PLAN</button><p class="muted">Saving changes clears unsaved set drafts for this day, after confirmation.</p></details><button class="primary" onclick="finishWorkout()">SAVE COMPLETED SETS · FULL OR PARTIAL</button><div class="muted" id="draftStatus" style="margin-top:10px"></div><p class="foot">Check each set as you finish it. Enter the weight and repetitions actually performed. Save any number of completed sets when time runs out. You can return and finish the remaining sets later. XP is awarded only for newly saved sets; the session bonus is proportional to completed sets. Rank also requires cumulative reps, kg lifted (weight × reps), and from C Rank upward, bodyweight-relative strength trials. Inactivity lowers current rank after a 7-day grace period (one tier per 14 further days). Regain the first lost tier after 3 distinct active days, then one more tier per 5 additional active days; each tier also requires a workout or cardio day. Attributes lose 5 points per 7 inactive days after the grace period. Lifetime XP and records remain saved.</p></div><details class="nf-cardio-disclosure" id="nfCardioDisclosure"><summary><span class="nf-cardio-disclosure-icon">↗</span><span><strong>Run, cycle or other activity</strong><small>Open cardio and endurance logging</small></span><span class="nf-cardio-chevron" aria-hidden="true">⌄</span></summary><div class="panel" id="cardioPanel"><div class="tag">OPTIONAL ENDURANCE TRAINING</div><h2>Run · Cycle · Walk · Other Exercise</h2><p class="muted">Log distance activities or other exercise sessions (Yoga, HIIT, Pilates, Weight Training and more). Imported Strava and Oura sessions also appear in your history. Other Exercise contributes bounded XP and consistency, but not running, cycling or lifting milestones without those measurements.</p><div class="grid2"><div class="field"><label for="cardioType">Activity</label><select id="cardioType" onchange="renderCardioGoals()"><option value="run">Run</option><option value="cycle">Cycle</option><option value="walk">Walk</option><option value="exercise">Other Exercise</option></select></div><div class="field"><label for="cardioDate">Date</label><input type="date" id="cardioDate"></div><div class="field" id="cardioDistanceField"><label for="cardioDistance">Distance (km)</label><input type="number" min="0.01" step="0.1" id="cardioDistance" placeholder="e.g. 3.0"></div><div class="field" id="cardioActivityNameField" style="display:none"><label for="cardioActivityName">Exercise (optional)</label><input id="cardioActivityName" maxlength="65" placeholder="Yoga, HIIT, weights, Pilates…"></div><div class="field"><label for="cardioMinutes">Duration (minutes)</label><input type="number" min="1" step="1" id="cardioMinutes" placeholder="e.g. 25"></div></div><div id="cardioTargetInfo" class="cardio-target"></div><button class="primary" onclick="saveCardio()">LOG ACTIVITY & EARN XP</button><div id="cardioRecent" class="cardio-recent"></div></div></details></main><main id="quests" class="hidden"><div class="panel"><div class="tag">TRAINING CHALLENGES</div><h2>Challenges &amp; Goals</h2><p class="muted">Daily quests now live on Home. Your monthly challenges and distance targets remain here.</p><button type="button" class="secondary" onclick="nfShowHomeQuests()">Go to Daily Quests</button></div><div class="panel"><div class="tag">ENDURANCE TARGETS</div><h3>Weekly Activity Goals</h3><p class="muted">Edit your distance goals whenever you need. Goals are targets, not prerequisites for earning activity XP.</p><div id="cardioGoalControls"></div><button class="primary" onclick="saveCardioGoals()">SAVE DISTANCE GOALS</button><div id="cardioWeeklyProgress"></div></div><div class="panel" id="monthlyChallengesPanel"><div class="tag">MONTHLY PROGRESSION</div><h2>Monthly Challenges</h2><p class="muted">One-time rewards per challenge, per calendar month. Log real activity to unlock; claimed rewards are reversed if a deleted activity causes you to fall below the target.</p><div id="monthlyChallenges"></div></div></main><main id="progress" class="hidden"><div class="panel"><h2>Body & Recovery Log</h2><div class="grid2"><div class="field"><label>Body weight (kg)</label><input type="number" id="bodyWeight" step="0.1" placeholder="140"></div><div class="field"><label>Waist (cm)</label><input type="number" id="waist" step="0.1" placeholder="Optional"></div><div class="field"><label>Daily steps</label><input type="number" id="stepsInput" placeholder="e.g. 7500"></div><div class="field"><label>Sleep (hours)</label><input type="number" id="sleepInput" step="0.1" placeholder="e.g. 8"></div></div><button class="primary" onclick="saveMetrics()">SAVE TODAY'S METRICS</button></div><div class="panel"><h3>Recent Workout History</h3><div id="history"></div></div><div class="panel"><h3>Endurance History</h3><div id="cardioHistory"></div></div><div class="panel"><div class="tag">BODY COMPOSITION</div><h2>Weight & Waist Goals</h2><div class="grid2"><div class="field"><label>Target weight (kg)</label><input id="targetWeight" type="number" min="30" max="350" step="0.1" value="110"></div><div class="field"><label>Target waist (cm, optional)</label><input id="targetWaist" type="number" min="30" max="250" step="0.1" placeholder="Optional"></div></div><button class="primary" onclick="ascSaveGoals()">SAVE BODY GOALS</button><div id="bodyGoalOverview"></div></div><div class="panel"><h3>Weight History</h3><div id="weightHistory"></div></div></main><main id="ranks" class="hidden"><div class="panel"><div class="tag">ASCENSION PATH</div><h2>From F to S Rank</h2><p class="muted">Every rank requires XP, training sessions, total repetitions and total training volume (kg × reps). C Rank onward also requires strength trials scaled to bodyweight. Partial sessions count and can be continued without double-counting.</p><div id="rankList"></div></div><div class="panel"><h3>Achievement Badges</h3><div id="badges"></div></div><div class="panel"><h3>Strength Trials · Relative to Bodyweight</h3><p class="muted">Bench, squat, overhead press and Romanian deadlift milestones are scaled to your current bodyweight. Your best estimated 1-rep max (e1RM) is calculated from logged sets of 1–10 reps. These are game milestones, not medical or normative strength standards. Never attempt a max lift just to earn a badge.</p><div id="strengthBadges"></div></div><div class="panel"><div class="tag">YOUR MILESTONES</div><h2>Achievement Timeline</h2><p class="muted">Achievements are recorded when first reached and remain in your timeline. Milestone badges do not award extra XP.</p><div id="achievementTimeline"></div></div></main>
 <main class="hidden" id="hunter">
 <details class="panel nf-collapsible" data-nf-panel="character" id="nfCharacterSelectorPanel" open=""><summary class="nf-collapse-trigger"><span class="nf-collapse-label"><span class="nf-collapse-kicker">CHARACTER IDENTITY</span><span class="nf-collapse-name">Your Character</span></span><span aria-hidden="true" class="nf-collapse-chevron">⌄</span></summary><div class="nf-collapse-body"><p class="muted">Choose your character. Your progress stays the same. <button class="nf-tip-trigger" type="button" data-nf-tip="character" aria-label="How character progression works">ⓘ</button></p><div class="nf-character-switch"><button data-nf-character="male" id="nfMaleCharacter" type="button">Male Character</button><button data-nf-character="female" id="nfFemaleCharacter" type="button">Female Character</button></div></div></details><div class="panel"><div class="tag">AVATAR PROGRESSION</div><h2>Character Evolution</h2><div class="upgrade-grid"><div class="nf-avatar-column"><div aria-label="Athlete name and equipped title" aria-live="polite" class="nf-avatar-identity"><div class="nf-avatar-player-name" id="nfAvatarDisplayName">Athlete</div><div class="nf-avatar-player-title nf-avatar-title-empty" id="nfAvatarDisplayTitle">No title equipped</div></div><div class="avatar-frame" id="hunterAvatar"></div></div><div><div class="big" id="hunterEvoTitle"></div><p class="muted" id="hunterEvoInfo"></p><details class="nf-next-forms nf-collapsible" data-nf-panel="forms" id="nfNextFormsPanel"><summary class="nf-collapse-trigger"><span class="nf-collapse-label"><span class="nf-collapse-kicker">RANK PROGRESSION</span><span class="nf-collapse-name">Next Forms</span></span><span aria-hidden="true" class="nf-collapse-chevron">⌄</span></summary><div class="nf-collapse-body"><div class="skill" id="evoNext"></div><div class="nf-rank-strip" id="nfRankStrip"></div></div></details></div></div></div>
 <details class="panel nf-collapsible" data-nf-panel="equipment" id="nfEquipmentCollectionPanel"><summary class="nf-collapse-trigger"><span class="nf-collapse-label"><span class="nf-collapse-kicker">CHARACTER / WARDROBE</span><span class="nf-collapse-name">Equipment Collection</span></span><span aria-hidden="true" class="nf-collapse-chevron">⌄</span></summary><div class="nf-collapse-body"><div aria-live="polite" id="nfMaleEquipmentMount"></div></div></details>
@@ -3108,7 +3156,13 @@ async function syncStrava(){
  window.nfAuditImport?.('Strava',{message:`${added} imported, ${corrected} corrected, ${reconciled} reconciled, ${skipped} skipped`});
  say('Strava: '+added+' activities imported (including Other Exercise), '+corrected+' distances corrected, '+reconciled+' overlapping Oura workouts reconciled, '+skipped+' skipped/already present. '+(r.activities||[]).length+' checked.');
 }
-function renderRecovery(){const items=Object.values(db.ouraRecovery||{}).sort((a,b)=>b.date.localeCompare(a.date)).slice(0,7);$i('ascOuraRecovery').innerHTML='<h3>Oura Recovery · Latest 7 days</h3>'+(items.length?items.map(x=>'<div class="milestone"><strong>'+safe(x.date)+'</strong><span>Readiness '+safe(x.readiness??'—')+' · Sleep '+safe(x.sleep??'—')+' · HRV '+safe(x.hrv??'—')+' ms · Resting HR '+safe(x.restingHR??'—')+' bpm</span></div>').join(''):'<p class="muted">No recovery data synced yet.</p>')+'<h3>Oura-only workouts</h3>'+((db.ouraWorkouts||[]).length?(db.ouraWorkouts||[]).slice().sort((a,b)=>b.date.localeCompare(a.date)).slice(0,12).map(w=>'<div class="milestone"><strong>'+safe(w.activity)+'</strong><span>'+safe(w.date)+' · '+safe(w.minutes)+' min · +'+safe(w.xp)+' XP</span></div>').join(''):'<p class="muted">No Oura-only workouts imported yet.</p>')+'<p class="muted">Recovery measurements are informational, not medical advice or automatic XP penalties.</p>'}
+function renderRecovery(){const items=Object.values(db.ouraRecovery||{}).sort((a,b)=>b.date.localeCompare(a.date)).slice(0,7);
+ const currentDate=typeof today==='function'?today():new Date().toLocaleDateString('en-CA');
+ const current=items.find(x=>x.date===currentDate);
+ const ready=!!current&&current.readiness!=null;
+ const slept=!!current&&(current.sleep!=null||current.sleepHours!=null);
+ const advisory=items.length&&(!ready||!slept)?'<p class="muted" role="status">Today’s '+(!ready&&!slept?'readiness and sleep':!ready?'readiness':'sleep')+' is not yet available in the Oura sync. Latest record: '+safe(items[0].date)+'. Open the Oura app to sync the ring, then tap Sync Oura again.</p>':'';
+ $i('ascOuraRecovery').innerHTML='<h3>Oura Recovery · Latest 7 days</h3>'+advisory+(items.length?items.map(x=>'<div class="milestone"><strong>'+safe(x.date)+'</strong><span>Readiness '+safe(x.readiness??'—')+' · Sleep '+safe(x.sleep??'—')+' · HRV '+safe(x.hrv??'—')+' ms · Resting HR '+safe(x.restingHR??'—')+' bpm</span></div>').join(''):'<p class="muted">No recovery data synced yet.</p>')+'<h3>Oura-only workouts</h3>'+((db.ouraWorkouts||[]).length?(db.ouraWorkouts||[]).slice().sort((a,b)=>b.date.localeCompare(a.date)).slice(0,12).map(w=>'<div class="milestone"><strong>'+safe(w.activity)+'</strong><span>'+safe(w.date)+' · '+safe(w.minutes)+' min · +'+safe(w.xp)+' XP</span></div>').join(''):'<p class="muted">No Oura-only workouts imported yet.</p>')+'<p class="muted">Recovery measurements are informational, not medical advice or automatic XP penalties.</p>'}
 function nfMigrateOuraExerciseSessions(){
  let changed=false;
  for(const w of db.ouraWorkouts||[]){
@@ -3168,7 +3222,16 @@ function importOuraWorkouts(rows){
 nfMigrateOuraExerciseSessions();
 const nfExistingRenderAll=renderAll;
 renderAll=function(...args){nfMigrateOuraExerciseSessions();return nfExistingRenderAll(...args);};
-async function syncOura(){const r=await api('sync',{provider:'oura'});db.ouraConnected=true;db.ouraSyncFailed=false;db.ouraRecovery??={};for(const x of r.recovery||[])db.ouraRecovery[x.date]=x;applyOuraHabits(r.recovery||[]);const w=importOuraWorkouts(r.workouts||[]);save();renderRecovery();renderQuests();window.dispatchEvent(new Event('nf:oura-synced'));if(w.added)refreshViews();window.nfAuditImport?.('Oura',{message:`${w.added} imported, ${w.duplicates} duplicates skipped, ${w.uncertain} uncertain`});say('Oura: '+(r.recovery||[]).length+' recovery days, '+w.added+' native workouts imported, '+w.duplicates+' duplicates skipped, '+w.uncertain+' uncertain-source workouts skipped.'+(r.workoutPermissionMissing?' Reconnect Oura to grant Workout access.':''));}
+async function syncOura(){const r=await api('sync',{provider:'oura',timezone:Intl.DateTimeFormat().resolvedOptions().timeZone||'Australia/Brisbane'});db.ouraConnected=true;db.ouraSyncFailed=false;db.ouraRecovery??={};for(const x of r.recovery||[])db.ouraRecovery[x.date]=x;applyOuraHabits(r.recovery||[]);const w=importOuraWorkouts(r.workouts||[]);save();renderRecovery();renderQuests();window.dispatchEvent(new Event('nf:oura-synced'));if(w.added)refreshViews();window.nfAuditImport?.('Oura',{message:`${w.added} imported, ${w.duplicates} duplicates skipped, ${w.uncertain} uncertain`});const todayDate=typeof today==='function'?today():new Date().toLocaleDateString('en-CA');
+ const recent=(r.recovery||[]).filter(x=>x&&x.date).sort((a,b)=>String(b.date).localeCompare(String(a.date)))[0];
+ const todayValues=(r.recovery||[]).find(x=>x?.date===todayDate);
+ const readyToday=todayValues?.readiness!=null;
+ const sleepToday=(todayValues?.sleep!=null||todayValues?.sleepHours!=null);
+ const freshness=readyToday&&sleepToday?'Today’s readiness and sleep have synced.':
+  (readyToday||sleepToday?'Oura has sent only part of today’s readings.':
+  'Today’s sleep and readiness are not in the Oura response yet. Open Oura and sync your ring, then try again.');
+ say('Oura sync complete. Latest returned date: '+(recent?.date||'none')+'. '+freshness+' '+w.added+' new workouts.'+
+ (r.workoutPermissionMissing?' Reconnect Oura to grant Workout access.':''));}
 // Sync on launch and at most every 15/30 minutes while the page is open.
 // Browsers may suspend timers in background tabs; foregrounding triggers a catch-up.
 async function autoSync(force=false){
@@ -4164,4 +4227,151 @@ window.nfAIGetApprovedWeek=()=>db.nfAIPlans?.[monday(today())]||null;
  refresh();
 })();
 </script>
-</body></html>
+<script id="nf-daily-training-coach-js">
+(()=>{
+ 'use strict';
+ const byId=id=>document.getElementById(id);
+ const escape=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+ const n=(x)=>x===null||x===undefined||x===''?null:(Number.isFinite(Number(x))?Number(x):null);
+ const dayKey=()=>{const d=new Date();return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`};
+ const weekStart=(date)=>{const d=new Date(date+'T12:00:00');d.setDate(d.getDate()-(d.getDay()+6)%7);return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`};
+ const ageDays=(date)=>Math.max(0,Math.round((new Date(dayKey()+'T12:00:00')-new Date(date+'T12:00:00'))/86400000));
+ const panel=byId('nfDailyCoachPanel');if(!panel)return;
+ let latestSignature='',lastContext=null,requestInFlight=false;
+ function selectedSession(){
+  const today=dayKey(),weekday=(new Date().getDay()+6)%7;
+  const approved=db?.nfAIPlans?.[weekStart(today)];
+  const entry=approved?.days?.[weekday];
+  const sessions=entry?.date===today&&Array.isArray(entry.sessions)?entry.sessions.filter(x=>x&&['strength','run','cycle'].includes(x.kind)):[];
+  const isToday=weekday<5&&day===weekday;
+  const strength=sessions.find(x=>x.kind==='strength');
+  const fallback=plan?.[day];
+  const exercises=(strength?.exercises?.length?strength.exercises.map(x=>({name:String(x.name),sets:n(x.sets)||3,reps:n(x.reps)||8,kg:n(x.kg)})):
+      (fallback?.ex||[]).map(e=>({name:String(e[0]),sets:n(e[1])||3,reps:Number.parseInt(String(e[2]))||8,kg:null}))).slice(0,15);
+  const title=strength?.title||fallback?.name||'Training session';
+  return {date:today,selectedDay:day,workoutName:title,exercises,
+   isToday,hasApproved:!!(entry?.date===today),
+   sessions:sessions.map(s=>({kind:s.kind,title:String(s.title||s.kind).slice(0,80),minutes:n(s.minutes)||0,time:String(s.time||'').slice(0,5),intensity:String(s.intensity||'easy').slice(0,12)})),
+   scheduledCardio:sessions.filter(s=>s.kind==='run'||s.kind==='cycle').map(s=>({kind:s.kind,minutes:n(s.minutes)||0,intensity:String(s.intensity||'easy')}))};
+ }
+ function historyFor(exercises){
+  const names=new Set(exercises.map(e=>e.name.toLowerCase()));
+  const dated=(db?.workouts||[]).filter(w=>w?.date&&w.date<=dayKey()&&Array.isArray(w.sets)).sort((a,b)=>String(b.date).localeCompare(String(a.date))).slice(0,150);
+  const grouped=new Map();
+  for(const w of dated)for(const set of w.sets){const name=String(set.exercise||'').trim();if(!names.has(name.toLowerCase()))continue;
+    const weight=n(set.kg),reps=n(set.reps),rpe=n(set.rpe);
+    if(weight===null||weight<0||reps===null||reps<=0)continue;
+    if(!grouped.has(name))grouped.set(name,[]);
+    if(grouped.get(name).length<12)grouped.get(name).push({date:w.date,kg:weight,reps,rpe:rpe!==null&&rpe>=6&&rpe<=10?rpe:null});
+  }
+  return Object.fromEntries(exercises.map(e=>[e.name,(grouped.get(e.name)||[]).slice(0,9)]));
+ }
+ function activityFor(){
+  const today=dayKey(),recent=[];
+  const cutoff=new Date(today+'T12:00:00');cutoff.setDate(cutoff.getDate()-2);
+  const oldest=`${cutoff.getFullYear()}-${String(cutoff.getMonth()+1).padStart(2,'0')}-${String(cutoff.getDate()).padStart(2,'0')}`;
+  for(const c of db?.cardio||[]){if(!c||!c.date||c.date<oldest||c.date>today)continue;
+   if(!['run','cycle','walk','exercise'].includes(c.type))continue;
+   const minutes=n(c.minutes)||0;if(minutes<1)continue;
+   recent.push({date:c.date,type:c.type,minutes:Math.round(minutes),source:String(c.source||'manual').slice(0,12),intensity:String(c.intensity||'').slice(0,12)});
+  }
+  return recent.slice(-25);
+ }
+ function ouraData(){
+  const snap=typeof window.nfOuraReadinessForCoach==='function'?window.nfOuraReadinessForCoach(dayKey()):null;
+  if(!snap)return null;
+  return {date:snap.date,readiness:n(snap.readiness),sleepHours:n(snap.sleepHours),hrv:n(snap.hrv),restingHR:n(snap.restingHR),hrvBaseline:n(snap.hrvBaseline),hrBaseline:n(snap.hrBaseline),level:snap.level,signals:Array.isArray(snap.signals)?snap.signals.slice(0,5):[],fresh:!!snap.fresh,age:Math.max(0,n(snap.age)||0)};
+ }
+ function createContext(){const selected=selectedSession();return {...selected,history:historyFor(selected.exercises),recentActivity:activityFor(),oura:ouraData(),feeling:byId('nfDailyCoachFeeling')?.value||'normal'};}
+ function coaching(context){
+  const cardio=context.recentActivity;
+  const recentMinutes=cardio.filter(c=>c.date>=(()=>{const d=new Date(context.date+'T12:00:00');d.setDate(d.getDate()-1);return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0')})()).reduce((a,b)=>a+b.minutes,0);
+  const scheduled=context.scheduledCardio;
+  const scheduledLoad=scheduled.reduce((a,s)=>a+s.minutes*(s.intensity==='hard'?1.5:s.intensity==='moderate'?1.15:.7),0);
+  const lower=context.exercises.some(e=>/squat|deadlift|split squat|lunge|leg press|hamstring/i.test(e.name));
+  const ora=context.oura;
+  const recoveryFlag=!!(ora?.fresh&&ora.level!=='steady');
+  const subjectiveFlag=context.feeling==='tired'||context.feeling==='sore';
+  const intense=recentMinutes>=65||scheduledLoad>=80||(lower&&scheduledLoad>=45);
+  const caution=recoveryFlag||subjectiveFlag||intense;
+  const high=ora?.fresh&&ora.level==='higher'||subjectiveFlag&&intense;
+  const tone=high?'Take a lighter approach':caution?'Train with recovery in mind':'Follow your planned session';
+  const actions=[];
+  const note=[];
+  if(context.exercises.length){
+   const historical=context.exercises.map(e=>{const sets=context.history[e.name]||[];return {...e,last:sets[0]||null}});
+   const first=historical.find(e=>e.last);
+   if(first){note.push('Last recorded '+first.name+': '+first.last.kg+' kg × '+first.last.reps+' reps ('+ageDays(first.last.date)+' days ago).');
+    actions.push('Start with lighter warm-up sets. For '+first.name+', use '+first.last.kg+' kg as a reference, not a required target; adjust for form and how the first work set feels.');}
+   else actions.push('No comparable logged sets yet. Choose comfortable loads and build a consistent baseline rather than guessing a weight increase.');
+   if(caution)actions.push('Keep your working weights steady initially. If fatigue persists, reduce accessory volume by about one set rather than skipping protected Skill Tree movements.');
+   else actions.push('If warm-ups feel smooth and all prior target reps were comfortable, you may progress cautiously; otherwise repeat your last successful load and reps.');
+  } else actions.push('No strength exercises selected. Check your scheduled cardio and use a comfortable effort based on recovery.');
+  if(scheduled.length)actions.push('Today also has '+scheduled.map(x=>x.minutes+' min '+x.intensity+' '+(x.kind==='run'?'run':'ride')).join(' plus ')+'. Keep hard endurance away from heavy lower-body work where practical.');
+  if(ora){if(!ora.fresh)note.push('Oura: last reading '+ora.date+' is stale; no recovery adjustment is based on it.');
+   else if(ora.signals.length)note.push('Oura: '+ora.signals.slice(0,3).join(' · ')+'.');
+   else note.push('Oura: recent data available with no combined warning signs.');}
+  else note.push('No Oura reading synced. Guidance uses logged training and current preferences.');
+  if(recentMinutes)note.push(recentMinutes+' min of cardio logged across today and yesterday.');
+  if(subjectiveFlag)note.push('You reported feeling '+(context.feeling==='sore'?'sore':'tired')+'.');
+  return {tone,actions,note,flag:caution?'review':'normal',recentMinutes};
+ }
+ function safeCard(label,value,sub){return `<div class="nf-daily-coach-factor"><small>${escape(label)}</small><strong>${escape(value)}</strong><span>${escape(sub)}</span></div>`;}
+ function render(){
+  if(!panel.open)return;
+  const context=createContext(),recommend=coaching(context);
+  lastContext=context;
+  const all=Object.values(context.history).flat(),latest=all.slice().sort((a,b)=>b.date.localeCompare(a.date))[0];
+  const daily=context.scheduledCardio.length,minutes=context.scheduledCardio.reduce((v,c)=>v+c.minutes,0);
+  byId('nfDailyCoachFactors').innerHTML=safeCard('Past performance',latest?latest.date:'No history',latest?'Verified completed sets':'Log a few sessions')+
+   safeCard('Today’s activity',daily?`${daily} cardio planned`:context.recentActivity.some(x=>x.date===context.date)?'Cardio logged':'Strength focus',minutes?minutes+' min planned':context.recentActivity.filter(x=>x.date===context.date).reduce((n,c)=>n+c.minutes,0)+' min logged')+
+   safeCard('Oura recovery',context.oura?(context.oura.fresh?(context.oura.readiness!==null?'Readiness '+Math.round(context.oura.readiness):'Recent reading'):'Outdated'):'Not synced',context.oura?'As of '+context.oura.date:'Works without Oura');
+  const preface=context.isToday?'For today’s session':`For the selected ${plan?.[context.selectedDay]?.day||'training'} workout`;
+  // Exercise-by-exercise guidance is a read-only reference. Never update the workout plan.
+  const preserve=new Set(['Barbell Bench Press','Barbell Squat','Barbell Romanian Deadlift','Barbell Overhead Press']);
+  const targetRows=context.exercises.map(ex=>{
+   const last=context.history[ex.name]?.[0]||null;
+   let advice='No prior result — select a comfortable load';
+   let proposedSets=ex.sets;
+   if(last){
+    const isReady=last.reps>=ex.reps&&last.rpe!==null&&last.rpe<=8&&!recommend.flag.includes('review');
+    advice=isReady?'Last target met at manageable effort — consider a small progression if warm-ups feel good':'Use last successful load as your starting reference';
+   }
+   if(recommend.flag==='review'&&!preserve.has(ex.name)&&ex.sets>2){proposedSets=ex.sets-1;advice+='; optional accessory set reduction';}
+   const lastText=last?`${last.kg} kg × ${last.reps} reps`:'No recorded set';
+   return `<li><strong>${escape(ex.name)}</strong> · ${escape(lastText)}<small>${escape(`${proposedSets} sets · ${ex.reps} target reps`)} · ${escape(advice)}</small></li>`;
+  }).slice(0,12).join('');
+  byId('nfDailyCoachLocal').innerHTML=`<h3>${escape(recommend.tone)}</h3><p>${escape(preface)} · ${escape(context.workoutName)}</p><ul>${recommend.actions.map(x=>`<li>${escape(x)}</li>`).join('')}</ul>${targetRows?`<h4 class="nf-daily-coach-ex-title">Exercise-by-exercise guide</h4><ul class="nf-daily-coach-exercises">${targetRows}</ul>`:''}<p class="nf-daily-coach-caption">Why: ${escape(recommend.note.join(' · '))}</p><p class="nf-daily-coach-caption">Local recommendation · Updates when you open or refresh this panel.</p>`;
+  return context;
+ }
+ function resetAI(){const node=byId('nfDailyCoachAIResult');node.hidden=true;node.innerHTML='';}
+ panel.addEventListener('toggle',()=>{if(panel.open){render();}});
+ byId('nfDailyCoachFeeling').addEventListener('change',()=>{render();resetAI()});
+ byId('nfDailyCoachRefresh').addEventListener('click',()=>{render();resetAI()});
+ byId('nfDailyCoachOpenAI').addEventListener('click',async()=>{
+  if(requestInFlight)return;
+  const ai=byId('nfDailyCoachAIResult'),button=byId('nfDailyCoachOpenAI');
+  const cloud=window.nfSocialCloudContext?.(),client=cloud?.client,user=cloud?.user;
+  if(!client||!user){ai.hidden=false;ai.innerHTML='<p>Sign in under Profile & Cloud Sync to get an OpenAI review. Local session recommendations remain available above.</p>';return;}
+  const context=render()||createContext();
+  const shareOura=!!byId('nfDailyCoachShareOura')?.checked;
+  const nonStrava=context.recentActivity.filter(x=>x.source!=='strava'&&x.source!=='oura');
+  const payload={action:'daily',date:context.date,workoutName:context.workoutName,exercises:context.exercises.slice(0,12),history:context.history,plannedSessions:context.sessions,activity:nonStrava,feeling:context.feeling,...(shareOura&&context.oura?{ouraContext:context.oura}:{})};
+  requestInFlight=true;button.disabled=true;ai.hidden=false;ai.textContent='Reviewing your session with OpenAI…';
+  try{
+   const result=await client.functions.invoke('nextform-daily-coach',{body:payload});
+   if(result.error){let detail=null;try{detail=await result.error.context?.clone()?.json()}catch{};throw Error(detail?.error||result.error.message||'AI connection unavailable')}
+   const d=result.data;if(!d||d.error)throw Error(d?.error||'Invalid AI response');
+   ai.innerHTML=`<h3>✦ AI session review</h3><p>${escape(d.summary||'')}</p>`+
+    (Array.isArray(d.tips)?`<ul>${d.tips.slice(0,5).map(x=>`<li>${escape(x)}</li>`).join('')}</ul>`:'')+
+    `<p class="nf-daily-coach-caption">${escape(d.reason||'Based on the supplied workouts and schedule.')} · Suggestions only; no targets changed.</p>`;
+  }catch(e){ai.textContent='AI review unavailable: '+String(e?.message||e).slice(0,220)+'. Local guidance above is still available.'}
+  finally{button.disabled=false;requestInFlight=false;}
+ });
+ // Keep this panel lightweight and inactive until opened. Refresh when the training day changes.
+ if(typeof window.switchDay==='function'){const original=window.switchDay;window.switchDay=function(...args){const output=original.apply(this,args);if(panel.open){render();resetAI()}return output;}}
+ window.addEventListener('nf:oura-synced',()=>{if(panel.open){render();resetAI()}});
+ window.addEventListener('nf:cloud-save-loaded',()=>{if(panel.open){render();resetAI()}});
+ document.addEventListener('visibilitychange',()=>{if(!document.hidden&&panel.open)render()});
+})();
+</script></body></html>
