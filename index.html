@@ -1107,7 +1107,11 @@ body.nf-tour-open{overflow:hidden}
 .nf-daily-coach-error{margin:8px 0;color:#f5c8ab;font-size:12px}
 .nf-daily-coach-error[hidden]{display:none!important}
 .nf-daily-coach-why{margin-top:5px;color:#a5cabc;font-size:11px}
-#exercises .nf-ai-target-input{border-color:#479a7a;box-shadow:inset 0 0 0 1px #479a7a35}
+/* Targets are subtle, non-committed placeholders — they are not logged values. */
+#exercises .nf-ai-target-input{border-color:#4c80705e;box-shadow:inset 0 0 0 1px #479a7a18}
+#exercises .nf-ai-target-input::placeholder{color:#89b4a8;opacity:.56;font-weight:400;font-style:italic;transition:opacity .08s ease}
+#exercises .nf-ai-target-input:focus::placeholder{opacity:0!important;color:transparent!important}
+@media(prefers-reduced-motion:reduce){#exercises .nf-ai-target-input::placeholder{transition:none}}
 @media(max-width:355px){.nf-daily-coach-factors{grid-template-columns:1fr}.nf-daily-coach-feel{flex-direction:column;align-items:stretch}.nf-daily-coach-feel select{width:100%}}
 @media(prefers-reduced-motion:reduce){.nf-daily-coach-arrow{transition:none}}
 </style></head><body><div class="wrap"><header class="top"><div><div class="nf-brand-lockup"><img src="./icon-192.png" alt="NEXTFORM logo" class="nf-header-logo"><div><div class="brand">NEXTFORM<span class="brand-mark">_</span></div><div class="tag">THE SYSTEM <span class="system-dot">●</span> ONLINE</div></div></div><div class="nf-header-controls"><button class="nf-sync-chip" id="nfSyncChip" type="button" data-state="local" aria-label="View save and sync status">Local save</button><button class="nf-menu-toggle" id="nfMenuToggle" type="button" aria-label="Open navigation menu" aria-controls="nfQuickMenu" aria-expanded="false"><span id="nfMenuUnreadBadge" class="nf-unread-badge nf-header-unread" hidden aria-hidden="true"></span><svg viewBox="0 0 24 24" width="23" height="23" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button></div></header>
@@ -1521,7 +1525,7 @@ document.addEventListener('click',event=>{const button=event.target.closest('but
 function nfActivateNoticeInbox(){const n=nfNoticeStore();n.live=true;localStorage.setItem(key,JSON.stringify(db));nfRenderNotices();}
 
 function renderStats(){let r=rankIndex(),curr=ranks[r],next=ranks[r+1];$('rank').textContent=curr[0];$('rankTitle').textContent=curr[1];const di=window.ascensionDecayInfo();$('decayStatus').textContent=di.recovery.returning&&di.rankPenalty?`Rank recovery: ${di.recovery.recovered}/${di.recovery.lost} tiers restored · ${di.recovery.activeDays} active days · ${di.recovery.sessionDays} workout/cardio days. Next tier: ${3+di.recovery.recovered*5} active days and ${di.recovery.recovered+1} session days.`:di.rankPenalty?`Inactivity penalty: −${di.rankPenalty} rank tier(s) · ${di.daysSinceActivity} days since activity`:`Rank decay: 7-day grace, then −1 tier every 14 inactive days`;$('xp').textContent=db.xp.toLocaleString();$('level').textContent=Math.floor(db.xp/500)+1;$('sessions').textContent=db.workouts.length;$('streak').textContent=streak();$('sets').textContent=db.workouts.reduce((s,w)=>s+w.sets.length,0);const readiness=nfRankReadiness();nfRenderRankReadiness(readiness);$('nextRank').textContent=readiness.next?`${readiness.percent}% to ${readiness.next[0]} Rank · ${readiness.completed}/${readiness.total} requirements met`:'MAX RANK UNLOCKED'}const nfSafeMarkup=x=>String(x??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-function renderTrain(){ $('days').innerHTML=plan.map((p,i)=>`<button class="${day===i?'active':''}" onclick="switchDay(${i})">${p.day.slice(0,3)}</button>`).join('');let p=plan[day];$('workoutTitle').textContent=p.name;$('workoutSub').textContent=p.day+' · '+p.sub+' · 20–30 min';$('exercises').innerHTML=p.ex.map((e,i)=>`<div class="exercise"><h3>${i+1}. ${nfSafeMarkup(e[0])}</h3><div class="muted">${nfSafeMarkup(e[1])} sets · ${nfSafeMarkup(e[2])} reps</div>${Array.from({length:e[1]},(_,s)=>{let k=day+'-'+i+'-'+s,v=draft[k]||{};return `<div class="set"><span class="muted">${s+1}</span><input type="number" min="0" step="0.5" placeholder="kg" aria-label="Weight in kg for set ${s+1}" value="${nfSafeMarkup(v.kg??'')}" class="${v.nfCoachSuggested&&String(v.kg??'')===String(v.nfCoachSuggested.kg??'')?'nf-ai-target-input':''}" oninput="setDraft('${k}','kg',this.value)"><input type="number" min="0" placeholder="reps" aria-label="Repetitions for set ${s+1}" value="${nfSafeMarkup(v.reps??'')}" class="${v.nfCoachSuggested&&String(v.reps??'')===String(v.nfCoachSuggested.reps??'')?'nf-ai-target-input':''}" oninput="setDraft('${k}','reps',this.value)"><select class="nf-rpe-select nf-workout-advanced" aria-label="Effort RPE for set ${s+1}" onchange="setDraft('${k}','rpe',this.value)"><option value="">RPE</option>${[6,7,8,9,10].map(r=>`<option value="${r}" ${Number(v.rpe)===r?'selected':''}>${r}</option>`).join('')}</select><button class="${v.done?'done':''}" onclick="toggleSet('${k}')" aria-label="Mark set ${s+1} ${v.done?'incomplete':'complete'}">${v.done?'✓':'○'}</button></div>`}).join('')}</div>`).join('')};function setDraft(k,f,v){draft[k]??={};draft[k][f]=v;localStorage.setItem('ascension_draft_v2',JSON.stringify(draft))}function toggleSet(k){draft[k]??={};draft[k].done=!draft[k].done;localStorage.setItem('ascension_draft_v2',JSON.stringify(draft));renderTrain()}function switchDay(n){day=n;renderTrain()}function finishWorkout(){let p=plan[day],sets=[],invalid=false;p.ex.forEach((e,i)=>{for(let n=0;n<e[1];n++){let v=draft[day+'-'+i+'-'+n];if(v?.done){let kg=Number(v.kg),reps=Number(v.reps);if(!Number.isFinite(kg)||kg<0||!Number.isInteger(reps)||reps<=0||v.kg===''||v.reps===''){invalid=true;return}sets.push({exercise:e[0],set:n+1,kg,reps,...([6,7,8,9,10].includes(Number(v.rpe))?{rpe:Number(v.rpe)}:{})})}}});if(invalid){alert('Each checked set needs a valid weight (0 for bodyweight) and positive whole-number reps.');return}if(!sets.length){alert('Check off at least one completed set first.');return}let date=today(),existing=db.workouts.find(w=>w.date===date&&w.day===p.day),prior=existing?existing.sets:[],newSets=sets.filter(x=>!prior.some(y=>y.exercise===x.exercise&&y.set===x.set));if(!newSets.length){alert('All checked sets are already saved. Log more sets to continue this workout.');return}let total=p.ex.reduce((a,e)=>a+e[1],0);if(existing){existing.sets.push(...newSets)}else{existing={date,day:p.day,name:p.name,sets:newSets};db.workouts.push(existing)}let earned=newSets.length*10+Math.round(200*newSets.length/total);db.xp+=earned;for(const x of newSets){let i=p.ex.findIndex(e=>e[0]===x.exercise);delete draft[day+'-'+i+'-'+(x.set-1)]}localStorage.setItem('ascension_draft_v2',JSON.stringify(draft));save();renderTrain();alert(`SAVED ${newSets.length} SETS! +${earned} XP. ${existing.sets.length}/${total} sets complete. You can finish the rest later.`)}function ouraHabitMode(id,date=today()){
+function renderTrain(){ $('days').innerHTML=plan.map((p,i)=>`<button class="${day===i?'active':''}" onclick="switchDay(${i})">${p.day.slice(0,3)}</button>`).join('');let p=plan[day];$('workoutTitle').textContent=p.name;$('workoutSub').textContent=p.day+' · '+p.sub+' · 20–30 min';$('exercises').innerHTML=p.ex.map((e,i)=>`<div class="exercise"><h3>${i+1}. ${nfSafeMarkup(e[0])}</h3><div class="muted">${nfSafeMarkup(e[1])} sets · ${nfSafeMarkup(e[2])} reps</div>${Array.from({length:e[1]},(_,s)=>{let k=day+'-'+i+'-'+s,v=draft[k]||{};return `<div class="set"><span class="muted">${s+1}</span><input type="number" min="0" step="0.5" inputmode="decimal" placeholder="${nfSafeMarkup((v.kg===''||v.kg==null)&&v.nfCoachSuggested?.kg!=null?v.nfCoachSuggested.kg:'kg')}" aria-label="Weight in kg for set ${s+1}${(v.kg===''||v.kg==null)&&v.nfCoachSuggested?.kg!=null?' (suggested '+nfSafeMarkup(v.nfCoachSuggested.kg)+' kg)':''}" value="${nfSafeMarkup(v.kg??'')}" class="${(v.kg===''||v.kg==null)&&v.nfCoachSuggested?.kg!=null?'nf-ai-target-input':''}" oninput="setDraft('${k}','kg',this.value)"><input type="number" min="0" inputmode="numeric" placeholder="${nfSafeMarkup((v.reps===''||v.reps==null)&&v.nfCoachSuggested?.reps!=null?v.nfCoachSuggested.reps:'reps')}" aria-label="Repetitions for set ${s+1}${(v.reps===''||v.reps==null)&&v.nfCoachSuggested?.reps!=null?' (suggested '+nfSafeMarkup(v.nfCoachSuggested.reps)+' reps)':''}" value="${nfSafeMarkup(v.reps??'')}" class="${(v.reps===''||v.reps==null)&&v.nfCoachSuggested?.reps!=null?'nf-ai-target-input':''}" oninput="setDraft('${k}','reps',this.value)"><select class="nf-rpe-select nf-workout-advanced" aria-label="Effort RPE for set ${s+1}" onchange="setDraft('${k}','rpe',this.value)"><option value="">RPE</option>${[6,7,8,9,10].map(r=>`<option value="${r}" ${Number(v.rpe)===r?'selected':''}>${r}</option>`).join('')}</select><button class="${v.done?'done':''}" onclick="toggleSet('${k}')" aria-label="Mark set ${s+1} ${v.done?'incomplete':'complete'}">${v.done?'✓':'○'}</button></div>`}).join('')}</div>`).join('')};function setDraft(k,f,v){draft[k]??={};draft[k][f]=v;localStorage.setItem('ascension_draft_v2',JSON.stringify(draft))}function toggleSet(k){draft[k]??={};const v=draft[k];if(!v.done&&(v.kg===''||v.kg==null||v.reps===''||v.reps==null)){alert('Enter the kilograms and reps you actually completed before checking off this set. The faint AI numbers are suggestions only.');return}v.done=!v.done;localStorage.setItem('ascension_draft_v2',JSON.stringify(draft));renderTrain()}function switchDay(n){day=n;renderTrain()}function finishWorkout(){let p=plan[day],sets=[],invalid=false;p.ex.forEach((e,i)=>{for(let n=0;n<e[1];n++){let v=draft[day+'-'+i+'-'+n];if(v?.done){let kg=Number(v.kg),reps=Number(v.reps);if(!Number.isFinite(kg)||kg<0||!Number.isInteger(reps)||reps<=0||v.kg===''||v.reps===''){invalid=true;return}sets.push({exercise:e[0],set:n+1,kg,reps,...([6,7,8,9,10].includes(Number(v.rpe))?{rpe:Number(v.rpe)}:{})})}}});if(invalid){alert('Each checked set needs a valid weight (0 for bodyweight) and positive whole-number reps.');return}if(!sets.length){alert('Check off at least one completed set first.');return}let date=today(),existing=db.workouts.find(w=>w.date===date&&w.day===p.day),prior=existing?existing.sets:[],newSets=sets.filter(x=>!prior.some(y=>y.exercise===x.exercise&&y.set===x.set));if(!newSets.length){alert('All checked sets are already saved. Log more sets to continue this workout.');return}let total=p.ex.reduce((a,e)=>a+e[1],0);if(existing){existing.sets.push(...newSets)}else{existing={date,day:p.day,name:p.name,sets:newSets};db.workouts.push(existing)}let earned=newSets.length*10+Math.round(200*newSets.length/total);db.xp+=earned;for(const x of newSets){let i=p.ex.findIndex(e=>e[0]===x.exercise);delete draft[day+'-'+i+'-'+(x.set-1)]}localStorage.setItem('ascension_draft_v2',JSON.stringify(draft));save();renderTrain();alert(`SAVED ${newSets.length} SETS! +${earned} XP. ${existing.sets.length}/${total} sets complete. You can finish the rest later.`)}function ouraHabitMode(id,date=today()){
  const record=db.ouraRecovery?.[date];
  const reading=id==='steps'?record?.steps:record?.sleepHours;
  const valid=db.ouraConnected===true&&!db.ouraSyncFailed&&reading!=null&&Number.isFinite(Number(reading));
@@ -4342,8 +4346,8 @@ window.nfAIGetApprovedWeek=()=>db.nfAIPlans?.[monday(today())]||null;
   });
  }
  function applySuggestedTargets(context,targets,source){
-  // Only prefill uncompleted sets. Respect existing manually edited numbers,
-  // and only replace earlier recommendations while they are still unchanged.
+  // Store suggestions ONLY as hint metadata. Never fill the actual logged kg/reps.
+  // A hint is visible as a faint placeholder until the athlete focuses the input.
   if(!Array.isArray(targets)||!targets.length)return {rows:0,fields:0};
   const expected=keyForContext(context);
   if(keyForContext(createContext())!==expected)return {rows:0,fields:0};
@@ -4356,32 +4360,56 @@ window.nfAIGetApprovedWeek=()=>db.nfAIPlans?.[monday(today())]||null;
    const safeReps=reps!==null&&Number.isInteger(reps)&&reps>=1&&reps<=30?String(reps):null;
    let any=false;
    for(let j=0;j<Math.min(15,Number(sets)||0);j++){
-    const key=day+'-'+i+'-'+j,entry=draft[key]||{},previous=entry.nfCoachSuggested||{};
+    const key=day+'-'+i+'-'+j,entry=draft[key]||{};
     if(entry.done)continue;
-    let changed=false;const marker={...previous};
-    for(const [field,recommended] of [['kg',safeKg],['reps',safeReps]]){
-     if(recommended===null)continue;
-     const current=String(entry[field]??'');
-     const prior=previous[field]===undefined?null:String(previous[field]);
-     if(current!==''&&current!==prior)continue; // user supplied a value; don't overwrite
-     if(current!==recommended){entry[field]=recommended;changed=true;fields++}
-     marker[field]=recommended;
+    const previous=entry.nfCoachSuggested||{};
+    const marker={source};
+    if(safeKg!==null)marker.kg=safeKg;
+    if(safeReps!==null)marker.reps=safeReps;
+    if(marker.kg===undefined&&marker.reps===undefined){
+     if(entry.nfCoachSuggested){delete entry.nfCoachSuggested;draft[key]=entry;dirty=true;}
+     continue;
     }
-    if(Object.keys(marker).length){
-     // Persist metadata only if a recommendation was actually updated.
-     const markerChanged=!entry.nfCoachSuggested||previous.source!==source||
-      previous.kg!==marker.kg||previous.reps!==marker.reps;
-     if(changed||markerChanged){entry.nfCoachSuggested={...marker,source};draft[key]=entry;dirty=true;}
-     any=true;
+    if(previous.kg!==marker.kg||previous.reps!==marker.reps||previous.source!==source){
+     if(previous.kg!==marker.kg&&marker.kg!==undefined)fields++;
+     if(previous.reps!==marker.reps&&marker.reps!==undefined)fields++;
+     entry.nfCoachSuggested=marker;draft[key]=entry;dirty=true;
     }
+    // Do not count hidden suggestions underneath real entered values.
+    if((marker.kg!==undefined&&(entry.kg===''||entry.kg==null))||
+       (marker.reps!==undefined&&(entry.reps===''||entry.reps==null)))any=true;
    }
    if(any)rows++;
   }
   if(dirty){localStorage.setItem('ascension_draft_v2',JSON.stringify(draft));renderTrain();}
   return {rows,fields};
  }
+ function migratePreviouslyPrefilledTargets(){
+  const migrationKey='nf_ai_targets_ghost_migration_v1';
+  try{if(localStorage.getItem(migrationKey)==='done')return;}catch(_){return;}
+  let changed=false;
+  for(const entry of Object.values(draft||{})){
+   if(!entry||typeof entry!=='object'||entry.done||!entry.nfCoachSuggested)continue;
+   for(const field of ['kg','reps']){
+    const recommended=entry.nfCoachSuggested[field];
+    if(recommended===null||recommended===undefined)continue;
+    if(entry[field]!==null&&entry[field]!==undefined&&entry[field]!==''&&
+       String(entry[field])===String(recommended)){
+     // Keep an audit copy of old uncompleted prefilled entries, in case a
+     // user had independently typed a value identical to the suggestion.
+     entry.nfCoachLegacyPrefill??={};
+     entry.nfCoachLegacyPrefill[field]=entry[field];
+     delete entry[field];changed=true;
+    }
+   }
+  }
+  try{if(changed)localStorage.setItem('ascension_draft_v2',JSON.stringify(draft));
+      localStorage.setItem(migrationKey,'done');}catch(_){}
+  if(changed)renderTrain();
+ }
+ migratePreviouslyPrefilledTargets();
  function showAdvice({title,summary,reason,source,applied}){
-  const note=applied.rows?`${applied.rows} exercise${applied.rows===1?'':'s'} prefilled below. Edit the kg and reps as you train.`:'No empty set fields needed updating; existing entries were kept.';
+  const note=applied.rows?`${applied.rows} exercise${applied.rows===1?'':'s'} shown with faint suggested kg and reps. Tap a field to enter your actual result.`:'Your entered results are kept. Any available targets appear faintly in empty fields.';
   byId('nfDailyCoachLocal').innerHTML=`<h3>${escape(title)}</h3><p>${escape(summary)}</p><p class="nf-daily-coach-why">${escape(reason)}</p><p class="nf-daily-coach-caption">${escape(note)} · ${source==='ai'?'OpenAI':'Local'} suggestion</p>`;
  }
  function render(){
