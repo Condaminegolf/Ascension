@@ -99,33 +99,34 @@ body{background:radial-gradient(ellipse at top,#142b32,#0a1117 65%);color:var(--
 .pill{color:var(--nf-accent);border-color:#3c7966}
 .set input,.field input,.field select,.field textarea{background:#0b1922;border-color:#395761;color:#edf6f8}
 .quest input{accent-color:var(--nf-accent)}
-.nf-theme-options{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.nf-theme-options{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
 .nf-theme-option{border:2px solid #3a515b;background:#15242e;color:#f1f7f8;border-radius:14px;padding:12px;text-align:left;display:flex;flex-direction:column;gap:7px;min-width:0}
 .nf-theme-option[aria-pressed="true"]{border-color:#70f0b1;box-shadow:0 0 0 1px #70f0b155}
 .nf-theme-option strong{font-size:14px}.nf-theme-option small{font-size:11px;opacity:.8}
 .nf-swatch{height:42px;border-radius:8px;display:block;width:100%}
 .nf-swatch-dark{background:linear-gradient(120deg,#08121a 0%,#173b3d 60%,#70f0b1 100%)}
-.nf-swatch-light{background:linear-gradient(120deg,#f8faf9 0%,#e5eeeb 60%,#6ebfa4 100%)}
-body[data-nf-theme="future"]{--nf-accent:#138769;--nf-text:#152c32;--nf-bg:#f4f7f6;--nf-card:#fff;--nf-edge:#d7e3df;background:radial-gradient(ellipse at top,#e5f2ed,#f4f7f6 65%);color:#152c32}
-body[data-nf-theme="future"] .brand{color:#12363b}body[data-nf-theme="future"] .tag{color:#237c66}
-body[data-nf-theme="future"] .panel{background:linear-gradient(145deg,#fff,#f5f9f7);border-color:#d6e2de;box-shadow:0 12px 35px #17423512}
-body[data-nf-theme="future"] .tabs{background:#f4f7f6ef}
-body[data-nf-theme="future"] .tabs button,body[data-nf-theme="future"] .days button{background:#eaf1ef;border-color:#d4e0dd;color:#34565b}
-body[data-nf-theme="future"] .tabs button.active,body[data-nf-theme="future"] .days button.active{background:#c2e9d9;border-color:#35a781;color:#134e3d}
-body[data-nf-theme="future"] .stat,body[data-nf-theme="future"] .exercise{background:#f8fbfa;border-color:#dce7e4}
-body[data-nf-theme="future"] .rank{color:#138769;text-shadow:none}
-body[data-nf-theme="future"] .muted,body[data-nf-theme="future"] .field label,body[data-nf-theme="future"] .foot{color:#5b7378}
-body[data-nf-theme="future"] .big,body[data-nf-theme="future"] h1,body[data-nf-theme="future"] h2,body[data-nf-theme="future"] h3{color:#15383b}
-body[data-nf-theme="future"] .secondary,body[data-nf-theme="future"] .set button{background:#edf5f2;border-color:#c6dcd3;color:#1b5549}
-body[data-nf-theme="future"] .set input,body[data-nf-theme="future"] .field input,body[data-nf-theme="future"] .field select,body[data-nf-theme="future"] .field textarea{background:#fff;border-color:#c6d9d4;color:#14363b}
-body[data-nf-theme="future"] .bar{background:#dce8e4}body[data-nf-theme="future"] .fill{background:linear-gradient(90deg,#258f70,#72c7a4)}
-body[data-nf-theme="future"] .quest,body[data-nf-theme="future"] .history,body[data-nf-theme="future"] .milestone{border-color:#dce7e4}
-body[data-nf-theme="future"] .pill{color:#16785e;border-color:#95cbb8}
-body[data-nf-theme="future"] .nf-theme-option{background:#fff;color:#163a3d;border-color:#d4e1dd}
-body[data-nf-theme="future"] .nf-theme-option[aria-pressed="true"]{border-color:#138769;box-shadow:0 0 0 1px #13876944}
-body[data-nf-theme="future"] .avatar-frame{background:radial-gradient(circle at 50% 40%,#d7ede5,#eaf3ef 70%);border-color:#b9d8cc}
-body[data-nf-theme="future"] .asc-unified-tree{background:#e9f2ef;border-color:#c9dfd6}
-body[data-nf-theme="future"] .asc-skill-detail,body[data-nf-theme="future"] .asc-skill-milestone{color:#183b3d}
+.nf-swatch-forest{background:linear-gradient(120deg,#f8f4e9 0%,#e6eddf 35%,#9dbc9b 66%,#245a42 100%)}
+.nf-swatch-lavender{background:linear-gradient(115deg,#f6f0fd 0%,#e7dff7 44%,#b8e8d7 75%,#5bbba4 100%)}.nf-swatch-blush{background:linear-gradient(115deg,#fff8f3 0%,#f7e5e7 42%,#edbdc9 73%,#bb7897 100%)}
+body:is([data-nf-theme="lavender"],[data-nf-theme="blush"],[data-nf-theme="forest"]){--nf-accent:#138769;--nf-text:#152c32;--nf-bg:#f4f7f6;--nf-card:#fff;--nf-edge:#d7e3df;background:radial-gradient(ellipse at top,#e5f2ed,#f4f7f6 65%);color:#152c32}
+body:is([data-nf-theme="lavender"],[data-nf-theme="blush"],[data-nf-theme="forest"]) .brand{color:#12363b}body:is([data-nf-theme="lavender"],[data-nf-theme="blush"],[data-nf-theme="forest"]) .tag{color:#237c66}
+body:is([data-nf-theme="lavender"],[data-nf-theme="blush"],[data-nf-theme="forest"]) .panel{background:linear-gradient(145deg,#fff,#f5f9f7);border-color:#d6e2de;box-shadow:0 12px 35px #17423512}
+body:is([data-nf-theme="lavender"],[data-nf-theme="blush"],[data-nf-theme="forest"]) .tabs{background:#f4f7f6ef}
+body:is([data-nf-theme="lavender"],[data-nf-theme="blush"],[data-nf-theme="forest"]) .tabs button,body:is([data-nf-theme="lavender"],[data-nf-theme="blush"],[data-nf-theme="forest"]) .days button{background:#eaf1ef;border-color:#d4e0dd;color:#34565b}
+body:is([data-nf-theme="lavender"],[data-nf-theme="blush"],[data-nf-theme="forest"]) .tabs button.active,body:is([data-nf-theme="lavender"],[data-nf-theme="blush"],[data-nf-theme="forest"]) .days button.active{background:#c2e9d9;border-color:#35a781;color:#134e3d}
+body:is([data-nf-theme="lavender"],[data-nf-theme="blush"],[data-nf-theme="forest"]) .stat,body:is([data-nf-theme="lavender"],[data-nf-theme="blush"],[data-nf-theme="forest"]) .exercise{background:#f8fbfa;border-color:#dce7e4}
+body:is([data-nf-theme="lavender"],[data-nf-theme="blush"],[data-nf-theme="forest"]) .rank{color:#138769;text-shadow:none}
+body:is([data-nf-theme="lavender"],[data-nf-theme="blush"],[data-nf-theme="forest"]) .muted,body:is([data-nf-theme="lavender"],[data-nf-theme="blush"],[data-nf-theme="forest"]) .field label,body:is([data-nf-theme="lavender"],[data-nf-theme="blush"],[data-nf-theme="forest"]) .foot{color:#5b7378}
+body:is([data-nf-theme="lavender"],[data-nf-theme="blush"],[data-nf-theme="forest"]) .big,body:is([data-nf-theme="lavender"],[data-nf-theme="blush"],[data-nf-theme="forest"]) h1,body:is([data-nf-theme="lavender"],[data-nf-theme="blush"],[data-nf-theme="forest"]) h2,body:is([data-nf-theme="lavender"],[data-nf-theme="blush"],[data-nf-theme="forest"]) h3{color:#15383b}
+body:is([data-nf-theme="lavender"],[data-nf-theme="blush"],[data-nf-theme="forest"]) .secondary,body:is([data-nf-theme="lavender"],[data-nf-theme="blush"],[data-nf-theme="forest"]) .set button{background:#edf5f2;border-color:#c6dcd3;color:#1b5549}
+body:is([data-nf-theme="lavender"],[data-nf-theme="blush"],[data-nf-theme="forest"]) .set input,body:is([data-nf-theme="lavender"],[data-nf-theme="blush"],[data-nf-theme="forest"]) .field input,body:is([data-nf-theme="lavender"],[data-nf-theme="blush"],[data-nf-theme="forest"]) .field select,body:is([data-nf-theme="lavender"],[data-nf-theme="blush"],[data-nf-theme="forest"]) .field textarea{background:#fff;border-color:#c6d9d4;color:#14363b}
+body:is([data-nf-theme="lavender"],[data-nf-theme="blush"],[data-nf-theme="forest"]) .bar{background:#dce8e4}body:is([data-nf-theme="lavender"],[data-nf-theme="blush"],[data-nf-theme="forest"]) .fill{background:linear-gradient(90deg,#258f70,#72c7a4)}
+body:is([data-nf-theme="lavender"],[data-nf-theme="blush"],[data-nf-theme="forest"]) .quest,body:is([data-nf-theme="lavender"],[data-nf-theme="blush"],[data-nf-theme="forest"]) .history,body:is([data-nf-theme="lavender"],[data-nf-theme="blush"],[data-nf-theme="forest"]) .milestone{border-color:#dce7e4}
+body:is([data-nf-theme="lavender"],[data-nf-theme="blush"],[data-nf-theme="forest"]) .pill{color:#16785e;border-color:#95cbb8}
+body:is([data-nf-theme="lavender"],[data-nf-theme="blush"],[data-nf-theme="forest"]) .nf-theme-option{background:#fff;color:#163a3d;border-color:#d4e1dd}
+body:is([data-nf-theme="lavender"],[data-nf-theme="blush"],[data-nf-theme="forest"]) .nf-theme-option[aria-pressed="true"]{border-color:#138769;box-shadow:0 0 0 1px #13876944}
+body:is([data-nf-theme="lavender"],[data-nf-theme="blush"],[data-nf-theme="forest"]) .avatar-frame{background:radial-gradient(circle at 50% 40%,#d7ede5,#eaf3ef 70%);border-color:#b9d8cc}
+body:is([data-nf-theme="lavender"],[data-nf-theme="blush"],[data-nf-theme="forest"]) .asc-unified-tree{background:#e9f2ef;border-color:#c9dfd6}
+body:is([data-nf-theme="lavender"],[data-nf-theme="blush"],[data-nf-theme="forest"]) .asc-skill-detail,body:is([data-nf-theme="lavender"],[data-nf-theme="blush"],[data-nf-theme="forest"]) .asc-skill-milestone{color:#183b3d}
 @media(max-width:520px){.nf-theme-options{gap:8px}.nf-theme-option{padding:10px}.nf-theme-option strong{font-size:12px}}
 </style><style>.asc-tree-toolbar{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin:12px 0}.asc-tree-toolbar button{padding:8px 13px;min-width:38px}.asc-tree-zoom-readout{font-size:12px;color:#b5c3d6;min-width:52px;text-align:center}.asc-tree-viewport{overflow:hidden!important;position:relative;touch-action:none;cursor:grab;user-select:none;min-height:300px}.asc-tree-viewport.dragging{cursor:grabbing}.asc-tree-viewport svg{min-width:0!important;width:100%!important;height:auto;display:block;touch-action:none}.asc-tree-viewport.overview .skill-leaf{opacity:0;pointer-events:none}.asc-tree-viewport .skill-node-detail{opacity:0;pointer-events:none}.asc-tree-viewport.detail .skill-node-detail{opacity:1}.asc-tree-help{font-size:12px;color:#98a9bf;margin:5px 0 10px}</style><style>
 body{padding-bottom:85px}.nf-bottom-nav{position:fixed!important;bottom:0;left:0;right:0;top:auto!important;z-index:99!important;display:flex;justify-content:space-around;gap:3px;padding:8px max(8px,env(safe-area-inset-right)) calc(8px + env(safe-area-inset-bottom)) max(8px,env(safe-area-inset-left));box-shadow:0 -8px 35px #0005;border-top:1px solid var(--nf-edge,#334)}
@@ -156,7 +157,7 @@ body{padding-bottom:85px}.nf-bottom-nav{position:fixed!important;bottom:0;left:0
 .nf-cosmetic{display:flex;flex-direction:column;align-items:center;gap:5px;text-align:center;min-height:136px;padding:13px 8px;border:1px solid #34475b;border-radius:12px;background:#14212e;color:#e9f3f6;cursor:pointer}
 .nf-cosmetic-icon{font-size:30px}.nf-cosmetic strong{font-size:12px}.nf-cosmetic small{font-size:11px;color:#9bb2c4}.nf-cosmetic em{font-size:10px;color:#70f0b1;font-style:normal}
 .nf-cosmetic.nf-locked{opacity:.43;cursor:not-allowed}.nf-cosmetic.nf-equipped{border-color:#70f0b1;box-shadow:inset 0 0 0 1px #70f0b155}
-body[data-nf-theme="future"] .nf-cosmetic{background:#edf3ef;color:#142b27;border-color:#c3d6cd}
+body:is([data-nf-theme="lavender"],[data-nf-theme="blush"],[data-nf-theme="forest"]) .nf-cosmetic{background:#edf3ef;color:#142b27;border-color:#c3d6cd}
 @media(max-width:600px){.avatar-frame{min-height:420px}.nf-character-art,.nf-character-art>img{min-height:420px;height:420px}.nf-cosmetic-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 </style><style>
 .nf-character-switch{display:flex;gap:10px;flex-wrap:wrap}
@@ -376,9 +377,9 @@ body[data-nf-theme="future"] .nf-cosmetic{background:#edf3ef;color:#142b27;borde
 .nf-tree-goal-section{margin-top:12px}
 @media(min-width:800px){#nfTreeInlineGoal{right:auto;min-width:270px}}
 @media(prefers-reduced-motion:reduce){#nfTreeInlineGoal{backdrop-filter:none}}
-body[data-nf-theme="future"] #nfTreeInlineGoal{background:rgba(236,251,246,.96);box-shadow:0 5px 20px #233a3740}
-body[data-nf-theme="future"] #nfTreeInlineGoal strong{color:#17473a}
-body[data-nf-theme="future"] #nfTreeInlineGoal span{color:#34594c}
+body:is([data-nf-theme="lavender"],[data-nf-theme="blush"],[data-nf-theme="forest"]) #nfTreeInlineGoal{background:rgba(236,251,246,.96);box-shadow:0 5px 20px #233a3740}
+body:is([data-nf-theme="lavender"],[data-nf-theme="blush"],[data-nf-theme="forest"]) #nfTreeInlineGoal strong{color:#17473a}
+body:is([data-nf-theme="lavender"],[data-nf-theme="blush"],[data-nf-theme="forest"]) #nfTreeInlineGoal span{color:#34594c}
 </style><style id="nf-organic-skill-tree-styles">
 /* NEXTFORM Organic Skill Tree. Visual-only upgrade; unlock and rank requirements unchanged. */
 .nf-tree-forest-head{border-radius:17px;padding:16px;background:linear-gradient(125deg,#14362f,#142537 70%);border:1px solid #3a7462;position:relative;overflow:hidden;margin:15px 0}
@@ -460,31 +461,31 @@ body[data-nf-theme="future"] #nfTreeInlineGoal span{color:#34594c}
 .nf-tree-goals.is-overview .nf-tree-goal-card{border-top:3px solid var(--nf-skill-accent,#7bd9b4)}
 .nf-tree-goal-track-open{font-size:11px;border:0!important;background:transparent!important;color:#88e4bb!important;padding:4px 0!important;min-height:unset!important;text-decoration:underline;cursor:pointer}
 @media(max-width:650px){.nf-tree-goals-grid{grid-template-columns:1fr}.nf-tree-goals{padding:11px}.nf-tree-goal-card{padding:10px}}
-body[data-nf-theme="future"] .nf-tree-goals{background:linear-gradient(135deg,#e0f2e9,#e7f1ef);border-color:#a1cabc}
-body[data-nf-theme="future"] .nf-tree-goals-title strong,body[data-nf-theme="future"] .nf-tree-goal-card h4{color:#1d453d}
-body[data-nf-theme="future"] .nf-tree-goals-subtitle,body[data-nf-theme="future"] .nf-tree-goals-title span{color:#507468}
-body[data-nf-theme="future"] .nf-tree-goal-card{background:#f7fcf8;border-color:#c3dcd1}
-body[data-nf-theme="future"] .nf-tree-goal-next{color:#284840}
-body[data-nf-theme="future"] .nf-tree-goal-next b,body[data-nf-theme="future"] .nf-tree-goal-earned b{color:#136d50}
-body[data-nf-theme="future"] .nf-tree-goal-earned,body[data-nf-theme="future"] .nf-tree-goal-history{color:#4b6962}
-body[data-nf-theme="future"] .nf-tree-goal-history summary{color:#187f5e}
+body:is([data-nf-theme="lavender"],[data-nf-theme="blush"],[data-nf-theme="forest"]) .nf-tree-goals{background:linear-gradient(135deg,#e0f2e9,#e7f1ef);border-color:#a1cabc}
+body:is([data-nf-theme="lavender"],[data-nf-theme="blush"],[data-nf-theme="forest"]) .nf-tree-goals-title strong,body:is([data-nf-theme="lavender"],[data-nf-theme="blush"],[data-nf-theme="forest"]) .nf-tree-goal-card h4{color:#1d453d}
+body:is([data-nf-theme="lavender"],[data-nf-theme="blush"],[data-nf-theme="forest"]) .nf-tree-goals-subtitle,body:is([data-nf-theme="lavender"],[data-nf-theme="blush"],[data-nf-theme="forest"]) .nf-tree-goals-title span{color:#507468}
+body:is([data-nf-theme="lavender"],[data-nf-theme="blush"],[data-nf-theme="forest"]) .nf-tree-goal-card{background:#f7fcf8;border-color:#c3dcd1}
+body:is([data-nf-theme="lavender"],[data-nf-theme="blush"],[data-nf-theme="forest"]) .nf-tree-goal-next{color:#284840}
+body:is([data-nf-theme="lavender"],[data-nf-theme="blush"],[data-nf-theme="forest"]) .nf-tree-goal-next b,body:is([data-nf-theme="lavender"],[data-nf-theme="blush"],[data-nf-theme="forest"]) .nf-tree-goal-earned b{color:#136d50}
+body:is([data-nf-theme="lavender"],[data-nf-theme="blush"],[data-nf-theme="forest"]) .nf-tree-goal-earned,body:is([data-nf-theme="lavender"],[data-nf-theme="blush"],[data-nf-theme="forest"]) .nf-tree-goal-history{color:#4b6962}
+body:is([data-nf-theme="lavender"],[data-nf-theme="blush"],[data-nf-theme="forest"]) .nf-tree-goal-history summary{color:#187f5e}
 
 /* The separate pale theme retains contrast in the organic map and related controls. */
-body[data-nf-theme="future"] .nf-tree-forest-head{background:linear-gradient(130deg,#dff1ea,#edf4f3);border-color:#afd9c7}
-body[data-nf-theme="future"] .nf-tree-head-row h3{color:#193c3c}
-body[data-nf-theme="future"] .nf-tree-head-row>strong{color:#18835f}
-body[data-nf-theme="future"] .nf-tree-head-row>strong span,body[data-nf-theme="future"] .nf-tree-forest-head p{color:#4d6763}
-body[data-nf-theme="future"] .nf-tree-eyebrow{color:#167c61}
-body[data-nf-theme="future"] .nf-tree-global-track{background:#bdd4cc}
-body[data-nf-theme="future"] .nf-tree-focus{background:#f9fdfa!important;color:#17453f!important;border-color:#b8d1c9!important}
-body[data-nf-theme="future"] .nf-tree-focus small{color:#54716a}
-body[data-nf-theme="future"] .nf-tree-focus[aria-pressed="true"]{background:#c5ecdc!important;border-color:#1f9d78!important}
-body[data-nf-theme="future"] .nf-tree-map-hint{color:#4b706b}
-body[data-nf-theme="future"] .nf-tree-inspect{background:#e6f2ee;border-color:#bad6cc}
-body[data-nf-theme="future"] .nf-tree-inspect strong{color:#224d44}
-body[data-nf-theme="future"] .nf-tree-inspect p,body[data-nf-theme="future"] .nf-tree-legend{color:#4a6964}
-body[data-nf-theme="future"] .nf-organic-detail-track{background:#f1f7f4!important}
-body[data-nf-theme="future"] .nf-organic-detail .asc-skill-milestone.nf-milestone-next{background:#d5eee4;color:#245a4a}
+body:is([data-nf-theme="lavender"],[data-nf-theme="blush"],[data-nf-theme="forest"]) .nf-tree-forest-head{background:linear-gradient(130deg,#dff1ea,#edf4f3);border-color:#afd9c7}
+body:is([data-nf-theme="lavender"],[data-nf-theme="blush"],[data-nf-theme="forest"]) .nf-tree-head-row h3{color:#193c3c}
+body:is([data-nf-theme="lavender"],[data-nf-theme="blush"],[data-nf-theme="forest"]) .nf-tree-head-row>strong{color:#18835f}
+body:is([data-nf-theme="lavender"],[data-nf-theme="blush"],[data-nf-theme="forest"]) .nf-tree-head-row>strong span,body:is([data-nf-theme="lavender"],[data-nf-theme="blush"],[data-nf-theme="forest"]) .nf-tree-forest-head p{color:#4d6763}
+body:is([data-nf-theme="lavender"],[data-nf-theme="blush"],[data-nf-theme="forest"]) .nf-tree-eyebrow{color:#167c61}
+body:is([data-nf-theme="lavender"],[data-nf-theme="blush"],[data-nf-theme="forest"]) .nf-tree-global-track{background:#bdd4cc}
+body:is([data-nf-theme="lavender"],[data-nf-theme="blush"],[data-nf-theme="forest"]) .nf-tree-focus{background:#f9fdfa!important;color:#17453f!important;border-color:#b8d1c9!important}
+body:is([data-nf-theme="lavender"],[data-nf-theme="blush"],[data-nf-theme="forest"]) .nf-tree-focus small{color:#54716a}
+body:is([data-nf-theme="lavender"],[data-nf-theme="blush"],[data-nf-theme="forest"]) .nf-tree-focus[aria-pressed="true"]{background:#c5ecdc!important;border-color:#1f9d78!important}
+body:is([data-nf-theme="lavender"],[data-nf-theme="blush"],[data-nf-theme="forest"]) .nf-tree-map-hint{color:#4b706b}
+body:is([data-nf-theme="lavender"],[data-nf-theme="blush"],[data-nf-theme="forest"]) .nf-tree-inspect{background:#e6f2ee;border-color:#bad6cc}
+body:is([data-nf-theme="lavender"],[data-nf-theme="blush"],[data-nf-theme="forest"]) .nf-tree-inspect strong{color:#224d44}
+body:is([data-nf-theme="lavender"],[data-nf-theme="blush"],[data-nf-theme="forest"]) .nf-tree-inspect p,body:is([data-nf-theme="lavender"],[data-nf-theme="blush"],[data-nf-theme="forest"]) .nf-tree-legend{color:#4a6964}
+body:is([data-nf-theme="lavender"],[data-nf-theme="blush"],[data-nf-theme="forest"]) .nf-organic-detail-track{background:#f1f7f4!important}
+body:is([data-nf-theme="lavender"],[data-nf-theme="blush"],[data-nf-theme="forest"]) .nf-organic-detail .asc-skill-milestone.nf-milestone-next{background:#d5eee4;color:#245a4a}
 
 </style><style id="nf-avatar-identity-styles">
 /* Identity belongs to the Character card, directly above its portrait. */
@@ -496,12 +497,12 @@ body[data-nf-theme="future"] .nf-organic-detail .asc-skill-milestone.nf-mileston
 .nf-avatar-player-title:not(.nf-avatar-title-empty)::before{content:'✦';color:#e6be75;margin-right:9px}
 .nf-avatar-player-title:not(.nf-avatar-title-empty)::after{content:'✦';color:#e6be75;margin-left:9px}
 .nf-avatar-title-empty{font-size:12px;letter-spacing:.03em;color:#96a8b3;font-weight:500}
-body[data-nf-theme="future"] .nf-avatar-identity{background:linear-gradient(135deg,#edf8f4,#f3f7fa);border-color:#9dcab9}
-body[data-nf-theme="future"] .nf-avatar-player-name{color:#173c39}
-body[data-nf-theme="future"] .nf-avatar-player-title:not(.nf-avatar-title-empty){color:#98631b}
-body[data-nf-theme="future"] .nf-avatar-player-title:not(.nf-avatar-title-empty)::before,
-body[data-nf-theme="future"] .nf-avatar-player-title:not(.nf-avatar-title-empty)::after{color:#98631b}
-body[data-nf-theme="future"] .nf-avatar-title-empty{color:#6b8180}
+body:is([data-nf-theme="lavender"],[data-nf-theme="blush"],[data-nf-theme="forest"]) .nf-avatar-identity{background:linear-gradient(135deg,#edf8f4,#f3f7fa);border-color:#9dcab9}
+body:is([data-nf-theme="lavender"],[data-nf-theme="blush"],[data-nf-theme="forest"]) .nf-avatar-player-name{color:#173c39}
+body:is([data-nf-theme="lavender"],[data-nf-theme="blush"],[data-nf-theme="forest"]) .nf-avatar-player-title:not(.nf-avatar-title-empty){color:#98631b}
+body:is([data-nf-theme="lavender"],[data-nf-theme="blush"],[data-nf-theme="forest"]) .nf-avatar-player-title:not(.nf-avatar-title-empty)::before,
+body:is([data-nf-theme="lavender"],[data-nf-theme="blush"],[data-nf-theme="forest"]) .nf-avatar-player-title:not(.nf-avatar-title-empty)::after{color:#98631b}
+body:is([data-nf-theme="lavender"],[data-nf-theme="blush"],[data-nf-theme="forest"]) .nf-avatar-title-empty{color:#6b8180}
 @media(max-width:580px){.nf-avatar-column{gap:8px}.nf-avatar-identity{padding:12px 10px}.nf-avatar-player-name{font-size:23px}}
 </style>
 <style id="nf-fit-masteries-v4">
@@ -544,7 +545,7 @@ body.nf-onboard-open{overflow:hidden}
 .nf-onboard-field{margin:13px 0}.nf-onboard-field label{display:block;font-size:12px;font-weight:750;color:#dbe7ec;margin:0 0 6px}.nf-onboard-field small{font-size:11px;color:#9badb6;font-weight:400}
 .nf-onboard-card input,.nf-onboard-card select{width:100%;height:47px;max-width:100%;border:1px solid #4a6775;background:#0c1a26;color:#f7fcfa;border-radius:10px;padding:10px 12px;font-size:16px;line-height:1.1}.nf-onboard-card input:focus,.nf-onboard-card select:focus{outline:2px solid #72e7b9;outline-offset:1px}.nf-onboard-card .nf-onboard-primary{width:100%;min-height:49px;margin-top:12px;background:#1d7254;color:#f5fff8;border:1px solid #71dfae;border-radius:11px;font-weight:750}.nf-onboard-actions{display:grid;grid-template-columns:100px 1fr;gap:10px;margin-top:18px}.nf-onboard-actions button{min-height:48px;border-radius:10px;font-weight:750}.nf-onboard-card .nf-onboard-local{display:block;margin:10px auto 4px;background:transparent;border:0;text-decoration:underline;text-underline-offset:3px;color:#a4d4c7;padding:10px;font-size:12px;cursor:pointer}.nf-onboard-columns{display:grid;grid-template-columns:1fr 1fr;gap:0 12px}.nf-onboard-card .nf-onboard-feedback{min-height:15px;margin:13px 0 0;color:#ffbeac;font-size:12px}.nf-onboard-card .nf-onboard-small{font-size:11px;line-height:1.5;color:#9bafba}.nf-onboard-card .hidden{display:none!important}
 @media(max-width:430px){.nf-onboard-card{border-radius:17px;padding:21px}.nf-onboard-card h2{font-size:24px}.nf-onboard-stepper{font-size:9px}.nf-onboard-mode button{font-size:12px}}
-body[data-nf-theme="future"] .nf-onboard-card{background:#fbfcfd;border-color:#c4d6d4;color:#223740}body[data-nf-theme="future"] .nf-onboard-card h2,body[data-nf-theme="future"] .nf-onboard-field label{color:#20353c}body[data-nf-theme="future"] .nf-onboard-card input,body[data-nf-theme="future"] .nf-onboard-card select{background:#fff;color:#213942;border-color:#bccdd0}
+body:is([data-nf-theme="lavender"],[data-nf-theme="blush"],[data-nf-theme="forest"]) .nf-onboard-card{background:#fbfcfd;border-color:#c4d6d4;color:#223740}body:is([data-nf-theme="lavender"],[data-nf-theme="blush"],[data-nf-theme="forest"]) .nf-onboard-card h2,body:is([data-nf-theme="lavender"],[data-nf-theme="blush"],[data-nf-theme="forest"]) .nf-onboard-field label{color:#20353c}body:is([data-nf-theme="lavender"],[data-nf-theme="blush"],[data-nf-theme="forest"]) .nf-onboard-card input,body:is([data-nf-theme="lavender"],[data-nf-theme="blush"],[data-nf-theme="forest"]) .nf-onboard-card select{background:#fff;color:#213942;border-color:#bccdd0}
 </style>
 <style id="nf-character-collapsibles-style">
 /* Compact Character accordion. Native details preserves form controls and keyboard accessibility. */
@@ -578,11 +579,11 @@ body[data-nf-theme="future"] .nf-onboard-card{background:#fbfcfd;border-color:#c
 #hunter #nfTreeGoalsDisclosure>summary .nf-disclosure-arrow{display:inline-block;color:#8fe1c1;font-size:19px;transition:transform .2s}
 #hunter #nfTreeGoalsDisclosure[open]>summary .nf-disclosure-arrow{transform:rotate(180deg)}
 #hunter #nfTreeGoalsDisclosure .nf-tree-goals{margin:0;border:0;border-radius:0;box-shadow:none}
-body[data-nf-theme="future"] #hunter details.nf-collapsible .nf-collapse-name{color:#20443b}
-body[data-nf-theme="future"] #hunter details.nf-collapsible .nf-collapse-kicker,body[data-nf-theme="future"] #hunter details.nf-collapsible .nf-collapse-chevron{color:#117655}
-body[data-nf-theme="future"] #hunter #nfNextFormsPanel,body[data-nf-theme="future"] #hunter #nfTreeGoalsDisclosure{background:#f0f8f3;border-color:#b7d6c6}
-body[data-nf-theme="future"] #hunter #nfTreeGoalsDisclosure>summary{color:#1b463b}
-body[data-nf-theme="future"] #hunter #nfTreeGoalsDisclosure>summary .nf-disclosure-hint{color:#357d61}
+body:is([data-nf-theme="lavender"],[data-nf-theme="blush"],[data-nf-theme="forest"]) #hunter details.nf-collapsible .nf-collapse-name{color:#20443b}
+body:is([data-nf-theme="lavender"],[data-nf-theme="blush"],[data-nf-theme="forest"]) #hunter details.nf-collapsible .nf-collapse-kicker,body:is([data-nf-theme="lavender"],[data-nf-theme="blush"],[data-nf-theme="forest"]) #hunter details.nf-collapsible .nf-collapse-chevron{color:#117655}
+body:is([data-nf-theme="lavender"],[data-nf-theme="blush"],[data-nf-theme="forest"]) #hunter #nfNextFormsPanel,body:is([data-nf-theme="lavender"],[data-nf-theme="blush"],[data-nf-theme="forest"]) #hunter #nfTreeGoalsDisclosure{background:#f0f8f3;border-color:#b7d6c6}
+body:is([data-nf-theme="lavender"],[data-nf-theme="blush"],[data-nf-theme="forest"]) #hunter #nfTreeGoalsDisclosure>summary{color:#1b463b}
+body:is([data-nf-theme="lavender"],[data-nf-theme="blush"],[data-nf-theme="forest"]) #hunter #nfTreeGoalsDisclosure>summary .nf-disclosure-hint{color:#357d61}
 @media(prefers-reduced-motion:reduce){#hunter .nf-collapse-chevron,#hunter .nf-disclosure-arrow{transition:none!important}}
 </style>
 <style id="nf-secondary-compact-header-css">
@@ -599,9 +600,9 @@ body.nf-secondary-view .hero,body.nf-secondary-view .command-dashboard,body.nf-s
 .nf-compact-radar{width:91px;height:76px;display:flex;align-items:center;justify-content:center;overflow:hidden}
 .nf-compact-radar svg{display:block!important;width:84px!important;height:76px!important;max-width:none!important}
 .nf-compact-radar-label{font-size:8px;letter-spacing:1px}
-body[data-nf-theme="future"] .nf-compact-rank-copy strong{color:#244442}
-body[data-nf-theme="future"] .nf-compact-rank{color:#167954;text-shadow:none}
-body[data-nf-theme="future"] .nf-compact-kicker,body[data-nf-theme="future"] .nf-compact-radar-label{color:#597775}
+body:is([data-nf-theme="lavender"],[data-nf-theme="blush"],[data-nf-theme="forest"]) .nf-compact-rank-copy strong{color:#244442}
+body:is([data-nf-theme="lavender"],[data-nf-theme="blush"],[data-nf-theme="forest"]) .nf-compact-rank{color:#167954;text-shadow:none}
+body:is([data-nf-theme="lavender"],[data-nf-theme="blush"],[data-nf-theme="forest"]) .nf-compact-kicker,body:is([data-nf-theme="lavender"],[data-nf-theme="blush"],[data-nf-theme="forest"]) .nf-compact-radar-label{color:#597775}
 @media(max-width:360px){body.nf-secondary-view .nf-compact-status{padding:9px 11px!important;gap:8px}.nf-compact-rank{font-size:40px}.nf-compact-radar{width:80px}.nf-compact-radar svg{width:77px!important}}
 @media(prefers-reduced-motion:reduce){.nf-compact-status *{transition:none!important}}
 </style>
@@ -1161,6 +1162,101 @@ body.nf-tour-open{overflow:hidden}
 .nf-train-rest strong{font-variant-numeric:tabular-nums}.nf-train-rest button{font-size:12px}
 .nf-train-set-saved{opacity:.75}.nf-train-set-saved button{color:#a9ebba}
 .nf-train-legacy[hidden]{display:none!important}.nf-train-legacy{font-size:12px;margin-bottom:8px}</style><style id="nf-ghost-weekly-fix-style">#nfAIPlanner .nf-coach-edit-feedback{border:1px solid #42786c;border-radius:9px;padding:10px 12px;background:#163931;color:#bff1d9;font-size:13px;line-height:1.45;margin:9px 0 14px}</style>
+<style id="nf-pastel-themes-20261030">
+/* NEXTFORM: accessible pastel visual themes. Does not alter training state or records. */
+html:has(body[data-nf-theme="lavender"]),html:has(body[data-nf-theme="blush"]),html:has(body[data-nf-theme="forest"]){color-scheme:light}
+body[data-nf-theme="lavender"]{
+  --nf-accent:#388c78;--nf-text:#332c47;--nf-bg:#f8f4fc;--nf-card:#fffefc;--nf-edge:#d9cfe9;
+  --nf-ink:#332b48;--nf-soft-ink:#655d75;--nf-soft:#f1ebfa;--nf-soft2:#e5f4ed;
+  --nf-main:#367d6f;--nf-main-strong:#25685a;--nf-secondary:#8270b0;--nf-border:#d8cce8;
+  --nf-surface:#fffefe;--nf-surface-alt:#f8f5fc;--nf-glow:#967fbd22;
+  background:radial-gradient(ellipse at 9% 0%,#e9e0f7,transparent 48%),radial-gradient(ellipse at 95% 12%,#def4e9,transparent 48%),#f8f4fc;
+  color:var(--nf-ink);
+}
+body[data-nf-theme="blush"]{
+  --nf-accent:#ab587c;--nf-text:#493040;--nf-bg:#fff7f5;--nf-card:#fffdfa;--nf-edge:#edcfda;
+  --nf-ink:#493040;--nf-soft-ink:#805e6e;--nf-soft:#faebef;--nf-soft2:#f8e8e4;
+  --nf-main:#a95374;--nf-main-strong:#8a3c5c;--nf-secondary:#ad7385;--nf-border:#ebcfd8;
+  --nf-surface:#fffdfb;--nf-surface-alt:#fff4f4;--nf-glow:#d88aa024;
+  background:radial-gradient(ellipse at 15% 0%,#f5dfe8,transparent 48%),radial-gradient(ellipse at 95% 14%,#fbe9de,transparent 48%),#fff7f5;
+  color:var(--nf-ink);
+}
+body[data-nf-theme="forest"]{
+  --nf-accent:#2c684d;--nf-text:#20382e;--nf-bg:#f6f6ed;--nf-card:#fffdf5;--nf-edge:#c9d8c5;
+  --nf-ink:#22392c;--nf-soft-ink:#557066;--nf-soft:#e9eee3;--nf-soft2:#dbe8d7;
+  --nf-main:#2b6449;--nf-main-strong:#1b4935;--nf-secondary:#84a47c;--nf-border:#cad8c6;
+  --nf-surface:#fffef9;--nf-surface-alt:#f1f5ed;--nf-glow:#255c381b;
+  background:radial-gradient(ellipse at 10% 0%,#dfeadd,transparent 46%),radial-gradient(ellipse at 95% 18%,#f5edda,transparent 50%),#f6f6ed;
+  color:var(--nf-ink);
+}
+body:is([data-nf-theme="lavender"],[data-nf-theme="blush"],[data-nf-theme="forest"]) :is(.brand,h1,h2,h3,h4,.big,.command-number){color:var(--nf-ink)}
+body:is([data-nf-theme="lavender"],[data-nf-theme="blush"],[data-nf-theme="forest"]) :is(.muted,.foot,.tag,.command-label,.field label,.nf-train-date-caption){color:var(--nf-soft-ink)}
+body:is([data-nf-theme="lavender"],[data-nf-theme="blush"],[data-nf-theme="forest"]) .brand-mark,
+body:is([data-nf-theme="lavender"],[data-nf-theme="blush"],[data-nf-theme="forest"]) .rank,
+body:is([data-nf-theme="lavender"],[data-nf-theme="blush"],[data-nf-theme="forest"]) .pill{color:var(--nf-main)}
+body:is([data-nf-theme="lavender"],[data-nf-theme="blush"],[data-nf-theme="forest"]) :is(.panel,.stat,.exercise,.quest,.history,.milestone,.mini-stat,.cardio-target,.workout-builder,.nf-cardio-disclosure,.nf-train-session-chooser,.nf-train-session-editor,.nf-train-empty-prompt,.nf-train-saved-controls,.nf-train-past,.nf-ai-day,.nf-onboard-card){
+  background:linear-gradient(145deg,var(--nf-surface),var(--nf-surface-alt));border-color:var(--nf-border);color:var(--nf-ink);box-shadow:0 6px 24px var(--nf-glow);
+}
+body:is([data-nf-theme="lavender"],[data-nf-theme="blush"],[data-nf-theme="forest"]) :is(.tabs,.nf-bottom-nav){background:color-mix(in srgb,var(--nf-bg) 95%,white);border-color:var(--nf-border);box-shadow:0 -6px 25px var(--nf-glow);backdrop-filter:blur(14px)}
+body:is([data-nf-theme="lavender"],[data-nf-theme="blush"],[data-nf-theme="forest"]) :is(.tabs button,.days button,.nf-bottom-nav button,.nf-rolling-days button){background:var(--nf-surface);color:var(--nf-soft-ink);border-color:var(--nf-border)}
+body:is([data-nf-theme="lavender"],[data-nf-theme="blush"],[data-nf-theme="forest"]) :is(.tabs button.active,.days button.active,.nf-bottom-nav button.active,.nf-rolling-days button.active){background:var(--nf-soft2);color:var(--nf-main-strong);border-color:var(--nf-main);box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--nf-main) 25%,transparent)}
+body:is([data-nf-theme="lavender"],[data-nf-theme="blush"],[data-nf-theme="forest"]) :is(.primary,button.primary){background:linear-gradient(115deg,var(--nf-main-strong),var(--nf-main));color:#fff!important;border:1px solid var(--nf-main-strong)}
+body:is([data-nf-theme="lavender"],[data-nf-theme="blush"],[data-nf-theme="forest"]) :is(.secondary,button.secondary,.set button,.nf-train-past-list button){background:var(--nf-soft);border-color:var(--nf-border);color:var(--nf-main-strong)}
+body:is([data-nf-theme="lavender"],[data-nf-theme="blush"],[data-nf-theme="forest"]) :is(input,textarea,select){color:var(--nf-ink);accent-color:var(--nf-main)}
+body:is([data-nf-theme="lavender"],[data-nf-theme="blush"],[data-nf-theme="forest"]) :is(.field input,.field select,.field textarea,.set input,.set select,.nf-train-editor-row input,.nf-daily-coach-feel select,.nf-ai-ex input,.nf-ai-ex select){background:#fff;color:var(--nf-ink);border-color:var(--nf-border)}
+body:is([data-nf-theme="lavender"],[data-nf-theme="blush"],[data-nf-theme="forest"]) :is(input,textarea)::placeholder{color:var(--nf-soft-ink);opacity:.70}
+body:is([data-nf-theme="lavender"],[data-nf-theme="blush"],[data-nf-theme="forest"]) :is(.bar,.nf-session-progress-track){background:var(--nf-border)}
+body:is([data-nf-theme="lavender"],[data-nf-theme="blush"],[data-nf-theme="forest"]) .fill{background:linear-gradient(90deg,var(--nf-main),var(--nf-secondary))}
+/* Right drawer and notification indicator */
+body:is([data-nf-theme="lavender"],[data-nf-theme="blush"],[data-nf-theme="forest"]) .nf-menu-toggle{background:var(--nf-surface);border-color:var(--nf-border);color:var(--nf-main);box-shadow:0 3px 12px var(--nf-glow)}
+body:is([data-nf-theme="lavender"],[data-nf-theme="blush"],[data-nf-theme="forest"]) .nf-menu-toggle:hover{background:var(--nf-soft2)}
+body:is([data-nf-theme="lavender"],[data-nf-theme="blush"],[data-nf-theme="forest"]) .nf-menu-drawer{background:linear-gradient(160deg,var(--nf-surface),var(--nf-bg));border-color:var(--nf-border);color:var(--nf-ink);box-shadow:-15px 0 45px #38314a33}
+body:is([data-nf-theme="lavender"],[data-nf-theme="blush"],[data-nf-theme="forest"]) :is(.nf-menu-heading,.nf-menu-group){border-color:var(--nf-border)}
+body:is([data-nf-theme="lavender"],[data-nf-theme="blush"],[data-nf-theme="forest"]) :is(.nf-menu-overline,.nf-menu-section-heading,.nf-menu-arrow){color:var(--nf-main)}
+body:is([data-nf-theme="lavender"],[data-nf-theme="blush"],[data-nf-theme="forest"]) :is(.nf-menu-heading p,.nf-menu-link small,.nf-menu-preference small,.nf-menu-footnote){color:var(--nf-soft-ink)}
+body:is([data-nf-theme="lavender"],[data-nf-theme="blush"],[data-nf-theme="forest"]) :is(.nf-menu-link,.nf-menu-close){color:var(--nf-ink)}
+body:is([data-nf-theme="lavender"],[data-nf-theme="blush"],[data-nf-theme="forest"]) .nf-menu-link:hover{background:var(--nf-soft)}
+body:is([data-nf-theme="lavender"],[data-nf-theme="blush"],[data-nf-theme="forest"]) :is(.nf-menu-glyph,.nf-menu-close,.nf-menu-preference){background:var(--nf-soft2);border-color:var(--nf-border);color:var(--nf-main-strong)}
+body:is([data-nf-theme="lavender"],[data-nf-theme="blush"],[data-nf-theme="forest"]) .nf-menu-preference input:checked{background:var(--nf-main)}
+/* Today focus and rolling training days */
+body:is([data-nf-theme="lavender"],[data-nf-theme="blush"],[data-nf-theme="forest"]) .nf-home-focus{background:linear-gradient(135deg,var(--nf-surface),var(--nf-soft2))!important;border-color:var(--nf-border)!important}
+body:is([data-nf-theme="lavender"],[data-nf-theme="blush"],[data-nf-theme="forest"]) .nf-home-focus-mark{background:var(--nf-soft);border-color:var(--nf-border);color:var(--nf-main)}
+body:is([data-nf-theme="lavender"],[data-nf-theme="blush"],[data-nf-theme="forest"]) .nf-home-at-a-glance{border-color:var(--nf-border)}
+body:is([data-nf-theme="lavender"],[data-nf-theme="blush"],[data-nf-theme="forest"]) .nf-home-at-a-glance b{color:var(--nf-ink)}
+body:is([data-nf-theme="lavender"],[data-nf-theme="blush"],[data-nf-theme="forest"]) .nf-home-at-a-glance small{color:var(--nf-soft-ink)}
+body:is([data-nf-theme="lavender"],[data-nf-theme="blush"],[data-nf-theme="forest"]) .nf-home-shortcuts button{background:var(--nf-soft);border-color:var(--nf-border);color:var(--nf-main-strong)}
+body:is([data-nf-theme="lavender"],[data-nf-theme="blush"],[data-nf-theme="forest"]) .nf-today-primary{background:linear-gradient(115deg,var(--nf-soft2),var(--nf-soft));border-color:var(--nf-border)}
+body:is([data-nf-theme="lavender"],[data-nf-theme="blush"],[data-nf-theme="forest"]) :is(.nf-today-primary strong,.nf-today-kicker){color:var(--nf-main-strong)}
+body:is([data-nf-theme="lavender"],[data-nf-theme="blush"],[data-nf-theme="forest"]) :is(.nf-train-session-card,.nf-session-link,.nf-session-outline){background:var(--nf-surface);color:var(--nf-ink);border-color:var(--nf-border)}
+body:is([data-nf-theme="lavender"],[data-nf-theme="blush"],[data-nf-theme="forest"]) :is(.nf-train-session-card.active,.nf-session-link.is-current){background:var(--nf-soft2);border-color:var(--nf-main)}
+body:is([data-nf-theme="lavender"],[data-nf-theme="blush"],[data-nf-theme="forest"]) :is(.nf-train-session-card small,.nf-train-session-badge,.nf-train-past summary,.nf-train-empty-prompt){color:var(--nf-soft-ink)}
+body:is([data-nf-theme="lavender"],[data-nf-theme="blush"],[data-nf-theme="forest"]) .nf-train-view-controls button[aria-pressed="true"]{background:var(--nf-soft2);color:var(--nf-main-strong);border-color:var(--nf-main)}
+/* AI Coach, Oura and log inputs */
+body:is([data-nf-theme="lavender"],[data-nf-theme="blush"],[data-nf-theme="forest"]) :is(#nfAIPlanner,#nfAIPlanner .nf-ai-day,#nfAIPlanner .nf-coach-preferences,#nfAIPlanner .nf-ai-ex,.nf-daily-coach,.nf-daily-coach-factor,.nf-daily-coach-result,.nf-daily-coach-ai,.nf-oura-summary,.nf-oura-today,.nf-oura-ai-consent,.nf-daily-coach-consent){background:var(--nf-surface-alt);color:var(--nf-ink);border-color:var(--nf-border)}
+body:is([data-nf-theme="lavender"],[data-nf-theme="blush"],[data-nf-theme="forest"]) :is(.nf-daily-coach-header,.nf-daily-coach-label strong,.nf-daily-coach-result h3,.nf-daily-coach-ai h3,.nf-oura-summary strong,.nf-oura-today strong,.nf-oura-ai-consent strong,.nf-daily-coach-factor strong,.nf-daily-coach-consent strong){color:var(--nf-ink)}
+body:is([data-nf-theme="lavender"],[data-nf-theme="blush"],[data-nf-theme="forest"]) :is(.nf-daily-coach-intro,.nf-daily-coach-result p,.nf-daily-coach-ai p,.nf-daily-coach-result li,.nf-daily-coach-ai li,.nf-daily-coach-feel,.nf-daily-coach-label em,.nf-daily-coach-factor small,.nf-daily-coach-factor span,.nf-daily-coach-note,.nf-daily-coach-consent small,.nf-oura-summary p,.nf-oura-today p,.nf-oura-ai-consent small){color:var(--nf-soft-ink)}
+body:is([data-nf-theme="lavender"],[data-nf-theme="blush"],[data-nf-theme="forest"]) :is(.nf-daily-coach-spark,.nf-cardio-disclosure-icon){background:var(--nf-soft2);color:var(--nf-main-strong);border-color:var(--nf-border)}
+body:is([data-nf-theme="lavender"],[data-nf-theme="blush"],[data-nf-theme="forest"]) .nf-cardio-disclosure>summary small{color:var(--nf-soft-ink)}
+body:is([data-nf-theme="lavender"],[data-nf-theme="blush"],[data-nf-theme="forest"]) :is(.nf-cardio-chevron,.nf-daily-coach-arrow,.nf-daily-coach-label small,.nf-today-kicker){color:var(--nf-main)}
+body:is([data-nf-theme="lavender"],[data-nf-theme="blush"],[data-nf-theme="forest"]) .nf-cardio-disclosure{background:var(--nf-surface);border-color:var(--nf-border)}
+body:is([data-nf-theme="lavender"],[data-nf-theme="blush"],[data-nf-theme="forest"]) #exercises .nf-ai-target-input::placeholder{color:var(--nf-main-strong);opacity:.64}
+body:is([data-nf-theme="lavender"],[data-nf-theme="blush"],[data-nf-theme="forest"]) #nfAIPlanner .nf-coach-edit-feedback{background:var(--nf-soft2);color:var(--nf-main-strong);border-color:var(--nf-main)}
+/* Rank indicators should inherit each pastel accent instead of old green. */
+body:is([data-nf-theme="lavender"],[data-nf-theme="blush"],[data-nf-theme="forest"]) :is(.nf-compact-rank,.command-number,.nf-rank-heading,.rank){color:var(--nf-main);text-shadow:none}
+body:is([data-nf-theme="lavender"],[data-nf-theme="blush"],[data-nf-theme="forest"]) :is(.nf-compact-kicker,.nf-compact-radar-label,.nf-compact-rank-copy strong){color:var(--nf-soft-ink)}
+/* Profile, charts, calendar and skill tree details */
+body:is([data-nf-theme="lavender"],[data-nf-theme="blush"],[data-nf-theme="forest"]) :is(.calendar-controls button,.cal-day,.skill,.skill-node,.asc-tree-card,.nf-cosmetic,.nf-character-switch button,.nf-equip-card){background:var(--nf-surface-alt);color:var(--nf-ink);border-color:var(--nf-border)}
+body:is([data-nf-theme="lavender"],[data-nf-theme="blush"],[data-nf-theme="forest"]) :is(.nf-cosmetic small,.asc-tree-heading span,.asc-tree-sub){color:var(--nf-soft-ink)}
+body:is([data-nf-theme="lavender"],[data-nf-theme="blush"],[data-nf-theme="forest"]) :is(.nf-character-switch button.selected,.nf-cosmetic.nf-equipped){background:var(--nf-soft2);color:var(--nf-main-strong);border-color:var(--nf-main)}
+body:is([data-nf-theme="lavender"],[data-nf-theme="blush"],[data-nf-theme="forest"]) .nf-equipped-summary{background:var(--nf-soft2);border-color:var(--nf-border);color:var(--nf-main-strong)}
+body:is([data-nf-theme="lavender"],[data-nf-theme="blush"],[data-nf-theme="forest"]) .nf-theme-option{background:var(--nf-surface);color:var(--nf-ink);border-color:var(--nf-border)}
+body:is([data-nf-theme="lavender"],[data-nf-theme="blush"],[data-nf-theme="forest"]) .nf-theme-option[aria-pressed="true"]{border-color:var(--nf-main);box-shadow:0 0 0 2px var(--nf-glow)}
+.nf-theme-options{grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+.nf-theme-option{transition:border-color .16s,background .16s,transform .16s}
+.nf-theme-option:active{transform:scale(.985)}
+.nf-theme-option:focus-visible{outline:3px solid var(--nf-accent,#70f0b1);outline-offset:2px}
+@media(max-width:580px){.nf-theme-options{grid-template-columns:1fr;gap:9px}.nf-theme-option{display:grid;grid-template-columns:80px 1fr;grid-template-rows:auto auto;align-items:center;column-gap:12px;padding:11px 12px}.nf-theme-option .nf-swatch{grid-row:1/span 2;grid-column:1;height:52px}.nf-theme-option strong{grid-row:1;grid-column:2;font-size:14px}.nf-theme-option small{grid-row:2;grid-column:2;font-size:11px}}
+</style>
 </head><body><div class="wrap"><header class="top"><div><div class="nf-brand-lockup"><img src="./icon-192.png" alt="NEXTFORM logo" class="nf-header-logo"><div><div class="brand">NEXTFORM<span class="brand-mark">_</span></div><div class="tag">THE SYSTEM <span class="system-dot">●</span> ONLINE</div></div></div><div class="nf-header-controls"><button class="nf-sync-chip" id="nfSyncChip" type="button" data-state="local" aria-label="View save and sync status">Local save</button><button class="nf-menu-toggle" id="nfMenuToggle" type="button" aria-label="Open navigation menu" aria-controls="nfQuickMenu" aria-expanded="false"><span id="nfMenuUnreadBadge" class="nf-unread-badge nf-header-unread" hidden aria-hidden="true"></span><svg viewBox="0 0 24 24" width="23" height="23" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button></div></header>
 <div class="nf-menu-shell" id="nfQuickMenu" hidden>
   <button class="nf-menu-backdrop" id="nfMenuBackdrop" type="button" aria-label="Close navigation menu" tabindex="-1"></button>
@@ -1271,7 +1367,7 @@ body.nf-tour-open{overflow:hidden}
 
 <main id="analytics" class="hidden"><div class="panel"><div class="tag">PERFORMANCE ANALYTICS</div><h2>Progress Analytics</h2><p class="muted">Charts use your saved workout and body metrics. Empty charts mean you have not logged enough data yet.</p><div class="grid2" id="analyticCards"></div></div><div class="panel"><h3>Bodyweight Trend</h3><div id="weightChart"></div></div><div class="panel"><h3>Weekly Training Volume</h3><div id="volumeChart"></div></div><div class="panel"><h3>Endurance Distance by Week</h3><div id="cardioChart"></div></div><div class="panel"><h3>Estimated Strength Records</h3><div id="strengthChart"></div></div></main>
 <main id="calendar" class="hidden"><div class="panel"><div class="tag">TRAINING HISTORY</div><h2>Training Calendar</h2><p class="muted">Select a date to inspect logged strength sessions, runs, rides, walks and body metrics.</p><div class="calendar-controls"><button onclick="ascCalMove(-1)">← Previous</button><strong id="calMonth"></strong><button onclick="ascCalMove(1)">Next →</button></div><div class="cal-grid" id="calGrid"></div><div id="calDetail" class="exercise"></div></div></main>
-<main id="records" class="hidden"><div class="panel"><div class="tag">PERFORMANCE RECORDS</div><h2>Personal Bests</h2><p class="muted">Strength records use estimated 1RM from sets of 1–10 reps. Cardio pace records are based on completed sessions within ±10% of the stated distance.</p><div id="recordContent"></div></div><div class="panel"><div class="tag">PROGRESSIVE OVERLOAD</div><h2>Next Session Targets</h2><p class="muted">Recommendations use your last completed session. When every set reaches the top of its prescribed rep range, a small weight increase is suggested. Adjust for technique, recovery and comfort.</p><div id="overloadContent"></div></div></main><main id="settings" class="hidden"><section class="panel nf-appearance"><div class="tag">NEXTFORM / APPEARANCE</div><h2>Visual Theme</h2><p class="muted">Switch the appearance of NEXTFORM. Your training data, accounts and connections stay unchanged.</p><div class="nf-theme-options" role="group" aria-label="Visual theme"><button type="button" class="nf-theme-option" data-nf-theme="tactical" aria-pressed="true"><span class="nf-swatch nf-swatch-dark"></span><strong>Dark Tactical</strong><small>THE SYSTEM · Immersive RPG</small></button><button type="button" class="nf-theme-option" data-nf-theme="future" aria-pressed="false"><span class="nf-swatch nf-swatch-light"></span><strong>Premium Futuristic</strong><small>Clean · Performance focused</small></button></div></section><section class="panel" id="ascConnectedApps"><div class="tag">INTEGRATIONS</div><h2>Connected Apps</h2><p class="muted">Connect Strava to import cardio activities and Oura to view recovery. Sign in to NEXTFORM first. Imported activities earn XP once, and your existing records are retained.</p><div class="grid2"><div class="exercise"><h3>Strava</h3><div id="ascStravaStatus" class="muted">Checking connection…</div><div class="actions"><button type="button" id="ascStravaConnect">Connect Strava</button><button type="button" id="ascStravaSync">Sync activities</button><button type="button" id="ascStravaDisconnect" class="secondary">Disconnect</button></div></div><div class="exercise"><h3>Oura</h3><div id="ascOuraStatus" class="muted">Checking connection…</div><p class="muted">To display your connected Oura email, reconnect once to approve profile permissions. ASCENSION only displays your email to you.</p><div class="actions"><button type="button" id="ascOuraConnect">Connect Oura</button><button type="button" id="ascOuraSync">Sync recovery</button><button type="button" id="ascOuraDisconnect" class="secondary">Disconnect</button></div></div></div><div id="ascIntegrationMessage" class="muted" role="status"></div><div id="ascOuraRecovery" class="exercise"><h3>Recovery overview</h3><p class="muted">Connect Oura and sync to see recent measurements.</p></div></section><section class="panel cloud-profile" id="cloudProfile"><div class="tag">YOUR ACCOUNT</div><h2>Profile & Cloud Sync</h2><p class="muted">Sign in on your phone or desktop to access the same ASCENSION progress. Your cloud save is automatically downloaded when you sign in or reopen the app. Changes automatically upload after saving.</p><div id="cloudStatus" class="muted" role="status" aria-live="polite">Checking cloud configuration…</div>
+<main id="records" class="hidden"><div class="panel"><div class="tag">PERFORMANCE RECORDS</div><h2>Personal Bests</h2><p class="muted">Strength records use estimated 1RM from sets of 1–10 reps. Cardio pace records are based on completed sessions within ±10% of the stated distance.</p><div id="recordContent"></div></div><div class="panel"><div class="tag">PROGRESSIVE OVERLOAD</div><h2>Next Session Targets</h2><p class="muted">Recommendations use your last completed session. When every set reaches the top of its prescribed rep range, a small weight increase is suggested. Adjust for technique, recovery and comfort.</p><div id="overloadContent"></div></div></main><main id="settings" class="hidden"><section class="panel nf-appearance"><div class="tag">NEXTFORM / APPEARANCE</div><h2>Visual Theme</h2><p class="muted">Switch the appearance of NEXTFORM. Your training data, accounts and connections stay unchanged.</p><div class="nf-theme-options" role="group" aria-label="Visual theme"><button type="button" class="nf-theme-option" data-nf-theme="tactical" aria-pressed="true"><span class="nf-swatch nf-swatch-dark"></span><strong>Dark Tactical</strong><small>Original · Immersive RPG</small></button><button type="button" class="nf-theme-option" data-nf-theme="lavender" aria-pressed="false"><span class="nf-swatch nf-swatch-lavender"></span><strong>Lavender &amp; Mint Cream</strong><small>Calm lavender · Fresh mint</small></button><button type="button" class="nf-theme-option" data-nf-theme="forest" aria-pressed="false"><span class="nf-swatch nf-swatch-forest"></span><strong>Forest Green &amp; Cream</strong><small>Deep evergreen · Sage · Warm cream</small></button><button type="button" class="nf-theme-option" data-nf-theme="blush" aria-pressed="false"><span class="nf-swatch nf-swatch-blush"></span><strong>Soft Blush</strong><small>Warm cream · Rose accents</small></button></div></section><section class="panel" id="ascConnectedApps"><div class="tag">INTEGRATIONS</div><h2>Connected Apps</h2><p class="muted">Connect Strava to import cardio activities and Oura to view recovery. Sign in to NEXTFORM first. Imported activities earn XP once, and your existing records are retained.</p><div class="grid2"><div class="exercise"><h3>Strava</h3><div id="ascStravaStatus" class="muted">Checking connection…</div><div class="actions"><button type="button" id="ascStravaConnect">Connect Strava</button><button type="button" id="ascStravaSync">Sync activities</button><button type="button" id="ascStravaDisconnect" class="secondary">Disconnect</button></div></div><div class="exercise"><h3>Oura</h3><div id="ascOuraStatus" class="muted">Checking connection…</div><p class="muted">To display your connected Oura email, reconnect once to approve profile permissions. ASCENSION only displays your email to you.</p><div class="actions"><button type="button" id="ascOuraConnect">Connect Oura</button><button type="button" id="ascOuraSync">Sync recovery</button><button type="button" id="ascOuraDisconnect" class="secondary">Disconnect</button></div></div></div><div id="ascIntegrationMessage" class="muted" role="status"></div><div id="ascOuraRecovery" class="exercise"><h3>Recovery overview</h3><p class="muted">Connect Oura and sync to see recent measurements.</p></div></section><section class="panel cloud-profile" id="cloudProfile"><div class="tag">YOUR ACCOUNT</div><h2>Profile & Cloud Sync</h2><p class="muted">Sign in on your phone or desktop to access the same ASCENSION progress. Your cloud save is automatically downloaded when you sign in or reopen the app. Changes automatically upload after saving.</p><div id="cloudStatus" class="muted" role="status" aria-live="polite">Checking cloud configuration…</div>
 <div id="nfCloudConflict" class="nf-cloud-conflict hidden" role="region" aria-labelledby="nfCloudConflictTitle">
  <strong id="nfCloudConflictTitle">Two devices have different progress</strong>
  <p>Local workouts are preserved. Review the conflict rather than automatically overwriting either device.</p>
@@ -1315,12 +1411,15 @@ body.nf-tour-open{overflow:hidden}
 (function(){
  const key='nextform.visualTheme';
  function apply(theme){
-  theme=theme==='future'?'future':'tactical';
+  // Existing Premium Futuristic preferences move to the closest new light palette.
+  theme=theme==='future'?'lavender':theme;
+  if(!['tactical','lavender','blush','forest'].includes(theme)) theme='tactical';
   document.body.dataset.nfTheme=theme;
-  document.querySelectorAll('[data-nf-theme]').forEach(function(btn){btn.setAttribute('aria-pressed',String(btn.dataset.nfTheme===theme));});
-  var meta=document.querySelector('meta[name="theme-color"]');if(meta)meta.content=theme==='future'?'#f4f7f6':'#0a1117';
+  document.querySelectorAll('.nf-theme-option').forEach(function(btn){btn.setAttribute('aria-pressed',String(btn.dataset.nfTheme===theme));});
+  var meta=document.querySelector('meta[name="theme-color"]');
+  if(meta)meta.content=theme==='lavender'?'#f8f4fc':theme==='blush'?'#fff7f5':theme==='forest'?'#f6f6ed':'#0a1117';
  }
- try{apply(localStorage.getItem(key))}catch(e){apply('tactical')}
+ try{var prior=localStorage.getItem(key);if(prior==='future'){localStorage.setItem(key,'lavender');prior='lavender'}apply(prior)}catch(e){apply('tactical')}
  document.querySelectorAll('.nf-theme-option').forEach(function(btn){btn.addEventListener('click',function(){var theme=btn.dataset.nfTheme;try{localStorage.setItem(key,theme)}catch(e){}apply(theme)})});
 })();
 </script><script>
