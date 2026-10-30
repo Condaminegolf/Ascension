@@ -913,6 +913,14 @@ button.nf-tactile:focus-visible{outline:2px solid #80ebce!important;outline-offs
 #train #nfAIPlanner .nf-coach-approval #nfAIApprove{background:linear-gradient(110deg,#279d81,#70f1ad);color:#0b2924;border:none}
 #train #nfAIPlanner .nf-coach-approval #nfAIApplyRecovery{background:#1d4043;border:1px solid #46796d;color:#b8f0de}
 #train #nfAIPlanner .nf-coach-fineprint{color:#a1b9b7;font-size:11px;line-height:1.55;margin:11px 0 0}
+#train #nfAIPlanner .nf-optional-skills{display:flex;align-items:flex-start;gap:10px;border:1px solid #39675d;border-radius:11px;background:#132d2d;padding:12px 13px;margin:12px 0;cursor:pointer;color:#d9f5e8}
+#train #nfAIPlanner .nf-optional-skills input{width:18px;height:18px;min-width:18px;margin-top:2px;accent-color:#6bdfab}
+#train #nfAIPlanner .nf-optional-skills strong{display:block;font-size:13px;line-height:1.4}
+#train #nfAIPlanner .nf-optional-skills small{display:block;color:#afc5bf;font-size:11px;line-height:1.5;margin-top:4px}
+#train #nfAIPlanner .nf-skill-edit-saved{color:#9be4c2;background:none;border:0;text-decoration:underline;cursor:pointer;font-size:12px;min-height:32px;padding:2px 0}
+#train #nfAIPlanner .nf-skill-skip-btn{color:#a9efcf;border:1px solid #518173;border-radius:8px;background:#193c38;padding:7px 10px;font-size:11px;cursor:pointer;min-height:34px}
+#train #nfAIPlanner .nf-ai-protected{color:#a0c5be}
+#train #nfAIPlanner .nf-ai-remove{display:inline-block;min-height:29px;padding:3px 0;touch-action:manipulation}
 #train #nfAIPlanner .nf-coach-approval .nf-ai-warning:empty{display:none}
 #train #nfAIPlanner .nf-coach-approval .nf-ai-warning:not(:empty){padding:10px 11px;background:#402f23;border:1px solid #926b44;border-radius:9px;line-height:1.45}
 #train #nfAIPlanner .nf-coach-sr{position:absolute!important;width:1px!important;height:1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important}
@@ -1199,9 +1207,10 @@ body.nf-tour-open{overflow:hidden}
 <div class="nf-coach-intro"><span class="nf-coach-intro-icon" aria-hidden="true">✦</span><div><strong>Build a week that works together</strong><p>Make a week that fits your schedule. <button class="nf-tip-trigger" type="button" data-nf-tip="coach" aria-label="How the AI Coach works">ⓘ</button></p></div></div>
 <div class="nf-coach-step-head"><span class="nf-coach-step-index">01</span><div><strong>Plan your week</strong><small>Set your schedule and priorities</small></div></div>
 <div class="nf-coach-preferences"><div class="grid2"><div class="field"><label for="nfAIWeek">Week starting (Monday)</label><input id="nfAIWeek" type="date"></div><div class="field"><label for="nfAIGoal">Priority</label><select id="nfAIGoal"><option value="strength">Strength + muscle</option><option value="balanced">Balanced fitness</option><option value="endurance">Endurance</option><option value="fat_loss">Fat loss</option></select></div><div class="field"><label for="nfAIRunDay">Run day</label><select id="nfAIRunDay"><option value="0">Monday</option><option value="1" selected>Tuesday</option><option value="2">Wednesday</option><option value="3">Thursday</option><option value="4">Friday</option><option value="5">Saturday</option><option value="6">Sunday</option></select></div><div class="field"><label for="nfAIRideDay">Ride day</label><select id="nfAIRideDay"><option value="0">Monday</option><option value="1">Tuesday</option><option value="2">Wednesday</option><option value="3">Thursday</option><option value="4">Friday</option><option value="5" selected>Saturday</option><option value="6">Sunday</option></select></div><div class="field"><label for="nfAIMinutes">Strength minutes/session</label><input id="nfAIMinutes" type="number" min="15" max="120" value="30"></div><div class="field"><label for="nfAIRideMinutes">Ride minutes</label><input id="nfAIRideMinutes" type="number" min="10" max="300" value="75"></div></div><div class="field nf-coach-notes"><label for="nfAINotes">Notes for your coach <span class="nf-coach-optional">Optional</span></label><textarea id="nfAINotes" rows="3" maxlength="500" placeholder="Keep Friday for arms and shoulders. Easy run Tuesday. Don't overload legs before Saturday's ride."></textarea><small class="nf-coach-help">Include events, training preferences or anything you want the coach to consider.</small></div></div>
+<label class="nf-optional-skills"><input type="checkbox" id="nfAIIncludeSkills" checked><span><strong>Suggest Skill Tree exercises</strong><small>Optional. Turn off to plan without the four Skill Tree barbell lifts. You can also remove individual lifts from any draft week. Skipped lifts simply won't progress their unlocks that week.</small></span></label>
 <label class="nf-oura-ai-consent"><input type="checkbox" id="nfAIOuraConsent"><span><strong>Use Oura insights with OpenAI</strong><small>Optional: share only a short readiness, sleep, HRV and resting-HR summary when you tap Refine with AI. Leave off for local-only recovery advice.</small></span></label>
 <div class="nf-coach-generate-bar"><button class="primary" id="nfAIGenerate" type="button"><span aria-hidden="true">✧</span> Generate my week</button><button class="secondary" id="nfAIImprove" type="button"><span aria-hidden="true">✦</span> Refine with AI</button></div>
-<div class="nf-coach-subcaption">Adaptive plans work offline. AI refinement is optional and requires your cloud account.</div>
+<div class="nf-coach-subcaption"><button type="button" id="nfAILoadSaved" class="nf-skill-edit-saved">Edit an approved week</button> · Adaptive plans work offline. AI refinement is optional and requires your cloud account.</div>
 <p id="nfAIStatus" class="nf-coach-status" role="status" aria-live="polite"></p>
 <div id="nfAIOutput"></div>
 </div></details><details class="panel nf-daily-coach" id="nfDailyCoachPanel" aria-label="Today’s training recommendation">
@@ -3905,13 +3914,13 @@ let nfCoachShowAll=false;
 function monday(date){const d=new Date(date+'T12:00:00');if(!Number.isFinite(+d))return null;d.setDate(d.getDate()-((d.getDay()+6)%7));return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`}
 function dateAt(base,n){const d=new Date(base+'T12:00:00');d.setDate(d.getDate()+n);return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`}
 function recentSets(name){return (db.workouts||[]).filter(w=>w.date&&Array.isArray(w.sets)&&w.sets.some(x=>x.exercise===name)).sort((a,b)=>String(b.date).localeCompare(String(a.date))).slice(0,3).map(w=>({date:w.date,sets:w.sets.filter(x=>x.exercise===name&&Number(x.reps)>0&&Number(x.kg)>=0).map(x=>({kg:Number(x.kg),reps:Number(x.reps)}))})).filter(x=>x.sets.length)}
-function target(name,low=8){const history=recentSets(name), last=history[0]?.sets||[];if(!last.length)return {name,kg:null,sets:3,reps:low,reason:'No verified prior load; choose a comfortable working weight.',protected:true};const kg=Number(last.map(x=>x.kg).sort((a,b)=>a-b)[Math.floor(last.length/2)]),done=last.filter(x=>x.kg===kg),allTop=done.length>=3&&done.every(x=>x.reps>=low+2);const trend=history.length>=2&&history[1].sets.some(x=>x.kg>=kg&&x.reps<low);const next=kg>0?Math.max(0,+(kg+(allTop&&!trend?2.5:0)).toFixed(1)):kg;return {name,kg:next,sets:3,reps:low,reason:allTop&&!trend?'All last sets met the top range; small progressive overload.':'Hold load and build consistent reps before increasing.',protected:true}}
-function getPrefs(){const weekStart=monday($ai('nfAIWeek').value||today());return {weekStart,goal:$ai('nfAIGoal').value,runDay:Number($ai('nfAIRunDay').value),rideDay:Number($ai('nfAIRideDay').value),strengthMinutes:Math.max(15,Math.min(120,Number($ai('nfAIMinutes').value)||30)),rideMinutes:Math.max(10,Math.min(300,Number($ai('nfAIRideMinutes').value)||75)),notes:$ai('nfAINotes').value.slice(0,500)}}
+function target(name,low=8){const history=recentSets(name), last=history[0]?.sets||[];if(!last.length)return {name,kg:null,sets:3,reps:low,reason:'No verified prior load; choose a comfortable working weight.',protected:false};const kg=Number(last.map(x=>x.kg).sort((a,b)=>a-b)[Math.floor(last.length/2)]),done=last.filter(x=>x.kg===kg),allTop=done.length>=3&&done.every(x=>x.reps>=low+2);const trend=history.length>=2&&history[1].sets.some(x=>x.kg>=kg&&x.reps<low);const next=kg>0?Math.max(0,+(kg+(allTop&&!trend?2.5:0)).toFixed(1)):kg;return {name,kg:next,sets:3,reps:low,reason:allTop&&!trend?'All last sets met the top range; small progressive overload.':'Hold load and build consistent reps before increasing.',protected:false}}
+function getPrefs(){const weekStart=monday($ai('nfAIWeek').value||today());return {weekStart,goal:$ai('nfAIGoal').value,runDay:Number($ai('nfAIRunDay').value),rideDay:Number($ai('nfAIRideDay').value),strengthMinutes:Math.max(15,Math.min(120,Number($ai('nfAIMinutes').value)||30)),rideMinutes:Math.max(10,Math.min(300,Number($ai('nfAIRideMinutes').value)||75)),includeSkillTree:!!$ai('nfAIIncludeSkills').checked,notes:$ai('nfAINotes').value.slice(0,500)}}
 function repTarget(raw){const n=parseInt(String(raw??'8').match(/\d+/)?.[0]||'8',10);return Math.min(30,Math.max(1,n));}
 function plannedExercise(name,sets=3,reps=12){
  const latest=recentSets(name)[0]?.sets||[];
  const kg=latest.length?Number(latest.map(x=>x.kg).sort((a,b)=>a-b)[Math.floor(latest.length/2)]):null;
- return {name,kg,sets:Math.max(1,Math.min(6,Math.round(Number(sets)||3))),reps:repTarget(reps),reason:latest.length?'Working load based on the last recorded session.':'Select a comfortable working weight.',protected:required.includes(name)};
+ return {name,kg,sets:Math.max(1,Math.min(6,Math.round(Number(sets)||3))),reps:repTarget(reps),reason:latest.length?'Working load based on the last recorded session.':'Select a comfortable working weight.',protected:false};
 }
 function fromCurrentWorkout(index){return (Array.isArray(plan?.[index]?.ex)?plan[index].ex:[]).filter(x=>Array.isArray(x)&&String(x[0]||'').trim()).map(x=>plannedExercise(String(x[0]).trim(),x[1],x[2]));}
 function workoutSuggestions(){
@@ -3923,7 +3932,7 @@ function workoutSuggestions(){
 }
 function combineExerciseList(core,custom,minimum=4){
  const rows=core.map(x=>({...x}));const seen=new Set(rows.map(x=>x.name.toLowerCase()));
- for(const e of custom){const name=String(e.name||'').trim();if(!name||seen.has(name.toLowerCase())||rows.length>=15)continue;rows.push({...e,protected:required.includes(name)});seen.add(name.toLowerCase());}
+ for(const e of custom){const name=String(e.name||'').trim();if(!name||seen.has(name.toLowerCase())||rows.length>=15)continue;rows.push({...e,protected:false});seen.add(name.toLowerCase());}
  const fallback=['Cable Row','Cable Lateral Raise','Cable Triceps Pressdown','Cable Biceps Curl','Cable Pallof Press'];
  for(const name of fallback){if(rows.length>=minimum)break;if(!seen.has(name.toLowerCase())){rows.push(plannedExercise(name,2,12));seen.add(name.toLowerCase());}}
  return rows;
@@ -3970,7 +3979,7 @@ function fatigueFor(dayIndex){
   const base=Math.max(1,Number(ex.baseSets??ex.sets)||3);
   const leg=/squat|deadlift|lunge|leg press|hip thrust|split squat|hamstring|calf/i.test(ex.name);
   const heavy=lower&&(leg||/leg/i.test(strength.title));
-  const lowerSets=level==='high'&&(heavy||score>=3.6)?1:level==='moderate'&&lower&&heavy&&!required.includes(ex.name)?1:0;
+  const lowerSets=level==='high'&&(heavy||score>=3.6)?1:level==='moderate'&&lower&&heavy?1:0;
   const proposed=Math.max(2,base-lowerSets);
   const last=recentSets(ex.name)[0]?.sets||[];
   const recordedKg=last.length?last.reduce((a,b)=>a+b.kg,0)/last.length:null;
@@ -4002,10 +4011,12 @@ function build(){
  const savedLabel=$ai('nfAIApprovedLabel');if(savedLabel){savedLabel.hidden=true;savedLabel.textContent='';}
  const p=getPrefs();if(!p.weekStart){$ai('nfAIStatus').textContent='Choose a valid Monday date.';return;}
  const days=MON.map((day,i)=>({day,date:dateAt(p.weekStart,i),sessions:[],kind:'rest',title:'Recovery',minutes:0,exercises:[],notes:''}));
+ const optionalCore=(names)=>p.includeSkillTree?names.map(name=>target(name)):[];
+ const optionalCustom=(index)=>fromCurrentWorkout(index).filter(ex=>p.includeSkillTree||!required.includes(ex.name));
  const templates=[
-  {title:'Upper Strength',ex:combineExerciseList([target(required[0]),target(required[3])],fromCurrentWorkout(0),4)},
-  {title:'Lower Strength',ex:combineExerciseList([target(required[1]),target(required[2])],fromCurrentWorkout(2),4)},
-  {title:'Shoulders + Arms',ex:combineExerciseList([],fromCurrentWorkout(4).filter(x=>x.name!==required[3]),4)}
+  {title:'Upper Strength',ex:combineExerciseList(optionalCore([required[0],required[3]]),optionalCustom(0),4)},
+  {title:'Lower Strength',ex:combineExerciseList(optionalCore([required[1],required[2]]),optionalCustom(2),4)},
+  {title:'Shoulders + Arms',ex:combineExerciseList([],optionalCustom(4).filter(x=>x.name!==required[3]),4)}
  ];
  [0,2,4].forEach((idx,j)=>days[idx].sessions.push(makeSession('strength',templates[j].title,p.strengthMinutes,'06:30',templates[j].ex)));
  days[p.runDay].sessions.push(makeSession('run','Easy Run',30,'17:30'));
@@ -4022,7 +4033,6 @@ function build(){
 function checkPlan(){
  if(!draftAI||draftAI.days.length!==7)return 'Generate a plan first.';
  if(draftAI.days.some((x,i)=>x.date!==dateAt(draftAI.weekStart,i)))return 'Week dates are invalid.';
- for(const name of required)if(!draftAI.days.some(x=>x.sessions.some(s=>s.kind==='strength'&&s.exercises.some(e=>e.name===name))))return 'Required Skill Tree lift missing: '+name;
  for(const d of draftAI.days){
   if(!Array.isArray(d.sessions)||d.sessions.length>3)return 'Maximum three sessions per day.';
   const seenTypes=new Set();
@@ -4073,7 +4083,7 @@ function render(){
  const summary=`<section class="nf-coach-summary" aria-label="Your weekly training overview">
   <div class="nf-coach-step-head"><span class="nf-coach-step-index">02</span><div><strong>Review your training week</strong><small>Tap a day to edit sessions, exercise targets and recovery</small></div></div>
   <div class="nf-coach-metrics"><div><strong>${totalSessions}</strong><span>Sessions</span></div><div><strong>${strengthCount} + ${cardioCount}</strong><span>Strength + cardio</span></div><div><strong>${Math.round(totalMinutes/60*10)/10}h</strong><span>Planned time</span></div></div>
-  <div class="nf-coach-tree-status"><span aria-hidden="true">✦</span> Skill Tree coverage <strong>${protectedScheduled} / ${required.length} lifts</strong></div>
+  <div class="nf-coach-tree-status"><span aria-hidden="true">✦</span> Skill Tree exercises <strong>${protectedScheduled} / ${required.length} optional</strong>${protectedScheduled?`<button class="nf-skill-skip-btn" type="button" data-action="skip-skills">Skip all this week</button>`:''}</div>
    ${ouraCoachHtml()}
    <div class="nf-coach-coachnote"><span class="nf-coach-coachnote-symbol" aria-hidden="true">✧</span><div><strong>Coach's notes</strong><p>${esc(draftAI.coachNote)}</p></div></div>
  </section>`;
@@ -4087,7 +4097,7 @@ function render(){
    const kindOpts=[['strength','Strength'],['run','Running'],['cycle','Cycling']].map(([v,label])=>`<option value="${v}" ${s.kind===v?'selected':''}>${label}</option>`).join('');
    const controls=`<div class="nf-hybrid-session-head"><label class="nf-coach-kind-label"><span class="nf-coach-sr">Session type</span><select aria-label="Session type on ${esc(d.day)}" data-day="${i}" data-session="${j}" data-field="kind">${kindOpts}</select></label><button class="nf-hybrid-delete" type="button" data-action="remove-session" data-day="${i}" data-session="${j}" aria-label="Remove ${esc(s.title)} from ${esc(d.day)}">Remove</button></div>
    <div class="nf-hybrid-controls"><label>Start time<input aria-label="Start time for ${esc(d.day)} ${esc(s.kind)}" type="time" data-day="${i}" data-session="${j}" data-field="time" value="${esc(s.time)}"></label><label>Duration (min)<input aria-label="Minutes for ${esc(s.kind)}" type="number" min="10" max="300" data-day="${i}" data-session="${j}" data-field="minutes" value="${s.minutes}"></label>${s.kind!=='strength'?`<label>Effort<select aria-label="Cardio effort" data-day="${i}" data-session="${j}" data-field="intensity">${intensityOptions.map(([v,label])=>`<option value="${v}" ${s.intensity===v?'selected':''}>${label}</option>`).join('')}</select></label>`:''}</div>`;
-   const exerciseRows=s.kind==='strength'?`<div class="nf-coach-exercise-section"><div class="nf-coach-exercises-title"><strong>Exercises</strong><span>${s.exercises.length} planned · edit your targets</span></div><div class="nf-ai-ex nf-ai-exhead"><span>Exercise</span><span>kg</span><span>Sets</span><span>Reps</span></div>${s.exercises.map((e,k)=>`<div class="nf-ai-ex"><span class="nf-ai-exname">${esc(e.name)}${required.includes(e.name)?'<div class="nf-ai-protected">✦ Skill Tree</div>':`<button class="nf-ai-remove" type="button" data-action="remove-ex" data-day="${i}" data-session="${j}" data-ex="${k}" aria-label="Remove ${esc(e.name)}">Remove</button>`}${e.recoveryReason?`<small class="nf-hybrid-note" title="${esc(e.recoveryReason)}">Recovery-adjusted</small>`:''}</span><input aria-label="${esc(e.name)} kg" data-day="${i}" data-session="${j}" data-ex="${k}" data-field="kg" type="number" step="0.5" min="0" max="500" value="${e.kg??''}" placeholder="—"><input aria-label="${esc(e.name)} sets" data-day="${i}" data-session="${j}" data-ex="${k}" data-field="sets" type="number" min="1" max="6" value="${e.sets}"><input aria-label="${esc(e.name)} reps" data-day="${i}" data-session="${j}" data-ex="${k}" data-field="reps" type="number" min="1" max="30" value="${e.reps}"></div>`).join('')}
+   const exerciseRows=s.kind==='strength'?`<div class="nf-coach-exercise-section"><div class="nf-coach-exercises-title"><strong>Exercises</strong><span>${s.exercises.length} planned · edit your targets</span></div><div class="nf-ai-ex nf-ai-exhead"><span>Exercise</span><span>kg</span><span>Sets</span><span>Reps</span></div>${s.exercises.map((e,k)=>`<div class="nf-ai-ex"><span class="nf-ai-exname">${esc(e.name)}${required.includes(e.name)?'<div class="nf-ai-protected">✦ Skill Tree · optional</div>':''}<button class="nf-ai-remove" type="button" data-action="remove-ex" data-day="${i}" data-session="${j}" data-ex="${k}" aria-label="Remove ${esc(e.name)}">Remove</button>${e.recoveryReason?`<small class="nf-hybrid-note" title="${esc(e.recoveryReason)}">Recovery-adjusted</small>`:''}</span><input aria-label="${esc(e.name)} kg" data-day="${i}" data-session="${j}" data-ex="${k}" data-field="kg" type="number" step="0.5" min="0" max="500" value="${e.kg??''}" placeholder="—"><input aria-label="${esc(e.name)} sets" data-day="${i}" data-session="${j}" data-ex="${k}" data-field="sets" type="number" min="1" max="6" value="${e.sets}"><input aria-label="${esc(e.name)} reps" data-day="${i}" data-session="${j}" data-ex="${k}" data-field="reps" type="number" min="1" max="30" value="${e.reps}"></div>`).join('')}
    <details class="nf-coach-add-drawer"><summary>＋ Add an exercise</summary><div class="nf-ai-add"><label for="nfAISelect${i}-${j}">Choose from your workouts</label><div class="nf-ai-addrow"><select id="nfAISelect${i}-${j}" aria-label="Choose exercise for ${esc(d.day)}"><option value="">Choose an exercise…</option>${choices.filter(n=>!s.exercises.some(e=>e.name.toLowerCase()===n.toLowerCase())).map(n=>`<option value="${esc(n)}">${esc(n)}</option>`).join('')}</select><button class="secondary" type="button" data-action="add-selected" data-day="${i}" data-session="${j}">Add</button></div><div class="nf-ai-addrow"><input id="nfAICustom${i}-${j}" maxlength="80" placeholder="Or type a custom exercise" aria-label="Custom exercise"><button class="secondary" type="button" data-action="add-custom" data-day="${i}" data-session="${j}">Add custom</button></div></div></details>
    </div>`:`<p class="nf-hybrid-cardio-note">${esc(s.notes||'Adjust the effort and length to suit your week.')} ${recentCardio(s.kind).length?'Recent sessions available for AI review.':'No recent logged sessions; start conservatively.'}</p>`;
    return `<section class="nf-hybrid-session nf-coach-session"><div class="nf-coach-session-label"><span class="nf-coach-session-icon" aria-hidden="true">${s.kind==='strength'?'▰':s.kind==='run'?'◉':'◌'}</span><div><strong>${esc(s.title)}</strong><span>${s.kind==='strength'?'Strength':s.kind==='run'?'Running':'Cycling'} · ${esc(s.time)} · ${Number(s.minutes)||0} min</span></div></div>${controls}${exerciseRows}</section>`;
@@ -4125,7 +4135,7 @@ function addSession(i,kind){
  const d=draftAI?.days[i];if(!d||d.sessions.length>=3||!['strength','run','cycle'].includes(kind)||d.sessions.some(s=>s.kind===kind))return;
  if(kind==='strength'){
   const prior=draftAI.days.filter(x=>x.sessions.some(s=>s.kind==='strength')).length;
-  const custom=fromCurrentWorkout(i%5);
+  const custom=fromCurrentWorkout(i%5).filter(ex=>draftAI.prefs?.includeSkillTree!==false||!required.includes(ex.name));
   const exercises=combineExerciseList([],custom,4);
   d.sessions.push(makeSession('strength',prior>=3?'Extra Strength':'Strength',draftAI.prefs.strengthMinutes,'06:30',exercises));
  }else d.sessions.push(makeSession(kind,kind==='run'?'Easy Run':'Endurance Ride',kind==='run'?30:draftAI.prefs.rideMinutes,kind==='run'?'17:30':'08:00'));
@@ -4144,9 +4154,8 @@ function handleChange(el){
   e.userEdited=true;e.recoveryReason='';
  }else if(field==='kind'){
   const type=el.value;
-  if(s.exercises.some(e=>required.includes(e.name))){$ai('nfAIStatus').textContent='Move protected Skill Tree lifts to another strength session before changing this session type.';render();return;}
   if(draftAI.days[i].sessions.some((x,k)=>k!==j&&x.kind===type)){$ai('nfAIStatus').textContent='That day already includes this session type.';render();return;}
-  const newer=makeSession(type,type==='strength'?'Strength':type==='run'?'Easy Run':'Endurance Ride',s.minutes,s.time,type==='strength'?combineExerciseList([],fromCurrentWorkout(i%5),4):[]);
+  const newer=makeSession(type,type==='strength'?'Strength':type==='run'?'Easy Run':'Endurance Ride',s.minutes,s.time,type==='strength'?combineExerciseList([],fromCurrentWorkout(i%5).filter(ex=>draftAI.prefs?.includeSkillTree!==false||!required.includes(ex.name)),4):[]);
   draftAI.days[i].sessions[j]=newer;
  }else if(field==='time'||field==='intensity')s[field]=el.value;
  else if(field==='minutes')s[field]=Number(el.value);
@@ -4162,10 +4171,32 @@ function onDraftClick(event){
  if(button.dataset.action==='add-session'){addSession(i,$ai('nfAIAddType'+i)?.value);return;}
  if(button.dataset.action==='add-selected'){addExercise(i,j,$ai(`nfAISelect${i}-${j}`)?.value);return;}
  if(button.dataset.action==='add-custom'){addExercise(i,j,$ai(`nfAICustom${i}-${j}`)?.value);return;}
- if(button.dataset.action==='remove-ex'&&s?.kind==='strength'&&s.exercises[k]&&!required.includes(s.exercises[k].name)){s.exercises.splice(k,1);applyRecoveryTargets(true);render();return;}
+ if(button.dataset.action==='skip-skills'){
+  let removed=0;
+  for(const day of draftAI.days){for(const session of day.sessions){if(session.kind!=='strength')continue;
+    const before=session.exercises.length;
+    session.exercises=session.exercises.filter(ex=>!required.includes(ex.name));
+    removed+=before-session.exercises.length;
+   }
+   day.sessions=day.sessions.filter(session=>session.kind!=='strength'||session.exercises.length>0);
+  }
+  // The button modifies the current draft only. Never reinsert skipped lifts on recovery or AI review.
+  draftAI.prefs.includeSkillTree=false;
+  $ai('nfAIIncludeSkills').checked=false;
+  applyRecoveryTargets(true);render();
+  $ai('nfAIStatus').textContent=removed+' optional Skill Tree exercise'+(removed===1?'':'s')+' removed from this week. Other exercises stay scheduled.';
+  return;
+ }
+ if(button.dataset.action==='remove-ex'&&s?.kind==='strength'&&s.exercises[k]){
+  const name=s.exercises[k].name;
+  s.exercises.splice(k,1);
+  if(!s.exercises.length)d.sessions.splice(j,1); // An empty strength session cannot be approved.
+  applyRecoveryTargets(true);render();
+  $ai('nfAIStatus').textContent=name+' removed. You can still progress its Skill Tree unlock in another week.';
+  return;
+ }
  if(button.dataset.action==='remove-session'&&s){
-  if(s.exercises.some(e=>required.includes(e.name))){$ai('nfAIStatus').textContent='Protected Skill Tree lifts are scheduled here. Move them to another strength session before removing this one.';return;}
-  d.sessions.splice(j,1);applyRecoveryTargets(true);render();
+  d.sessions.splice(j,1);applyRecoveryTargets(true);render();return;
  }
 }
 function approve(){
@@ -4235,10 +4266,28 @@ async function improve(){
  }catch(e){$ai('nfAIStatus').textContent='AI refinement unavailable: '+String(e?.message||e).slice(0,280).replace(/[.!?]+$/,'')+'. Offline recovery-aware planning still works.';}
  finally{button.disabled=false;}
 }
+function editSavedWeek(){
+ const selected=monday($ai('nfAIWeek').value||today());
+ const saved=db.nfAIPlans?.[selected];
+ if(!saved||!Array.isArray(saved.days)||saved.days.length!==7){
+  $ai('nfAIStatus').textContent='No approved week saved for that date. Choose its Monday and try again.';
+  return;
+ }
+ draftAI=JSON.parse(JSON.stringify(saved));
+ for(const day of draftAI.days){day.sessions=normalizeSavedSessions(day).map(s=>({...s,exercises:(s.exercises||[]).map(e=>({...e,protected:false}))}));}
+ draftAI.prefs=draftAI.prefs||getPrefs();
+ draftAI.prefs.includeSkillTree=draftAI.prefs.includeSkillTree!==false;
+ $ai('nfAIIncludeSkills').checked=draftAI.prefs.includeSkillTree;
+ draftAI.approved=false;
+ nfCoachSelectedDay=0;nfCoachShowAll=false;
+ const approvedLabel=$ai('nfAIApprovedLabel');if(approvedLabel){approvedLabel.hidden=true;approvedLabel.textContent='';}
+ syncAll();render();
+ $ai('nfAIStatus').textContent='Saved week loaded. Remove or swap Skill Tree lifts as needed, then press Approve to update your calendar.';
+}
 function setup(){
  const start=dateAt(monday(today()),7);$ai('nfAIWeek').value=start;
  $ai('nfAIWeek').addEventListener('change',()=>{$ai('nfAIWeek').value=monday($ai('nfAIWeek').value)||start;});
- $ai('nfAIGenerate').onclick=build;$ai('nfAIImprove').onclick=improve;
+ $ai('nfAIGenerate').onclick=build;$ai('nfAIImprove').onclick=improve;$ai('nfAILoadSaved').onclick=editSavedWeek;
  $ai('nfAIOutput').addEventListener('change',e=>{if(e.target.matches('[data-field]'))handleChange(e.target);});
  $ai('nfAIOutput').addEventListener('click',onDraftClick);
  $ai('nfAINotes').value='Keep Friday for shoulders and arms. Protect recovery before my Saturday ride.';
@@ -4545,7 +4594,7 @@ window.nfAIGetApprovedWeek=()=>db.nfAIPlans?.[monday(today())]||null;
    if(first){note.push('Last recorded '+first.name+': '+first.last.kg+' kg × '+first.last.reps+' reps ('+ageDays(first.last.date)+' days ago).');
     actions.push('Start with lighter warm-up sets. For '+first.name+', use '+first.last.kg+' kg as a reference, not a required target; adjust for form and how the first work set feels.');}
    else actions.push('No comparable logged sets yet. Choose comfortable loads and build a consistent baseline rather than guessing a weight increase.');
-   if(caution)actions.push('Keep your working weights steady initially. If fatigue persists, reduce accessory volume by about one set rather than skipping protected Skill Tree movements.');
+   if(caution)actions.push('Keep your working weights steady initially. If fatigue persists, reduce accessory volume by about one set rather than automatically dropping planned movements.');
    else actions.push('If warm-ups feel smooth and all prior target reps were comfortable, you may progress cautiously; otherwise repeat your last successful load and reps.');
   } else actions.push('No strength exercises selected. Check your scheduled cardio and use a comfortable effort based on recovery.');
   if(scheduled.length)actions.push('Today also has '+scheduled.map(x=>x.minutes+' min '+x.intensity+' '+(x.kind==='run'?'run':'ride')).join(' plus ')+'. Keep hard endurance away from heavy lower-body work where practical.');
