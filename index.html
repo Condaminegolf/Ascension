@@ -1326,7 +1326,38 @@ body.nf-v3-modal-open{overflow:hidden}
 @media(min-width:650px){.nf-v3-week-grid{grid-template-columns:repeat(4,1fr)}}
 @media(max-width:340px){.nf-v3-dialog{padding:14px}.nf-v3-week-grid{gap:5px}}
 </style>
-</head><body><div class="wrap"><header class="top"><div><div class="nf-brand-lockup"><img src="./icon-192.png" alt="NEXTFORM logo" class="nf-header-logo"><div><div class="brand">NEXTFORM<span class="brand-mark">_</span></div><div class="tag">THE SYSTEM <span class="system-dot">●</span> ONLINE</div></div></div><div class="nf-header-controls"><button class="nf-sync-chip" id="nfSyncChip" type="button" data-state="local" aria-label="View save and sync status">Local save</button><button class="nf-menu-toggle" id="nfMenuToggle" type="button" aria-label="Open navigation menu" aria-controls="nfQuickMenu" aria-expanded="false"><span id="nfMenuUnreadBadge" class="nf-unread-badge nf-header-unread" hidden aria-hidden="true"></span><svg viewBox="0 0 24 24" width="23" height="23" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button></div></header>
+<style id="nf-nutrition-styles">/* NEXTFORM Nutrition — independent from XP and performance calculations. */
+#nutrition .nf-nutro-title{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+#nutrition .nf-nutro-date{min-width:146px;max-width:210px}
+#nutrition .nf-nutro-kcal{font-size:clamp(26px,5vw,42px);font-weight:800;letter-spacing:-1px;line-height:1.1;margin:10px 0}
+#nutrition .nf-nutro-kcal small{font-size:13px;font-weight:500;opacity:.75;letter-spacing:0}
+#nutrition .nf-nutro-stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:14px 0}
+#nutrition .nf-nutro-stat{padding:13px 10px;border:1px solid var(--nf-edge,#34515a);border-radius:13px;background:var(--nf-surface-alt,#152a2e);min-width:0}
+#nutrition .nf-nutro-stat strong{font-size:19px;display:block;color:var(--nf-text,#e5f7ef)}
+#nutrition .nf-nutro-stat span{font-size:12px;opacity:.8}
+#nutrition .nf-nutro-track{height:7px;background:#728c8c3b;border-radius:99px;overflow:hidden;margin-top:10px}
+#nutrition .nf-nutro-track>i{height:100%;display:block;background:var(--nf-main,#52b98a);width:0;transition:width .25s ease}
+#nutrition .nf-nutro-fields{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin:12px 0}
+#nutrition .nf-nutro-field{display:flex;flex-direction:column;gap:5px;min-width:0}
+#nutrition .nf-nutro-field label{font-size:12px;font-weight:700;color:var(--nf-text,#dbe8eb)}
+#nutrition input,#nutrition textarea,#nutrition select{box-sizing:border-box;width:100%;border:1px solid var(--nf-border,#41616a);background:var(--nf-surface,#122b34);border-radius:10px;padding:10px 11px;color:var(--nf-ink,#eff9f8);font:inherit;min-height:43px}
+#nutrition textarea{resize:vertical;min-height:96px}
+#nutrition input:focus-visible,#nutrition textarea:focus-visible,#nutrition button:focus-visible,#nutrition select:focus-visible{outline:2px solid var(--nf-accent,#72dba6);outline-offset:2px}
+#nutrition .nf-nutro-review{border:1px solid var(--nf-main,#5cb68c);border-radius:14px;padding:14px;margin:16px 0;background:var(--nf-surface-alt,#14282e)}
+#nutrition .nf-nutro-row{display:flex;align-items:center;gap:9px;justify-content:space-between;flex-wrap:wrap}
+#nutrition .nf-nutro-row .nf-nutro-actions{display:flex;gap:9px;flex-wrap:wrap}
+#nutrition .nf-nutro-actions button{min-height:42px}
+#nutrition .nf-nutro-entry{border:1px solid var(--nf-edge,#334c58);border-radius:12px;padding:13px;margin:9px 0;background:var(--nf-surface-alt,#132830)}
+#nutrition .nf-nutro-entry strong{font-size:14px}
+#nutrition .nf-nutro-entry small{display:block;opacity:.75;line-height:1.5;margin-top:5px}
+#nutrition .nf-nutro-pill{font-size:11px;padding:4px 7px;border-radius:99px;border:1px solid var(--nf-border,#486);color:var(--nf-main,#7ddbab)}
+#nutrition .nf-nutro-image{max-width:100%;max-height:250px;object-fit:contain;display:block;margin:10px auto;border-radius:12px}
+#nutrition .nf-nutro-help{font-size:12px;line-height:1.55;opacity:.78;margin:7px 0}
+#nutrition #nfNutritionStatus{min-height:20px;margin:8px 0;color:var(--nf-main,#86e6b6)}
+#nutrition #nfNutritionStatus[data-error="true"]{color:#d67b7b}
+#nutrition .nf-nutro-badge{font-size:11px;font-weight:700;letter-spacing:.06em;color:var(--nf-main,#83d6ab)}
+@media(max-width:500px){#nutrition .nf-nutro-fields{grid-template-columns:repeat(2,minmax(0,1fr))}#nutrition .nf-nutro-stats{gap:6px}#nutrition .nf-nutro-stat{padding:10px 7px}#nutrition .nf-nutro-stat strong{font-size:16px}}
+</style></head><body><div class="wrap"><header class="top"><div><div class="nf-brand-lockup"><img src="./icon-192.png" alt="NEXTFORM logo" class="nf-header-logo"><div><div class="brand">NEXTFORM<span class="brand-mark">_</span></div><div class="tag">THE SYSTEM <span class="system-dot">●</span> ONLINE</div></div></div><div class="nf-header-controls"><button class="nf-sync-chip" id="nfSyncChip" type="button" data-state="local" aria-label="View save and sync status">Local save</button><button class="nf-menu-toggle" id="nfMenuToggle" type="button" aria-label="Open navigation menu" aria-controls="nfQuickMenu" aria-expanded="false"><span id="nfMenuUnreadBadge" class="nf-unread-badge nf-header-unread" hidden aria-hidden="true"></span><svg viewBox="0 0 24 24" width="23" height="23" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button></div></header>
 <div class="nf-menu-shell" id="nfQuickMenu" hidden>
   <button class="nf-menu-backdrop" id="nfMenuBackdrop" type="button" aria-label="Close navigation menu" tabindex="-1"></button>
   <aside class="nf-menu-drawer" id="nfMenuDialog" role="dialog" aria-modal="true" aria-labelledby="nfMenuTitle" tabindex="-1">
@@ -1351,6 +1382,7 @@ body.nf-v3-modal-open{overflow:hidden}
         <label class="nf-menu-preference"><span><strong>Simple view</strong><small>Show only essentials by default</small></span><input type="checkbox" id="nfSimpleMode" checked aria-label="Use simplified view"></label>
         <button class="nf-menu-link" data-nf-menu="integrations" type="button"><span class="nf-menu-glyph">↗</span><span><strong>Connect Strava &amp; Oura</strong><small>Optional activity and recovery sync</small></span><span class="nf-menu-arrow">›</span></button>
         <button class="nf-menu-link" data-nf-menu="settings" type="button"><span class="nf-menu-glyph">⚙</span><span><strong>Settings &amp; integrations</strong><small>Account, cloud sync and appearance</small></span><span class="nf-menu-arrow">›</span></button>
+        <button class="nf-menu-link" data-nf-menu="datahealth" type="button"><span class="nf-menu-glyph">▤</span><span><strong>Sync &amp; Data Health</strong><small>Duplicate checks, backups and recovery</small></span><span class="nf-menu-arrow">›</span></button>
         <button class="nf-menu-link" data-nf-menu="backup" type="button"><span class="nf-menu-glyph">↓</span><span><strong>Export save backup</strong><small>Download a copy of your progress</small></span><span class="nf-menu-arrow">›</span></button>
       </div>
     </nav><div class="nf-menu-footnote">Everything in NEXTFORM remains available. Simple view changes only what is shown, not your data.</div>
@@ -1365,7 +1397,7 @@ body.nf-v3-modal-open{overflow:hidden}
 </section><div class="panel hero"><div><div class="rank" id="rank">F</div><div style="text-align:center" class="muted">TRAINING RANK</div></div><div><div class="muted">XP LEVEL <span id="level">1</span> · <span id="xp">0</span> TOTAL XP</div><div class="big" id="rankTitle">Foundation</div><div class="nf-rank-bar-label"><span>NEXT RANK READINESS</span><strong id="rankProgressPercent">0%</strong></div><div class="bar nf-rank-main-track" id="rankProgressTrack" role="progressbar" aria-label="Progress toward next rank" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"><div class="fill" id="xpbar" style="width:0%"></div></div><div class="muted" id="nextRank">Progress to E Rank</div><div class="muted" id="decayStatus" style="margin-top:6px"></div></div></div><section class="command-dashboard" aria-label="Progress overview">
 <div class="panel command-power"><div class="command-label">PERFORMANCE INDEX</div><div class="command-power-top"><div><div class="command-number" id="overviewPower">0 <small>/ 100</small></div><div class="muted">Combined training and wellness progress</div></div><div class="command-mini" id="overviewBreakdown"></div></div></div>
 <div class="panel command-radar"><div class="command-label">ATTRIBUTE RADAR · LIVE PROGRESSION</div><div id="overviewRadar" class="radar-slot"></div><div class="muted" style="text-align:center">Strength · Endurance · Discipline · Recovery · Mobility</div></div>
-</section><div class="stats" style="margin-top:12px"><div class="stat"><strong id="sessions">0</strong><span class="muted">Workouts</span></div><div class="stat"><strong id="streak">0</strong><span class="muted">Day streak</span></div><div class="stat"><strong id="sets">0</strong><span class="muted">Sets logged</span></div></div><nav class="tabs nf-bottom-nav" id="tabs"><button class="active" data-tab="home">⌂<span>Home</span></button><button data-tab="train">＋<span>Train</span></button><button data-tab="hunter">◇<span>Character</span></button><button data-tab="records">▥<span>Records</span></button><button data-tab="more">☷<span>More</span></button></nav><div id="nfHiddenNav" hidden><button data-tab="quests">Challenges</button><button data-tab="progress">Progress</button><button data-tab="ranks">Ranks</button><button data-tab="analytics">Analytics</button><button data-tab="calendar">Calendar</button><button data-tab="settings">Settings</button><button data-tab="friends">Friends</button></div><main id="home"><section class="panel nf-home-focus nf-today-panel" id="nfHomeFocus" aria-label="Today's training">
+</section><div class="stats" style="margin-top:12px"><div class="stat"><strong id="sessions">0</strong><span class="muted">Workouts</span></div><div class="stat"><strong id="streak">0</strong><span class="muted">Day streak</span></div><div class="stat"><strong id="sets">0</strong><span class="muted">Sets logged</span></div></div><nav class="tabs nf-bottom-nav" id="tabs"><button class="active" data-tab="home">⌂<span>Home</span></button><button data-tab="train">＋<span>Train</span></button><button data-tab="hunter">◇<span>Character</span></button><button data-tab="records">▥<span>Records</span></button><button data-tab="nutrition">🍽<span>Nutrition</span></button></nav><div id="nfHiddenNav" hidden><button data-tab="quests">Challenges</button><button data-tab="progress">Progress</button><button data-tab="ranks">Ranks</button><button data-tab="analytics">Analytics</button><button data-tab="calendar">Calendar</button><button data-tab="settings">Settings</button><button data-tab="datahealth">Data Health</button><button data-tab="friends">Friends</button></div><main id="home"><section class="panel nf-home-focus nf-today-panel" id="nfHomeFocus" aria-label="Today's training">
   <div class="nf-home-focus-head"><div><div class="tag">TODAY <span aria-hidden="true">·</span> <span id="nfTodayDate">YOUR TRAINING</span></div><h2 id="nfTodayHeading">Your next move</h2><p class="muted" id="nfTodaySubtitle">One thing at a time.</p></div><span class="nf-home-focus-mark" aria-hidden="true">✧</span></div>
   <div class="nf-today-primary" id="nfTodayPrimary" aria-live="polite">Checking your training schedule…</div>
   <div class="nf-today-session-list" id="nfTodaySessions" aria-label="Sessions planned for today"></div><div id="nfOuraTodayRecovery" class="nf-oura-today" hidden aria-live="polite"></div>
@@ -1385,7 +1417,32 @@ body.nf-v3-modal-open{overflow:hidden}
  <div id="questList"></div>
  <details class="nf-weekly-detail"><summary>Weekly training goal</summary><div id="weekly"></div></details>
  <button type="button" class="secondary nf-challenge-link" onclick="nfGo('quests')">View monthly challenges &amp; goals</button>
- </section><div class="panel nf-welcome"><div class="tag">NEXTFORM / THE SYSTEM</div><h2>Your next form starts here.</h2><p class="muted">Track your training, develop your character and review your progress.</p><div class="nf-actions"><button class="primary" type="button" onclick="document.querySelector('[data-tab=train]').click()">Log training</button><button class="secondary" type="button" onclick="document.querySelector('[data-tab=hunter]').click()">View character</button></div></div><div class="panel"><h3>Quick access</h3><div class="nf-shortcuts"><button onclick="nfShowHomeQuests()">Daily Quests</button><button onclick="nfGo('progress')">Body & Recovery</button><button onclick="nfGo('analytics')">Analytics</button><button onclick="nfGo('calendar')">Calendar</button></div></div><section class="panel" id="nfOtherExerciseHome"><div class="tag">IMPORTED & MANUAL ACTIVITY</div><h3>Other Exercise</h3><p class="muted">Sessions that are not a walk, run or ride. Recognized training earns bounded XP and counts toward active-day consistency, not distance or weightlifting records.</p><div id="nfOtherExerciseHomeBody"></div></section></main><main id="more" class="hidden"><div class="panel"><div class="tag">NEXTFORM / MORE</div><h2>Explore</h2><p class="muted">Additional tools and account settings.</p><div class="nf-shortcuts"><button onclick="nfGo('quests')">Daily Habits</button><button onclick="nfGo('progress')">Body & Recovery</button><button onclick="nfGo('ranks')">Ranks & Achievements</button><button onclick="nfGo('analytics')">Analytics</button><button onclick="nfGo('calendar')">Training Calendar</button><button onclick="nfGo('friends')">Friends &amp; Leaderboards</button><button onclick="nfGo('settings')">Settings</button></div></div><section class="panel" id="nfDataHealthPanel"><div class="tag">RELIABILITY / BACKUPS</div><h2>Sync &amp; Data Health</h2><p class="muted">Review possible duplicate Oura/Strava workouts, record completeness and recent import outcomes. Checks never delete workouts or change XP.</p><div id="nfDataHealthSummary"></div><div class="nf-social-actions"><button type="button" class="secondary" id="nfDataHealthCheck">Check data again</button><button type="button" class="secondary" id="nfDataHealthBackup">Export save backup</button><button type="button" class="secondary" id="nfDataHealthRecovery">Download recovery copy</button></div><p class="muted">When devices disagree, the existing cloud conflict backup protects local data. Export a backup before manually resolving conflicts.</p></section></main><main id="friends" class="hidden"><section class="panel"><div class="tag">NEXTFORM / COMMUNITY</div><h2>Friends &amp; Leaderboards</h2><p class="muted">Optional, invite-only training comparisons. No bodyweight, sleep readings or detailed workout logs are shared. Weekly statistics are calculated from cloud-saved training records; they may lag behind unsynced local activity.</p><p class="muted" id="nfSocialAuthNote"></p><div id="nfSocialControls"><div class="nf-social-settings"><h3>Your Friends profile</h3><div class="grid2"><div class="field"><label for="nfSocialName">Display name</label><input id="nfSocialName" type="text" maxlength="48" autocomplete="nickname" placeholder="Athlete"></div><div class="field"><label for="nfSocialHandle">Unique handle</label><input id="nfSocialHandle" type="text" maxlength="20" autocapitalize="none" spellcheck="false" placeholder="your_handle"></div></div><label class="nf-social-optin"><input id="nfSocialEnabled" type="checkbox"> Allow friends to find my handle and see my weekly totals and equipped gear</label><p class="muted" id="nfSocialOptInHint">Private until enabled.</p><button class="primary" id="nfSocialSaveProfile" type="button">Save Friends profile</button></div><hr><h3>Invite by exact handle</h3><div class="nf-social-actions"><input id="nfSocialInviteHandle" aria-label="Friend's handle" type="text" maxlength="20" autocomplete="off" autocapitalize="none" placeholder="friend_handle"><button class="secondary" id="nfSocialSendRequest" type="button">Send request</button></div><h3>Friend requests &amp; connections</h3><div id="nfSocialRelationships"><p class="muted">Not loaded yet.</p></div><div class="nf-social-actions"><h3>Weekly leaderboard</h3><button class="secondary" id="nfSocialRefresh" type="button">Refresh</button></div><div class="field"><label for="nfSocialMetric">Compare friends by</label><select id="nfSocialMetric"><option value="active_days">Active training days</option><option value="sessions">Logged training sessions</option><option value="strength_sets">Strength sets completed</option><option value="run_km">Running distance (km)</option><option value="cycle_km">Cycling distance (km)</option></select></div><p class="muted" id="nfSocialWeekLabel">Monday–Sunday</p><div id="nfSocialScores"></div><section id="nfSocialBuildPanel" class="nf-social-build" hidden><div class="nf-social-actions"><h3>Friend's equipped build</h3><button type="button" class="secondary" id="nfSocialBuildClose">Close</button></div><div id="nfSocialBuildBody"></div></section></div><p id="nfSocialMessage" role="status" aria-live="polite"></p><p class="muted">Leaderboard values come from user-recorded sessions and can be influenced by manual edits; they are intended for friendly comparisons, not verified competitions.</p></section></main><main id="train" class="hidden"><details class="panel nf-ai-collapsible" id="nfAIPlanner">
+ </section><div class="panel nf-welcome"><div class="tag">NEXTFORM / THE SYSTEM</div><h2>Your next form starts here.</h2><p class="muted">Track your training, develop your character and review your progress.</p><div class="nf-actions"><button class="primary" type="button" onclick="document.querySelector('[data-tab=train]').click()">Log training</button><button class="secondary" type="button" onclick="document.querySelector('[data-tab=hunter]').click()">View character</button></div></div><div class="panel"><h3>Quick access</h3><div class="nf-shortcuts"><button onclick="nfShowHomeQuests()">Daily Quests</button><button onclick="nfGo('progress')">Body & Recovery</button><button onclick="nfGo('analytics')">Analytics</button><button onclick="nfGo('calendar')">Calendar</button></div></div><section class="panel" id="nfOtherExerciseHome"><div class="tag">IMPORTED & MANUAL ACTIVITY</div><h3>Other Exercise</h3><p class="muted">Sessions that are not a walk, run or ride. Recognized training earns bounded XP and counts toward active-day consistency, not distance or weightlifting records.</p><div id="nfOtherExerciseHomeBody"></div></section></main><main id="nutrition" class="hidden">
+ <section class="panel">
+  <div class="tag">NEXTFORM / NUTRITION</div>
+  <div class="nf-nutro-title"><div><h2>Daily nutrition</h2><p class="muted">Calories and macros from the food you actually log.</p></div><label class="nf-nutro-field nf-nutro-date"><span>View date</span><input type="date" id="nfNutritionDate"></label></div>
+  <div class="nf-nutro-kcal" id="nfNutritionCalories">0 <small>kcal consumed</small></div><div class="nf-nutro-track"><i id="nfNutritionCalProgress"></i></div>
+  <div class="nf-nutro-stats"><div class="nf-nutro-stat"><span>Protein</span><strong id="nfNutritionProtein">0 g</strong><div class="nf-nutro-track"><i id="nfNutritionBarProtein"></i></div></div><div class="nf-nutro-stat"><span>Carbs</span><strong id="nfNutritionCarbs">0 g</strong><div class="nf-nutro-track"><i id="nfNutritionBarCarbs"></i></div></div><div class="nf-nutro-stat"><span>Fat</span><strong id="nfNutritionFat">0 g</strong><div class="nf-nutro-track"><i id="nfNutritionBarFat"></i></div></div></div>
+  <p class="nf-nutro-help">Estimates are approximate. Nutrition-app screenshots showing an entire day are recorded as a single daily summary to avoid double-counting individual meals.</p>
+ </section>
+ <section class="panel">
+  <div class="tag">ADD FOOD / CHATGPT ESTIMATE</div><h2>Log what you ate</h2>
+  <div class="nf-nutro-fields" style="grid-template-columns:repeat(2,minmax(0,1fr))"><div class="nf-nutro-field"><label for="nfNutritionLogDate">Date eaten</label><input id="nfNutritionLogDate" type="date"></div><div class="nf-nutro-field"><label for="nfNutritionMode">What are you logging?</label><select id="nfNutritionMode"><option value="meal">Meal or snack</option><option value="daily_total">Full-day nutrition app screenshot</option></select></div></div>
+  <div class="nf-nutro-field"><label for="nfNutritionDescription">Describe your meal, or give context for a screenshot</label><textarea id="nfNutritionDescription" maxlength="2200" placeholder="e.g. 3 scrambled eggs, two slices sourdough with butter, flat white with full cream milk. Or: screenshot from MyFitnessPal showing today's totals."></textarea></div>
+  <div class="nf-nutro-field" style="margin-top:12px"><label for="nfNutritionImage">Upload a screenshot from another app (or a food photo)</label><input type="file" id="nfNutritionImage" accept="image/png,image/jpeg,image/webp" aria-describedby="nfNutritionPrivacy"><img id="nfNutritionImagePreview" class="nf-nutro-image" hidden alt="Selected nutrition screenshot preview"></div>
+  <p class="nf-nutro-help" id="nfNutritionPrivacy">With your action, the description and selected image are sent securely to the AI estimation service. Screenshots are not saved in your training record; only the reviewed nutrition figures and description are saved. Remove unrelated personal information from screenshots first.</p>
+  <div class="nf-nutro-actions" style="display:flex;gap:9px;flex-wrap:wrap"><button id="nfNutritionAnalyse" type="button" class="primary">✧ Estimate with ChatGPT</button><button id="nfNutritionManual" type="button" class="secondary">Enter values manually</button></div>
+  <p id="nfNutritionStatus" role="status" aria-live="polite"></p>
+  <div id="nfNutritionReview" class="nf-nutro-review" hidden><div class="nf-nutro-badge">REVIEW REQUIRED</div><h3 id="nfNutritionReviewTitle">Review estimate</h3>
+   <div class="nf-nutro-fields" style="grid-template-columns:repeat(2,minmax(0,1fr))"><div class="nf-nutro-field"><label for="nfNutritionReviewLabel">Entry name</label><input id="nfNutritionReviewLabel" maxlength="120"></div><div class="nf-nutro-field"><label for="nfNutritionReviewType">Entry type</label><select id="nfNutritionReviewType"><option value="meal">Individual meal</option><option value="daily_total">Whole day — totals</option></select></div></div>
+   <div class="nf-nutro-fields"><div class="nf-nutro-field"><label for="nfNutritionReviewKcal">Calories (kcal)</label><input type="number" min="0" max="10000" step="1" id="nfNutritionReviewKcal"></div><div class="nf-nutro-field"><label for="nfNutritionReviewProtein">Protein (g)</label><input type="number" min="0" max="10000" step="0.1" id="nfNutritionReviewProtein"></div><div class="nf-nutro-field"><label for="nfNutritionReviewCarbs">Carbs (g)</label><input type="number" min="0" max="10000" step="0.1" id="nfNutritionReviewCarbs"></div><div class="nf-nutro-field"><label for="nfNutritionReviewFat">Fat (g)</label><input type="number" min="0" max="10000" step="0.1" id="nfNutritionReviewFat"></div></div>
+   <p id="nfNutritionReviewNotes" class="nf-nutro-help"></p><div class="nf-nutro-actions"><button class="primary" id="nfNutritionSaveEntry" type="button">Save reviewed entry</button><button class="secondary" id="nfNutritionReviewCancel" type="button">Discard</button></div>
+  </div>
+ </section>
+ <section class="panel"><div class="tag">THIS DAY / LOGGED FOOD</div><h2>Entries</h2><div id="nfNutritionEntries"></div></section>
+ <section class="panel"><details><summary><strong>Set personal calorie and macro targets</strong></summary><p class="nf-nutro-help">Optional targets only; leave any blank if you're still deciding. Targets do not award XP or automatically complete quests.</p><div class="nf-nutro-fields"><div class="nf-nutro-field"><label for="nfNutritionGoalKcal">Calories</label><input id="nfNutritionGoalKcal" type="number" min="1" max="10000" placeholder="e.g. 2400"></div><div class="nf-nutro-field"><label for="nfNutritionGoalProtein">Protein (g)</label><input id="nfNutritionGoalProtein" type="number" min="1" max="10000" placeholder="e.g. 180"></div><div class="nf-nutro-field"><label for="nfNutritionGoalCarbs">Carbs (g)</label><input id="nfNutritionGoalCarbs" type="number" min="1" max="10000" placeholder="e.g. 235"></div><div class="nf-nutro-field"><label for="nfNutritionGoalFat">Fat (g)</label><input id="nfNutritionGoalFat" type="number" min="1" max="10000" placeholder="e.g. 80"></div></div><button class="secondary" type="button" id="nfNutritionSaveTargets">Save targets</button></details></section>
+</main>
+<main id="datahealth" class="hidden"><div class="panel"><div class="tag">NEXTFORM / TOOLS</div><h2>Explore</h2><p class="muted">Additional tools and account settings.</p><div class="nf-shortcuts"><button onclick="nfGo('quests')">Daily Habits</button><button onclick="nfGo('progress')">Body & Recovery</button><button onclick="nfGo('ranks')">Ranks & Achievements</button><button onclick="nfGo('analytics')">Analytics</button><button onclick="nfGo('calendar')">Training Calendar</button><button onclick="nfGo('friends')">Friends &amp; Leaderboards</button><button onclick="nfGo('settings')">Settings</button></div></div><section class="panel" id="nfDataHealthPanel"><div class="tag">RELIABILITY / BACKUPS</div><h2>Sync &amp; Data Health</h2><p class="muted">Review possible duplicate Oura/Strava workouts, record completeness and recent import outcomes. Checks never delete workouts or change XP.</p><div id="nfDataHealthSummary"></div><div class="nf-social-actions"><button type="button" class="secondary" id="nfDataHealthCheck">Check data again</button><button type="button" class="secondary" id="nfDataHealthBackup">Export save backup</button><button type="button" class="secondary" id="nfDataHealthRecovery">Download recovery copy</button></div><p class="muted">When devices disagree, the existing cloud conflict backup protects local data. Export a backup before manually resolving conflicts.</p></section></main><main id="friends" class="hidden"><section class="panel"><div class="tag">NEXTFORM / COMMUNITY</div><h2>Friends &amp; Leaderboards</h2><p class="muted">Optional, invite-only training comparisons. No bodyweight, sleep readings or detailed workout logs are shared. Weekly statistics are calculated from cloud-saved training records; they may lag behind unsynced local activity.</p><p class="muted" id="nfSocialAuthNote"></p><div id="nfSocialControls"><div class="nf-social-settings"><h3>Your Friends profile</h3><div class="grid2"><div class="field"><label for="nfSocialName">Display name</label><input id="nfSocialName" type="text" maxlength="48" autocomplete="nickname" placeholder="Athlete"></div><div class="field"><label for="nfSocialHandle">Unique handle</label><input id="nfSocialHandle" type="text" maxlength="20" autocapitalize="none" spellcheck="false" placeholder="your_handle"></div></div><label class="nf-social-optin"><input id="nfSocialEnabled" type="checkbox"> Allow friends to find my handle and see my weekly totals and equipped gear</label><p class="muted" id="nfSocialOptInHint">Private until enabled.</p><button class="primary" id="nfSocialSaveProfile" type="button">Save Friends profile</button></div><hr><h3>Invite by exact handle</h3><div class="nf-social-actions"><input id="nfSocialInviteHandle" aria-label="Friend's handle" type="text" maxlength="20" autocomplete="off" autocapitalize="none" placeholder="friend_handle"><button class="secondary" id="nfSocialSendRequest" type="button">Send request</button></div><h3>Friend requests &amp; connections</h3><div id="nfSocialRelationships"><p class="muted">Not loaded yet.</p></div><div class="nf-social-actions"><h3>Weekly leaderboard</h3><button class="secondary" id="nfSocialRefresh" type="button">Refresh</button></div><div class="field"><label for="nfSocialMetric">Compare friends by</label><select id="nfSocialMetric"><option value="active_days">Active training days</option><option value="sessions">Logged training sessions</option><option value="strength_sets">Strength sets completed</option><option value="run_km">Running distance (km)</option><option value="cycle_km">Cycling distance (km)</option></select></div><p class="muted" id="nfSocialWeekLabel">Monday–Sunday</p><div id="nfSocialScores"></div><section id="nfSocialBuildPanel" class="nf-social-build" hidden><div class="nf-social-actions"><h3>Friend's equipped build</h3><button type="button" class="secondary" id="nfSocialBuildClose">Close</button></div><div id="nfSocialBuildBody"></div></section></div><p id="nfSocialMessage" role="status" aria-live="polite"></p><p class="muted">Leaderboard values come from user-recorded sessions and can be influenced by manual edits; they are intended for friendly comparisons, not verified competitions.</p></section></main><main id="train" class="hidden"><details class="panel nf-ai-collapsible" id="nfAIPlanner">
 <summary class="nf-ai-collapse-trigger">
   <span class="nf-ai-collapse-label"><span class="nf-ai-collapse-kicker">THE SYSTEM / AI COACH</span><span class="nf-ai-collapse-name">Build your next training week</span><span class="nf-ai-approved-label" id="nfAIApprovedLabel" hidden role="status" aria-live="polite"></span></span>
   <span class="nf-ai-collapse-chevron" aria-hidden="true">⌄</span>
@@ -2271,7 +2328,7 @@ function renderCardioWeekly(){const goalEl=$('cardioGoalControls'),progress=$('c
 function saveCardioGoals(){const goals={};for(const t of distanceCardioTypes){const session=Number($(`goal_${t}_session`).value),weekly=Number($(`goal_${t}_weekly`).value);if(!Number.isFinite(session)||session<=0||session>500||!Number.isFinite(weekly)||weekly<=0||weekly>2000){alert('All activity goals must be positive, reasonable distances.');return}goals[t]={session,weekly}}db.cardioGoals=goals;save();renderCardioGoals();renderCardioWeekly();alert('Activity goals saved.')}
 function renderCardioHistory(){const el=$('cardioHistory');if(!el)return;const a=db.cardio||[];el.innerHTML=a.length?a.map((c,i)=>({c,i})).sort((x,y)=>y.c.date.localeCompare(x.c.date)).map(x=>cardioActivityRow(x.c,x.i)).join(''):'<p class="muted">No running, cycling or walking sessions yet.</p>'}
 
-function renderAll(){nfNoticeStore();renderStats();renderOtherExerciseHome();renderTrain();renderQuests();nfEvaluateTitles();nfRenderNotices();renderProgress();renderRanks();$('hunterName').value=db.name||'Athlete';$('heightCm').value=db.heightCm||192;$('startWeight').value=db.startWeight||140;$('nfProfileGoalWeight').value=db.bodyGoals?.weight??110;$('benchmarkCategory').value=benchmarkCategory()}document.querySelectorAll('[data-tab]').forEach(b=>b.onclick=()=>{document.querySelectorAll('[data-tab]').forEach(x=>x.classList.toggle('active',x===b));if(b.closest('#nfHiddenNav'))document.querySelector('#tabs [data-tab=more]')?.classList.add('active');document.querySelectorAll('main').forEach(x=>x.classList.toggle('hidden',x.id!==b.dataset.tab));if(b.dataset.tab==='quests')renderQuests();if(b.dataset.tab==='progress')renderProgress();if(b.dataset.tab==='ranks')renderRanks();if(b.dataset.tab==='quests')renderCardioWeekly();if(b.dataset.tab==='progress')renderCardioHistory()});renderAll();$('cardioDate').value=today();renderCardioGoals();renderCardioRecent();renderCardioWeekly();renderCardioHistory();
+function renderAll(){nfNoticeStore();renderStats();renderOtherExerciseHome();renderTrain();renderQuests();nfEvaluateTitles();nfRenderNotices();renderProgress();renderRanks();$('hunterName').value=db.name||'Athlete';$('heightCm').value=db.heightCm||192;$('startWeight').value=db.startWeight||140;$('nfProfileGoalWeight').value=db.bodyGoals?.weight??110;$('benchmarkCategory').value=benchmarkCategory()}document.querySelectorAll('[data-tab]').forEach(b=>b.onclick=()=>{document.querySelectorAll('[data-tab]').forEach(x=>x.classList.toggle('active',x===b));document.querySelectorAll('main').forEach(x=>x.classList.toggle('hidden',x.id!==b.dataset.tab));if(b.dataset.tab==='quests')renderQuests();if(b.dataset.tab==='progress')renderProgress();if(b.dataset.tab==='ranks')renderRanks();if(b.dataset.tab==='quests')renderCardioWeekly();if(b.dataset.tab==='progress')renderCardioHistory()});renderAll();$('cardioDate').value=today();renderCardioGoals();renderCardioRecent();renderCardioWeekly();renderCardioHistory();
 </script>
 <script>
 (function(){
@@ -4089,7 +4146,7 @@ $('nfDataHealthRecovery')?.addEventListener('click',()=>{
  }catch(e){alert('Recovery export failed: '+String(e.message||e))}
 });
 window.addEventListener('nf:local-saved',render);
-document.querySelectorAll('[data-tab="more"],[data-tab="datahealth"]').forEach(b=>b.addEventListener('click',render));
+document.querySelectorAll('[data-tab="datahealth"]').forEach(b=>b.addEventListener('click',render));
 render();
 })();
 
@@ -5295,5 +5352,141 @@ window.nfAIGetApprovedWeek=()=>db.nfAIPlans?.[monday(today())]||null;
  window.addEventListener('nf:oura-synced',()=>queueMicrotask(refreshWeek));
  document.addEventListener('visibilitychange',()=>{if(!document.hidden){refreshSkill();refreshWeek()}});
  refreshSkill();refreshWeek();
+})();
+</script><script id="nf-nutrition-js">(function(){
+'use strict';
+const $=id=>document.getElementById(id);
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const n=x=>Number.isFinite(Number(x))?Number(x):0;
+const today=()=>{const t=new Date();return `${t.getFullYear()}-${String(t.getMonth()+1).padStart(2,'0')}-${String(t.getDate()).padStart(2,'0')}`};
+const validDate=s=>/^\d{4}-\d{2}-\d{2}$/.test(String(s||''))&&!isNaN(Date.parse(s+'T12:00:00'));
+const root=$('nutrition');if(!root)return;
+const status=(s,error=false)=>{const x=$('nfNutritionStatus');x.textContent=s;x.dataset.error=String(error)};
+const ensure=()=>{
+ if(!db.nfNutrition||typeof db.nfNutrition!=='object')db.nfNutrition={entries:[],targets:{}};
+ if(!Array.isArray(db.nfNutrition.entries))db.nfNutrition.entries=[];
+ if(!db.nfNutrition.targets||typeof db.nfNutrition.targets!=='object')db.nfNutrition.targets={};
+ return db.nfNutrition;
+};
+let candidate=null,editingId=null;
+const formDate=$('nfNutritionDate');formDate.value=today();$('nfNutritionLogDate').value=today();
+function nutritionForDate(){return ensure().entries.filter(e=>e.date===formDate.value)}
+function summary(){
+ const entries=nutritionForDate(),total={kcal:0,protein:0,carbs:0,fat:0};
+ const partial={protein:false,carbs:false,fat:false};
+ entries.forEach(e=>{for(const k of Object.keys(total)){if(e[k]===null||e[k]===undefined||e[k]===''){if(k!=='kcal')partial[k]=true;}else total[k]+=n(e[k]);}});
+ const goals=ensure().targets;
+ $('nfNutritionCalories').innerHTML=esc(Math.round(total.kcal).toLocaleString())+' <small>kcal'+(goals.kcal?' / '+esc(goals.kcal)+' target':' consumed')+'</small>';
+ for(const k of ['protein','carbs','fat']){
+   $( 'nfNutrition'+k[0].toUpperCase()+k.slice(1)).textContent=Math.round(total[k])+' g'+(partial[k]?' · partial':'');
+   const goal=Number(goals[k]);const pct=goal>0?Math.min(100,100*total[k]/goal):0;
+   $('nfNutritionBar'+k[0].toUpperCase()+k.slice(1)).style.width=pct+'%';
+ }
+ const calGoal=n(goals.kcal);$('nfNutritionCalProgress').style.width=(calGoal>0?Math.min(100,100*total.kcal/calGoal):0)+'%';
+ const host=$('nfNutritionEntries');host.textContent='';
+ if(!entries.length){host.innerHTML='<p class="muted">No nutrition entries for this date. Add a meal or import a daily summary.</p>';return}
+ entries.slice().reverse().forEach(e=>{
+  const d=document.createElement('div');d.className='nf-nutro-entry';
+  d.innerHTML=`<div class="nf-nutro-row"><div><strong>${esc(e.label||'Nutrition entry')}</strong> <span class="nf-nutro-pill">${e.mode==='daily_total'?'Day summary':'Meal'}</span><small>${esc(Math.round(n(e.kcal))+' kcal · '+(e.protein==null?'—':Math.round(n(e.protein)))+'g protein · '+(e.carbs==null?'—':Math.round(n(e.carbs)))+'g carbs · '+(e.fat==null?'—':Math.round(n(e.fat)))+'g fat')}<span> · ${e.source==='manual'?'Manually entered':'AI '+(e.confidence||'estimated')}</span></small></div><div class="nf-nutro-actions"><button type="button" class="secondary" data-nf-nutro-edit="${esc(e.id)}">Edit</button><button type="button" class="secondary" data-nf-nutro-remove="${esc(e.id)}">Delete</button></div></div>`;
+  if(e.notes){const p=document.createElement('small');p.textContent=e.notes;d.append(p)}
+  host.appendChild(d);
+ });
+}
+function setTargets(){const goals=ensure().targets;for(const k of ['kcal','protein','carbs','fat'])$('nfNutritionGoal'+k[0].toUpperCase()+k.slice(1)).value=Number(goals[k])>0?goals[k]:''}
+$('nfNutritionSaveTargets').addEventListener('click',()=>{
+ const goals={};for(const k of ['kcal','protein','carbs','fat']){const input=$('nfNutritionGoal'+k[0].toUpperCase()+k.slice(1));if(input.value.trim()){const v=Number(input.value);if(!Number.isFinite(v)||v<=0||v>10000){status('Enter sensible positive targets, or leave them blank.',true);return}goals[k]=v}}
+ ensure().targets=goals;save();summary();status('Nutrition goals saved.');
+});
+formDate.addEventListener('change',()=>{if(validDate(formDate.value)){$('nfNutritionLogDate').value=formDate.value;summary()}});
+function showCandidate(data,source){
+ candidate={source,mode:data.mode==='daily_total'?'daily_total':'meal',label:String(data.label||'Nutrition entry').slice(0,120),kcal:data.kcal,protein:data.protein,carbs:data.carbs,fat:data.fat,notes:String(data.notes||'').slice(0,500),confidence:String(data.confidence||'estimated').slice(0,30)};
+ $('nfNutritionReview').hidden=false;
+ $('nfNutritionReviewTitle').textContent=source==='manual'?'Review manually entered values':'Review AI estimate before saving';
+ $('nfNutritionReviewNotes').textContent=candidate.notes||'Nutrition figures may be approximate. Confirm portion sizes and serving counts.';
+ $('nfNutritionReviewType').value=candidate.mode;
+ $('nfNutritionReviewLabel').value=candidate.label;
+ for(const k of ['kcal','protein','carbs','fat'])$('nfNutritionReview'+k[0].toUpperCase()+k.slice(1)).value=candidate[k]==null?'':candidate[k];
+ $('nfNutritionSaveEntry').textContent=editingId?'Save changes':'Save reviewed entry';
+ $('nfNutritionReview').scrollIntoView({block:'nearest',behavior:'smooth'});
+}
+function reviewManual(){editingId=null;
+ const description=$('nfNutritionDescription').value.trim();
+ if(!description){status('Describe the meal first, or upload a screenshot.',true);return}
+ const data={mode:$('nfNutritionMode').value,label:description.slice(0,120),kcal:null,protein:null,carbs:null,fat:null,notes:'Manually recorded; enter values from a food label or use Estimate with AI.'};
+ showCandidate(data,'manual');status('Enter known values in the review form, then save.');
+}
+$('nfNutritionManual').addEventListener('click',reviewManual);
+const imageInput=$('nfNutritionImage');const preview=$('nfNutritionImagePreview');let uploadedImage=null;
+imageInput.addEventListener('change',()=>{
+ const file=imageInput.files?.[0];uploadedImage=null;preview.hidden=true;
+ if(!file)return;
+ if(!['image/png','image/jpeg','image/webp'].includes(file.type)){status('Please select a PNG, JPG or WebP screenshot.',true);imageInput.value='';return}
+ if(file.size>12000000){status('Screenshot is too large (12 MB maximum).',true);imageInput.value='';return}
+ uploadedImage=file;preview.src=URL.createObjectURL(file);preview.hidden=false;
+ preview.onload=()=>{const u=preview.src;setTimeout(()=>URL.revokeObjectURL(u),1000)};
+ status('Screenshot ready. Select Estimate with AI to extract nutrition values.');
+});
+function toDataUrl(file){return new Promise((resolve,reject)=>{
+ if(file.size<=2900000){const reader=new FileReader();reader.onerror=()=>reject(new Error('Cannot read screenshot'));reader.onload=()=>resolve(reader.result);reader.readAsDataURL(file);return}
+ const img=new Image();const url=URL.createObjectURL(file);
+ img.onload=()=>{try{const scale=Math.min(1,2200/Math.max(img.naturalWidth,img.naturalHeight));const c=document.createElement('canvas');c.width=Math.max(1,Math.floor(img.naturalWidth*scale));c.height=Math.max(1,Math.floor(img.naturalHeight*scale));c.getContext('2d').drawImage(img,0,0,c.width,c.height);resolve(c.toDataURL('image/jpeg',.78))}catch(e){reject(e)}finally{URL.revokeObjectURL(url)}};
+ img.onerror=()=>{URL.revokeObjectURL(url);reject(new Error('Cannot decode screenshot'))};img.src=url;
+ });}
+$('nfNutritionAnalyse').addEventListener('click',async()=>{
+ const text=$('nfNutritionDescription').value.trim(),file=uploadedImage;
+ if(!text&&!file){status('Write what you ate or choose a screenshot.',true);return}
+ const ctx=window.nfSocialCloudContext?.()||{};
+ if(!ctx.client||!ctx.user){status('Sign in under Settings to use ChatGPT estimates. Manual logging works without an account.',true);return}
+ const button=$('nfNutritionAnalyse');button.disabled=true;status('Analysing nutrition… Image text and portion estimates will be reviewed before saving.');
+ try{
+  const image=file?await toDataUrl(file):null;
+  if(image&&image.length>4700000)throw Error('Screenshot is too large after resizing. Crop and try again.');
+  const body={text:text.slice(0,2200),image,requestedMode:$('nfNutritionMode').value,date:$('nfNutritionLogDate').value};
+  const {data,error}=await ctx.client.functions.invoke('nextform-nutrition-estimate',{body});
+  if(error){let msg=error.message||'AI service unavailable';try{const info=await error.context?.json();if(info?.error)msg=info.error}catch(_e){}throw Error(msg)}
+  if(!data||!Number.isFinite(Number(data.kcal)))throw Error('AI did not return nutrition values. Try a clearer image or enter the numbers manually.');
+  editingId=null;showCandidate(data,'ai');status('AI estimate ready. Check values and meal/day classification before saving.');
+ }catch(e){status('Could not estimate: '+String(e.message||e)+'. You can enter nutrition manually.',true)}
+ finally{button.disabled=false}
+});
+$('nfNutritionReviewCancel').addEventListener('click',()=>{candidate=null;editingId=null;$('nfNutritionReview').hidden=true;status('Draft discarded. No food log was changed.')});
+$('nfNutritionSaveEntry').addEventListener('click',()=>{
+ if(!candidate)return;
+ const label=$('nfNutritionReviewLabel').value.trim().slice(0,120),date=$('nfNutritionLogDate').value,mode=$('nfNutritionReviewType').value;
+ if(!label||!validDate(date)){status('Choose a valid date and entry name.',true);return}
+ const input={};let hasAny=false;
+ for(const k of ['kcal','protein','carbs','fat']){
+  const val=$('nfNutritionReview'+k[0].toUpperCase()+k.slice(1)).value.trim();
+  if(val)hasAny=true;
+  const z=val===''?null:Number(val);
+  if(z!==null&&(!Number.isFinite(z)||z<0||z>10000)){status('Nutrition values must be non-negative numbers.',true);return}
+  input[k]=z;
+ }
+ if(!hasAny){status('Enter calories/macros or use Estimate with AI before saving.',true);return}
+ if(input.kcal===null&&input.protein!==null&&input.carbs!==null&&input.fat!==null){input.kcal=Math.round(input.protein*4+input.carbs*4+input.fat*9)}
+ if(input.kcal===null){status('Provide calories or all three macros so calories can be calculated.',true);return}
+ const entries=ensure().entries,others=entries.filter(e=>e.date===date&&e.id!==editingId);
+ if(mode==='daily_total'&&others.length){
+  if(!confirm('This date already has '+others.length+' entries. To prevent double-counting, replace ALL existing entries for this date with this daily summary?'))return;
+  db.nfNutrition.entries=entries.filter(e=>e.date!==date||e.id===editingId);
+ }else if(mode==='meal'&&others.some(e=>e.mode==='daily_total')){
+  status('A full-day summary already exists for this date. Delete it first to add individual meals without double-counting.',true);return;
+ }
+ const target=ensure().entries;
+ const record={id:editingId||crypto.randomUUID(),date,mode,label,kcal:Math.round(input.kcal),protein:input.protein===null?null:Math.round(input.protein*10)/10,carbs:input.carbs===null?null:Math.round(input.carbs*10)/10,fat:input.fat===null?null:Math.round(input.fat*10)/10,source:candidate.source==='manual'?'manual':'ai',confidence:candidate.confidence,notes:candidate.notes,loggedAt:new Date().toISOString()};
+ const ix=target.findIndex(e=>e.id===editingId);if(ix>=0)target[ix]=record;else target.push(record);
+ formDate.value=date;save();candidate=null;editingId=null;$('nfNutritionReview').hidden=true;summary();status('Nutrition saved locally; your existing cloud sync will upload this change when connected.');
+});
+$('nfNutritionEntries').addEventListener('click',e=>{
+ const edit=e.target.closest('[data-nf-nutro-edit]'),remove=e.target.closest('[data-nf-nutro-remove]');if(!edit&&!remove)return;
+ const id=edit?.dataset.nfNutroEdit||remove?.dataset.nfNutroRemove;const obj=ensure().entries.find(x=>x.id===id);if(!obj)return;
+ if(remove){if(!confirm('Delete nutrition entry "'+obj.label+'"?'))return;db.nfNutrition.entries=db.nfNutrition.entries.filter(x=>x.id!==id);save();summary();status('Entry deleted.');return}
+ editingId=obj.id;$('nfNutritionLogDate').value=obj.date;showCandidate(obj,obj.source||'manual');status('Editing an existing entry. Save to update it.');
+});
+$('nfNutritionLogDate').addEventListener('change',()=>{if(!validDate($('nfNutritionLogDate').value))$('nfNutritionLogDate').value=today()});
+window.addEventListener('nf:cloud-save-loaded',()=>{setTargets();summary();status('Nutrition reloaded from cloud save.');candidate=null;editingId=null;$('nfNutritionReview').hidden=true});
+window.addEventListener('nf:local-saved',summary);
+document.querySelector('#tabs [data-tab="nutrition"]')?.addEventListener('click',summary);
+setTargets();summary();
 })();
 </script></body></html>
