@@ -1477,6 +1477,47 @@ body:is([data-nf-theme="lavender"],[data-nf-theme="blush"],[data-nf-theme="fores
 @media(max-width:390px){#train .nf-train-quick-cardio{gap:5px;padding:9px}#train .nf-train-quick-cardio .nf-train-mini-label{flex-basis:100%}#train .nf-train-quick-cardio-btn{flex:1;padding:7px 5px;font-size:11px}#train .nf-strength-toolbar-heading{font-size:19px}#train .nf-training-mode button{padding:6px 7px}}
 @media(prefers-reduced-motion:reduce){#train .nf-train-quick-cardio-btn,#train .nf-train-session-disclosure-summary span:last-child{transition:none!important}}
 </style>
+
+<style id="nf-home-rank-radar-toggle-style">
+/* Compact Home overview: two always-visible tiles with independent expanded details. */
+#nfHomeRankRadar{margin:0 0 12px;display:block;min-width:0}
+#nfHomeRankRadar .nf-overview-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}
+#nfHomeRankRadar .nf-overview-tile{display:flex;flex-direction:column;align-items:stretch;justify-content:space-between;min-width:0;min-height:154px;width:100%;padding:13px;border:1px solid #385865;border-radius:17px;background:linear-gradient(148deg,#1b303a,#10212c);color:#eaf5f6;text-align:left;box-shadow:0 7px 22px #0002;transition:transform .16s ease,border-color .16s ease,background .16s ease,box-shadow .16s ease;cursor:pointer}
+#nfHomeRankRadar .nf-overview-tile:active{transform:scale(.982)}
+#nfHomeRankRadar .nf-overview-tile:hover{border-color:#67bcab}
+#nfHomeRankRadar .nf-overview-tile:focus-visible{outline:3px solid #8ce4c5;outline-offset:3px}
+#nfHomeRankRadar .nf-overview-tile[aria-expanded="true"]{border-color:#69cfab;background:linear-gradient(148deg,#21493e,#152b2d);box-shadow:0 0 0 1px #69cfab33,0 8px 24px #0003}
+#nfHomeRankRadar .nf-overview-top{display:flex;align-items:center;justify-content:space-between;gap:5px;min-width:0}
+#nfHomeRankRadar .nf-overview-kicker{font-size:10px;font-weight:850;letter-spacing:.14em;color:#a4c1c5}
+#nfHomeRankRadar .nf-overview-arrow{display:grid;place-items:center;flex:0 0 22px;width:22px;height:22px;border:1px solid #527275;border-radius:99px;font-size:16px;color:#8edac7;transition:transform .2s ease}
+#nfHomeRankRadar [aria-expanded="true"] .nf-overview-arrow{transform:rotate(180deg)}
+#nfHomeRankRadar .nf-overview-rank-main{display:flex;gap:10px;align-items:center;min-height:83px}
+#nfHomeRankRadar .nf-overview-rank-glyph{font-size:clamp(49px,11vw,65px);font-weight:950;line-height:1;color:#e9c684;text-shadow:0 0 16px #dcb66d27;font-variant-numeric:tabular-nums}
+#nfHomeRankRadar .nf-overview-rank-copy{display:flex;flex-direction:column;gap:4px;min-width:0}
+#nfHomeRankRadar .nf-overview-rank-copy strong{font-size:clamp(12px,3.2vw,16px);line-height:1.2;overflow-wrap:anywhere}
+#nfHomeRankRadar .nf-overview-sub{color:#a6bec3;font-size:11px;line-height:1.3}
+#nfHomeRankRadar .nf-overview-radar-preview{width:100%;max-width:124px;height:89px;margin:-2px auto -5px;display:flex;align-items:center;justify-content:center;pointer-events:none}
+#nfHomeRankRadar .nf-overview-radar-preview svg{width:100%;height:100%;max-height:89px;display:block}
+#nfHomeRankRadar .nf-overview-radar-bottom{font-size:11px;color:#b2c7ca;text-align:center}
+#nfHomeRankRadar .nf-overview-expansion{margin-top:11px;min-width:0;animation:nfOverviewReveal .18s ease both}
+#nfHomeRankRadar .nf-overview-expansion[hidden]{display:none!important}
+#nfHomeRankRadar .nf-overview-expansion>.panel{margin-top:0}
+#nfHomeRankRadar .nf-overview-expansion .nf-rank-requirements{margin-top:10px}
+#nfHomeRankRadar .nf-overview-expansion .command-dashboard{gap:10px}
+#nfHomeRankRadar .nf-overview-expansion .command-dashboard>.panel{margin-top:0}
+#nfHomeRankRadar .nf-overview-expansion .command-dashboard .radar-slot svg{max-width:345px}
+@keyframes nfOverviewReveal{from{opacity:.55;transform:translateY(-5px)}to{opacity:1;transform:translateY(0)}}
+/* Small tiles remain accessible on all appearance palettes, including Simple View. */
+body:is([data-nf-theme="lavender"],[data-nf-theme="blush"],[data-nf-theme="forest"]) #nfHomeRankRadar .nf-overview-tile{background:linear-gradient(145deg,var(--nf-surface,#fff),var(--nf-soft,#f6f6ec));border-color:var(--nf-border,#cad8c6);color:var(--nf-ink,#224034);box-shadow:0 4px 14px var(--nf-glow,#0001)}
+body:is([data-nf-theme="lavender"],[data-nf-theme="blush"],[data-nf-theme="forest"]) #nfHomeRankRadar .nf-overview-tile[aria-expanded="true"]{border-color:var(--nf-main,#138769);background:var(--nf-soft2,#e5efe8)}
+body:is([data-nf-theme="lavender"],[data-nf-theme="blush"],[data-nf-theme="forest"]) #nfHomeRankRadar :is(.nf-overview-kicker,.nf-overview-sub,.nf-overview-radar-bottom){color:var(--nf-soft-ink,#496763)}
+body:is([data-nf-theme="lavender"],[data-nf-theme="blush"],[data-nf-theme="forest"]) #nfHomeRankRadar .nf-overview-rank-glyph{color:var(--nf-main,#138769);text-shadow:none}
+body:is([data-nf-theme="lavender"],[data-nf-theme="blush"],[data-nf-theme="forest"]) #nfHomeRankRadar .nf-overview-arrow{border-color:var(--nf-border,#cad8c6);color:var(--nf-main,#138769)}
+html.nf-calm-ui #nfHomeRankDetails .hero{display:grid!important}
+html.nf-calm-ui #nfHomeRadarDetails .command-dashboard{display:grid!important}
+@media(max-width:420px){#nfHomeRankRadar .nf-overview-grid{gap:8px}#nfHomeRankRadar .nf-overview-tile{padding:11px;min-height:146px}#nfHomeRankRadar .nf-overview-rank-main{gap:7px}#nfHomeRankRadar .nf-overview-radar-preview{max-width:104px;height:80px}#nfHomeRankRadar .nf-overview-radar-preview svg{max-height:80px}}
+@media(prefers-reduced-motion:reduce){#nfHomeRankRadar .nf-overview-tile,#nfHomeRankRadar .nf-overview-arrow{transition:none}#nfHomeRankRadar .nf-overview-expansion{animation:none}}
+</style>
 </head><body><div class="wrap"><header class="top"><div><div class="nf-brand-lockup"><img src="./icon-192.png" alt="NEXTFORM logo" class="nf-header-logo"><div><div class="brand">NEXTFORM<span class="brand-mark">_</span></div><div class="tag">THE SYSTEM <span class="system-dot">●</span> ONLINE</div></div></div><div class="nf-header-controls"><button class="nf-sync-chip" id="nfSyncChip" type="button" data-state="local" aria-label="View save and sync status">Local save</button><button class="nf-menu-toggle" id="nfMenuToggle" type="button" aria-label="Open navigation menu" aria-controls="nfQuickMenu" aria-expanded="false"><span id="nfMenuUnreadBadge" class="nf-unread-badge nf-header-unread" hidden aria-hidden="true"></span><svg viewBox="0 0 24 24" width="23" height="23" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button></div></header>
 <div class="nf-menu-shell" id="nfQuickMenu" hidden>
   <button class="nf-menu-backdrop" id="nfMenuBackdrop" type="button" aria-label="Close navigation menu" tabindex="-1"></button>
@@ -4174,7 +4215,7 @@ const state={hidden:prefs.hidden&&typeof prefs.hidden==='object'?prefs.hidden:{}
 const movable=items.filter(i=>i.move&&ref[i.id]);
 state.order=[...new Set([...state.order.filter(id=>movable.some(i=>i.id===id)),...movable.map(i=>i.id)])];
 const customization=document.createElement('details');customization.id='nfHomeCustomizer';customization.className='panel nf-home-customizer';
-customization.innerHTML='<summary>Customize Home dashboard <span style="font-size:11px;font-weight:500;opacity:.75">Cards & layout</span></summary><p class="nf-home-settings-note">Show or hide cards, collapse them on Home, and change their order. Rank progress stays at the top. Changes are saved on this device.</p><div id="nfHomeCardSettings" class="nf-home-card-settings"></div><button type="button" class="secondary" id="nfResetHomeLayout" style="margin-top:10px">Reset layout</button>';
+customization.innerHTML='<summary>Customize Home dashboard <span style="font-size:11px;font-weight:500;opacity:.75">Cards & layout</span></summary><p class="nf-home-settings-note">Show or hide cards, collapse them on Home, and change their order. Rank and radar tiles stay at the top. Changes are saved on this device.</p><div id="nfHomeCardSettings" class="nf-home-card-settings"></div><button type="button" class="secondary" id="nfResetHomeLayout" style="margin-top:10px">Reset layout</button>';
 const rankSection=home.querySelector('.nf-rank-requirements');
 if(rankSection)rankSection.after(customization);else home.prepend(customization);
 const list=byId('nfHomeCardSettings');
@@ -5928,6 +5969,81 @@ window.nfNutritionIntelligenceDebug=()=>({analysis:analyse(),context:trainingCon
  const title=byId('workoutTitle');if(title)new MutationObserver(syncEditor).observe(title,{childList:true});
  document.querySelectorAll('[data-tab="train"]').forEach(b=>b.addEventListener('click',()=>queueMicrotask(syncEditor)));
  syncEditor();
+})();
+</script>
+
+<script id="nf-home-rank-radar-toggle-script">
+(function(){
+ 'use strict';
+ const home=document.getElementById('home');
+ const rankPanel=document.querySelector('.hero');
+ const rankRequirements=home?.querySelector('.nf-rank-requirements');
+ const radarPanel=document.querySelector('.command-dashboard');
+ const stats=document.querySelector('.stats');
+ if(!home||!rankPanel||!radarPanel)return;
+ // Transfer, do not duplicate, the source nodes so all existing renderers/IDs keep working.
+ const view=document.createElement('section');view.id='nfHomeRankRadar';
+ view.setAttribute('aria-label','Your rank and performance radar');
+ view.innerHTML=`
+ <div class="nf-overview-grid">
+   <button type="button" class="nf-overview-tile" id="nfHomeRankToggle" aria-expanded="false" aria-controls="nfHomeRankDetails">
+      <span class="nf-overview-top"><span class="nf-overview-kicker">YOUR RANK</span><span class="nf-overview-arrow" aria-hidden="true">⌄</span></span>
+      <span class="nf-overview-rank-main"><span id="nfHomeRankGlyph" class="nf-overview-rank-glyph" aria-hidden="true">F</span><span class="nf-overview-rank-copy"><strong id="nfHomeRankLabel">Foundation</strong><span class="nf-overview-sub" id="nfHomeRankPercent">0% to next rank</span></span></span>
+      <span class="nf-overview-sub">Tap for rank details</span>
+   </button>
+   <button type="button" class="nf-overview-tile" id="nfHomeRadarToggle" aria-expanded="false" aria-controls="nfHomeRadarDetails">
+      <span class="nf-overview-top"><span class="nf-overview-kicker">YOUR RADAR</span><span class="nf-overview-arrow" aria-hidden="true">⌄</span></span>
+      <span class="nf-overview-radar-preview" id="nfHomeRadarPreview" aria-hidden="true"></span>
+      <span class="nf-overview-radar-bottom" id="nfHomeRadarCaption">5 training attributes</span>
+   </button>
+ </div>
+ <div id="nfHomeRankDetails" class="nf-overview-expansion" hidden aria-label="Expanded rank details"></div>
+ <div id="nfHomeRadarDetails" class="nf-overview-expansion" hidden aria-label="Expanded attribute radar"></div>`;
+ home.prepend(view);
+ const rankDetails=document.getElementById('nfHomeRankDetails');
+ const radarDetails=document.getElementById('nfHomeRadarDetails');
+ rankDetails.appendChild(rankPanel);
+ if(rankRequirements)rankDetails.appendChild(rankRequirements);
+ radarDetails.appendChild(radarPanel);
+ // Session statistics belong with Home content rather than above the bottom navigation.
+ if(stats){const today=home.querySelector('#nfHomeFocus');if(today)today.after(stats);else home.appendChild(stats);}
+ function toggle(which){
+  const button=document.getElementById(which==='rank'?'nfHomeRankToggle':'nfHomeRadarToggle');
+  const details=which==='rank'?rankDetails:radarDetails;
+  const opened=button.getAttribute('aria-expanded')==='true';
+  button.setAttribute('aria-expanded',String(!opened));details.hidden=opened;
+  // Keep Home header stable: do not auto-scroll, navigate or change saved training data.
+ }
+ document.getElementById('nfHomeRankToggle').addEventListener('click',()=>toggle('rank'));
+ document.getElementById('nfHomeRadarToggle').addEventListener('click',()=>toggle('radar'));
+ let updateQueued=false;
+ function update(){
+  updateQueued=false;
+  const rank=document.getElementById('rank')?.textContent?.trim()||'F';
+  const name=document.getElementById('rankTitle')?.textContent?.trim()||'Foundation';
+  const percent=document.getElementById('rankProgressPercent')?.textContent?.trim()||'0%';
+  document.getElementById('nfHomeRankGlyph').textContent=rank;
+  document.getElementById('nfHomeRankLabel').textContent=name;
+  document.getElementById('nfHomeRankPercent').textContent=percent+' to next rank';
+  const mini=document.getElementById('nfHomeRadarPreview');
+  let attributes=[];
+  try{if(typeof window.ascensionPower==='function')attributes=window.ascensionPower().map(x=>({name:String(x[0]),value:Math.max(0,Math.min(100,Number(x[1])||0))}));}catch(_e){}
+  if(!attributes.length){mini.textContent='◇';return;}
+  const n=attributes.length,cx=60,cy=51,r=36;
+  const point=(i,f)=>[cx+Math.sin(i*2*Math.PI/n)*r*f,cy-Math.cos(i*2*Math.PI/n)*r*f];
+  const path=(f)=>attributes.map((_,i)=>point(i,f).map(x=>x.toFixed(1)).join(',')).join(' ');
+  const background=[.25,.5,.75,1].map(f=>'<polygon points="'+path(f)+'" fill="none" stroke="currentColor" stroke-opacity=".22" stroke-width="1"/>').join('');
+  const spokes=attributes.map((_,i)=>{const p=point(i,1);return '<line x1="60" y1="51" x2="'+p[0].toFixed(1)+'" y2="'+p[1].toFixed(1)+'" stroke="currentColor" stroke-opacity=".18"/>'}).join('');
+  const polygon=attributes.map((a,i)=>point(i,a.value/100).map(x=>x.toFixed(1)).join(',')).join(' ');
+  mini.innerHTML='<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 104" role="presentation">'+background+spokes+'<polygon points="'+polygon+'" fill="#68bca5" fill-opacity=".32" stroke="#6dcfab" stroke-width="2.6" stroke-linejoin="round"/></svg>';
+  document.getElementById('nfHomeRadarToggle').setAttribute('aria-label','Your radar: '+attributes.map(a=>a.name+' '+a.value+' out of 100').join(', ')+'. Expand or collapse details');
+ }
+ function queue(){if(updateQueued)return;updateQueued=true;requestAnimationFrame(update);}
+ ['rank','rankTitle','rankProgressPercent','overviewRadar'].forEach(id=>{const node=document.getElementById(id);if(node)new MutationObserver(queue).observe(node,{childList:true,subtree:true,characterData:true});});
+ document.addEventListener('visibilitychange',()=>{if(!document.hidden)queue();});
+ window.addEventListener('focus',queue);
+ document.querySelectorAll('[data-tab="home"]').forEach(el=>el.addEventListener('click',queue));
+ queue();
 })();
 </script>
 </body></html>
