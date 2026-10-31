@@ -1,18 +1,18 @@
 {
-  "name": "NEXTFORM \u2014 The System",
-  "short_name": "NEXTFORM",
-  "description": "Your real-life fitness progression system",
+  "name": "YOUR PATH \u2014 Guided by THE SYSTEM",
+  "short_name": "YOUR PATH",
+  "description": "Become who you choose. Training, recovery, nutrition and progression.",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
-  "background_color": "#080d19",
-  "theme_color": "#080d19",
+  "background_color": "#0a1020",
+  "theme_color": "#0a1020",
   "icons": [
     {
       "src": "./icon-192.png",
       "sizes": "192x192",
       "type": "image/png",
-      "purpose": "any maskable"
+      "purpose": "any"
     },
     {
       "src": "./icon-512.png",
