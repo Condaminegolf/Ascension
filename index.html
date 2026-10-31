@@ -1358,6 +1358,55 @@ body.nf-v3-modal-open{overflow:hidden}
 #nutrition .nf-nutro-review-source{margin:9px 0;padding:10px 12px;border:1px solid var(--nf-border,#47756c);border-radius:10px;font-size:13px;line-height:1.4;background:var(--nf-surface,#102932)}
 #nutrition .nf-nutro-badge{font-size:11px;font-weight:700;letter-spacing:.06em;color:var(--nf-main,#83d6ab)}
 @media(max-width:500px){#nutrition .nf-nutro-fields{grid-template-columns:repeat(2,minmax(0,1fr))}#nutrition .nf-nutro-stats{gap:6px}#nutrition .nf-nutro-stat{padding:10px 7px}#nutrition .nf-nutro-stat strong{font-size:16px}}
+</style><style id="nf-intelligence-style">
+/* NEXTFORM Nutrition Intelligence: all styling scoped to the new feature. */
+#nfNutritionIntelligence{--nfi-accent:var(--nf-main,#55d6ac);--nfi-card:var(--nf-surface-alt,#142932);--nfi-edge:var(--nf-border,#34515a);--nfi-ink:var(--nf-ink,inherit)}
+#nfNutritionIntelligence .nfi-intro{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;flex-wrap:wrap}
+#nfNutritionIntelligence .nfi-intro h2{margin:4px 0 5px}
+#nfNutritionIntelligence .nfi-context{font-size:12px;opacity:.75;line-height:1.45}
+#nfNutritionIntelligence .nfi-mini-stats{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px;margin:18px 0}
+#nfNutritionIntelligence .nfi-mini-stat{padding:13px;background:var(--nfi-card);border:1px solid var(--nfi-edge);border-radius:13px;min-width:0}
+#nfNutritionIntelligence .nfi-mini-stat small{display:block;font-size:11px;opacity:.78;margin-bottom:5px}
+#nfNutritionIntelligence .nfi-mini-stat strong{display:block;font-size:clamp(19px,4vw,26px);letter-spacing:-.025em;overflow-wrap:anywhere}
+#nfNutritionIntelligence .nfi-chart-title{display:flex;justify-content:space-between;gap:8px;align-items:center;margin:14px 0 8px;font-size:12px}
+#nfIntelDayBars{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:5px;align-items:end;min-width:0}
+#nfIntelDayBars .nf-intel-day{display:flex;flex-direction:column;align-items:center;gap:5px;min-width:0}
+#nfIntelDayBars .nf-intel-bar-frame{height:70px;width:100%;display:flex;align-items:flex-end;justify-content:center;background:color-mix(in srgb,var(--nfi-card) 65%,transparent);border-radius:7px;overflow:hidden;border:1px solid var(--nfi-edge)}
+#nfIntelDayBars .nf-intel-bar-frame i{display:block;width:100%;background:#45585d;border-radius:5px 5px 0 0}
+#nfIntelDayBars .nf-intel-bar-frame i.logged{background:var(--nfi-accent)}
+#nfIntelDayBars .nf-intel-bar-frame i.estimate{background:repeating-linear-gradient(135deg,var(--nfi-accent) 0 7px,color-mix(in srgb,var(--nfi-accent) 40%,transparent) 7px 12px)}
+#nfIntelDayBars small,#nfIntelDayBars b{font-size:10px;white-space:nowrap;max-width:100%;overflow:hidden;text-overflow:ellipsis}
+#nfNutritionIntelligence .nfi-legend{font-size:11px;opacity:.8;margin:8px 0 14px}
+#nfNutritionIntelligence .nf-intel-insight{display:flex;gap:11px;padding:11px 0;border-bottom:1px solid var(--nfi-edge)}
+#nfNutritionIntelligence .nf-intel-insight>span{font-size:17px;color:var(--nfi-accent);min-width:22px}
+#nfNutritionIntelligence .nf-intel-insight strong{display:block;font-size:13px;margin-bottom:3px}
+#nfNutritionIntelligence .nf-intel-insight p{margin:0;font-size:12px;line-height:1.5;opacity:.85}
+#nfNutritionIntelligence .nfi-recommendation{background:var(--nfi-card);border:1px solid var(--nfi-edge);border-left:3px solid var(--nfi-accent);border-radius:10px;padding:13px;margin:16px 0}
+#nfNutritionIntelligence .nfi-recommendation strong{display:block;margin-bottom:7px}
+#nfNutritionIntelligence .nfi-recommendation p{font-size:12px;line-height:1.55;margin:0 0 7px}
+#nfNutritionIntelligence .nfi-recommendation small{opacity:.83;line-height:1.45;display:block}
+#nfNutritionIntelligence .nfi-actions{display:flex;gap:8px;flex-wrap:wrap}
+#nfNutritionIntelligence button{min-height:42px}
+#nfNutritionIntelligence button:disabled{opacity:.47;cursor:not-allowed}
+#nfNutritionIntelligence details{border-top:1px solid var(--nfi-edge);margin-top:16px;padding-top:14px}
+#nfNutritionIntelligence details>summary{cursor:pointer;font-weight:700;font-size:14px;line-height:1.4}
+#nfNutritionIntelligence .nfi-completeness{display:flex;align-items:flex-start;gap:9px;padding:10px 0;font-size:13px}
+#nfNutritionIntelligence .nfi-completeness input{margin-top:3px;min-width:18px;min-height:18px;accent-color:var(--nfi-accent)}
+#nfNutritionIntelligence .nfi-help{font-size:12px;line-height:1.5;opacity:.8;margin:8px 0}
+#nfIntelTrainingDays .nf-intel-plan-list{display:grid;gap:6px}
+#nfIntelTrainingDays .nf-intel-plan-list>div{display:flex;flex-wrap:wrap;gap:5px 9px;align-items:baseline;justify-content:space-between;padding:10px;border:1px solid var(--nfi-edge);border-radius:9px;background:var(--nfi-card)}
+#nfIntelTrainingDays span{font-size:12px;flex:1;min-width:145px}
+#nfIntelTrainingDays strong{font-size:13px}
+#nfIntelTrainingDays small{width:100%;font-size:11px;opacity:.78}
+#nfIntelAIResponse{padding:12px 0;font-size:12px;line-height:1.55}
+#nfIntelAIResponse strong{display:block;margin:3px 0}
+#nfIntelAIResponse ul{margin:9px 0 9px 16px;padding-left:10px}
+#nfIntelAIResponse li{margin-bottom:6px}
+#nfIntelAIResponse small{opacity:.75}
+#nfIntelStatus{margin-top:11px;font-size:12px;line-height:1.55;min-height:20px}
+#nfIntelPlannerHint{padding:11px 13px;background:var(--nf-surface-alt,#14303a);border:1px solid var(--nf-border,#34515a);border-radius:10px;font-size:12px;line-height:1.45;margin:10px 0}
+@media(min-width:750px){#nfNutritionIntelligence .nfi-mini-stats{grid-template-columns:repeat(4,minmax(0,1fr))}}
+
 </style></head><body><div class="wrap"><header class="top"><div><div class="nf-brand-lockup"><img src="./icon-192.png" alt="NEXTFORM logo" class="nf-header-logo"><div><div class="brand">NEXTFORM<span class="brand-mark">_</span></div><div class="tag">THE SYSTEM <span class="system-dot">●</span> ONLINE</div></div></div><div class="nf-header-controls"><button class="nf-sync-chip" id="nfSyncChip" type="button" data-state="local" aria-label="View save and sync status">Local save</button><button class="nf-menu-toggle" id="nfMenuToggle" type="button" aria-label="Open navigation menu" aria-controls="nfQuickMenu" aria-expanded="false"><span id="nfMenuUnreadBadge" class="nf-unread-badge nf-header-unread" hidden aria-hidden="true"></span><svg viewBox="0 0 24 24" width="23" height="23" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button></div></header>
 <div class="nf-menu-shell" id="nfQuickMenu" hidden>
   <button class="nf-menu-backdrop" id="nfMenuBackdrop" type="button" aria-label="Close navigation menu" tabindex="-1"></button>
@@ -1426,6 +1475,37 @@ body.nf-v3-modal-open{overflow:hidden}
   <div class="nf-nutro-stats"><div class="nf-nutro-stat"><span>Protein</span><strong id="nfNutritionProtein">0 g</strong><div class="nf-nutro-track"><i id="nfNutritionBarProtein"></i></div></div><div class="nf-nutro-stat"><span>Carbs</span><strong id="nfNutritionCarbs">0 g</strong><div class="nf-nutro-track"><i id="nfNutritionBarCarbs"></i></div></div><div class="nf-nutro-stat"><span>Fat</span><strong id="nfNutritionFat">0 g</strong><div class="nf-nutro-track"><i id="nfNutritionBarFat"></i></div></div></div>
   <p class="nf-nutro-help">Estimates are approximate. Nutrition-app screenshots showing an entire day are recorded as a single daily summary to avoid double-counting individual meals.</p>
  </section>
+<section class="panel" id="nfNutritionIntelligence" aria-label="Nutrition Intelligence">
+ <div class="tag">THE SYSTEM / NUTRITION INTELLIGENCE</div>
+ <div class="nfi-intro"><div><h2>Weekly nutrition intelligence</h2><p class="muted">Connect nutrition, weigh-ins, completed sessions, your approved training week and Oura recovery.</p></div><span id="nfIntelConfidence" class="nf-nutro-pill">Limited data</span></div>
+ <p class="nfi-context" id="nfIntelDateRange">Your last 14 days · complete days only</p>
+ <div class="nfi-mini-stats">
+  <div class="nfi-mini-stat"><small>Average calories / completed day</small><strong><span id="nfIntelKcalAvg">—</span> <small style="display:inline">kcal</small></strong></div>
+  <div class="nfi-mini-stat"><small>Fully logged days</small><strong id="nfIntelDaysCount">0 / 14</strong></div>
+  <div class="nfi-mini-stat"><small>Average protein / known day</small><strong id="nfIntelProteinAvg">—</strong></div>
+  <div class="nfi-mini-stat"><small>Weight trend</small><strong id="nfIntelWeightTrend" style="font-size:17px">Not enough weigh-ins</strong></div>
+ </div>
+ <div class="nfi-chart-title"><strong>Last 7 days</strong><span>Reported consumed kcal</span></div>
+ <div id="nfIntelDayBars" aria-label="Seven-day recorded calorie chart"></div>
+ <p class="nfi-legend">Filled = confirmed complete day · striped = AI-estimated figures · empty = missing/partial day. The current day is excluded until tomorrow.</p>
+ <div id="nfIntelInsights"></div>
+ <div class="nfi-recommendation" id="nfIntelRecommendation"></div>
+ <div class="nfi-actions"><button type="button" class="secondary" id="nfIntelRefresh">Refresh review</button><button type="button" class="primary" id="nfIntelApprove" disabled>No calorie change to approve</button></div>
+ <details><summary>Mark a day as fully logged</summary>
+  <p class="nfi-help">For meals logged separately, confirm that every meal, snack and drink for the selected Nutrition date has been entered. Imported full-day summaries are already complete. Do not mark partial days complete.</p>
+  <label class="nfi-completeness"><input type="checkbox" id="nfIntelCompleteCheck"><span>All food and drinks logged for <strong id="nfIntelCompleteDate">today</strong></span></label><p class="nfi-help" id="nfIntelCompleteHint"></p>
+ </details>
+ <details><summary>Nutrition targets around your training</summary><div class="nfi-help" id="nfIntelTrainingDays">Approve a weekly plan to calculate training-day targets.</div><p class="nfi-help">Carbohydrates are planned around sessions while the weekly calorie average remains close to your approved baseline. No Strava calories are automatically added back. Any per-day numbers are suggestions, not automatic changes to food logs.</p></details>
+ <details><summary>Optional ChatGPT weekly review</summary>
+  <p class="nfi-help">The local analysis above works offline. For a personalised explanation, ChatGPT receives <strong>aggregated nutrition, weight trend, activity counts, optional recovery signals and planned-day types</strong> — not meal descriptions, screenshots or account identifiers. Nothing is sent unless you request a review.</p>
+  <label class="nfi-completeness"><input type="checkbox" id="nfIntelConsent"><span>I agree to send this limited summary to the AI service for a weekly review.</span></label>
+  <button type="button" class="secondary" id="nfIntelAskAI">Ask THE SYSTEM to review</button>
+  <div id="nfIntelAIResponse" aria-live="polite"></div>
+ </details>
+ <p id="nfIntelStatus" role="status" aria-live="polite"></p>
+ <p class="nfi-help">Not medical advice. Do not use automated targets during pregnancy, illness, or a history of disordered eating without professional guidance. Nutrition estimates and body-weight trends are imperfect.</p>
+</section>
+
  <section class="panel">
   <div class="tag">ADD FOOD / CHATGPT ESTIMATE</div><h2>Log what you ate</h2>
   <div class="nf-nutro-fields" style="grid-template-columns:repeat(2,minmax(0,1fr))"><div class="nf-nutro-field"><label for="nfNutritionLogDate">Date eaten</label><input id="nfNutritionLogDate" type="date"></div><div class="nf-nutro-field"><label for="nfNutritionMode">What are you logging?</label><select id="nfNutritionMode"><option value="auto" selected>Auto-detect (recommended)</option><option value="daily_total">Full-day summary — top of screenshot</option><option value="meal">One meal or food photo</option></select></div></div>
@@ -1453,10 +1533,12 @@ body.nf-v3-modal-open{overflow:hidden}
 <div class="nf-coach-step-head"><span class="nf-coach-step-index">01</span><div><strong>Plan your week</strong><small>Set your schedule and priorities</small></div></div>
 <div class="nf-coach-preferences"><div class="grid2"><div class="field"><label for="nfAIWeek">Week starting (Monday)</label><input id="nfAIWeek" type="date"></div><div class="field"><label for="nfAIGoal">Priority</label><select id="nfAIGoal"><option value="strength">Strength + muscle</option><option value="balanced">Balanced fitness</option><option value="endurance">Endurance</option><option value="fat_loss">Fat loss</option></select></div><div class="field"><label for="nfAIRunDay">Run day</label><select id="nfAIRunDay"><option value="0">Monday</option><option value="1" selected>Tuesday</option><option value="2">Wednesday</option><option value="3">Thursday</option><option value="4">Friday</option><option value="5">Saturday</option><option value="6">Sunday</option></select></div><div class="field"><label for="nfAIRideDay">Ride day</label><select id="nfAIRideDay"><option value="0">Monday</option><option value="1">Tuesday</option><option value="2">Wednesday</option><option value="3">Thursday</option><option value="4">Friday</option><option value="5" selected>Saturday</option><option value="6">Sunday</option></select></div><div class="field"><label for="nfAIMinutes">Strength minutes/session</label><input id="nfAIMinutes" type="number" min="15" max="120" value="30"></div><div class="field"><label for="nfAIRideMinutes">Ride minutes</label><input id="nfAIRideMinutes" type="number" min="10" max="300" value="75"></div></div><div class="field nf-coach-notes"><label for="nfAINotes">Notes for your coach <span class="nf-coach-optional">Optional</span></label><textarea id="nfAINotes" rows="3" maxlength="500" placeholder="Keep Friday for arms and shoulders. Easy run Tuesday. Don't overload legs before Saturday's ride."></textarea><small class="nf-coach-help">Include events, training preferences or anything you want the coach to consider.</small></div></div>
 <label class="nf-optional-skills"><input type="checkbox" id="nfAIIncludeSkills" checked><span><strong>Suggest Skill Tree exercises</strong><small>Optional. Turn off to plan without the four Skill Tree barbell lifts. You can also remove individual lifts from any draft week. Skipped lifts simply won't progress their unlocks that week.</small></span></label>
+<label class="nf-oura-ai-consent"><input type="checkbox" id="nfAINutritionConsent"><span><strong>Use Nutrition Intelligence with OpenAI</strong><small>Optional: send only aggregate calorie, protein and weight-trend context when refining workouts. No food descriptions or screenshots. Missing logs never trigger automatic load reductions.</small></span></label>
 <label class="nf-oura-ai-consent"><input type="checkbox" id="nfAIOuraConsent"><span><strong>Use Oura insights with OpenAI</strong><small>Optional: share only a short readiness, sleep, HRV and resting-HR summary when you tap Refine with AI. Leave off for local-only recovery advice.</small></span></label>
 <div class="nf-coach-generate-bar"><button class="primary" id="nfAIGenerate" type="button"><span aria-hidden="true">✧</span> Generate my week</button><button class="secondary" id="nfAIImprove" type="button"><span aria-hidden="true">✦</span> Refine with AI</button></div>
 <div class="nf-coach-subcaption"><button type="button" id="nfAILoadSaved" class="nf-skill-edit-saved">Edit an approved week</button> · Adaptive plans work offline. AI refinement is optional and requires your cloud account.</div>
 <p id="nfAIStatus" class="nf-coach-status" role="status" aria-live="polite"></p>
+<div id="nfIntelPlannerHint" role="status">Nutrition Intelligence will appear here after your nutrition logs are analysed.</div>
 <div id="nfAIOutput"></div>
 </div></details><details class="panel nf-daily-coach" id="nfDailyCoachPanel" aria-label="Today’s training recommendation">
  <summary class="nf-daily-coach-header"><span class="nf-daily-coach-spark" aria-hidden="true">✦</span><span class="nf-daily-coach-label"><small>THE SYSTEM / SESSION INTELLIGENCE</small><strong>Today’s AI recommendation</strong><em>Optional · Review before you train</em></span><span class="nf-daily-coach-arrow" aria-hidden="true">⌄</span></summary>
@@ -4700,7 +4782,8 @@ async function improve(){
   const snap=window.nfOuraReadinessForCoach?.();
   const consent=!!$ai('nfAIOuraConsent')?.checked;
   const ouraContext=consent&&snap?{date:snap.date,readiness:snap.readiness,sleepHours:snap.sleepHours,hrv:snap.hrv,restingHR:snap.restingHR,hrvBaseline:snap.hrvBaseline,hrBaseline:snap.hrBaseline,level:snap.level,signals:snap.signals,stale:!snap.fresh}:undefined;
-  const payload={weekStart:draftAI.weekStart,prefs:draftAI.prefs,days:draftAI.days,history,cardioHistory,...(ouraContext?{ouraContext}:{})};
+  const nutritionContext=$ai('nfAINutritionConsent')?.checked?window.nfNutritionIntelligenceContext?.():undefined;
+  const payload={weekStart:draftAI.weekStart,prefs:draftAI.prefs,days:draftAI.days,history,cardioHistory,...(ouraContext?{ouraContext}:{}),...(nutritionContext?{nutritionContext}:{})};
   const {data,error}=await client.functions.invoke('nextform-ai-coach',{body:payload});
   if(error)throw await explainFunctionError(error);if(data?.error)throw Error(data.error);
   if(typeof data.coachNote==='string')draftAI.coachNote=data.coachNote.slice(0,500);
@@ -5376,7 +5459,11 @@ function nutritionForDate(){return ensure().entries.filter(e=>e.date===formDate.
 function summary(){
  const entries=nutritionForDate(),total={kcal:0,protein:0,carbs:0,fat:0};
  const partial={protein:false,carbs:false,fat:false};
- entries.forEach(e=>{for(const k of Object.keys(total)){if(e[k]===null||e[k]===undefined||e[k]===''){if(k!=='kcal')partial[k]=true;}else total[k]+=n(e[k]);}});
+ // A full-day screenshot is an authoritative total for the day, never an additional meal.
+ // This also protects legacy records saved before daily-summary deduplication was added.
+ const importedDays=entries.filter(e=>e.mode==='daily_total').sort((a,b)=>String(b.loggedAt||'').localeCompare(String(a.loggedAt||'')));
+ const counted=importedDays.length?[importedDays[0]]:entries;
+ counted.forEach(e=>{for(const k of Object.keys(total)){if(e[k]===null||e[k]===undefined||e[k]===''){if(k!=='kcal')partial[k]=true;}else total[k]+=n(e[k]);}});
  const goals=ensure().targets;
  $('nfNutritionCalories').innerHTML=esc(Math.round(total.kcal).toLocaleString())+' <small>kcal'+(goals.kcal?' / '+esc(goals.kcal)+' target':' consumed')+'</small>';
  for(const k of ['protein','carbs','fat']){
@@ -5498,4 +5585,219 @@ window.addEventListener('nf:local-saved',summary);
 document.querySelector('#tabs [data-tab="nutrition"]')?.addEventListener('click',summary);
 setTargets();summary();
 })();
+</script><script id="nf-intelligence-v1">
+(()=>{
+'use strict';
+const $=id=>document.getElementById(id);
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const num=x=>x==null||x===''?null:(Number.isFinite(Number(x))?Number(x):null);
+const dateOK=d=>/^\d{4}-\d{2}-\d{2}$/.test(String(d||''))&&!Number.isNaN(Date.parse(d+'T12:00:00Z'));
+function localDay(){const d=new Date();return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`}
+function advance(d,days){const x=new Date(d+'T12:00:00Z');x.setUTCDate(x.getUTCDate()+days);return x.toISOString().slice(0,10)}
+function diffDays(a,b){return Math.round((new Date(a+'T12:00:00Z')-new Date(b+'T12:00:00Z'))/86400000)}
+function monday(d){return advance(d,-((new Date(d+'T12:00:00Z').getUTCDay()+6)%7))}
+const mean=a=>a.length?a.reduce((s,n)=>s+n,0)/a.length:null;
+function median(a){if(!a.length)return null;const xs=[...a].sort((x,y)=>x-y);return xs.length%2?xs[Math.floor(xs.length/2)]:(xs[xs.length/2-1]+xs[xs.length/2])/2}
+const round10=n=>Math.round(n/10)*10;
+const fmt=n=>Number.isFinite(n)?Math.round(n).toLocaleString('en-AU'):'—';
+function state(){if(!db.nfNutrition||typeof db.nfNutrition!=='object')db.nfNutrition={entries:[],targets:{}};
+ const obj=db.nfNutrition;
+ if(!Array.isArray(obj.entries))obj.entries=[];
+ if(!obj.targets||typeof obj.targets!=='object')obj.targets={};
+ if(!obj.completeDays||typeof obj.completeDays!=='object')obj.completeDays={};
+ if(!obj.intelligence||typeof obj.intelligence!=='object')obj.intelligence={approved:[],aiReview:null};
+ if(!Array.isArray(obj.intelligence.approved))obj.intelligence.approved=[];
+ return obj;}
+function dayRecord(date){
+ const data=state(),all=data.entries.filter(e=>e.date===date),sums={kcal:0,protein:0,carbs:0,fat:0};
+ const full=all.filter(e=>e.mode==='daily_total').sort((a,b)=>String(b.loggedAt||'').localeCompare(String(a.loggedAt||'')));
+ const relevant=full.length?[full[0]]:all;
+ const partial={protein:false,carbs:false,fat:false};
+ let estimate=false;
+ for(const e of relevant){
+  for(const k of Object.keys(sums)){const x=num(e[k]);if(x===null){if(k!=='kcal')partial[k]=true;}else sums[k]+=x;}
+  if(e.confidence==='estimated'||e.confidence==='uncertain'||e.source==='ai'&&e.confidence!=='app_total'&&e.confidence!=='label_read')estimate=true;
+ }
+ const fullyLogged=Boolean(full.length)||(relevant.length>0&&data.completeDays[date]===true);
+ const reliableKcal=fullyLogged&&relevant.length>0&&relevant.every(e=>num(e.kcal)!==null);
+ const macroComplete=Object.fromEntries(['protein','carbs','fat'].map(k=>[k,reliableKcal&&!partial[k]]));
+ return {date,entries:relevant.length,fullyLogged,reliableKcal,macroComplete,estimate,
+  kcal:reliableKcal?sums.kcal:null,protein:macroComplete.protein?sums.protein:null,
+  carbs:macroComplete.carbs?sums.carbs:null,fat:macroComplete.fat?sums.fat:null,
+  hasDailySummary:full.length>0,duplicateCount:full.length?all.length-1:0};
+}
+function recentDays(count,end=advance(localDay(),-1)){return Array.from({length:count},(_,i)=>dayRecord(advance(end,-(count-1-i))))}
+function weightTrend(end){
+ const seen=new Map();
+ for(const m of db.metrics||[]){if(!dateOK(m.date)||m.date>end||m.date<advance(end,-13))continue;
+  const kg=num(m.weight);if(kg!==null&&kg>=30&&kg<=350)seen.set(m.date,kg);
+ }
+ const rows=[...seen].sort((a,b)=>a[0].localeCompare(b[0]));
+ const split=advance(end,-6),first=rows.filter(([d])=>d<split),last=rows.filter(([d])=>d>=split);
+ if(first.length<2||last.length<2||diffDays(last.at(-1)[0],first[0][0])<9)return {ready:false,count:rows.length,reason:'Record at least two weigh-ins in each of two consecutive weeks, spanning 10 days or more.'};
+ const earlyKg=median(first.map(x=>x[1])),lateKg=median(last.map(x=>x[1]));
+ const earlyDate=mean(first.map(x=>Date.parse(x[0]+'T12:00:00Z'))),lateDate=mean(last.map(x=>Date.parse(x[0]+'T12:00:00Z')));
+ const weeks=(lateDate-earlyDate)/604800000;
+ if(!(weeks>=.6))return {ready:false,count:rows.length,reason:'Weigh-ins are too close together to show a stable trend.'};
+ const weekly=(lateKg-earlyKg)/weeks;
+ return {ready:true,count:rows.length,weekly,percent:weekly/((earlyKg+lateKg)/2)*100,earlyKg,lateKg,latestKg:last.at(-1)[1]};
+}
+function approvedWeek(anchor){
+ const plans=Object.entries(db.nfAIPlans||{}).filter(([k,v])=>dateOK(k)&&v?.approved&&Array.isArray(v.days)&&v.days.length===7);
+ // Prefer the next approved week, otherwise the current approved week.
+ const next=advance(monday(anchor),7),current=monday(anchor);
+ const selection=plans.find(([k])=>k===next)||plans.find(([k])=>k===current);
+ return selection?selection[1]:null;
+}
+function plannedDays(baseKcal,protein,fat,todayDate=localDay()){
+ const plan=approvedWeek(todayDate);if(!plan)return null;
+ const items=plan.days.map((d,i)=>{
+  const sessions=Array.isArray(d.sessions)?d.sessions:(d.kind&&d.kind!=='rest'?[d]:[]);
+  const active=sessions.filter(s=>['cycle','run','strength'].includes(s.kind));
+  const rides=active.filter(s=>s.kind==='cycle').map(s=>Number(s.minutes)||0),runs=active.filter(s=>s.kind==='run').map(s=>Number(s.minutes)||0);
+  const strength=active.some(s=>s.kind==='strength'),ride=Math.max(0,...rides),run=Math.max(0,...runs);
+  let bonus=0,label='Recovery day';
+  if(ride>=60){bonus=175;label='Long ride '+ride+' min';}
+  else if(ride>0){bonus=100;label='Cycling '+ride+' min';}
+  else if(run>=45){bonus=125;label='Run '+run+' min';}
+  else if(run>0){bonus=75;label='Run '+run+' min';}
+  else if(strength){bonus=60;label='Strength';}
+  return {date:dateOK(d.date)?d.date:advance(plan.weekStart,i),label,bonus,sessions:active.length};
+ });
+ if(items.length!==7)return null;
+ const offset=mean(items.map(x=>x.bonus));
+ // Balance the total weekly energy budget; never add unmeasured exercise calories to the baseline.
+ const calories=items.map(x=>baseKcal<1700?Math.round(baseKcal/5)*5:Math.max(1500,Math.round((baseKcal+x.bonus-offset)/5)*5));
+ if(baseKcal>=1700){const residual=Math.round((baseKcal*7-calories.reduce((s,v)=>s+v,0))/5)*5;
+  const restIndex=items.findIndex(x=>x.bonus===Math.min(...items.map(y=>y.bonus)));
+  const index=restIndex>=0?restIndex:0;
+  if(calories[index]+residual>=1500)calories[index]+=residual;
+ }
+ // Normalize integer rounding to keep 7-day mean close to baseline.
+ return {weekStart:plan.weekStart,days:items.map((x,i)=>({date:x.date,label:x.label,kcal:calories[i],protein:protein||null,fat:fat||null,
+    carbs:protein&&fat?Math.max(0,Math.round((calories[i]-protein*4-fat*9)/4)):null})),average:Math.round(mean(calories))};
+}
+function analyse(asOf=localDay()){
+ const end=advance(asOf,-1),days=recentDays(14,end),recent=days.slice(-7);
+ const completed=days.filter(x=>x.reliableKcal),weekly=recent.filter(x=>x.reliableKcal);
+ const meals=days.filter(x=>x.entries>0),estimated=completed.filter(x=>x.estimate);
+ const macros=Object.fromEntries(['protein','carbs','fat'].map(k=>[k,mean(completed.filter(d=>d.macroComplete[k]).map(d=>d[k]))]));
+ const macroCounts=Object.fromEntries(['protein','carbs','fat'].map(k=>[k,completed.filter(d=>d.macroComplete[k]).length]));
+ const weight=weightTrend(end),target=state().targets,kcalGoal=num(target.kcal),proteinGoal=num(target.protein),fatGoal=num(target.fat);
+ const average=mean(completed.map(x=>x.kcal)),weekAvg=mean(weekly.map(x=>x.kcal));
+ const currentMass=weight.latestKg??num(db.metrics?.filter(m=>num(m.weight)>0).sort((a,b)=>String(b.date).localeCompare(String(a.date)))[0]?.weight)??num(db.startWeight),goalMass=num(db.bodyGoals?.weight);
+ const losing=goalMass!==null&&currentMass!==null&&goalMass<currentMass;
+ const proteinSuggested=proteinGoal||((goalMass&&goalMass>=40&&goalMass<=220)?Math.round(Math.max(95,Math.min(220,goalMass*1.6))/5)*5:null);
+ const confidence=completed.length>=10&&estimated.length<=3?'strong':completed.length>=5?'developing':'limited';
+ const verdict={type:'insufficient',change:0,message:'Not enough complete logging and weigh-in data to adjust calories.'};
+ if(kcalGoal===null||kcalGoal<1500||kcalGoal>6000){verdict.type='need_target';verdict.message='Set a sensible starting calorie target before THE SYSTEM proposes adjustments.';}
+ else if(!losing){verdict.type='maintain';verdict.message='Calorie changes for weight loss are only suggested when your recorded goal is lower than your current weight.';}
+ else if(completed.length<10||estimated.length>7||!weight.ready){verdict.type='insufficient';verdict.message='Keep the target steady until at least 10 of the last 14 days are fully logged and there are enough weigh-ins. AI-estimated portions add uncertainty.';}
+ else if(Math.abs(average-kcalGoal)>Math.max(200,kcalGoal*.12)){verdict.type='adherence';verdict.message='Your logged calorie average differs noticeably from the target. Focus on consistency before changing the target.';}
+ else if(weight.percent>-.25){verdict.type='adjust';verdict.change=-100;verdict.message='Recorded weight loss is slower than the preliminary 0.25%–1% weekly review band. Consider a small calorie reduction if the trend persists.';}
+ else if(weight.percent< -1.0){verdict.type='adjust';verdict.change=100;verdict.message='Recorded weight loss is faster than the preliminary review band. Consider increasing intake slightly and checking recovery.';}
+ else{verdict.type='maintain';verdict.message='Recorded weight change is within the conservative review band; keep the current calorie target.';}
+ const proposedKcal=kcalGoal!==null?Math.round((kcalGoal+verdict.change)/5)*5:null;
+ const forecast=proposedKcal!==null?plannedDays(proposedKcal,proteinGoal||proteinSuggested,fatGoal,asOf):null;
+ const training=(db.cardio||[]).filter(x=>x.date>=advance(end,-6)&&x.date<=end);
+ const strength=(db.workouts||[]).filter(x=>x.date>=advance(end,-6)&&x.date<=end);
+ const ride=training.filter(x=>x.type==='cycle'),run=training.filter(x=>x.type==='run');
+ const recovery=window.nfOuraReadinessForCoach?.()||null;
+ return {end,days,recent,completed,weekly,meals,estimated,average,weekAvg,macros,macroCounts,weight,kcalGoal,proteinGoal,fatGoal,proteinSuggested,currentMass,goalMass,confidence,verdict,proposedKcal,forecast,
+  training:{strengthSessions:strength.length,rides:ride.length,runs:run.length,rideMinutes:ride.reduce((n,x)=>n+(Number(x.minutes)||0),0)},
+  recovery:recovery?{date:recovery.date,level:recovery.level,reason:recovery.reason,fresh:recovery.fresh}:null};
+}
+function trainingContext(){const x=analyse();return {completeDays14:x.completed.length,estimatedDays14:x.estimated.length,averageKcal14:x.average===null?null:Math.round(x.average),proteinDays14:x.macroCounts.protein,averageProtein14:x.macros.protein===null?null:Math.round(x.macros.protein),goalKcal:x.kcalGoal,goalProtein:x.proteinGoal,weightTrendKgPerWeek:x.weight.ready?Number(x.weight.weekly.toFixed(2)):null,confidence:x.confidence,proposedKcalChange:x.verdict.type==='adjust'?x.verdict.change:0,trainingGuidance:x.completed.length>=10?'Nutrition is supporting context only; adjust session effort based on performance, recovery and warm-ups.':'Food history is incomplete; do not infer under-fuelling or change workout loads from missing nutrition entries.'};}
+window.nfNutritionIntelligenceContext=trainingContext;
+function createInsights(x){
+ const result=[];
+ result.push({icon:'◉',title:'Logging confidence',msg:x.completed.length+' / 14 complete days · '+x.estimated.length+' contain AI-estimated meals. Partial days are excluded from intake averages.'});
+ if(x.weekAvg!==null)result.push({icon:'▱',title:'Last 7 days',msg:fmt(x.weekAvg)+' kcal per fully logged day ('+x.weekly.length+' of 7 complete). This is not a seven-day total.'});
+ if(x.macros.protein!==null)result.push({icon:'▰',title:'Protein',msg:fmt(x.macros.protein)+' g average across '+x.macroCounts.protein+' days with known protein values'+(x.proteinGoal?' · target '+x.proteinGoal+' g.':'.')});
+ else result.push({icon:'▰',title:'Protein coverage',msg:'No complete-day protein records. Import total macros or finish logging meals to improve this insight.'});
+ result.push({icon:'⌁',title:'Weight trend',msg:x.weight.ready?(x.weight.weekly>=0?'+':'')+x.weight.weekly.toFixed(2)+' kg/week estimated from '+x.weight.count+' weigh-ins. Changes can reflect water and glycogen, not just body fat.':x.weight.reason});
+ if(x.training.rides>0)result.push({icon:'◌',title:'Cycling fuelling',msg:x.training.rides+' ride(s) logged this week. On long rides, plan carbohydrates around training; the proposed weekly budget redistributes calories rather than adding exercise calories twice.'});
+ if(x.recovery?.fresh&&x.recovery.level!=='steady')result.push({icon:'◍',title:'Recovery check',msg:'Recent Oura recovery signal ('+x.recovery.date+') suggests checking how you feel before hard sessions. A single reading never changes calorie targets automatically.'});
+ return result;
+}
+function render(){const box=$('nfNutritionIntelligence');if(!box)return;
+ const x=analyse(),goals=state().targets,complete=x.completed.length;
+ $('nfIntelKcalAvg').textContent=x.average!==null?fmt(x.average):'—';
+ $('nfIntelDaysCount').textContent=complete+' / 14';
+ $('nfIntelProteinAvg').textContent=x.macros.protein!==null?fmt(x.macros.protein)+' g':'—';
+ $('nfIntelWeightTrend').textContent=x.weight.ready?((x.weight.weekly>0?'+':'')+x.weight.weekly.toFixed(2)+' kg/wk'):'Not enough weigh-ins';
+ $('nfIntelConfidence').textContent= x.confidence==='strong'?'More complete data':x.confidence==='developing'?'Developing estimate':'Limited data';
+ $('nfIntelDateRange').textContent=advance(x.end,-13)+' to '+x.end+' · complete days only';
+ $('nfIntelDayBars').innerHTML=x.recent.map(d=>{const target=num(goals.kcal)||Math.max(1500,x.weekAvg||2500);const pct=d.reliableKcal?Math.min(100,Math.max(4,d.kcal/Math.max(target,1)*75)):0;
+  const weekday=new Date(d.date+'T12:00:00Z').toLocaleDateString('en-AU',{weekday:'short'});
+  return `<div class="nf-intel-day" title="${esc(d.date+': '+(d.reliableKcal?fmt(d.kcal)+' kcal':'incomplete'))}"><div class="nf-intel-bar-frame"><i class="${d.reliableKcal?'logged':''} ${d.estimate?'estimate':''}" style="height:${pct}%"></i></div><small>${esc(weekday)}</small><b>${d.reliableKcal?fmt(d.kcal):'—'}</b></div>`;
+ }).join('');
+ $('nfIntelInsights').innerHTML=createInsights(x).map(a=>`<div class="nf-intel-insight"><span aria-hidden="true">${a.icon}</span><div><strong>${esc(a.title)}</strong><p>${esc(a.msg)}</p></div></div>`).join('');
+ const recommendation=$('nfIntelRecommendation');
+ const decision=x.verdict.type==='adjust'?`Consider ${x.verdict.change>0?'+':''}${x.verdict.change} kcal/day → ${fmt(x.proposedKcal)} kcal/day`:
+  x.kcalGoal!==null?'Keep '+fmt(x.kcalGoal)+' kcal/day for now':'Set your calorie target first';
+ recommendation.innerHTML=`<strong>${esc(decision)}</strong><p>${esc(x.verdict.message)}</p>${x.proteinGoal===null&&x.proteinSuggested!==null?`<small>Optional starting protein discussion point: approximately ${x.proteinSuggested} g/day based on goal weight. Set your own target or consult a dietitian if appropriate.</small>`:''}`;
+ const approval=$('nfIntelApprove');
+ const canApprove=x.verdict.type==='adjust'&&Number.isFinite(x.proposedKcal)&&x.proposedKcal>=1500&&x.proposedKcal<=6000;
+ approval.disabled=!canApprove;
+ approval.textContent=canApprove?'Approve '+fmt(x.proposedKcal)+' kcal/day':'No calorie change to approve';
+ const plan=$('nfIntelTrainingDays');
+ if(x.forecast){plan.innerHTML=`<p>Approved training week of <b>${esc(x.forecast.weekStart)}</b>. Daily targets balance to approximately ${fmt(x.forecast.average)} kcal/day across seven days. These are planning suggestions, not consumed calories.</p><div class="nf-intel-plan-list">`+x.forecast.days.map(d=>`<div><span>${esc(d.date.slice(5))} · ${esc(d.label)}</span><strong>${fmt(d.kcal)} kcal</strong><small>${d.protein?fmt(d.protein)+'g protein':''}${d.carbs!==null?' · '+fmt(d.carbs)+'g carbs':''}</small></div>`).join('')+'</div>';
+ }else plan.innerHTML='<p>Approve a training week in THE SYSTEM’s Weekly Planner to see planned ride-day, strength-day and rest-day nutrition targets. No session dates are invented.</p>';
+ const selected=$('nfNutritionDate')?.value||localDay(),d=dayRecord(selected);
+ const check=$('nfIntelCompleteCheck');check.checked=d.hasDailySummary||state().completeDays[selected]===true;
+ check.disabled=d.hasDailySummary||d.entries===0;
+ $('nfIntelCompleteHint').textContent=d.hasDailySummary?'Full-day summary imported; this day already counts as complete.':d.entries===0?'Log something for this date before marking it complete.':check.checked?'Marked complete; all meals, drinks and snacks are included.':'Partial day — excluded from calorie averages until you confirm all meals and snacks were logged.';
+ $('nfIntelCompleteDate').textContent=selected;
+ const ai=state().intelligence.aiReview;
+ if(ai&&ai.timestamp){$('nfIntelAIResponse').innerHTML=`<strong>${esc(ai.summary||'Weekly nutrition review')}</strong><p>${esc(ai.recommendation||'')}</p>${Array.isArray(ai.tips)?'<ul>'+ai.tips.slice(0,3).map(t=>'<li>'+esc(t)+'</li>').join('')+'</ul>':''}<small>Review generated ${esc(ai.timestamp.slice(0,10))}. A new review uses the latest logged data.</small>`;}
+ const hint=$('nfIntelPlannerHint');if(hint)hint.textContent=`Nutrition Intelligence: ${complete}/14 full days recorded · ${x.weight.ready?'weight trend available':'weight trend still developing'} · ${x.kcalGoal?fmt(x.kcalGoal)+' kcal target':'set a calorie target'}. Nutrition never changes weights, sets or workouts without your approval.`;
+}
+function approve(){const x=analyse();if(x.verdict.type!=='adjust'||!Number.isFinite(x.proposedKcal))return;
+ const check=analyse();if(check.proposedKcal!==x.proposedKcal)return;
+ if(!confirm('Approve changing your daily calorie goal from '+fmt(x.kcalGoal)+' to '+fmt(x.proposedKcal)+' kcal? This changes NUTRITION targets only, not your workout plan.'))return;
+ const obj=state(),previous={...obj.targets},history=obj.intelligence.approved;
+ obj.targets={...obj.targets,kcal:x.proposedKcal};history.push({date:localDay(),previous,updated:{...obj.targets},basis:{completeDays14:x.completed.length,weightTrend:x.weight.ready?x.weight.weekly:null,reason:x.verdict.message}});
+ if(history.length>30)history.splice(0,history.length-30);
+ try{save()}catch(e){obj.targets=previous;history.pop();$('nfIntelStatus').textContent='Could not save: '+String(e.message||e);return;}
+ const targetInput=$('nfNutritionGoalKcal');if(targetInput)targetInput.value=obj.targets.kcal;
+ $('nfIntelStatus').textContent='Calorie target approved and saved. No workout settings were changed.';render();
+}
+function toggleComplete(){const date=$('nfNutritionDate')?.value,d=dayRecord(date);if(!dateOK(date)||d.hasDailySummary||d.entries===0)return;
+ const o=state(),newValue=$('nfIntelCompleteCheck').checked;const old=o.completeDays[date];o.completeDays[date]=newValue;
+ try{save();$('nfIntelStatus').textContent=newValue?'Day marked fully logged.':'Day marked partial.';}catch(e){o.completeDays[date]=old;alert('Could not save completion status.');}
+ render();}
+async function askAI(){const consent=$('nfIntelConsent').checked;if(!consent){$('nfIntelStatus').textContent='Tick the consent box to send your summary statistics to the AI coach.';return;}
+ const ctx=window.nfSocialCloudContext?.();if(!ctx?.client||!ctx?.user){$('nfIntelStatus').textContent='Sign in to NEXTFORM under Settings to use ChatGPT. Local Nutrition Intelligence still works.';return;}
+ const x=analyse(),button=$('nfIntelAskAI');button.disabled=true;$('nfIntelStatus').textContent='THE SYSTEM is reviewing the nutrition and training summary…';
+ try{
+ const body={date:x.end,summary:trainingContext(),training:x.training,recovery:x.recovery,plannedWeek:x.forecast?{start:x.forecast.weekStart,days:x.forecast.days.map(d=>({label:d.label,kcal:d.kcal}))}:null};
+ const {data,error}=await ctx.client.functions.invoke('nextform-nutrition-intelligence',{body});
+ if(error){let message=error.message||'AI coach unavailable';try{const d=await error.context?.json();if(d?.error)message=d.error}catch{}throw new Error(message)}
+ if(data?.error)throw Error(data.error);
+ if(!data?.summary||!Array.isArray(data.tips))throw Error('Unexpected AI review format.');
+ const obj=state();obj.intelligence.aiReview={summary:String(data.summary).slice(0,420),recommendation:String(data.recommendation||'').slice(0,400),tips:data.tips.slice(0,3).map(t=>String(t).slice(0,260)),timestamp:new Date().toISOString()};
+ try{save()}catch(e){$('nfIntelStatus').textContent='AI review created but could not be saved: '+String(e.message||e);return;}
+ $('nfIntelStatus').textContent='Weekly AI review saved. Recommendations require your approval.';render();
+ }catch(e){$('nfIntelStatus').textContent='AI review unavailable: '+String(e.message||e)+'. Local insights remain available.';}
+ finally{button.disabled=false;}
+}
+function init(){if(!$('nfNutritionIntelligence'))return;
+ $('nfIntelApprove').addEventListener('click',approve);
+ $('nfIntelCompleteCheck').addEventListener('change',toggleComplete);
+ $('nfIntelRefresh').addEventListener('click',()=>{render();$('nfIntelStatus').textContent='Recalculated using current nutrition, weight and training data.'});
+ $('nfIntelAskAI').addEventListener('click',askAI);
+ $('nfNutritionDate')?.addEventListener('change',render);
+ document.querySelector('#tabs [data-tab="nutrition"]')?.addEventListener('click',render);
+ window.addEventListener('nf:cloud-save-loaded',render);
+ window.addEventListener('nf:approved-week-changed',render);
+ window.addEventListener('nf:oura-synced',render);
+ let scheduled=false;window.addEventListener('nf:local-saved',()=>{if(scheduled)return;scheduled=true;queueMicrotask(()=>{scheduled=false;render()});});
+ render();
+}
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();
+// QA hooks return read-only snapshots with no raw food descriptions or account identifiers.
+window.nfNutritionIntelligenceDebug=()=>({analysis:analyse(),context:trainingContext()});
+})();
+
 </script></body></html>
