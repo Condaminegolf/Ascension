@@ -1355,6 +1355,7 @@ body.nf-v3-modal-open{overflow:hidden}
 #nutrition .nf-nutro-help{font-size:12px;line-height:1.55;opacity:.78;margin:7px 0}
 #nutrition #nfNutritionStatus{min-height:20px;margin:8px 0;color:var(--nf-main,#86e6b6)}
 #nutrition #nfNutritionStatus[data-error="true"]{color:#d67b7b}
+#nutrition .nf-nutro-review-source{margin:9px 0;padding:10px 12px;border:1px solid var(--nf-border,#47756c);border-radius:10px;font-size:13px;line-height:1.4;background:var(--nf-surface,#102932)}
 #nutrition .nf-nutro-badge{font-size:11px;font-weight:700;letter-spacing:.06em;color:var(--nf-main,#83d6ab)}
 @media(max-width:500px){#nutrition .nf-nutro-fields{grid-template-columns:repeat(2,minmax(0,1fr))}#nutrition .nf-nutro-stats{gap:6px}#nutrition .nf-nutro-stat{padding:10px 7px}#nutrition .nf-nutro-stat strong{font-size:16px}}
 </style></head><body><div class="wrap"><header class="top"><div><div class="nf-brand-lockup"><img src="./icon-192.png" alt="NEXTFORM logo" class="nf-header-logo"><div><div class="brand">NEXTFORM<span class="brand-mark">_</span></div><div class="tag">THE SYSTEM <span class="system-dot">●</span> ONLINE</div></div></div><div class="nf-header-controls"><button class="nf-sync-chip" id="nfSyncChip" type="button" data-state="local" aria-label="View save and sync status">Local save</button><button class="nf-menu-toggle" id="nfMenuToggle" type="button" aria-label="Open navigation menu" aria-controls="nfQuickMenu" aria-expanded="false"><span id="nfMenuUnreadBadge" class="nf-unread-badge nf-header-unread" hidden aria-hidden="true"></span><svg viewBox="0 0 24 24" width="23" height="23" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button></div></header>
@@ -1427,7 +1428,8 @@ body.nf-v3-modal-open{overflow:hidden}
  </section>
  <section class="panel">
   <div class="tag">ADD FOOD / CHATGPT ESTIMATE</div><h2>Log what you ate</h2>
-  <div class="nf-nutro-fields" style="grid-template-columns:repeat(2,minmax(0,1fr))"><div class="nf-nutro-field"><label for="nfNutritionLogDate">Date eaten</label><input id="nfNutritionLogDate" type="date"></div><div class="nf-nutro-field"><label for="nfNutritionMode">What are you logging?</label><select id="nfNutritionMode"><option value="meal">Meal or snack</option><option value="daily_total">Full-day nutrition app screenshot</option></select></div></div>
+  <div class="nf-nutro-fields" style="grid-template-columns:repeat(2,minmax(0,1fr))"><div class="nf-nutro-field"><label for="nfNutritionLogDate">Date eaten</label><input id="nfNutritionLogDate" type="date"></div><div class="nf-nutro-field"><label for="nfNutritionMode">What are you logging?</label><select id="nfNutritionMode"><option value="auto" selected>Auto-detect (recommended)</option><option value="daily_total">Full-day summary — top of screenshot</option><option value="meal">One meal or food photo</option></select></div></div>
+  <p class="nf-nutro-help" style="margin:-2px 0 10px">For screenshots showing both daily totals and meals, NEXTFORM will read the <strong>Consumed</strong> calories and macro totals at the top — not the individual meals, goal or over-goal figure.</p>
   <div class="nf-nutro-field"><label for="nfNutritionDescription">Describe your meal, or give context for a screenshot</label><textarea id="nfNutritionDescription" maxlength="2200" placeholder="e.g. 3 scrambled eggs, two slices sourdough with butter, flat white with full cream milk. Or: screenshot from MyFitnessPal showing today's totals."></textarea></div>
   <div class="nf-nutro-field" style="margin-top:12px"><label for="nfNutritionImage">Upload a screenshot from another app (or a food photo)</label><input type="file" id="nfNutritionImage" accept="image/png,image/jpeg,image/webp" aria-describedby="nfNutritionPrivacy"><img id="nfNutritionImagePreview" class="nf-nutro-image" hidden alt="Selected nutrition screenshot preview"></div>
   <p class="nf-nutro-help" id="nfNutritionPrivacy">With your action, the description and selected image are sent securely to the AI estimation service. Screenshots are not saved in your training record; only the reviewed nutrition figures and description are saved. Remove unrelated personal information from screenshots first.</p>
@@ -1436,7 +1438,7 @@ body.nf-v3-modal-open{overflow:hidden}
   <div id="nfNutritionReview" class="nf-nutro-review" hidden><div class="nf-nutro-badge">REVIEW REQUIRED</div><h3 id="nfNutritionReviewTitle">Review estimate</h3>
    <div class="nf-nutro-fields" style="grid-template-columns:repeat(2,minmax(0,1fr))"><div class="nf-nutro-field"><label for="nfNutritionReviewLabel">Entry name</label><input id="nfNutritionReviewLabel" maxlength="120"></div><div class="nf-nutro-field"><label for="nfNutritionReviewType">Entry type</label><select id="nfNutritionReviewType"><option value="meal">Individual meal</option><option value="daily_total">Whole day — totals</option></select></div></div>
    <div class="nf-nutro-fields"><div class="nf-nutro-field"><label for="nfNutritionReviewKcal">Calories (kcal)</label><input type="number" min="0" max="10000" step="1" id="nfNutritionReviewKcal"></div><div class="nf-nutro-field"><label for="nfNutritionReviewProtein">Protein (g)</label><input type="number" min="0" max="10000" step="0.1" id="nfNutritionReviewProtein"></div><div class="nf-nutro-field"><label for="nfNutritionReviewCarbs">Carbs (g)</label><input type="number" min="0" max="10000" step="0.1" id="nfNutritionReviewCarbs"></div><div class="nf-nutro-field"><label for="nfNutritionReviewFat">Fat (g)</label><input type="number" min="0" max="10000" step="0.1" id="nfNutritionReviewFat"></div></div>
-   <p id="nfNutritionReviewNotes" class="nf-nutro-help"></p><div class="nf-nutro-actions"><button class="primary" id="nfNutritionSaveEntry" type="button">Save reviewed entry</button><button class="secondary" id="nfNutritionReviewCancel" type="button">Discard</button></div>
+   <p id="nfNutritionSourceHint" class="nf-nutro-review-source" role="status"></p><p id="nfNutritionReviewNotes" class="nf-nutro-help"></p><div class="nf-nutro-actions"><button class="primary" id="nfNutritionSaveEntry" type="button">Save reviewed entry</button><button class="secondary" id="nfNutritionReviewCancel" type="button">Discard</button></div>
   </div>
  </section>
  <section class="panel"><div class="tag">THIS DAY / LOGGED FOOD</div><h2>Entries</h2><div id="nfNutritionEntries"></div></section>
@@ -5387,7 +5389,7 @@ function summary(){
  if(!entries.length){host.innerHTML='<p class="muted">No nutrition entries for this date. Add a meal or import a daily summary.</p>';return}
  entries.slice().reverse().forEach(e=>{
   const d=document.createElement('div');d.className='nf-nutro-entry';
-  d.innerHTML=`<div class="nf-nutro-row"><div><strong>${esc(e.label||'Nutrition entry')}</strong> <span class="nf-nutro-pill">${e.mode==='daily_total'?'Day summary':'Meal'}</span><small>${esc(Math.round(n(e.kcal))+' kcal · '+(e.protein==null?'—':Math.round(n(e.protein)))+'g protein · '+(e.carbs==null?'—':Math.round(n(e.carbs)))+'g carbs · '+(e.fat==null?'—':Math.round(n(e.fat)))+'g fat')}<span> · ${e.source==='manual'?'Manually entered':'AI '+(e.confidence||'estimated')}</span></small></div><div class="nf-nutro-actions"><button type="button" class="secondary" data-nf-nutro-edit="${esc(e.id)}">Edit</button><button type="button" class="secondary" data-nf-nutro-remove="${esc(e.id)}">Delete</button></div></div>`;
+  d.innerHTML=`<div class="nf-nutro-row"><div><strong>${esc(e.label||'Nutrition entry')}</strong> <span class="nf-nutro-pill">${e.mode==='daily_total'?'Day summary':'Meal'}</span><small>${esc(Math.round(n(e.kcal))+' kcal · '+(e.protein==null?'—':Math.round(n(e.protein)))+'g protein · '+(e.carbs==null?'—':Math.round(n(e.carbs)))+'g carbs · '+(e.fat==null?'—':Math.round(n(e.fat)))+'g fat')}<span> · ${e.source==='manual'?'Manually entered':({app_total:'Imported summary',label_read:'Read from screenshot',estimated:'AI estimate',uncertain:'AI estimate (uncertain)'}[e.confidence]||'AI estimate')}</span></small></div><div class="nf-nutro-actions"><button type="button" class="secondary" data-nf-nutro-edit="${esc(e.id)}">Edit</button><button type="button" class="secondary" data-nf-nutro-remove="${esc(e.id)}">Delete</button></div></div>`;
   if(e.notes){const p=document.createElement('small');p.textContent=e.notes;d.append(p)}
   host.appendChild(d);
  });
@@ -5399,10 +5401,14 @@ $('nfNutritionSaveTargets').addEventListener('click',()=>{
 });
 formDate.addEventListener('change',()=>{if(validDate(formDate.value)){$('nfNutritionLogDate').value=formDate.value;summary()}});
 function showCandidate(data,source){
- candidate={source,mode:data.mode==='daily_total'?'daily_total':'meal',label:String(data.label||'Nutrition entry').slice(0,120),kcal:data.kcal,protein:data.protein,carbs:data.carbs,fat:data.fat,notes:String(data.notes||'').slice(0,500),confidence:String(data.confidence||'estimated').slice(0,30)};
+ candidate={source,mode:data.mode==='daily_total'?'daily_total':'meal',label:String(data.label||'Nutrition entry').slice(0,120),kcal:data.kcal,protein:data.protein,carbs:data.carbs,fat:data.fat,notes:String(data.notes||'').slice(0,500),confidence:String(data.confidence||'estimated').slice(0,30),detectedDate:validDate(data.detectedDate)?data.detectedDate:null,sourceDateText:String(data.sourceDateText||'').slice(0,80)};
+ if(source==='ai'&&candidate.detectedDate)$('nfNutritionLogDate').value=candidate.detectedDate;
  $('nfNutritionReview').hidden=false;
  $('nfNutritionReviewTitle').textContent=source==='manual'?'Review manually entered values':'Review AI estimate before saving';
  $('nfNutritionReviewNotes').textContent=candidate.notes||'Nutrition figures may be approximate. Confirm portion sizes and serving counts.';
+ $('nfNutritionSourceHint').textContent=candidate.mode==='daily_total'
+   ?'✓ FULL-DAY TOTALS: this imports the consumed calories and macros once. Individual meals below the app summary are NOT added.'+(candidate.detectedDate?' Date taken from screenshot: '+candidate.detectedDate+'. Please check it.':' Check the date eaten before saving.')
+   :'INDIVIDUAL MEAL: only one meal or snack is recorded. If your screenshot also contains daily totals, discard this draft and select Full-day summary instead.';
  $('nfNutritionReviewType').value=candidate.mode;
  $('nfNutritionReviewLabel').value=candidate.label;
  for(const k of ['kcal','protein','carbs','fat'])$('nfNutritionReview'+k[0].toUpperCase()+k.slice(1)).value=candidate[k]==null?'':candidate[k];
@@ -5411,8 +5417,9 @@ function showCandidate(data,source){
 }
 function reviewManual(){editingId=null;
  const description=$('nfNutritionDescription').value.trim();
- if(!description){status('Describe the meal first, or upload a screenshot.',true);return}
- const data={mode:$('nfNutritionMode').value,label:description.slice(0,120),kcal:null,protein:null,carbs:null,fat:null,notes:'Manually recorded; enter values from a food label or use Estimate with AI.'};
+ if(!description&&!uploadedImage){status('Describe a meal, upload a screenshot or enter a label.',true);return}
+ const typed=$('nfNutritionMode').value;
+ const data={mode:typed==='daily_total'?'daily_total':'meal',label:(description||'Nutrition values').slice(0,120),kcal:null,protein:null,carbs:null,fat:null,notes:'Manually recorded; enter values from a food label or use Estimate with AI.'};
  showCandidate(data,'manual');status('Enter known values in the review form, then save.');
 }
 $('nfNutritionManual').addEventListener('click',reviewManual);
@@ -5437,15 +5444,16 @@ $('nfNutritionAnalyse').addEventListener('click',async()=>{
  if(!text&&!file){status('Write what you ate or choose a screenshot.',true);return}
  const ctx=window.nfSocialCloudContext?.()||{};
  if(!ctx.client||!ctx.user){status('Sign in under Settings to use ChatGPT estimates. Manual logging works without an account.',true);return}
- const button=$('nfNutritionAnalyse');button.disabled=true;status('Analysing nutrition… Image text and portion estimates will be reviewed before saving.');
+ const button=$('nfNutritionAnalyse');button.disabled=true;status(file?'Scanning the screenshot summary first for consumed calories, macros and date…':'Estimating meal calories and macros…');
  try{
   const image=file?await toDataUrl(file):null;
   if(image&&image.length>4700000)throw Error('Screenshot is too large after resizing. Crop and try again.');
-  const body={text:text.slice(0,2200),image,requestedMode:$('nfNutritionMode').value,date:$('nfNutritionLogDate').value};
+  const body={text:text.slice(0,2200),image,requestedMode:$('nfNutritionMode').value,date:$('nfNutritionLogDate').value,localToday:today()};
   const {data,error}=await ctx.client.functions.invoke('nextform-nutrition-estimate',{body});
   if(error){let msg=error.message||'AI service unavailable';try{const info=await error.context?.json();if(info?.error)msg=info.error}catch(_e){}throw Error(msg)}
   if(!data||!Number.isFinite(Number(data.kcal)))throw Error('AI did not return nutrition values. Try a clearer image or enter the numbers manually.');
-  editingId=null;showCandidate(data,'ai');status('AI estimate ready. Check values and meal/day classification before saving.');
+  if(file&&$('nfNutritionMode').value==='daily_total'&&data.mode!=='daily_total')throw Error('No reliable full-day totals detected. Try a clearer screenshot or enter the summary values manually; no meal has been logged.');
+  editingId=null;showCandidate(data,'ai');status(data.mode==='daily_total'?'Full-day summary detected. Review the consumed calories, all three macros and date before saving.':'Meal estimate ready. Check portion sizes and values before saving.');
  }catch(e){status('Could not estimate: '+String(e.message||e)+'. You can enter nutrition manually.',true)}
  finally{button.disabled=false}
 });
@@ -5453,6 +5461,7 @@ $('nfNutritionReviewCancel').addEventListener('click',()=>{candidate=null;editin
 $('nfNutritionSaveEntry').addEventListener('click',()=>{
  if(!candidate)return;
  const label=$('nfNutritionReviewLabel').value.trim().slice(0,120),date=$('nfNutritionLogDate').value,mode=$('nfNutritionReviewType').value;
+ if(candidate.source==='ai'&&mode!==candidate.mode){status('These AI figures were extracted as '+(candidate.mode==='daily_total'?'a full-day total':'a single meal')+'. To change their scope, reanalyse the screenshot in the correct mode or enter the values manually.',true);return}
  if(!label||!validDate(date)){status('Choose a valid date and entry name.',true);return}
  const input={};let hasAny=false;
  for(const k of ['kcal','protein','carbs','fat']){
@@ -5467,7 +5476,7 @@ $('nfNutritionSaveEntry').addEventListener('click',()=>{
  if(input.kcal===null){status('Provide calories or all three macros so calories can be calculated.',true);return}
  const entries=ensure().entries,others=entries.filter(e=>e.date===date&&e.id!==editingId);
  if(mode==='daily_total'&&others.length){
-  if(!confirm('This date already has '+others.length+' entries. To prevent double-counting, replace ALL existing entries for this date with this daily summary?'))return;
+  if(!confirm('FULL-DAY SUMMARY: This will replace '+others.length+' previous nutrition '+(others.length===1?'entry':'entries')+' on '+date+' (including any mistakenly imported breakfast). This prevents double-counting. Continue?'))return;
   db.nfNutrition.entries=entries.filter(e=>e.date!==date||e.id===editingId);
  }else if(mode==='meal'&&others.some(e=>e.mode==='daily_total')){
   status('A full-day summary already exists for this date. Delete it first to add individual meals without double-counting.',true);return;
