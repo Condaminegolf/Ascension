@@ -2,6 +2,22 @@
   "schema": 1,
   "releases": [
     {
+      "id": "2026-11-01-inline-artwork",
+      "version": "2026.11.01.4",
+      "date": "2026-11-01",
+      "title": "Character artwork now bundled in the app",
+      "summary": "All avatar and equipment artwork is embedded inside index.html again. Offline workouts, Analytics and the floating menu remain unchanged.",
+      "notify": true
+    },
+    {
+      "id": "2026-11-01-offline-analytics-floating-menu",
+      "version": "2026.11.01.3",
+      "date": "2026-11-01",
+      "title": "Offline training and deeper Analytics",
+      "summary": "Workouts remain available offline after the first online setup. Analytics charts strength, cardio and consistency, and the menu button stays visible while scrolling.",
+      "notify": true
+    },
+    {
       "id": "2026-11-01-stability-ai-training-security",
       "version": "2026.11.01.2",
       "date": "2026-11-01",

@@ -1615,7 +1615,40 @@ body[data-nf-theme="path"] .nf-theme-options{grid-template-columns:repeat(5,minm
 .yp-release-notice strong{margin-bottom:4px}
 @media(max-width:430px){.yp-release-notice .nf-notice-icon{font-size:18px}}
 </style>
-<style id="yourpath-refinement-v11">.nf-use-ai-target{font-size:10px!important;padding:7px 8px!important;white-space:nowrap}.nf-train-set{gap:5px!important}#nfTrainRest select{width:auto;max-width:90px;border-radius:8px;background:#193b43;color:#d8fbe9;border:1px solid #60877e;padding:6px}</style></head><body><div class="wrap"><header class="top"><div><div class="nf-brand-lockup"><img src="./icon-192.png" alt="YOUR PATH logo" class="nf-header-logo"><div><div class="brand">YOUR <span class="yp-brand-accent">PATH</span><span class="brand-mark" aria-hidden="true">✦</span></div><div class="tag yp-header-tag">GUIDED BY <strong>THE SYSTEM</strong></div></div></div><div class="nf-header-controls"><button class="nf-sync-chip" id="nfSyncChip" type="button" data-state="local" aria-label="View save and sync status">Local save</button><button class="nf-menu-toggle" id="nfMenuToggle" type="button" aria-label="Open navigation menu" aria-controls="nfQuickMenu" aria-expanded="false"><span id="nfMenuUnreadBadge" class="nf-unread-badge nf-header-unread" hidden aria-hidden="true"></span><svg viewBox="0 0 24 24" width="23" height="23" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button></div></header>
+<style id="yourpath-refinement-v11">.nf-use-ai-target{font-size:10px!important;padding:7px 8px!important;white-space:nowrap}.nf-train-set{gap:5px!important}#nfTrainRest select{width:auto;max-width:90px;border-radius:8px;background:#193b43;color:#d8fbe9;border:1px solid #60877e;padding:6px}</style>
+<style id="yp-offline-analytics-styles">
+/* Persistent, viewport-relative menu. The user may drag it up/down the right edge. */
+#nfMenuToggle{position:fixed!important;top:var(--yp-menu-top,calc(28vh + env(safe-area-inset-top)))!important;right:max(12px,env(safe-area-inset-right))!important;left:auto!important;z-index:8900!important;width:50px!important;height:50px!important;border-radius:17px!important;background:linear-gradient(145deg,#243a55,#152d3b)!important;border:1px solid #82cab9!important;box-shadow:0 5px 25px #030919ba,0 0 0 1px #bde6d025!important;touch-action:pan-x;cursor:grab;transition:transform .16s,box-shadow .16s!important}
+#nfMenuToggle:active{cursor:grabbing}#nfMenuToggle.yp-menu-dragging{transition:none!important;transform:scale(1.05)!important}
+#nfMenuToggle svg{pointer-events:none}#nfMenuToggle:hover{box-shadow:0 8px 28px #020817d1,0 0 0 2px #8ef1cc60!important}
+.nf-menu-shell:not([hidden])~*{}body:has(.nf-menu-shell:not([hidden])) #nfMenuToggle{visibility:hidden}
+.yp-analytics-premium{background:linear-gradient(145deg,#202d45e6,#101d30f6);border-color:#526987}
+.yp-analytics-controls{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:18px 0 12px}
+.yp-analytics-controls label{display:grid;gap:6px;font-size:12px;color:#bdd6d6;font-weight:650}
+.yp-analytics-controls select{width:100%;min-width:0;padding:11px;border-radius:11px;border:1px solid #5e7893;background:#122439;color:#f0faf8}
+.yp-analytics-cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:12px 0 17px}
+.yp-kpi{background:linear-gradient(150deg,#192f43,#19243c);border:1px solid #49677b;border-radius:13px;padding:13px;min-width:0}
+.yp-kpi small{font-size:11px;color:#a8c5d2;display:block;line-height:1.4}.yp-kpi strong{display:block;color:#f0faff;font-size:clamp(17px,4vw,25px);font-variant-numeric:tabular-nums;margin-top:5px}.yp-kpi em{font-style:normal;color:#90dbbc;font-size:10px}
+.yp-analytics-insights{background:#142d3b;border:1px solid #456c78;padding:12px 14px;border-radius:12px;color:#d2e7ed;font-size:12px;line-height:1.65}
+.yp-chart-detail{color:#b7d5d7;font-size:12px;line-height:1.6;margin-top:8px}
+.yp-trend-svg{display:block;width:100%;height:auto;max-height:255px;margin:10px 0}
+.yp-chart-empty{padding:19px 12px;border:1px dashed #54738d;border-radius:12px;color:#b5c9d6;font-size:13px}
+.yp-consistency-grid{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:5px;align-items:end;min-height:150px;margin-top:15px}
+.yp-consistency-week{display:flex;align-items:center;flex-direction:column;gap:5px;min-width:0}
+.yp-consistency-week .yp-consistency-bars{display:flex;align-items:flex-end;justify-content:center;gap:2px;height:97px;width:100%}
+.yp-consistency-week .yp-consistency-bars i{display:block;background:linear-gradient(#80e1c1,#3c8e97);border-radius:4px 4px 1px 1px;min-height:2px;width:35%}
+.yp-consistency-week .yp-consistency-bars i+ i{background:linear-gradient(#c4b5fd,#7283bc)}
+.yp-consistency-week span{font-size:9px;color:#a8c7d2;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%}
+.yp-chart-legend{font-size:11px;color:#bdd4d6;margin:10px 0 0}.yp-chart-legend strong{color:#80e1c1}
+.yp-endurance-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.yp-endurance-card{background:#13273a;border:1px solid #49677c;padding:14px;border-radius:14px;min-width:0}
+.yp-endurance-card strong{font-size:15px;color:#e8f8f6}.yp-endurance-card .yp-endurance-number{display:block;margin:8px 0 3px;color:#b3eddd;font-weight:850;font-size:24px;font-variant-numeric:tabular-nums}
+.yp-endurance-card small{color:#b9d0d9;display:block;line-height:1.55;font-size:11px}
+.yp-offline-banner{position:fixed;left:50%;bottom:calc(75px + env(safe-area-inset-bottom));transform:translateX(-50%);background:#332d44;border:1px solid #c5b7eb;color:#f0e9ff;z-index:8300;padding:8px 14px;border-radius:100px;font-size:11px;box-shadow:0 8px 22px #0009;max-width:calc(100vw - 90px);text-align:center;pointer-events:none}
+.yp-offline-banner[hidden]{display:none!important}
+@media(max-width:540px){#nfMenuToggle{right:max(9px,env(safe-area-inset-right))!important;width:47px!important;height:47px!important}.yp-analytics-controls{grid-template-columns:1fr}.yp-endurance-grid{grid-template-columns:1fr}.yp-consistency-grid{gap:2px}.yp-consistency-week span{font-size:8px}}
+@media(prefers-reduced-motion:reduce){#nfMenuToggle{transition:none!important}}
+</style></head><body><div class="wrap"><header class="top"><div><div class="nf-brand-lockup"><img src="./icon-192.png" alt="YOUR PATH logo" class="nf-header-logo"><div><div class="brand">YOUR <span class="yp-brand-accent">PATH</span><span class="brand-mark" aria-hidden="true">✦</span></div><div class="tag yp-header-tag">GUIDED BY <strong>THE SYSTEM</strong></div></div></div><div class="nf-header-controls"><button class="nf-sync-chip" id="nfSyncChip" type="button" data-state="local" aria-label="View save and sync status">Local save</button><button class="nf-menu-toggle" id="nfMenuToggle" type="button" aria-label="Open navigation menu" aria-controls="nfQuickMenu" aria-expanded="false"><span id="nfMenuUnreadBadge" class="nf-unread-badge nf-header-unread" hidden aria-hidden="true"></span><svg viewBox="0 0 24 24" width="23" height="23" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button></div></header>
 <div class="nf-menu-shell" id="nfQuickMenu" hidden>
   <button class="nf-menu-backdrop" id="nfMenuBackdrop" type="button" aria-label="Close navigation menu" tabindex="-1"></button>
   <aside class="nf-menu-drawer" id="nfMenuDialog" role="dialog" aria-modal="true" aria-labelledby="nfMenuTitle" tabindex="-1">
@@ -1632,7 +1665,7 @@ body[data-nf-theme="path"] .nf-theme-options{grid-template-columns:repeat(5,minm
         <button class="nf-menu-link" data-nf-menu="notices" type="button"><span class="nf-menu-glyph">◈</span><span><strong>Notifications</strong><small>Updates and achievements</small></span><span id="nfMenuNoticeBadge" class="nf-unread-badge nf-drawer-unread" hidden aria-hidden="true"></span><span class="nf-menu-arrow">›</span></button>
         <button class="nf-menu-link" data-nf-menu="ranks" type="button"><span class="nf-menu-glyph">◇</span><span><strong>Ranks &amp; Skill Tree</strong><small>Requirements and achievements</small></span><span class="nf-menu-arrow">›</span></button>
         <button class="nf-menu-link" data-nf-menu="progress" type="button"><span class="nf-menu-glyph">◌</span><span><strong>Body &amp; recovery</strong><small>Goals, measurements and wellness</small></span><span class="nf-menu-arrow">›</span></button>
-        <button class="nf-menu-link" data-nf-menu="analytics" type="button"><span class="nf-menu-glyph">▥</span><span><strong>Analytics</strong><small>Charts and training trends</small></span><span class="nf-menu-arrow">›</span></button>
+        <button class="nf-menu-link" data-nf-menu="analytics" type="button"><span class="nf-menu-glyph">▥</span><span><strong>Analytics</strong><small>Strength, cardio and consistency trends</small></span><span class="nf-menu-arrow">›</span></button>
         <button class="nf-menu-link" data-nf-menu="friends" type="button"><span class="nf-menu-glyph">♧</span><span><strong>Friends &amp; leaderboard</strong><small>Optional social features</small></span><span class="nf-menu-arrow">›</span></button>
       </div>
       <div class="nf-menu-group"><div class="nf-menu-section-heading">GETTING STARTED</div><button class="nf-menu-link" data-nf-menu="tour" type="button"><span class="nf-menu-glyph">?</span><span><strong>Quick app walkthrough</strong><small>See the 5 essentials of YOUR PATH</small></span><span class="nf-menu-arrow">›</span></button></div>
@@ -1784,7 +1817,22 @@ body[data-nf-theme="path"] .nf-theme-options{grid-template-columns:repeat(5,minm
 <details class="panel nf-collapsible" data-nf-panel="athleticism" id="nfAthleticismPanel" style="margin-top:16px"><summary class="nf-collapse-trigger"><span class="nf-collapse-label"><span class="nf-collapse-kicker">ATHLETICISM · PERFORMANCE TESTS</span><span class="nf-collapse-name">Athleticism</span></span><span aria-hidden="true" class="nf-collapse-chevron">⌄</span></summary><div class="nf-collapse-body"><p class="muted">35% mobility consistency · 30% plank · 25% push-ups · 10% single-leg balance. Enter your best measured result; incomplete tests count as zero.</p><div class="asc-athletic-tests"><label>Plank hold (seconds)<input id="athPlank" max="3600" min="0" placeholder="e.g. 90" step="1" type="number"/></label><label>Strict push-ups (reps)<input id="athPushups" max="500" min="0" placeholder="e.g. 20" step="1" type="number"/></label><label>Single-leg balance (seconds)<input id="athBalance" max="600" min="0" placeholder="e.g. 30" step="1" type="number"/></label></div><button onclick="saveAthleticTests()" type="button">Save performance tests</button><p class="muted">Original benchmarks include a 180-second plank, <span id="athPushupTarget">40</span> strict push-ups and 60-second balance; the Skill Tree now extends into advanced mastery goals. Push-up targets depend on your selected benchmark category. Mobility consistency reaches its maximum at 20 completed mobility days.</p></div></details><div class="panel" style="margin-top:16px"><div class="tag">CHARACTER PROGRESSION · SKILL TREE</div><h2>Skill Tree</h2><p class="muted">Follow your growing paths, inspect the next milestones, and explore what is still to come.</p><p class="muted nf-recognition-hint">Strength goals recognize common barbell exercise aliases, including Bench Press, Flat Bench, RDL, Romanian Deadlift, Back Squat and OHP. Dumbbell, machine and incline versions stay separate.</p><div id="skillTrees"></div></div>
 </main>
 
-<main id="analytics" class="hidden"><div class="panel"><div class="tag">PERFORMANCE ANALYTICS</div><h2>Progress Analytics</h2><p class="muted">Charts use your saved workout and body metrics. Empty charts mean you have not logged enough data yet.</p><div class="grid2" id="analyticCards"></div></div><div class="panel"><h3>Bodyweight Trend</h3><div id="weightChart"></div></div><div class="panel"><h3>Weekly Training Volume</h3><div id="volumeChart"></div></div><div class="panel"><h3>Endurance Distance by Week</h3><div id="cardioChart"></div></div><div class="panel"><h3>Estimated Strength Records</h3><div id="strengthChart"></div></div></main>
+<main id="analytics" class="hidden"><div class="panel"><div class="tag">PERFORMANCE ANALYTICS</div><h2>Progress Analytics</h2><p class="muted">Charts use your saved workout and body metrics. Empty charts mean you have not logged enough data yet.</p><div class="grid2" id="analyticCards"></div></div><section class="panel yp-analytics-premium" aria-labelledby="ypAnalyticsTitle">
+  <div class="tag">YOUR PATH / TRAINING INTELLIGENCE</div>
+  <h2 id="ypAnalyticsTitle">Performance Overview</h2>
+  <p class="muted">Actual completed workouts and logged cardio only. Charts don't include planned sets or award XP.</p>
+  <div class="yp-analytics-controls"><label for="ypAnalyticsPeriod">Review period
+   <select id="ypAnalyticsPeriod"><option value="4">Last 4 weeks</option><option value="12" selected>Last 12 weeks</option><option value="26">Last 26 weeks</option><option value="52">Last 52 weeks</option><option value="all">All time</option></select></label>
+  <label for="ypAnalyticsLift">Strength exercise
+   <select id="ypAnalyticsLift"><option value="Barbell Bench Press">Barbell Bench Press</option><option value="Barbell Squat">Barbell Squat</option><option value="Barbell Romanian Deadlift">Romanian Deadlift</option><option value="Barbell Overhead Press">Overhead Press</option></select></label></div>
+  <div class="yp-analytics-cards" id="ypAnalyticsKpis" aria-live="polite"></div>
+  <div id="ypAnalyticsInsights" class="yp-analytics-insights" aria-live="polite"></div>
+</section>
+<section class="panel yp-analytics-premium"><h3>Training Consistency</h3><p class="muted">Unique training days and completed strength sessions each week. A 5-day target is used for context, not a completion requirement.</p><div id="ypAnalyticsConsistency"></div></section>
+<section class="panel yp-analytics-premium"><h3>Strength Progression</h3><p class="muted">Estimated 1-rep maximum from logged sets of 1–10 reps. This is an estimate, not a tested lift.</p><div id="ypAnalyticsLiftChart"></div><div id="ypAnalyticsLiftStats" class="yp-chart-detail"></div></section>
+<section class="panel yp-analytics-premium"><h3>Running and Cycling Performance</h3><p class="muted">Totals include manual and imported activities stored in YOUR PATH. Sessions without distance don't contribute to distance charts.</p><div id="ypAnalyticsEndurance" class="yp-endurance-grid"></div></section>
+<div class="panel"><div class="tag">ADDITIONAL CHARTS</div><h3>Bodyweight, Weekly Volume & Records</h3><p class="muted">Long-term measurements and original training charts are preserved below.</p></div><div class="panel"><h3>Bodyweight Trend</h3><div id="weightChart"></div></div><div class="panel"><h3>Weekly Training Volume</h3><div id="volumeChart"></div></div><div class="panel"><h3>Endurance Distance by Week</h3><div id="cardioChart"></div></div><div class="panel"><h3>Estimated Strength Records</h3><div id="strengthChart"></div></div>
+</main>
 <main id="calendar" class="hidden"><div class="panel"><div class="tag">TRAINING HISTORY</div><h2>Training Calendar</h2><p class="muted">Select a date to inspect logged strength sessions, runs, rides, walks and body metrics.</p><div class="calendar-controls"><button onclick="ascCalMove(-1)">← Previous</button><strong id="calMonth"></strong><button onclick="ascCalMove(1)">Next →</button></div><div class="cal-grid" id="calGrid"></div><div id="calDetail" class="exercise"></div></div></main>
 <main id="records" class="hidden"><section class="panel"><div class="tag">YOUR WEEK / PERFORMANCE REVIEW</div><h2>Weekly performance review</h2><p class="muted">Your saved activity and progress, with a concise next-week recommendation.</p><div id="nfV3WeeklyReview"></div></section><div class="panel"><div class="tag">PERFORMANCE RECORDS</div><h2>Personal Bests</h2><p class="muted">Strength records use estimated 1RM from sets of 1–10 reps. Cardio pace records are based on completed sessions within ±10% of the stated distance.</p><div id="recordContent"></div></div><div class="panel"><div class="tag">PROGRESSIVE OVERLOAD</div><h2>Next Session Targets</h2><p class="muted">Recommendations use your last completed session. When every set reaches the top of its prescribed rep range, a small weight increase is suggested. Adjust for technique, recovery and comfort.</p><div id="overloadContent"></div></div></main><main id="settings" class="hidden"><section class="panel nf-appearance"><div class="tag">YOUR PATH / APPEARANCE</div><h2>Make it yours</h2><p class="muted">Switch the appearance of YOUR PATH. Your training data, accounts and connections stay unchanged.</p><div class="nf-theme-options" role="group" aria-label="Visual theme"><button type="button" class="nf-theme-option" data-nf-theme="path" aria-pressed="true"><span class="nf-swatch yp-swatch-path"></span><strong>YOUR PATH · Midnight</strong><small>Signature · Mint &amp; lavender</small></button><button type="button" class="nf-theme-option" data-nf-theme="tactical" aria-pressed="false"><span class="nf-swatch nf-swatch-dark"></span><strong>Legacy Dark</strong><small>Original · Deep forest</small></button><button type="button" class="nf-theme-option" data-nf-theme="lavender" aria-pressed="false"><span class="nf-swatch nf-swatch-lavender"></span><strong>Bounty &amp; Rosewood</strong><small>Cool white · Rich crimson · Rosewood</small></button><button type="button" class="nf-theme-option" data-nf-theme="forest" aria-pressed="false"><span class="nf-swatch nf-swatch-forest"></span><strong>Avocado &amp; Lemon Cake</strong><small>Avocado green · Light lemon cream</small></button><button type="button" class="nf-theme-option" data-nf-theme="blush" aria-pressed="false"><span class="nf-swatch nf-swatch-blush"></span><strong>Lemon Grove</strong><small>Soft sky blue · Lemon yellow · Honey brown</small></button></div></section><section class="panel" id="ascConnectedApps"><div class="tag">INTEGRATIONS</div><h2>Connected Apps</h2><p class="muted">Connect Strava to import cardio activities and Oura to view recovery. Sign in to YOUR PATH first. Imported activities earn XP once, and your existing records are retained.</p><div class="grid2"><div class="exercise"><h3>Strava</h3><div id="ascStravaStatus" class="muted">Checking connection…</div><div class="actions"><button type="button" id="ascStravaConnect">Connect Strava</button><button type="button" id="ascStravaSync">Sync activities</button><button type="button" id="ascStravaDisconnect" class="secondary">Disconnect</button></div></div><div class="exercise"><h3>Oura</h3><div id="ascOuraStatus" class="muted">Checking connection…</div><p class="muted">To display your connected Oura email, reconnect once to approve profile permissions. YOUR PATH only displays your email to you.</p><div class="actions"><button type="button" id="ascOuraConnect">Connect Oura</button><button type="button" id="ascOuraSync">Sync recovery</button><button type="button" id="ascOuraDisconnect" class="secondary">Disconnect</button></div></div></div><div id="ascIntegrationMessage" class="muted" role="status"></div><div id="ascOuraRecovery" class="exercise"><h3>Recovery overview</h3><p class="muted">Connect Oura and sync to see recent measurements.</p></div></section><section class="panel cloud-profile" id="cloudProfile"><div class="tag">YOUR ACCOUNT</div><h2>Profile & Cloud Sync</h2><p class="muted">Sign in on your phone or desktop to access the same YOUR PATH progress. Your cloud save is automatically downloaded when you sign in or reopen the app. Changes automatically upload after saving.</p><div id="cloudStatus" class="muted" role="status" aria-live="polite">Checking cloud configuration…</div>
 <div id="nfCloudConflict" class="nf-cloud-conflict hidden" role="region" aria-labelledby="nfCloudConflictTitle">
@@ -3897,6 +3945,10 @@ window.nfSocialCloudContext=()=>({client,user});
 
 const status=(msg,error=false)=>{el('cloudStatus').textContent=msg;el('cloudStatus').dataset.error=String(error)};
 const storageKey='ascension_cloud_last_sync';
+const offlinePendingKey='yourpath:offline-pending:v1';
+const wasOfflinePending=()=>{try{return Boolean(user&&localStorage.getItem(offlinePendingKey)===user.id)}catch(_){return false}};
+const markOfflinePending=()=>{try{if(user)localStorage.setItem(offlinePendingKey,user.id)}catch(_){}};
+const clearOfflinePending=()=>{try{if(user&&wasOfflinePending())localStorage.removeItem(offlinePendingKey)}catch(_){}};
 const validData=d=>d&&typeof d==='object'&&Array.isArray(d.workouts)&&Array.isArray(d.metrics)&&Array.isArray(d.cardio)&&d.quests&&typeof d.quests==='object'&&Number.isFinite(Number(d.xp));
 const localSnapshot=()=>JSON.parse(JSON.stringify(db));
 const errMessage=e=>e&&e.message?e.message:String(e);
@@ -3981,7 +4033,7 @@ function nfAttemptMerge(remote){
  ready=true;dirty=true;nfCloudClearConflict();status('Independent records merged · syncing…');queueUpload();return true;
 }
 async function getCloud(){const {data,error}=await client.from('ascension_saves').select('save_data,updated_at').eq('user_id',user.id).maybeSingle();if(error)throw error;return data}
-function markSynced(iso){nfSyncBase=localSnapshot();nfCloudClearConflict();cloudIso=iso||null;cloudStamp=Date.parse(iso)||0;localStorage.setItem(storageKey,String(cloudStamp));dirty=false;ready=true;status('Cloud synced · '+new Date().toLocaleTimeString())}
+function markSynced(iso){nfSyncBase=localSnapshot();nfCloudClearConflict();cloudIso=iso||null;cloudStamp=Date.parse(iso)||0;localStorage.setItem(storageKey,String(cloudStamp));clearOfflinePending();dirty=false;ready=true;status('Cloud synced · '+new Date().toLocaleTimeString())}
 async function upload(force=false){
  if(!user||!ready||!dirty&&!force)return;
  if(syncBusy){pending=true;return}
@@ -3997,8 +4049,8 @@ async function upload(force=false){
  }catch(e){dirty=true;status('Cloud upload failed; changes kept locally and will retry: '+errMessage(e),true)}
  finally{syncBusy=false;if(pending&&ready){pending=false;queueUpload()} }
 }
-function queueUpload(){if(!user||!ready)return;dirty=true;clearTimeout(syncTimer);syncTimer=setTimeout(()=>upload(false),350)}
-async function refreshCloud(){if(!user||syncBusy)return;try{const remote=await getCloud();if(!remote)return;if(remote.updated_at!==cloudIso){if(dirty){if(nfAttemptMerge(remote))return;nfCloudSetConflict(remote,'A newer cloud save exists while this device has unsynced progress. Choose which copy to keep.');return}activate(remote.save_data);markSynced(remote.updated_at);status('Latest cloud data downloaded · '+new Date().toLocaleTimeString())}else if(dirty)queueUpload()}catch(e){status('Cloud refresh failed; using local data: '+errMessage(e),true)}}
+function queueUpload(){if(!user)return;dirty=true;markOfflinePending();if(!ready){status('Workout saved on this device. Cloud sync will resume after reconnecting.');return;}clearTimeout(syncTimer);syncTimer=setTimeout(()=>upload(false),350)}
+async function refreshCloud(){if(!user||syncBusy||cloudConflict)return;if(!ready){if(navigator.onLine)await enterSession({user});return;}try{const remote=await getCloud();if(!remote)return;if(remote.updated_at!==cloudIso){if(dirty){if(nfAttemptMerge(remote))return;nfCloudSetConflict(remote,'A newer cloud save exists while this device has unsynced progress. Choose which copy to keep.');return}activate(remote.save_data);markSynced(remote.updated_at);status('Latest cloud data downloaded · '+new Date().toLocaleTimeString())}else if(dirty)queueUpload()}catch(e){status('Cloud refresh failed; using local data: '+errMessage(e),true)}}
 async function enterSession(session){
  const generation=++loadGeneration;
  user=session?.user||null;ready=false;clearTimeout(syncTimer);setUi();window.dispatchEvent(new Event('nf:social-auth-changed'));
@@ -4009,7 +4061,12 @@ async function enterSession(session){
   if(remote){
    const lastStamp=Number(localStorage.getItem(storageKey))||0;
    const localTraining=(db.workouts||[]).length||(db.cardio||[]).length||(db.metrics||[]).length;
-   if(localTraining&&lastStamp!==Date.parse(remote.updated_at)&&JSON.stringify(localSnapshot())!==JSON.stringify(remote.save_data)){
+   const locallyChanged=JSON.stringify(localSnapshot())!==JSON.stringify(remote.save_data);
+   // A pending offline save must NEVER be replaced just because the cloud timestamp is unchanged.
+   if(locallyChanged&&wasOfflinePending()&&lastStamp===Date.parse(remote.updated_at)){
+    nfSyncBase=JSON.parse(JSON.stringify(remote.save_data));cloudIso=remote.updated_at;
+    ready=true;dirty=true;status('Offline workout preserved · syncing to cloud…');queueUpload();
+   }else if(localTraining&&locallyChanged&&(lastStamp!==Date.parse(remote.updated_at)||wasOfflinePending())){
     if(nfSyncBase&&nfAttemptMerge(remote))return;nfCloudSetConflict(remote,'This device has training data different from your account cloud save. Review both versions before continuing.');
    }else{activate(remote.save_data);markSynced(remote.updated_at);status('Latest cloud save loaded · autosave on')}
   }
@@ -4057,7 +4114,7 @@ async function init(){
  const nativeSetItem=Storage.prototype.setItem;
  Storage.prototype.setItem=function(k,v){nativeSetItem.call(this,k,v);if(this===localStorage&&k==='ascension_v1'&&!applying){queueUpload()}};
  document.addEventListener('visibilitychange',()=>{if(!document.hidden)refreshCloud();else if(dirty)upload(false)});
- window.addEventListener('online',()=>{if(dirty)queueUpload();else refreshCloud()});
+ window.addEventListener('online',()=>{if(user&&!ready&&!cloudConflict)enterSession({user});else if(dirty)queueUpload();else refreshCloud()});
  setInterval(()=>{if(user&&ready&&dirty)queueUpload()},15000);
  window.addEventListener('focus',()=>refreshCloud());
  }catch(e){status('Cloud initialization failed: '+errMessage(e),true);cloudAvailable=false;nfWelcomeFromSession()}
@@ -6280,6 +6337,116 @@ window.nfNutritionIntelligenceDebug=()=>({analysis:analyse(),context:trainingCon
  window.addEventListener('online',()=>check(true));
  // Allow cloud sign-in to settle first; re-delivery after cloud loads handles later sign-in.
  setTimeout(()=>check(true),1100);
+})();
+</script>
+
+<script id="yp-offline-and-analytics-js">
+(()=>{
+ 'use strict';
+ // Workouts, manual cardio and draft edits already use localStorage. No network request is
+ // required to save completed sets; cloud reconciliation is handled separately on reconnect.
+ const menu=document.getElementById('nfMenuToggle');
+ if(menu){
+  let drag=null,suppress=false;
+  const clamp=v=>Math.min(window.innerHeight-menu.offsetHeight-18,Math.max(60,v));
+  const setPosition=v=>{const p=clamp(v);menu.style.setProperty('--yp-menu-top',p+'px');return p;};
+  try{const previous=Number(localStorage.getItem('yourpath:menu-y:v1'));if(previous>0)setPosition(previous)}catch(_){}
+  menu.addEventListener('pointerdown',e=>{if(e.button!==0)return;drag={id:e.pointerId,startY:e.clientY,startTop:menu.getBoundingClientRect().top,moved:false};});
+  menu.addEventListener('pointermove',e=>{if(!drag||e.pointerId!==drag.id)return;const delta=e.clientY-drag.startY;if(Math.abs(delta)>8)drag.moved=true;if(!drag.moved)return;menu.classList.add('yp-menu-dragging');setPosition(drag.startTop+delta);e.preventDefault();});
+  const finish=e=>{if(!drag||e.pointerId!==drag.id)return;if(drag.moved){suppress=true;try{localStorage.setItem('yourpath:menu-y:v1',String(Math.round(menu.getBoundingClientRect().top)))}catch(_){};setTimeout(()=>suppress=false,120);}menu.classList.remove('yp-menu-dragging');drag=null;};
+  menu.addEventListener('pointerup',finish);menu.addEventListener('pointercancel',finish);
+  menu.addEventListener('click',e=>{if(suppress){e.stopImmediatePropagation();e.preventDefault();suppress=false;}},true);
+  window.addEventListener('resize',()=>{if(menu.style.getPropertyValue('--yp-menu-top'))setPosition(menu.getBoundingClientRect().top)});
+ }
+ const offlineBanner=document.createElement('div');offlineBanner.className='yp-offline-banner';offlineBanner.hidden=true;
+ offlineBanner.setAttribute('role','status');offlineBanner.setAttribute('aria-live','polite');document.body.append(offlineBanner);
+ const offlineUpdate=()=>{
+  const offline=navigator.onLine===false;
+  offlineBanner.hidden=!offline;
+  offlineBanner.textContent=offline?'Offline · training saves on this device; cloud sync resumes when online':'';
+  document.body.classList.toggle('yp-is-offline',offline);
+ };
+ addEventListener('online',offlineUpdate);addEventListener('offline',offlineUpdate);offlineUpdate();
+ if('serviceWorker' in navigator && (location.protocol==='https:'||location.hostname==='localhost'||location.hostname==='127.0.0.1')){
+  addEventListener('load',()=>navigator.serviceWorker.register('./sw.js',{scope:'./',updateViaCache:'none'}).then(r=>{r.update().catch(()=>{});}).catch(e=>console.warn('Offline support unavailable',e)));
+ }
+ const $=id=>document.getElementById(id);
+ const escape=t=>String(t??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+ const good=(x)=>Number.isFinite(Number(x))?Number(x):0;
+ const period=()=>{const n=$('ypAnalyticsPeriod')?.value||'12';if(n==='all')return null;const d=new Date();d.setHours(0,0,0,0);d.setDate(d.getDate()-7*Number(n)+1);return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0')};
+ const weekKey=date=>{const d=new Date(String(date).slice(0,10)+'T12:00:00');if(Number.isNaN(d.getTime()))return '';d.setDate(d.getDate()-(d.getDay()+6)%7);return [d.getFullYear(),String(d.getMonth()+1).padStart(2,'0'),String(d.getDate()).padStart(2,'0')].join('-')};
+ const dateKey=d=>[d.getFullYear(),String(d.getMonth()+1).padStart(2,'0'),String(d.getDate()).padStart(2,'0')].join('-');
+ const workouts=()=>Array.isArray(db.workouts)?db.workouts:[];
+ const cardio=()=>Array.isArray(db.cardio)?db.cardio:[];
+ const filtered=(xs,dateField='date')=>{const cutoff=period();return xs.filter(x=>typeof x?.[dateField]==='string'&&(!cutoff||x[dateField]>=cutoff))};
+ const canonical=v=>{try{return typeof nfCanonicalExercise==='function'?nfCanonicalExercise(v):String(v||'').trim()}catch(_){return String(v||'').trim()}};
+ const records=()=>filtered(workouts()).filter(w=>Array.isArray(w.sets)&&w.sets.length);
+ function activities(){
+   const seen=new Set();return filtered(cardio()).filter(c=>{
+    if(!['run','cycle','walk'].includes(String(c?.type||'')))return false;
+    const key=c.stravaId?'strava:'+c.stravaId:c.ouraId?'oura:'+c.ouraId:c.id?'id:'+c.id:
+      ['activity',c.date,c.type,c.distance,c.minutes,c.startTime||''].join('|');
+    if(seen.has(key))return false;seen.add(key);return true;
+   });
+ }
+ const series=(pairs,color,label,units)=>{
+  const arr=pairs.filter(x=>Number.isFinite(x.value)).sort((a,b)=>a.date.localeCompare(b.date));
+  if(!arr.length)return '<div class="yp-chart-empty">Not enough completed records in this period.</div>';
+  const w=640,h=207,left=43,right=20,top=20,bottom=37,min=Math.min(...arr.map(x=>x.value)),max=Math.max(...arr.map(x=>x.value)),pad=Math.max((max-min)*.12,.25);
+  const lo=min-pad,hi=max+pad,xx=i=>left+(w-left-right)*(arr.length===1?.5:i/(arr.length-1)),yy=v=>top+(h-top-bottom)*(1-(v-lo)/(hi-lo));
+  const points=arr.map((o,i)=>[xx(i),yy(o.value)]),line=points.map(p=>p.map(q=>q.toFixed(1)).join(',')).join(' ');
+  const circles=points.map((p,i)=>'<circle cx="'+p[0]+'" cy="'+p[1]+'" r="3.5" fill="'+color+'"><title>'+escape(arr[i].date+': '+arr[i].value.toFixed(2)+' '+units)+'</title></circle>').join('');
+  const guides=[0,.5,1].map(f=>'<line x1="'+left+'" y1="'+(top+(h-top-bottom)*f).toFixed(1)+'" x2="'+(w-right)+'" y2="'+(top+(h-top-bottom)*f).toFixed(1)+'" stroke="#48637a" stroke-dasharray="3 5"/>').join('');
+  const labels='<text x="2" y="'+(top+5)+'" fill="#bed5e0" font-size="12">'+hi.toFixed(1)+'</text><text x="2" y="'+(h-bottom+5)+'" fill="#bed5e0" font-size="12">'+lo.toFixed(1)+'</text><text x="'+left+'" y="'+(h-7)+'" fill="#b8ccd6" font-size="12">'+escape(arr[0].date)+'</text><text x="'+(w-right)+'" y="'+(h-7)+'" text-anchor="end" fill="#b8ccd6" font-size="12">'+escape(arr.at(-1).date)+'</text>';
+  return '<svg viewBox="0 0 '+w+' '+h+'" class="yp-trend-svg" role="img" aria-label="'+escape(label)+' across '+arr.length+' logged records">'+guides+'<polyline points="'+line+'" fill="none" stroke="'+color+'" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>'+circles+labels+'</svg>';
+ };
+ const sessionsCount=rs=>new Set(rs.map(w=>[w.date,w.sessionId||w.name||w.day||'Strength'].join('|'))).size;
+ function draw(){
+  const main=$('analytics');if(!main||main.classList.contains('hidden'))return;
+  const rs=records(),activitiesList=activities();
+  const sets=rs.flatMap(w=>(w.sets||[]).filter(t=>good(t.reps)>0&&Number.isFinite(Number(t.kg))).map(t=>({...t,date:w.date})));
+  const totalVol=sets.reduce((a,s)=>a+good(s.kg)*good(s.reps),0);
+  const activeDays=new Set([...rs.map(w=>w.date),...activitiesList.map(c=>c.date)]);
+  const metrics=filtered(Array.isArray(db.metrics)?db.metrics:[]).filter(m=>good(m.weight)>0).sort((a,b)=>String(a.date).localeCompare(String(b.date)));
+  const dateRange=$('ypAnalyticsPeriod')?.selectedOptions?.[0]?.textContent||'Selected period';
+  const cards=[['Training days',activeDays.size,'Strength or cardio'],['Strength sessions',sessionsCount(rs),'Completed logs'],['Lifting volume',Math.round(totalVol).toLocaleString()+' kg','Total load × reps'],['Cardio distance',activitiesList.filter(c=>['run','cycle'].includes(c.type)).reduce((a,c)=>a+good(c.distance),0).toFixed(1)+' km','Running + cycling']];
+  $('ypAnalyticsKpis').innerHTML=cards.map(([name,v,sub])=>'<div class="yp-kpi"><small>'+escape(name)+'</small><strong>'+escape(v)+'</strong><em>'+escape(sub)+'</em></div>').join('');
+  const weeks=new Map();const touch=(date)=>{const k=weekKey(date);if(!k)return null;if(!weeks.has(k))weeks.set(k,{dates:new Set(),strength:0,cardio:0});return weeks.get(k)};
+  rs.forEach(w=>{const wk=touch(w.date);if(wk)wk.dates.add(w.date)});
+  activitiesList.forEach(a=>{const wk=touch(a.date);if(wk){wk.dates.add(a.date);wk.cardio++;}});
+  // One session ID/date is counted once even if sets were saved in parts.
+  const sessionSeen=new Set();rs.forEach(w=>{const k=[w.date,w.sessionId||w.name||w.day||'Strength'].join('|');if(sessionSeen.has(k))return;sessionSeen.add(k);const wk=touch(w.date);if(wk)wk.strength++;});
+  const weekly=[...weeks.entries()].sort((a,b)=>a[0].localeCompare(b[0]));
+  const last=weekly.slice(-12);
+  $('ypAnalyticsConsistency').innerHTML=last.length?'<div class="yp-consistency-grid">'+last.map(([date,item])=>{const days=Math.min(7,item.dates.size);return '<div class="yp-consistency-week" title="'+escape(date+': '+days+' active days, '+item.strength+' strength sessions')+'"><div class="yp-consistency-bars"><i style="height:'+Math.max(2,days/7*96)+'px"></i><i style="height:'+Math.max(2,Math.min(item.strength,7)/7*96)+'px"></i></div><span>'+escape(date.slice(5))+'</span></div>'}).join('')+'</div><p class="yp-chart-legend"><strong>Mint</strong> = active days · Lavender = strength sessions · up to 12 weeks shown</p>':'<div class="yp-chart-empty">Log a session to see your consistency over time.</div>';
+  const liftSet=new Set(sets.map(s=>canonical(s.exercise)).filter(Boolean));const liftSelect=$('ypAnalyticsLift');
+  const current=liftSelect.value;const options=[...new Set(['Barbell Bench Press','Barbell Squat','Barbell Romanian Deadlift','Barbell Overhead Press',...liftSet])].sort((a,b)=>a.localeCompare(b));
+  const oldOptions=[...liftSelect.options].map(o=>o.value);if(options.join('|')!==oldOptions.join('|')){liftSelect.innerHTML=options.map(n=>'<option value="'+escape(n)+'">'+escape(n)+'</option>').join('');liftSelect.value=options.includes(current)?current:'Barbell Bench Press'}
+  const chosen=liftSelect.value;
+  const byDate=new Map();for(const s of sets){if(canonical(s.exercise)!==chosen||good(s.kg)<=0||good(s.reps)>10)continue;const estimate=good(s.kg)*(1+good(s.reps)/30);byDate.set(s.date,Math.max(byDate.get(s.date)||0,estimate))}
+  const points=[...byDate.entries()].map(([date,value])=>({date,value})).sort((a,b)=>a.date.localeCompare(b.date));
+  $('ypAnalyticsLiftChart').innerHTML=series(points,'#aeabfa',chosen+' estimated strength progression','kg e1RM');
+  const first=points[0],lastLift=points.at(-1),gain=first&&lastLift&&points.length>1?(lastLift.value-first.value):null;
+  $('ypAnalyticsLiftStats').textContent=points.length?`${points.length} training dates with qualifying sets. Best recorded estimate: ${Math.max(...points.map(x=>x.value)).toFixed(1)} kg. ${gain!==null?`Change from first to latest in this period: ${gain>=0?'+':''}${gain.toFixed(1)} kg.`:''}`:'This exercise has no qualifying logged sets in the selected period.';
+  const makeEndurance=type=>{
+   const a=activitiesList.filter(c=>c.type===type&&good(c.distance)>0&&good(c.minutes)>0);const dist=a.reduce((n,c)=>n+good(c.distance),0);
+   const maxDist=a.length?Math.max(...a.map(c=>good(c.distance))):0;
+   const points=a.map(c=>({date:c.date,value:type==='run'?good(c.minutes)/good(c.distance):good(c.distance)/(good(c.minutes)/60)}));
+   const title=type==='run'?'Running':'Cycling';const unit=type==='run'?'min/km':'km/h';
+   return '<article class="yp-endurance-card"><strong>'+title+'</strong><span class="yp-endurance-number">'+dist.toFixed(1)+' km</span><small>'+a.length+' completed distance sessions · longest '+maxDist.toFixed(1)+' km</small><h4>'+(type==='run'?'Session average pace':'Session average speed')+'</h4>'+series(points,type==='run'?'#9ed7c7':'#bdb4f8',title+' recorded '+unit,unit)+'<small>Each point is one session, not a continuous GPS trace. Easier and longer sessions may naturally be slower.</small></article>';
+  };
+  $('ypAnalyticsEndurance').innerHTML=makeEndurance('run')+makeEndurance('cycle');
+  const recent=weekly.slice(-4),recentDays=recent.reduce((n,[,w])=>n+w.dates.size,0);
+  $('ypAnalyticsInsights').innerHTML=`<strong>THE SYSTEM · Data Review</strong><div>In ${escape(dateRange.toLowerCase())}, you logged ${activeDays.size} training days across ${weekly.length} active calendar weeks.${weekly.length?' In the latest four weeks with activity, you trained on '+recentDays+' distinct days.':''} ${points.length>1?'The selected lift has '+points.length+' qualifying strength entries.':'Log two qualifying sets on different dates to unlock a lift trend.'}</div><small>Descriptive summary only. Gaps in imports or manually logged workouts can affect these results.</small>`;
+ }
+ const observer=new MutationObserver(()=>{if(!$('analytics').classList.contains('hidden'))draw()});observer.observe($('analytics'),{attributes:true,attributeFilter:['class']});
+ $('ypAnalyticsPeriod')?.addEventListener('change',draw);$('ypAnalyticsLift')?.addEventListener('change',draw);
+ let queued=false;const schedule=()=>{if(queued)return;queued=true;setTimeout(()=>{queued=false;draw()},180)};
+ addEventListener('nf:local-saved',schedule);addEventListener('nf:cloud-save-loaded',schedule);
+ document.querySelectorAll('[data-nf-menu="analytics"],[data-tab="analytics"]').forEach(b=>b.addEventListener('click',()=>setTimeout(draw,0)));
+ if(!$('analytics').classList.contains('hidden'))draw();
+ // Read-only testing hook, no personal records exposed outside the page.
+ window.ypRefreshAnalytics=draw;
 })();
 </script>
 </body></html>
