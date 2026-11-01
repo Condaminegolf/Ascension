@@ -2,6 +2,22 @@
   "schema": 1,
   "releases": [
     {
+      "id": "2026-11-01-gold-strength-trial-ranks",
+      "version": "2026.11.01.6",
+      "date": "2026-11-01",
+      "title": "Gold Strength Trials now unlock high ranks",
+      "summary": "B Rank now needs 1 Gold Strength Trial, A needs 2, and S needs all 4. Bronze/Silver trials alone no longer qualify. Rank progress shows your Gold milestones; existing earned ranks and first-time promotion remain protected.",
+      "notify": true
+    },
+    {
+      "id": "2026-11-01-rank-recovery-first-promotion-fix",
+      "version": "2026.11.01.5",
+      "date": "2026-11-01",
+      "title": "First promotion no longer blocked by rank recovery",
+      "summary": "New athletes can advance from F to E without an inactivity penalty. Rank decay begins only after a rank has actually been earned; earlier imported training gaps no longer create recovery debt.",
+      "notify": true
+    },
+    {
       "id": "2026-11-01-inline-artwork",
       "version": "2026.11.01.4",
       "date": "2026-11-01",
