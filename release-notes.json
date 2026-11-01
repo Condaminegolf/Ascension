@@ -1,0 +1,21 @@
+{
+  "schema": 1,
+  "releases": [
+    {
+      "id": "2026-11-01-stability-ai-training-security",
+      "version": "2026.11.01.2",
+      "date": "2026-11-01",
+      "title": "Smarter coaching and safer saves",
+      "summary": "Cloud recovery backups, selective automatic merging, Strava/Oura-aware AI coaching, quicker set entry, and adjustable rest timers.",
+      "notify": true
+    },
+    {
+      "id": "2026-11-01-release-notifications",
+      "version": "2026.11.01.1",
+      "date": "2026-11-01",
+      "title": "Update notifications are here",
+      "summary": "Future YOUR PATH releases will appear in your Notifications inbox with a brief summary from System Administrator.",
+      "notify": true
+    }
+  ]
+}

@@ -1607,7 +1607,15 @@ body[data-nf-theme="path"] .nf-theme-options{grid-template-columns:repeat(5,minm
 @media(max-width:360px){body[data-nf-theme="path"] .nf-header-logo{width:34px!important;height:34px!important}body[data-nf-theme="path"] .brand{font-size:17px!important;letter-spacing:.035em!important}body[data-nf-theme="path"] .yp-home-intro{font-size:8px}}
 @media(prefers-reduced-motion:reduce){body[data-nf-theme="path"] *{scroll-behavior:auto!important}}
 </style>
-</head><body><div class="wrap"><header class="top"><div><div class="nf-brand-lockup"><img src="./icon-192.png" alt="YOUR PATH logo" class="nf-header-logo"><div><div class="brand">YOUR <span class="yp-brand-accent">PATH</span><span class="brand-mark" aria-hidden="true">✦</span></div><div class="tag yp-header-tag">GUIDED BY <strong>THE SYSTEM</strong></div></div></div><div class="nf-header-controls"><button class="nf-sync-chip" id="nfSyncChip" type="button" data-state="local" aria-label="View save and sync status">Local save</button><button class="nf-menu-toggle" id="nfMenuToggle" type="button" aria-label="Open navigation menu" aria-controls="nfQuickMenu" aria-expanded="false"><span id="nfMenuUnreadBadge" class="nf-unread-badge nf-header-unread" hidden aria-hidden="true"></span><svg viewBox="0 0 24 24" width="23" height="23" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button></div></header>
+<style id="yp-release-notices-style">
+/* System Administrator updates share the existing inbox and unread menu badge. */
+.nf-notification.yp-release-notice{border-color:#709aaf80;background:linear-gradient(135deg,#25314a9a,#14363c8c)}
+.yp-release-notice .nf-notice-icon{background:linear-gradient(140deg,#8ed9c339,#ab9bef3d);color:#d1f3e8;border:1px solid #91dfcd80}
+.nf-notification .yp-release-sender{font-size:10px;line-height:1.35;letter-spacing:.035em;font-weight:800;color:#a7e8d7;margin:0 0 6px;display:block}
+.yp-release-notice strong{margin-bottom:4px}
+@media(max-width:430px){.yp-release-notice .nf-notice-icon{font-size:18px}}
+</style>
+<style id="yourpath-refinement-v11">.nf-use-ai-target{font-size:10px!important;padding:7px 8px!important;white-space:nowrap}.nf-train-set{gap:5px!important}#nfTrainRest select{width:auto;max-width:90px;border-radius:8px;background:#193b43;color:#d8fbe9;border:1px solid #60877e;padding:6px}</style></head><body><div class="wrap"><header class="top"><div><div class="nf-brand-lockup"><img src="./icon-192.png" alt="YOUR PATH logo" class="nf-header-logo"><div><div class="brand">YOUR <span class="yp-brand-accent">PATH</span><span class="brand-mark" aria-hidden="true">✦</span></div><div class="tag yp-header-tag">GUIDED BY <strong>THE SYSTEM</strong></div></div></div><div class="nf-header-controls"><button class="nf-sync-chip" id="nfSyncChip" type="button" data-state="local" aria-label="View save and sync status">Local save</button><button class="nf-menu-toggle" id="nfMenuToggle" type="button" aria-label="Open navigation menu" aria-controls="nfQuickMenu" aria-expanded="false"><span id="nfMenuUnreadBadge" class="nf-unread-badge nf-header-unread" hidden aria-hidden="true"></span><svg viewBox="0 0 24 24" width="23" height="23" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button></div></header>
 <div class="nf-menu-shell" id="nfQuickMenu" hidden>
   <button class="nf-menu-backdrop" id="nfMenuBackdrop" type="button" aria-label="Close navigation menu" tabindex="-1"></button>
   <aside class="nf-menu-drawer" id="nfMenuDialog" role="dialog" aria-modal="true" aria-labelledby="nfMenuTitle" tabindex="-1">
@@ -1621,7 +1629,7 @@ body[data-nf-theme="path"] .nf-theme-options{grid-template-columns:repeat(5,minm
       </div>
       <div class="nf-menu-group"><div class="nf-menu-section-heading">MY PROGRESS</div>
         <button class="nf-menu-link" data-nf-menu="quests" type="button"><span class="nf-menu-glyph">✓</span><span><strong>Daily quests</strong><small>Your daily habits and goals</small></span><span class="nf-menu-arrow">›</span></button>
-        <button class="nf-menu-link" data-nf-menu="notices" type="button"><span class="nf-menu-glyph">◈</span><span><strong>Notifications</strong><small>Unlocks and milestones</small></span><span id="nfMenuNoticeBadge" class="nf-unread-badge nf-drawer-unread" hidden aria-hidden="true"></span><span class="nf-menu-arrow">›</span></button>
+        <button class="nf-menu-link" data-nf-menu="notices" type="button"><span class="nf-menu-glyph">◈</span><span><strong>Notifications</strong><small>Updates and achievements</small></span><span id="nfMenuNoticeBadge" class="nf-unread-badge nf-drawer-unread" hidden aria-hidden="true"></span><span class="nf-menu-arrow">›</span></button>
         <button class="nf-menu-link" data-nf-menu="ranks" type="button"><span class="nf-menu-glyph">◇</span><span><strong>Ranks &amp; Skill Tree</strong><small>Requirements and achievements</small></span><span class="nf-menu-arrow">›</span></button>
         <button class="nf-menu-link" data-nf-menu="progress" type="button"><span class="nf-menu-glyph">◌</span><span><strong>Body &amp; recovery</strong><small>Goals, measurements and wellness</small></span><span class="nf-menu-arrow">›</span></button>
         <button class="nf-menu-link" data-nf-menu="analytics" type="button"><span class="nf-menu-glyph">▥</span><span><strong>Analytics</strong><small>Charts and training trends</small></span><span class="nf-menu-arrow">›</span></button>
@@ -1654,9 +1662,9 @@ body[data-nf-theme="path"] .nf-theme-options{grid-template-columns:repeat(5,minm
   <div class="nf-home-focus-actions"><button type="button" class="primary" data-nf-today-action="start" id="nfTodayStart">Start training</button><button type="button" class="secondary" data-nf-today-action="week">View my week</button></div>
   <div id="nfV3HomeSkill" class="nf-v3-panel" hidden></div><div class="nf-home-at-a-glance"><span><b id="nfSimpleQuestCount">—</b><small>Daily quests</small></span><span><b id="nfSimpleNoticeCount">—</b><small>New rewards</small></span><span><b id="nfSimpleRank">F</b><small>Current rank</small></span></div>
   <div class="nf-home-shortcuts"><button type="button" data-nf-focus="quests">Daily quests</button><button type="button" data-nf-focus="notices">Rewards</button><button type="button" data-nf-focus="dashboard">Full dashboard</button></div>
-</section><section class="panel nf-v3-week-home" id="nfV3HomeWeekly"><div class="tag">YOUR WEEK / AT A GLANCE</div><h2>Weekly check-in</h2><div id="nfV3HomeWeekBody"></div><button class="secondary nf-v3-btn" type="button" onclick="nfV3OpenWeeklyReview()">See full weekly review</button></section><section class="panel nf-rank-requirements" aria-label="Rank requirements overview"><div class="tag">NEXT RANK / PROMOTION REQUIREMENTS</div><div class="nf-rank-home-head"><h2 id="rankHomeHeading">F → E RANK</h2><strong id="rankHomePercent">0%</strong></div><p class="muted" id="rankHomeSummary">Your progress toward the next rank across every requirement.</p><div id="rankRequirementBars" class="nf-rank-requirement-rows"></div><div class="nf-rank-home-foot" id="rankHomeTip">Each requirement contributes to your overall rank progress.</div><button type="button" class="secondary nf-rank-details-btn" onclick="nfGo('ranks')">View full rank requirements</button></section><section class="panel nf-alert-panel" id="nfNotificationsPanel" aria-label="Achievement notifications">
+</section><section class="panel nf-v3-week-home" id="nfV3HomeWeekly"><div class="tag">YOUR WEEK / AT A GLANCE</div><h2>Weekly check-in</h2><div id="nfV3HomeWeekBody"></div><button class="secondary nf-v3-btn" type="button" onclick="nfV3OpenWeeklyReview()">See full weekly review</button></section><section class="panel nf-rank-requirements" aria-label="Rank requirements overview"><div class="tag">NEXT RANK / PROMOTION REQUIREMENTS</div><div class="nf-rank-home-head"><h2 id="rankHomeHeading">F → E RANK</h2><strong id="rankHomePercent">0%</strong></div><p class="muted" id="rankHomeSummary">Your progress toward the next rank across every requirement.</p><div id="rankRequirementBars" class="nf-rank-requirement-rows"></div><div class="nf-rank-home-foot" id="rankHomeTip">Each requirement contributes to your overall rank progress.</div><button type="button" class="secondary nf-rank-details-btn" onclick="nfGo('ranks')">View full rank requirements</button></section><section class="panel nf-alert-panel" id="nfNotificationsPanel" aria-label="App updates and achievement notifications">
  <div class="nf-module-top"><div><div class="tag">THE SYSTEM / INBOX</div><h2>Notifications <span id="nfNoticeCount" class="nf-notice-count" aria-label="Unread notifications">0</span></h2></div><span class="nf-alert-symbol" aria-hidden="true">◈</span></div>
- <p class="muted">New skill-tree milestones, equipment rewards, titles and rank achievements appear here. Acknowledge one to remove it from your inbox.</p>
+ <p class="muted">App updates from System Administrator appear here, alongside Skill Tree milestones, equipment rewards, titles and rank achievements. Select “Got it” to dismiss a notice.</p>
  <div id="nfNotificationList" class="nf-notification-list" aria-live="polite"><p class="muted">You're all caught up. New achievements will appear here.</p></div>
  </section>
  <section class="panel nf-daily-quests" id="nfDailyQuests" aria-label="Daily quests">
@@ -1750,7 +1758,7 @@ body[data-nf-theme="path"] .nf-theme-options{grid-template-columns:repeat(5,minm
 <div aria-label="Workout layout" class="nf-train-view-controls" role="group"><button class="secondary" id="nfTrainFocusButton" onclick="nfTrainingView('focus')" type="button">▣ Focus mode</button><button class="secondary" id="nfTrainAllButton" onclick="nfTrainingView('all')" type="button">☷ All exercises</button></div>
 <div class="nf-train-empty-prompt" hidden="" id="nfTrainEmptyPrompt"></div><p class="nf-ghost-hint" id="nfGhostHint">Faint kg and rep numbers are suggestions, not completed sets. Enter what you actually did.</p><div id="exercises"></div>
 <div class="nf-train-pager" hidden="" id="nfTrainPager"><button class="secondary" id="nfTrainPrevious" onclick="nfSelectTrainFocus(nfFocusExercise-1)" type="button">‹ Previous</button><span id="nfTrainPagerLabel"></span><button class="secondary" id="nfTrainNext" onclick="nfSelectTrainFocus(nfFocusExercise+1)" type="button">Next ›</button></div>
-<div class="nf-train-rest" hidden="" id="nfTrainRest"><span>Rest · <strong id="nfTrainRestCountdown">1:30</strong></span><button class="secondary" onclick="nfSkipRestTimer()" type="button">Skip rest</button></div><div class="exercise" id="overloadTrainTip"></div><div aria-live="polite" class="nf-advanced-metrics nf-workout-advanced" id="nfAdvancedMetrics"></div><div class="nf-simple-edit"><button class="secondary" data-nf-edit-workout="true" type="button">Edit exercises</button></div><button class="primary" id="nfTrainSaveSets" onclick="finishWorkout()">Save completed sets</button><div class="muted" id="draftStatus" style="margin-top:10px"></div><details class="nf-training-rules"><summary>How workout saving, XP and rank work</summary><p>Enter actual weight and reps, tick completed sets, then save. Partial sessions are fine; you can return to the remaining sets later. XP is only awarded for newly saved sets.</p><p>Rank progression also uses lifetime reps, lifting volume, bodyweight-relative milestones and regular activity. Inactivity can lower your current rank and attributes, but your earned XP and historic records are retained.</p></details></div><details class="nf-train-past" id="nfTrainPastDisclosure"><summary>Previous completed sessions</summary><div id="nfTrainPastSessions"></div></details><details class="nf-cardio-disclosure" id="nfCardioDisclosure"><summary><span class="nf-cardio-disclosure-icon">↗</span><span><strong>Cardio &amp; endurance</strong><small>Run, ride, walk or other activity</small></span><span aria-hidden="true" class="nf-cardio-chevron">⌄</span></summary><div class="panel" id="cardioPanel"><div class="tag">CARDIO / ACTIVITY LOG</div><h2>Run · Cycle · Walk · Other Exercise</h2><p class="muted">Log distance activities or other exercise sessions (Yoga, HIIT, Pilates, Weight Training and more). Imported Strava and Oura sessions also appear in your history. Other Exercise contributes bounded XP and consistency, but not running, cycling or lifting milestones without those measurements.</p><div class="grid2"><div class="field"><label for="cardioType">Activity</label><select id="cardioType" onchange="renderCardioGoals()"><option value="run">Run</option><option value="cycle">Cycle</option><option value="walk">Walk</option><option value="exercise">Other Exercise</option></select></div><div class="field"><label for="cardioDate">Date</label><input id="cardioDate" type="date"/></div><div class="field" id="cardioDistanceField"><label for="cardioDistance">Distance (km)</label><input id="cardioDistance" min="0.01" placeholder="e.g. 3.0" step="0.1" type="number"/></div><div class="field" id="cardioActivityNameField" style="display:none"><label for="cardioActivityName">Exercise (optional)</label><input id="cardioActivityName" maxlength="65" placeholder="Yoga, HIIT, weights, Pilates…"/></div><div class="field"><label for="cardioMinutes">Duration (minutes)</label><input id="cardioMinutes" min="1" placeholder="e.g. 25" step="1" type="number"/></div></div><div class="cardio-target" id="cardioTargetInfo"></div><button class="primary" onclick="saveCardio()">LOG ACTIVITY &amp; EARN XP</button><div class="cardio-recent" id="cardioRecent"></div></div></details><details class="panel nf-ai-collapsible" id="nfAIPlanner">
+<div class="nf-train-rest" hidden="" id="nfTrainRest"><span>Rest · <strong id="nfTrainRestCountdown">1:30</strong></span><select aria-label="Rest duration" onchange="nfSetRestSeconds(Number(this.value))"><option value="60">60s</option><option value="90" selected>90s</option><option value="120">120s</option><option value="180">180s</option></select><button class="secondary" onclick="nfSkipRestTimer()" type="button">Skip rest</button></div><div class="exercise" id="overloadTrainTip"></div><div aria-live="polite" class="nf-advanced-metrics nf-workout-advanced" id="nfAdvancedMetrics"></div><div class="nf-simple-edit"><button class="secondary" data-nf-edit-workout="true" type="button">Edit exercises</button></div><button class="primary" id="nfTrainSaveSets" onclick="finishWorkout()">Save completed sets</button><div class="muted" id="draftStatus" style="margin-top:10px"></div><details class="nf-training-rules"><summary>How workout saving, XP and rank work</summary><p>Enter actual weight and reps, tick completed sets, then save. Partial sessions are fine; you can return to the remaining sets later. XP is only awarded for newly saved sets.</p><p>Rank progression also uses lifetime reps, lifting volume, bodyweight-relative milestones and regular activity. Inactivity can lower your current rank and attributes, but your earned XP and historic records are retained.</p></details></div><details class="nf-train-past" id="nfTrainPastDisclosure"><summary>Previous completed sessions</summary><div id="nfTrainPastSessions"></div></details><details class="nf-cardio-disclosure" id="nfCardioDisclosure"><summary><span class="nf-cardio-disclosure-icon">↗</span><span><strong>Cardio &amp; endurance</strong><small>Run, ride, walk or other activity</small></span><span aria-hidden="true" class="nf-cardio-chevron">⌄</span></summary><div class="panel" id="cardioPanel"><div class="tag">CARDIO / ACTIVITY LOG</div><h2>Run · Cycle · Walk · Other Exercise</h2><p class="muted">Log distance activities or other exercise sessions (Yoga, HIIT, Pilates, Weight Training and more). Imported Strava and Oura sessions also appear in your history. Other Exercise contributes bounded XP and consistency, but not running, cycling or lifting milestones without those measurements.</p><div class="grid2"><div class="field"><label for="cardioType">Activity</label><select id="cardioType" onchange="renderCardioGoals()"><option value="run">Run</option><option value="cycle">Cycle</option><option value="walk">Walk</option><option value="exercise">Other Exercise</option></select></div><div class="field"><label for="cardioDate">Date</label><input id="cardioDate" type="date"/></div><div class="field" id="cardioDistanceField"><label for="cardioDistance">Distance (km)</label><input id="cardioDistance" min="0.01" placeholder="e.g. 3.0" step="0.1" type="number"/></div><div class="field" id="cardioActivityNameField" style="display:none"><label for="cardioActivityName">Exercise (optional)</label><input id="cardioActivityName" maxlength="65" placeholder="Yoga, HIIT, weights, Pilates…"/></div><div class="field"><label for="cardioMinutes">Duration (minutes)</label><input id="cardioMinutes" min="1" placeholder="e.g. 25" step="1" type="number"/></div></div><div class="cardio-target" id="cardioTargetInfo"></div><button class="primary" onclick="saveCardio()">LOG ACTIVITY &amp; EARN XP</button><div class="cardio-recent" id="cardioRecent"></div></div></details><details class="panel nf-ai-collapsible" id="nfAIPlanner">
 <summary class="nf-ai-collapse-trigger">
 <span class="nf-ai-collapse-label"><span class="nf-ai-collapse-kicker">PLAN AHEAD / AI WEEKLY COACH</span><span class="nf-ai-collapse-name">Build your next week</span><span aria-live="polite" class="nf-ai-approved-label" hidden="" id="nfAIApprovedLabel" role="status"></span></span>
 <span aria-hidden="true" class="nf-ai-collapse-chevron">⌄</span>
@@ -2003,10 +2011,13 @@ function nfRenderNotices(){
  const inbox=nfNoticeStore();const count=inbox.entries.length;
  if($('nfNoticeCount'))$('nfNoticeCount').textContent=String(count);
  area.innerHTML=count?inbox.entries.map(n=>{
-   const icon=({skill:'◇',title:'★',rank:'⬡',gear:'▣',achievement:'◆'})[n.type]||'◆';
+   const icon=({skill:'◇',title:'★',rank:'⬡',gear:'▣',achievement:'◆',release:'✦'})[n.type]||'◆';
    const rid=encodeURIComponent(n.id);
-   return `<div class="nf-notification"><div class="nf-notice-icon" aria-hidden="true">${icon}</div><div><strong>${nfSafeText(n.title)}</strong><small>${nfSafeText(n.description)}</small><time>${nfSafeText(n.date)}</time></div><button type="button" data-nf-ack="${rid}" aria-label="Acknowledge ${nfSafeText(n.title)}">Got it</button></div>`;
-  }).join(''):'<div class="nf-inbox-empty">✓ You’re all caught up. New milestones and titles will appear here.</div>';
+   const release=n.type==='release';
+   const source=release?'<small class="yp-release-sender">System Administrator <span aria-hidden="true">·</span> App update</small>':'';
+   const version=release&&n.version?' · v'+nfSafeText(n.version):'';
+   return `<div class="nf-notification${release?' yp-release-notice':''}"><div class="nf-notice-icon" aria-hidden="true">${icon}</div><div>${source}<strong>${nfSafeText(n.title)}</strong><small>${nfSafeText(n.description)}</small><time>${nfSafeText(n.date)}${version}</time></div><button type="button" data-nf-ack="${rid}" aria-label="Acknowledge ${nfSafeText(n.title)}">Got it</button></div>`;
+  }).join(''):'<div class="nf-inbox-empty">✓ You’re all caught up. New updates and achievements will appear here.</div>';
 }
 function nfAcknowledgeNotice(id){
  const inbox=nfNoticeStore();const prior=inbox.entries.length;
@@ -2320,7 +2331,8 @@ function nfRestTimerRender(){
  if(left)label.textContent=Math.floor(left/60)+':'+String(left%60).padStart(2,'0');
  else if(nfRestUntil){nfRestUntil=0;localStorage.removeItem('nf.training.restUntil')}
 }
-function nfStartRestTimer(){nfRestUntil=Date.now()+90000;localStorage.setItem('nf.training.restUntil',String(nfRestUntil));nfRestTimerRender()}
+function nfStartRestTimer(){nfRestUntil=Date.now()+Number(localStorage.getItem('yp.restSeconds')||90)*1000;localStorage.setItem('nf.training.restUntil',String(nfRestUntil));nfRestTimerRender()}
+function nfSetRestSeconds(n){localStorage.setItem('yp.restSeconds',String(n));if(nfRestUntil){nfRestUntil=Date.now()+n*1000;localStorage.setItem('nf.training.restUntil',String(nfRestUntil));nfRestTimerRender()}}
 function nfSkipRestTimer(){nfRestUntil=0;localStorage.removeItem('nf.training.restUntil');nfRestTimerRender()}
 function nfTrainingSetView(session,i){
  const e=session.ex[i],name=String(e[0]),setCount=e[1],completed=nfTrainCompleted(session,i),allSaved=completed===setCount;
@@ -2334,7 +2346,7 @@ function nfTrainingSetView(session,i){
    `<input type="number" min="0" step="0.5" inputmode="decimal" placeholder="${nfSafeMarkup(kgSuggested??'kg')}" value="${nfSafeMarkup(saved?(pending.kg??savedRecord.kg):v.kg??'')}" class="${kgSuggested!=null?'nf-ai-target-input':''}" aria-label="Weight for ${nfSafeMarkup(name)} set ${s+1}" oninput="${saved?`nfTrainSavedField(decodeURIComponent('${nfExerciseToken(name)}'),${s+1},'kg',this.value)`:`nfSessionSetInput('${k}','kg',this.value)`}" ${saved&&!unlocked?'disabled':''}>`+
    `<input type="number" min="0" inputmode="numeric" placeholder="${nfSafeMarkup(repsSuggested??'reps')}" value="${nfSafeMarkup(saved?(pending.reps??savedRecord.reps):v.reps??'')}" class="${repsSuggested!=null?'nf-ai-target-input':''}" aria-label="Reps for ${nfSafeMarkup(name)} set ${s+1}" oninput="${saved?`nfTrainSavedField(decodeURIComponent('${nfExerciseToken(name)}'),${s+1},'reps',this.value)`:`nfSessionSetInput('${k}','reps',this.value)`}" ${saved&&!unlocked?'disabled':''}>`+
    `<select class="nf-rpe-select nf-workout-advanced" aria-label="RPE for ${nfSafeMarkup(name)} set ${s+1}" onchange="${saved?`nfTrainSavedField(decodeURIComponent('${nfExerciseToken(name)}'),${s+1},'rpe',this.value)`:`setDraft('${k}','rpe',this.value)`}" ${saved&&!unlocked?'disabled':''}><option value="">RPE</option>${[6,7,8,9,10].map(r=>`<option value="${r}" ${Number(saved?(pending.rpe??savedRecord.rpe):v.rpe)===r?'selected':''}>${r}</option>`).join('')}</select>`+
-   `<button class="${done?'done':''}" onclick="toggleSet('${k}')" aria-label="${saved?'Already saved':'Mark set '+(s+1)+(done?' incomplete':' complete')}" ${saved?'disabled':''}>${saved?'✓':done?'✓':'○'}</button></div>`;
+   `${!saved&&(kgSuggested!=null||repsSuggested!=null)?`<button class="secondary nf-use-ai-target" type="button" onclick="nfApplySuggestedSet('${k}')" title="Copy suggestion into editable fields">Use AI</button>`:''}<button class="${done?'done':''}" onclick="toggleSet('${k}')" aria-label="${saved?'Already saved':'Mark set '+(s+1)+(done?' incomplete':' complete')}" ${saved?'disabled':''}>${saved?'✓':done?'✓':'○'}</button></div>`;
  }).join('')+'</div>';
 }
 function renderTrain(){
@@ -2409,6 +2421,13 @@ function renderTrain(){
 
 function setDraft(k,f,v){
  draft[k]??={};draft[k][f]=v;draft[k]._updatedAt=Date.now();nfPersistDrafts();
+}
+function nfApplySuggestedSet(key){
+ const entry=draft[key]||{};if(entry.done)return;
+ const suggestion=entry.nfCoachSuggested||{};
+ if((entry.kg==null||entry.kg==='')&&Number.isFinite(Number(suggestion.kg))&&suggestion.kg!==null)entry.kg=Number(suggestion.kg);
+ if((entry.reps==null||entry.reps==='')&&Number.isInteger(Number(suggestion.reps))&&Number(suggestion.reps)>0)entry.reps=Number(suggestion.reps);
+ draft[key]=entry;entry._updatedAt=Date.now();nfPersistDrafts(true);renderTrain();
 }
 function toggleSet(k){
  draft[k]??={};const v=draft[k];
@@ -3898,8 +3917,71 @@ function nfCloudExport(data){
  document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);
 }
 function activate(d){if(!validData(d))throw Error('Cloud save has an invalid format.');applying=true;try{db={...db,...d};localStorage.setItem(key,JSON.stringify(db));renderAll();window.nfSyncSkillUnlocks?.();nfActivateNoticeInbox();window.dispatchEvent(new Event('nf:cloud-save-loaded'))}finally{applying=false}}
+function nfMergeRecords(base,local,remote){
+ const equal=(a,b)=>JSON.stringify(a)===JSON.stringify(b);
+ if(!validData(local)||!validData(remote))return null;
+ const result=JSON.parse(JSON.stringify(remote));
+ const fields=['workouts','cardio','metrics'];
+ const identity=(kind,r)=>kind==='workouts'?[r.sessionId||r.date+'|'+r.day+'|'+r.name].join('|'):
+  kind==='cardio'?String(r.stravaId?'strava:'+r.stravaId:r.ouraId?'oura:'+r.ouraId:r.id||[r.date,r.type,r.minutes,r.distance,r.source].join('|')):String(r.date);
+ for(const field of fields){
+  const b=new Map((base?.[field]||[]).map(x=>[identity(field,x),x]));
+  const l=new Map((local[field]||[]).map(x=>[identity(field,x),x]));
+  const r=new Map((remote[field]||[]).map(x=>[identity(field,x),x]));
+  const all=new Map();
+  for(const id of new Set([...b.keys(),...l.keys(),...r.keys()])){
+   const before=b.get(id),left=l.get(id),right=r.get(id);
+   if(equal(left,right)){if(left)all.set(id,left);continue}
+   if(equal(left,before)){if(right)all.set(id,right);continue}
+   if(equal(right,before)){if(left)all.set(id,left);continue}
+   if(field==='workouts'&&before===undefined&&left&&right&&equal({...left,sets:[]},{...right,sets:[]})){
+    const sets=new Map();for(const x of [...(left.sets||[]),...(right.sets||[])]){
+     const k=x.exercise+'|'+x.set;if(sets.has(k)&&!equal(sets.get(k),x))return null;sets.set(k,x)
+    }all.set(id,{...right,sets:[...sets.values()]});continue;
+   }
+   return null;
+  }
+  result[field]=[...all.values()].sort((a,b)=>String(a.date||'').localeCompare(String(b.date||'')));
+ }
+ for(const field of ['nfAIPlans','nfSessionDraftsV1','quests','nfNotificationDismissed']){
+  if(equal(local[field],remote[field]))continue;
+  if(equal(local[field],base?.[field]))continue;
+  if(equal(remote[field],base?.[field])){result[field]=local[field];continue}
+  if(field==='nfAIPlans'||field==='quests'){
+   const b=base?.[field]||{},l=local[field]||{},r=remote[field]||{},merged={...r};
+   for(const key of new Set([...Object.keys(l),...Object.keys(r)])){
+    if(equal(l[key],r[key]))continue;
+    if(equal(l[key],b[key]))continue;
+    if(equal(r[key],b[key])){merged[key]=l[key];continue}
+    return null;
+   }result[field]=merged;
+  }else return null;
+ }
+ // All other profile/progression changes must be unambiguous. Never add XP twice.
+ for(const field of new Set([...Object.keys(local),...Object.keys(remote)])){
+  if([...fields,'nfAIPlans','quests','nfSessionDraftsV1','nfNotificationDismissed','xp'].includes(field))continue;
+  if(equal(local[field],remote[field])||equal(local[field],base?.[field]))continue;
+  if(equal(remote[field],base?.[field])){result[field]=local[field];continue}
+  return null;
+ }
+ // XP can only be merged if it changed on at most one side. Otherwise request manual resolution.
+ if(!equal(local.xp,remote.xp)){
+  if(equal(local.xp,base?.xp))result.xp=remote.xp;
+  else if(equal(remote.xp,base?.xp))result.xp=local.xp;
+  else return null;
+ }
+ return result;
+}
+let nfSyncBase=null;
+function nfAttemptMerge(remote){
+ const merged=nfMergeRecords(nfSyncBase,localSnapshot(),remote.save_data);
+ if(!merged)return false;
+ localBackup('Before automatic merge');
+ activate(merged);cloudIso=remote.updated_at;cloudStamp=Date.parse(remote.updated_at)||0;
+ ready=true;dirty=true;nfCloudClearConflict();status('Independent records merged · syncing…');queueUpload();return true;
+}
 async function getCloud(){const {data,error}=await client.from('ascension_saves').select('save_data,updated_at').eq('user_id',user.id).maybeSingle();if(error)throw error;return data}
-function markSynced(iso){nfCloudClearConflict();cloudIso=iso||null;cloudStamp=Date.parse(iso)||0;localStorage.setItem(storageKey,String(cloudStamp));dirty=false;ready=true;status('Cloud synced · '+new Date().toLocaleTimeString())}
+function markSynced(iso){nfSyncBase=localSnapshot();nfCloudClearConflict();cloudIso=iso||null;cloudStamp=Date.parse(iso)||0;localStorage.setItem(storageKey,String(cloudStamp));dirty=false;ready=true;status('Cloud synced · '+new Date().toLocaleTimeString())}
 async function upload(force=false){
  if(!user||!ready||!dirty&&!force)return;
  if(syncBusy){pending=true;return}
@@ -3909,14 +3991,14 @@ async function upload(force=false){
   if(force){const {data,error}=await client.from('ascension_saves').upsert({user_id:user.id,save_data:snapshot,updated_at:new Date().toISOString()},{onConflict:'user_id'}).select('updated_at').single();if(error)throw error;result=data}
   else if(cloudIso){const {data,error}=await client.from('ascension_saves').update({save_data:snapshot,updated_at:new Date().toISOString()}).eq('user_id',user.id).eq('updated_at',cloudIso).select('updated_at').maybeSingle();if(error)throw error;result=data}
   else {const {data,error}=await client.from('ascension_saves').insert({user_id:user.id,save_data:snapshot,updated_at:new Date().toISOString()}).select('updated_at').single();if(error)throw error;result=data}
-  if(!result){const remote=await getCloud();if(remote){nfCloudSetConflict(remote,'Cloud was updated on another device during your save. Your unsynced workouts are preserved here. Choose which version to keep.')}else{ready=false;status('Cloud save changed unexpectedly. Local data is safe; reconnect before retrying.',true)}return}
+  if(!result){const remote=await getCloud();if(remote){if(nfAttemptMerge(remote))return;nfCloudSetConflict(remote,'Cloud was updated on another device during your save. Your unsynced workouts are preserved here. Choose which version to keep.')}else{ready=false;status('Cloud save changed unexpectedly. Local data is safe; reconnect before retrying.',true)}return}
   const changedDuringUpload=JSON.stringify(snapshot)!==JSON.stringify(localSnapshot());markSynced(result.updated_at);
   if(changedDuringUpload){dirty=true;pending=true}
  }catch(e){dirty=true;status('Cloud upload failed; changes kept locally and will retry: '+errMessage(e),true)}
  finally{syncBusy=false;if(pending&&ready){pending=false;queueUpload()} }
 }
 function queueUpload(){if(!user||!ready)return;dirty=true;clearTimeout(syncTimer);syncTimer=setTimeout(()=>upload(false),350)}
-async function refreshCloud(){if(!user||syncBusy)return;try{const remote=await getCloud();if(!remote)return;if(remote.updated_at!==cloudIso){if(dirty){nfCloudSetConflict(remote,'A newer cloud save exists while this device has unsynced progress. Choose which copy to keep.');return}activate(remote.save_data);markSynced(remote.updated_at);status('Latest cloud data downloaded · '+new Date().toLocaleTimeString())}else if(dirty)queueUpload()}catch(e){status('Cloud refresh failed; using local data: '+errMessage(e),true)}}
+async function refreshCloud(){if(!user||syncBusy)return;try{const remote=await getCloud();if(!remote)return;if(remote.updated_at!==cloudIso){if(dirty){if(nfAttemptMerge(remote))return;nfCloudSetConflict(remote,'A newer cloud save exists while this device has unsynced progress. Choose which copy to keep.');return}activate(remote.save_data);markSynced(remote.updated_at);status('Latest cloud data downloaded · '+new Date().toLocaleTimeString())}else if(dirty)queueUpload()}catch(e){status('Cloud refresh failed; using local data: '+errMessage(e),true)}}
 async function enterSession(session){
  const generation=++loadGeneration;
  user=session?.user||null;ready=false;clearTimeout(syncTimer);setUi();window.dispatchEvent(new Event('nf:social-auth-changed'));
@@ -3928,7 +4010,7 @@ async function enterSession(session){
    const lastStamp=Number(localStorage.getItem(storageKey))||0;
    const localTraining=(db.workouts||[]).length||(db.cardio||[]).length||(db.metrics||[]).length;
    if(localTraining&&lastStamp!==Date.parse(remote.updated_at)&&JSON.stringify(localSnapshot())!==JSON.stringify(remote.save_data)){
-    nfCloudSetConflict(remote,'This device has training data different from your account cloud save. Review both versions before continuing.');
+    if(nfSyncBase&&nfAttemptMerge(remote))return;nfCloudSetConflict(remote,'This device has training data different from your account cloud save. Review both versions before continuing.');
    }else{activate(remote.save_data);markSynced(remote.updated_at);status('Latest cloud save loaded · autosave on')}
   }
   else {cloudIso=null;cloudStamp=0;ready=true;dirty=true;status('Creating first cloud save…');queueUpload()}
@@ -4979,7 +5061,7 @@ async function improve(){
   syncAll();
   const scheduledExercises=[...new Set(draftAI.days.flatMap(d=>(d.sessions||[]).filter(x=>x.kind==='strength').flatMap(x=>(x.exercises||[]).map(ex=>String(ex.name||'').trim()))).filter(Boolean))].slice(0,35);
   const history=Object.fromEntries(scheduledExercises.map(name=>[name,recentSets(name)]));
-  const cardioHistory=(db.cardio||[]).filter(c=>(c.type==='run'||c.type==='cycle')&&!c.stravaId&&!c.ouraId&&c.source!=='strava'&&c.source!=='oura').slice(-20).map(c=>({date:c.date,type:c.type,distance:c.distance,minutes:c.minutes}));
+  const cardioHistory=(db.cardio||[]).filter(c=>(c.type==='run'||c.type==='cycle')).slice(-24).map(c=>({date:c.date,type:c.type,distance:c.distance,minutes:c.minutes,source:c.stravaId||c.source==='strava'?'strava':c.ouraId||c.source==='oura'?'oura':'manual'}));
   const snap=window.nfOuraReadinessForCoach?.();
   const consent=!!$ai('nfAIOuraConsent')?.checked;
   const ouraContext=consent&&snap?{date:snap.date,readiness:snap.readiness,sleepHours:snap.sleepHours,hrv:snap.hrv,restingHR:snap.restingHR,hrvBaseline:snap.hrvBaseline,hrBaseline:snap.hrBaseline,level:snap.level,signals:snap.signals,stale:!snap.fresh}:undefined;
@@ -5476,7 +5558,7 @@ window.nfAIGetApprovedWeek=()=>db.nfAIPlans?.[monday(today())]||null;
   if(!client||!user){showError('Sign in under Profile & Cloud Sync to use OpenAI. Your local targets are still available.');return;}
   const context=createContext(),signature=keyForContext(context);
   const shareOura=!!byId('nfDailyCoachShareOura')?.checked;
-  const nonStrava=context.recentActivity.filter(x=>x.source!=='strava'&&x.source!=='oura');
+  const nonStrava=context.recentActivity.slice(0,25).map(x=>({date:x.date,type:x.type,minutes:x.minutes,distance:x.distance,source:x.source||'manual'}));
   const payload={action:'daily',date:context.date,workoutName:context.workoutName,
    exercises:context.exercises.slice(0,12),history:Object.fromEntries(Object.entries(context.history).slice(0,12)),
    plannedSessions:context.sessions,activity:nonStrava,feeling:context.feeling,
@@ -6133,6 +6215,71 @@ window.nfNutritionIntelligenceDebug=()=>({analysis:analyse(),context:trainingCon
  window.addEventListener('focus',queue);
  document.querySelectorAll('[data-tab="home"]').forEach(el=>el.addEventListener('click',queue));
  queue();
+})();
+</script>
+<script id="yp-release-notices-js">
+/* YOUR PATH release announcements. Repo publishers control release-notes.json.
+   The sender is hardcoded as System Administrator; athlete input cannot author alerts.
+   Delivered IDs and acknowledgements are stored in the existing cloud-synced inbox. */
+(()=>{
+ 'use strict';
+ const endpoint='./release-notes.json';
+ const loaded=[];
+ let refreshing=false,lastChecked=0;
+ const knownId=x=>'release:'+x.id;
+ const valid=x=>x&&typeof x==='object'&&!Array.isArray(x)
+   &&typeof x.id==='string'&&/^[a-zA-Z0-9][a-zA-Z0-9_.-]{2,63}$/.test(x.id)
+   &&typeof x.title==='string'&&x.title.trim().length>0&&x.title.length<=95
+   &&typeof x.summary==='string'&&x.summary.trim().length>0&&x.summary.length<=350
+   &&typeof x.date==='string'&&/^\d{4}-\d{2}-\d{2}$/.test(x.date)
+   &&typeof x.version==='string'&&x.version.length<=30
+   &&x.notify!==false;
+ function deliver(){
+  if(!loaded.length||typeof nfNoticeStore!=='function'||typeof save!=='function')return;
+  // Cloud activation can replace db; re-check known IDs after every activation.
+  const inbox=nfNoticeStore();let added=0;
+  for(const r of loaded){
+   const id=knownId(r);
+   if(inbox.known[id])continue;
+   inbox.known[id]=true;
+   inbox.entries.unshift({id,type:'release',title:r.title.trim(),description:r.summary.trim(),
+    sender:'System Administrator',version:r.version,date:r.date,
+    time:Date.parse(r.date+'T12:00:00Z')||Date.now()});
+   added++;
+  }
+  if(!added)return;
+  inbox.entries.splice(60);
+  // save() triggers the existing local persistence and cloud autosave pipeline.
+  save();
+  if(typeof nfRenderNotices==='function')nfRenderNotices();
+ }
+ async function check(force=false){
+  if(refreshing||(!force&&Date.now()-lastChecked<300000))return;
+  refreshing=true;lastChecked=Date.now();
+  try{
+   const res=await fetch(endpoint+'?v='+Date.now(),{cache:'no-store',credentials:'same-origin'});
+   if(!res.ok)throw Error('HTTP '+res.status);
+   const body=await res.json();
+   if(!body||body.schema!==1||!Array.isArray(body.releases))throw Error('Invalid release announcements');
+   const unique=new Set();
+   const records=body.releases.slice(0,60).filter(x=>{
+    if(!valid(x)||unique.has(x.id))return false;
+    unique.add(x.id);return true;
+   });
+   records.sort((a,b)=>a.date.localeCompare(b.date)||a.id.localeCompare(b.id));
+   loaded.splice(0,loaded.length,...records);
+   deliver();
+  }catch(err){
+   // Offline/no file: do not create a bogus announcement or alter workout data.
+   console.info('YOUR PATH release announcements unavailable:',err?.message||err);
+  }finally{refreshing=false;}
+ }
+ window.addEventListener('nf:cloud-save-loaded',()=>queueMicrotask(deliver));
+ window.addEventListener('focus',()=>check());
+ document.addEventListener('visibilitychange',()=>{if(!document.hidden)check();});
+ window.addEventListener('online',()=>check(true));
+ // Allow cloud sign-in to settle first; re-delivery after cloud loads handles later sign-in.
+ setTimeout(()=>check(true),1100);
 })();
 </script>
 </body></html>
