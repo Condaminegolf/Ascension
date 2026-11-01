@@ -2,6 +2,14 @@
   "schema": 1,
   "releases": [
     {
+      "id": "2026-11-01-cohesive-ux-seven-refinements",
+      "version": "2026.11.01.10",
+      "date": "2026-11-01",
+      "title": "NEXTFORM: simpler workouts and connected progress",
+      "summary": "One-tap set saving advances through the workout, unfinished drafts stay safe, previous results and AI ghost targets stay aligned, session editing is consolidated, optional controls sit below workout logging, floating menu avoids focused fields, skill goals are available on demand, cloud drafts can merge independently, and Strava/Oura rate-limit errors trigger automatic backoff. NEXTFORM branding is consistent without changing the existing storage keys or app URL.",
+      "notify": true
+    },
+    {
       "id": "2026-11-01-cohesive-train-ai-refinement",
       "version": "2026.11.01.9",
       "date": "2026-11-01",
