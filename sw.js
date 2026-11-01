@@ -1,5 +1,5 @@
 /* YOUR PATH app shell offline cache. Private Supabase/Strava/Oura requests are never cached. */
-const VERSION='yp-gold-strength-trials-20261101-v1';
+const VERSION='yp-train-simplified-20261101-v1';
 const SHELL='yourpath-shell-'+VERSION;
 const STATIC=['./','./index.html','./cloud-config.js','./manifest.webmanifest','./icon-192.png','./icon-512.png','./favicon.png','./apple-touch-icon.png','./your-path-mark.svg','./release-notes.json'];
 const SUPABASE_CDN='https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.57.0/dist/umd/supabase.min.js';

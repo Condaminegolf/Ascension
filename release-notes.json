@@ -2,6 +2,14 @@
   "schema": 1,
   "releases": [
     {
+      "id": "2026-11-01-train-tab-simplified",
+      "version": "2026.11.01.7",
+      "date": "2026-11-01",
+      "title": "Training tab is simpler",
+      "summary": "Dates now lead straight to the scheduled session. A single Edit Session control replaces confusing duplicates; Add Other Session now handles extra strength and cardio, and the separate Add Cardio section is gone. Existing workout records are preserved.",
+      "notify": true
+    },
+    {
       "id": "2026-11-01-gold-strength-trial-ranks",
       "version": "2026.11.01.6",
       "date": "2026-11-01",
