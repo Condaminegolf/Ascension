@@ -1,5 +1,5 @@
 /* YOUR PATH app shell offline cache. Private Supabase/Strava/Oura requests are never cached. */
-const VERSION='yp-branded-startup-20261102-v2';
+const VERSION='yp-train-nutrition-mobility-20261102-v5';
 const SHELL='yourpath-shell-'+VERSION;
 const STATIC=['./','./index.html','./cloud-config.js','./manifest.webmanifest','./icon-192.png','./icon-512.png','./favicon.png','./apple-touch-icon.png','./your-path-mark.svg','./release-notes.json'];
 const SUPABASE_CDN='https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.57.0/dist/umd/supabase.min.js';

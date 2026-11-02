@@ -2,11 +2,43 @@
   "schema": 1,
   "releases": [
     {
+      "id": "2026-11-02-training-intelligence-mobility-nutrition",
+      "version": "2026.11.02.5",
+      "date": "2026-11-02",
+      "title": "Training intelligence, nutrition-linked quests and measured mobility",
+      "summary": "Optional exercise swaps, separate warm-up records without XP, one-tap difficulty feedback and an approval-only recovery week. Protein and food quests now use saved Nutrition data. Nutrition logging appears below daily totals. Mobility Skill Tree has measurable reach/ankle tests rather than counted days; old mobility-day credits are archived. Existing SS artwork including the female SS crop top is preserved.",
+      "notify": true
+    },
+    {
+      "id": "2026-11-02-ss-original-artwork",
+      "version": "2026.11.02.4",
+      "date": "2026-11-02",
+      "title": "SS Masterwork: original avatar-fitted wearables",
+      "summary": "Replaces SS-only placeholder looks with original black/chrome electric blue-violet artwork for both character wardrobes. Includes five matching categories, new SS wardrobe thumbnails and transparent full-canvas male/female equipped layers. F–S art, mastery requirements and equipment ownership stay unchanged.",
+      "notify": true
+    },
+    {
+      "id": "2026-11-02-ss-equipment-mastery",
+      "version": "2026.11.02.3",
+      "date": "2026-11-02",
+      "title": "SS Masterwork equipment and genuine mastery unlocks",
+      "summary": "Adds SS-tier sunglasses, tops, shorts, shoes and watches to both character wardrobes. S-tier unlocks now require Advanced milestones, while SS-tier unlocks require Mastery and sustained training; previously unlocked S gear is preserved. The new SS tier uses a distinct premium visual finish on the existing body-fitted S silhouettes pending separately approved SS artwork.",
+      "notify": true
+    },
+    {
+      "id": "2026-11-02-branded-startup-screen",
+      "version": "2026.11.02.2",
+      "date": "2026-11-02",
+      "title": "YOUR PATH branded startup screen",
+      "summary": "A YOUR PATH loading screen appears immediately instead of a blank white page and fades away once the local interface renders. Uses the existing YOUR PATH mark and preserves THE SYSTEM progression identity. Optional integrations do not block startup; stalled starts offer recovery controls.",
+      "notify": true
+    },
+    {
       "id": "2026-11-01-cohesive-ux-seven-refinements",
       "version": "2026.11.01.10",
       "date": "2026-11-01",
-      "title": "NEXTFORM: simpler workouts and connected progress",
-      "summary": "One-tap set saving advances through the workout, unfinished drafts stay safe, previous results and AI ghost targets stay aligned, session editing is consolidated, optional controls sit below workout logging, floating menu avoids focused fields, skill goals are available on demand, cloud drafts can merge independently, and Strava/Oura rate-limit errors trigger automatic backoff. NEXTFORM branding is consistent without changing the existing storage keys or app URL.",
+      "title": "YOUR PATH: simpler workouts and connected progress",
+      "summary": "One-tap set saving advances through the workout, unfinished drafts stay safe, previous results and AI ghost targets stay aligned, session editing is consolidated, optional controls sit below workout logging, floating menu avoids focused fields, skill goals are available on demand, cloud drafts can merge independently, and Strava/Oura rate-limit errors trigger automatic backoff. YOUR PATH branding is consistent without changing the existing storage keys or app URL.",
       "notify": true
     },
     {
