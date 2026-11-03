@@ -1,8 +1,8 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#0a1020"><title>YOUR PATH — Guided by THE SYSTEM</title><meta name="description" content="YOUR PATH — intelligent training, nutrition and progression, guided by THE SYSTEM."><link rel="icon" type="image/png" sizes="192x192" href="./icon-192.png"><link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png"><link rel="manifest" href="./manifest.webmanifest"><link rel="icon" type="image/png" sizes="512x512" href="./icon-512.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="YOUR PATH"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><style id="nf-startup-critical">
 /* First paint: never expose an unstyled white page while YOUR PATH initializes. */
-html {background:#080e1b!important;}
+html {background:#080e1b!important;color-scheme:dark;} 
 html,body {min-height:100%;}
-#nfStartupSplash {position:fixed;inset:0;z-index:2147483600;display:flex;align-items:center;justify-content:center;box-sizing:border-box;padding:calc(24px + env(safe-area-inset-top,0px)) 24px calc(24px + env(safe-area-inset-bottom,0px));overflow:auto;background:radial-gradient(ellipse at 50% 39%,#19283c 0%,#101a2c 42%,#080e1b 88%);color:#edf6f7;font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;text-align:center;opacity:1;visibility:visible;-webkit-font-smoothing:antialiased;transition:opacity .38s ease,visibility .38s ease;}
+#nfStartupSplash {position:fixed;inset:0;z-index:2147483600;display:flex;align-items:center;justify-content:center;box-sizing:border-box;padding:calc(24px + env(safe-area-inset-top,0px)) 24px calc(24px + env(safe-area-inset-bottom,0px));overflow:auto;background:radial-gradient(ellipse at 50% 39%,#19283c 0%,#101a2c 42%,#080e1b 88%);color:#edf6f7;font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;text-align:center;opacity:1;visibility:visible;-webkit-font-smoothing:antialiased;transition:opacity .18s ease,visibility .18s ease;}
 #nfStartupSplash *{box-sizing:border-box;}
 #nfStartupSplash.nf-startup-leaving{opacity:0;visibility:hidden;pointer-events:none;}
 .nf-startup-content{width:min(100%,320px);display:flex;flex-direction:column;align-items:center;position:relative;isolation:isolate;}
@@ -1857,7 +1857,7 @@ body.nf-input-focus #nfMenuToggle:not([aria-expanded="true"]){opacity:.45}
    if(completed)return;
    completed=true;clearTimeout(timer);
    splash.classList.add('nf-startup-leaving');
-   window.setTimeout(function(){if(splash&&splash.parentNode)splash.parentNode.removeChild(splash);},450);
+   window.setTimeout(function(){if(splash&&splash.parentNode)splash.parentNode.removeChild(splash);},230);
  }
  // Trigger only after the local workout/dashboard render succeeds; external APIs are optional.
  window.nfMarkAppReady=function(){
@@ -1866,7 +1866,7 @@ body.nf-input-focus #nfMenuToggle:not([aria-expanded="true"]){opacity:.45}
    var elapsed=(window.performance&&performance.now?performance.now():Date.now())-began;
    window.setTimeout(function(){
      window.requestAnimationFrame(function(){window.requestAnimationFrame(removeSplash);});
-   },Math.max(0,450-elapsed));
+   },Math.max(0,120-elapsed));
  };
  document.getElementById('nfStartupReload').addEventListener('click',function(){window.location.reload();});
  document.getElementById('nfStartupContinue').addEventListener('click',removeSplash);
@@ -3120,7 +3120,7 @@ function renderCardioWeekly(){const goalEl=$('cardioGoalControls'),progress=$('c
 function saveCardioGoals(){const goals={};for(const t of distanceCardioTypes){const session=Number($(`goal_${t}_session`).value),weekly=Number($(`goal_${t}_weekly`).value);if(!Number.isFinite(session)||session<=0||session>500||!Number.isFinite(weekly)||weekly<=0||weekly>2000){alert('All activity goals must be positive, reasonable distances.');return}goals[t]={session,weekly}}db.cardioGoals=goals;save();renderCardioGoals();renderCardioWeekly();alert('Activity goals saved.')}
 function renderCardioHistory(){const el=$('cardioHistory');if(!el)return;const a=db.cardio||[];el.innerHTML=a.length?a.map((c,i)=>({c,i})).sort((x,y)=>y.c.date.localeCompare(x.c.date)).map(x=>cardioActivityRow(x.c,x.i)).join(''):'<p class="muted">No running, cycling or walking sessions yet.</p>'}
 
-function renderAll(){nfNoticeStore();renderStats();renderOtherExerciseHome();renderTrain();renderQuests();nfEvaluateTitles();nfRenderNotices();renderProgress();renderRanks();$('hunterName').value=db.name||'Athlete';$('heightCm').value=db.heightCm||192;$('startWeight').value=db.startWeight||140;$('nfProfileGoalWeight').value=db.bodyGoals?.weight??110;$('benchmarkCategory').value=benchmarkCategory()}document.querySelectorAll('[data-tab]').forEach(b=>b.onclick=()=>{document.querySelectorAll('[data-tab]').forEach(x=>x.classList.toggle('active',x===b));document.querySelectorAll('main').forEach(x=>x.classList.toggle('hidden',x.id!==b.dataset.tab));if(b.dataset.tab==='quests')renderQuests();if(b.dataset.tab==='progress')renderProgress();if(b.dataset.tab==='ranks')renderRanks();if(b.dataset.tab==='quests')renderCardioWeekly();if(b.dataset.tab==='progress')renderCardioHistory()});renderAll();$('cardioDate').value=today();renderCardioGoals();renderCardioRecent();renderCardioWeekly();renderCardioHistory();window.nfMarkAppReady?.();
+function renderAll(){nfNoticeStore();renderStats();renderOtherExerciseHome();renderTrain();renderQuests();nfEvaluateTitles();nfRenderNotices();renderProgress();renderRanks();$('hunterName').value=db.name||'Athlete';$('heightCm').value=db.heightCm||192;$('startWeight').value=db.startWeight||140;$('nfProfileGoalWeight').value=db.bodyGoals?.weight??110;$('benchmarkCategory').value=benchmarkCategory()}document.querySelectorAll('[data-tab]').forEach(b=>b.onclick=()=>{document.querySelectorAll('[data-tab]').forEach(x=>x.classList.toggle('active',x===b));document.querySelectorAll('main').forEach(x=>x.classList.toggle('hidden',x.id!==b.dataset.tab));if(b.dataset.tab==='quests')renderQuests();if(b.dataset.tab==='progress')renderProgress();if(b.dataset.tab==='ranks')renderRanks();if(b.dataset.tab==='quests')renderCardioWeekly();if(b.dataset.tab==='progress')renderCardioHistory()});renderAll();$('cardioDate').value=today();renderCardioGoals();window.nfMarkAppReady?.();setTimeout(()=>{try{renderCardioRecent();renderCardioWeekly();renderCardioHistory();}catch(e){console.warn('Deferred cardio view:',e);}},0);
 </script>
 <script>
 (function(){
@@ -7017,6 +7017,22 @@ window.nfNutritionIntelligenceDebug=()=>({analysis:analyse(),context:trainingCon
  window.ypRefreshAnalytics=draw;
 })();
 </script>
+<script id="yp-startup-update-prompt">(function(){
+  if(!('serviceWorker' in navigator))return;
+  var offered=false;
+  navigator.serviceWorker.addEventListener('message',function(event){
+    if(!event.data||event.data.type!=='YOUR_PATH_UPDATE_READY'||offered)return;
+    offered=true;
+    var notice=document.createElement('div');notice.id='ypCachedUpdateNotice';
+    notice.setAttribute('role','status');
+    notice.style.cssText='position:fixed;z-index:2147483400;left:12px;right:12px;bottom:calc(92px + env(safe-area-inset-bottom,0px));padding:12px 14px;border:1px solid #69b8a6;border-radius:14px;background:#142c32;color:#e9fff8;box-shadow:0 8px 25px #0008;display:flex;align-items:center;justify-content:space-between;gap:12px;font:600 13px system-ui';
+    var label=document.createElement('span');label.textContent='An updated version of YOUR PATH is ready.';
+    var btn=document.createElement('button');btn.type='button';btn.textContent='Refresh';
+    btn.style.cssText='border:0;border-radius:8px;background:#9ee6cb;color:#08251f;font-weight:800;padding:9px 14px;cursor:pointer';
+    btn.addEventListener('click',function(){location.reload();});
+    notice.append(label,btn);document.body.appendChild(notice);
+  });
+})();</script>
 <script id="yp-train-cache-update-prompt">(function(){
  if(!('serviceWorker' in navigator))return;
  var announced=false;
