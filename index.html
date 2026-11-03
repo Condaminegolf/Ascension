@@ -1939,7 +1939,23 @@ body.nf-input-focus #nfMenuToggle:not([aria-expanded="true"]){opacity:.45}
   <div class="nf-nutro-title"><div><h2>Daily nutrition</h2><p class="muted">Calories and macros from the food you actually log.</p></div><label class="nf-nutro-field nf-nutro-date"><span>View date</span><input type="date" id="nfNutritionDate"></label></div>
   <div class="nf-nutro-kcal" id="nfNutritionCalories">0 <small>kcal consumed</small></div><div class="nf-nutro-track"><i id="nfNutritionCalProgress"></i></div>
   <div class="nf-nutro-stats"><div class="nf-nutro-stat"><span>Protein</span><strong id="nfNutritionProtein">0 g</strong><div class="nf-nutro-track"><i id="nfNutritionBarProtein"></i></div></div><div class="nf-nutro-stat"><span>Carbs</span><strong id="nfNutritionCarbs">0 g</strong><div class="nf-nutro-track"><i id="nfNutritionBarCarbs"></i></div></div><div class="nf-nutro-stat"><span>Fat</span><strong id="nfNutritionFat">0 g</strong><div class="nf-nutro-track"><i id="nfNutritionBarFat"></i></div></div></div>
+  <p class="nf-nutro-help" id="nfNutritionProteinQuestStatus" aria-live="polite">Protein quest: your logged protein counts automatically toward today's daily quest.</p>
   <p class="nf-nutro-help">Estimates are approximate. Nutrition-app screenshots showing an entire day are recorded as a single daily summary to avoid double-counting individual meals.</p>
+ </section>
+ <section class="panel">
+  <div class="tag">ADD FOOD / CHATGPT ESTIMATE</div><h2>Log what you ate</h2>
+  <div class="nf-nutro-fields" style="grid-template-columns:repeat(2,minmax(0,1fr))"><div class="nf-nutro-field"><label for="nfNutritionLogDate">Date eaten</label><input id="nfNutritionLogDate" type="date"></div><div class="nf-nutro-field"><label for="nfNutritionMode">What are you logging?</label><select id="nfNutritionMode"><option value="auto" selected>Auto-detect (recommended)</option><option value="daily_total">Full-day summary — top of screenshot</option><option value="meal">One meal or food photo</option></select></div></div>
+  <p class="nf-nutro-help" style="margin:-2px 0 10px">For screenshots showing both daily totals and meals, YOUR PATH will read the <strong>Consumed</strong> calories and macro totals at the top — not the individual meals, goal or over-goal figure.</p>
+  <div class="nf-nutro-field"><label for="nfNutritionDescription">Describe your meal, or give context for a screenshot</label><textarea id="nfNutritionDescription" maxlength="2200" placeholder="e.g. 3 scrambled eggs, two slices sourdough with butter, flat white with full cream milk. Or: screenshot from MyFitnessPal showing today's totals."></textarea></div>
+  <div class="nf-nutro-field" style="margin-top:12px"><label for="nfNutritionImage">Upload a screenshot from another app (or a food photo)</label><input type="file" id="nfNutritionImage" accept="image/png,image/jpeg,image/webp" aria-describedby="nfNutritionPrivacy"><img id="nfNutritionImagePreview" class="nf-nutro-image" hidden alt="Selected nutrition screenshot preview"></div>
+  <p class="nf-nutro-help" id="nfNutritionPrivacy">With your action, the description and selected image are sent securely to the AI estimation service. Screenshots are not saved in your training record; only the reviewed nutrition figures and description are saved. Remove unrelated personal information from screenshots first.</p>
+  <div class="nf-nutro-actions" style="display:flex;gap:9px;flex-wrap:wrap"><button id="nfNutritionAnalyse" type="button" class="primary">✧ Estimate with ChatGPT</button><button id="nfNutritionManual" type="button" class="secondary">Enter values manually</button></div>
+  <p id="nfNutritionStatus" role="status" aria-live="polite"></p>
+  <div id="nfNutritionReview" class="nf-nutro-review" hidden><div class="nf-nutro-badge">REVIEW REQUIRED</div><h3 id="nfNutritionReviewTitle">Review estimate</h3>
+   <div class="nf-nutro-fields" style="grid-template-columns:repeat(2,minmax(0,1fr))"><div class="nf-nutro-field"><label for="nfNutritionReviewLabel">Entry name</label><input id="nfNutritionReviewLabel" maxlength="120"></div><div class="nf-nutro-field"><label for="nfNutritionReviewType">Entry type</label><select id="nfNutritionReviewType"><option value="meal">Individual meal</option><option value="daily_total">Whole day — totals</option></select></div></div>
+   <div class="nf-nutro-fields"><div class="nf-nutro-field"><label for="nfNutritionReviewKcal">Calories (kcal)</label><input type="number" min="0" max="10000" step="1" id="nfNutritionReviewKcal"></div><div class="nf-nutro-field"><label for="nfNutritionReviewProtein">Protein (g)</label><input type="number" min="0" max="10000" step="0.1" id="nfNutritionReviewProtein"></div><div class="nf-nutro-field"><label for="nfNutritionReviewCarbs">Carbs (g)</label><input type="number" min="0" max="10000" step="0.1" id="nfNutritionReviewCarbs"></div><div class="nf-nutro-field"><label for="nfNutritionReviewFat">Fat (g)</label><input type="number" min="0" max="10000" step="0.1" id="nfNutritionReviewFat"></div></div>
+   <p id="nfNutritionSourceHint" class="nf-nutro-review-source" role="status"></p><p id="nfNutritionReviewNotes" class="nf-nutro-help"></p><div class="nf-nutro-actions"><button class="primary" id="nfNutritionSaveEntry" type="button">Save reviewed entry</button><button class="secondary" id="nfNutritionReviewCancel" type="button">Discard</button></div>
+  </div>
  </section>
 <section class="panel" id="nfNutritionIntelligence" aria-label="Nutrition Intelligence">
  <div class="tag">THE SYSTEM / NUTRITION INTELLIGENCE</div>
@@ -1972,23 +1988,9 @@ body.nf-input-focus #nfMenuToggle:not([aria-expanded="true"]){opacity:.45}
  <p class="nfi-help">Not medical advice. Do not use automated targets during pregnancy, illness, or a history of disordered eating without professional guidance. Nutrition estimates and body-weight trends are imperfect.</p>
 </section>
 
- <section class="panel">
-  <div class="tag">ADD FOOD / CHATGPT ESTIMATE</div><h2>Log what you ate</h2>
-  <div class="nf-nutro-fields" style="grid-template-columns:repeat(2,minmax(0,1fr))"><div class="nf-nutro-field"><label for="nfNutritionLogDate">Date eaten</label><input id="nfNutritionLogDate" type="date"></div><div class="nf-nutro-field"><label for="nfNutritionMode">What are you logging?</label><select id="nfNutritionMode"><option value="auto" selected>Auto-detect (recommended)</option><option value="daily_total">Full-day summary — top of screenshot</option><option value="meal">One meal or food photo</option></select></div></div>
-  <p class="nf-nutro-help" style="margin:-2px 0 10px">For screenshots showing both daily totals and meals, YOUR PATH will read the <strong>Consumed</strong> calories and macro totals at the top — not the individual meals, goal or over-goal figure.</p>
-  <div class="nf-nutro-field"><label for="nfNutritionDescription">Describe your meal, or give context for a screenshot</label><textarea id="nfNutritionDescription" maxlength="2200" placeholder="e.g. 3 scrambled eggs, two slices sourdough with butter, flat white with full cream milk. Or: screenshot from MyFitnessPal showing today's totals."></textarea></div>
-  <div class="nf-nutro-field" style="margin-top:12px"><label for="nfNutritionImage">Upload a screenshot from another app (or a food photo)</label><input type="file" id="nfNutritionImage" accept="image/png,image/jpeg,image/webp" aria-describedby="nfNutritionPrivacy"><img id="nfNutritionImagePreview" class="nf-nutro-image" hidden alt="Selected nutrition screenshot preview"></div>
-  <p class="nf-nutro-help" id="nfNutritionPrivacy">With your action, the description and selected image are sent securely to the AI estimation service. Screenshots are not saved in your training record; only the reviewed nutrition figures and description are saved. Remove unrelated personal information from screenshots first.</p>
-  <div class="nf-nutro-actions" style="display:flex;gap:9px;flex-wrap:wrap"><button id="nfNutritionAnalyse" type="button" class="primary">✧ Estimate with ChatGPT</button><button id="nfNutritionManual" type="button" class="secondary">Enter values manually</button></div>
-  <p id="nfNutritionStatus" role="status" aria-live="polite"></p>
-  <div id="nfNutritionReview" class="nf-nutro-review" hidden><div class="nf-nutro-badge">REVIEW REQUIRED</div><h3 id="nfNutritionReviewTitle">Review estimate</h3>
-   <div class="nf-nutro-fields" style="grid-template-columns:repeat(2,minmax(0,1fr))"><div class="nf-nutro-field"><label for="nfNutritionReviewLabel">Entry name</label><input id="nfNutritionReviewLabel" maxlength="120"></div><div class="nf-nutro-field"><label for="nfNutritionReviewType">Entry type</label><select id="nfNutritionReviewType"><option value="meal">Individual meal</option><option value="daily_total">Whole day — totals</option></select></div></div>
-   <div class="nf-nutro-fields"><div class="nf-nutro-field"><label for="nfNutritionReviewKcal">Calories (kcal)</label><input type="number" min="0" max="10000" step="1" id="nfNutritionReviewKcal"></div><div class="nf-nutro-field"><label for="nfNutritionReviewProtein">Protein (g)</label><input type="number" min="0" max="10000" step="0.1" id="nfNutritionReviewProtein"></div><div class="nf-nutro-field"><label for="nfNutritionReviewCarbs">Carbs (g)</label><input type="number" min="0" max="10000" step="0.1" id="nfNutritionReviewCarbs"></div><div class="nf-nutro-field"><label for="nfNutritionReviewFat">Fat (g)</label><input type="number" min="0" max="10000" step="0.1" id="nfNutritionReviewFat"></div></div>
-   <p id="nfNutritionSourceHint" class="nf-nutro-review-source" role="status"></p><p id="nfNutritionReviewNotes" class="nf-nutro-help"></p><div class="nf-nutro-actions"><button class="primary" id="nfNutritionSaveEntry" type="button">Save reviewed entry</button><button class="secondary" id="nfNutritionReviewCancel" type="button">Discard</button></div>
-  </div>
- </section>
+
  <section class="panel"><div class="tag">THIS DAY / LOGGED FOOD</div><h2>Entries</h2><div id="nfNutritionEntries"></div></section>
- <section class="panel"><details><summary><strong>Set personal calorie and macro targets</strong></summary><p class="nf-nutro-help">Optional targets only; leave any blank if you're still deciding. Targets do not award XP or automatically complete quests.</p><div class="nf-nutro-fields"><div class="nf-nutro-field"><label for="nfNutritionGoalKcal">Calories</label><input id="nfNutritionGoalKcal" type="number" min="1" max="10000" placeholder="e.g. 2400"></div><div class="nf-nutro-field"><label for="nfNutritionGoalProtein">Protein (g)</label><input id="nfNutritionGoalProtein" type="number" min="1" max="10000" placeholder="e.g. 180"></div><div class="nf-nutro-field"><label for="nfNutritionGoalCarbs">Carbs (g)</label><input id="nfNutritionGoalCarbs" type="number" min="1" max="10000" placeholder="e.g. 235"></div><div class="nf-nutro-field"><label for="nfNutritionGoalFat">Fat (g)</label><input id="nfNutritionGoalFat" type="number" min="1" max="10000" placeholder="e.g. 80"></div></div><button class="secondary" type="button" id="nfNutritionSaveTargets">Save targets</button></details></section>
+ <section class="panel"><details><summary><strong>Set personal calorie and macro targets</strong></summary><p class="nf-nutro-help">Optional targets only; leave any blank to use the app default. Your protein target is also used to automatically complete today's protein Daily Quest when your logged food reaches it.</p><div class="nf-nutro-fields"><div class="nf-nutro-field"><label for="nfNutritionGoalKcal">Calories</label><input id="nfNutritionGoalKcal" type="number" min="1" max="10000" placeholder="e.g. 2400"></div><div class="nf-nutro-field"><label for="nfNutritionGoalProtein">Protein (g)</label><input id="nfNutritionGoalProtein" type="number" min="1" max="10000" placeholder="e.g. 180"></div><div class="nf-nutro-field"><label for="nfNutritionGoalCarbs">Carbs (g)</label><input id="nfNutritionGoalCarbs" type="number" min="1" max="10000" placeholder="e.g. 235"></div><div class="nf-nutro-field"><label for="nfNutritionGoalFat">Fat (g)</label><input id="nfNutritionGoalFat" type="number" min="1" max="10000" placeholder="e.g. 80"></div></div><button class="secondary" type="button" id="nfNutritionSaveTargets">Save targets</button></details></section>
 </main>
 <main id="datahealth" class="hidden"><div class="panel"><div class="tag">YOUR PATH / TOOLS</div><h2>Explore</h2><p class="muted">Additional tools and account settings.</p><div class="nf-shortcuts"><button onclick="nfGo('quests')">Daily Habits</button><button onclick="nfGo('progress')">Body & Recovery</button><button onclick="nfGo('ranks')">Ranks & Achievements</button><button onclick="nfGo('analytics')">Analytics</button><button onclick="nfGo('calendar')">Training Calendar</button><button onclick="nfGo('friends')">Friends &amp; Leaderboards</button><button onclick="nfGo('settings')">Settings</button></div></div><section class="panel" id="nfDataHealthPanel"><div class="tag">RELIABILITY / BACKUPS</div><h2>Sync &amp; Data Health</h2><p class="muted">Review possible duplicate Oura/Strava workouts, record completeness and recent import outcomes. Checks never delete workouts or change XP.</p><div id="nfDataHealthSummary"></div><div class="nf-social-actions"><button type="button" class="secondary" id="nfDataHealthCheck">Check data again</button><button type="button" class="secondary" id="nfDataHealthBackup">Export save backup</button><button type="button" class="secondary" id="nfDataHealthRecovery">Download recovery copy</button></div><p class="muted">When devices disagree, the existing cloud conflict backup protects local data. Export a backup before manually resolving conflicts.</p></section></main><main id="friends" class="hidden"><section class="panel"><div class="tag">YOUR PATH / COMMUNITY</div><h2>Friends &amp; Leaderboards</h2><p class="muted">Athletes are automatically searchable by their Athlete Name. Friend requests still require acceptance. No bodyweight, sleep readings or detailed workout logs are shared. Weekly statistics are calculated from cloud-saved training records; they may lag behind unsynced local activity.</p><p class="muted" id="nfSocialAuthNote"></p><div id="nfSocialControls"><div class="nf-social-settings"><h3>Your Athlete Name</h3><p class="muted">Your Friends name is automatically taken from your Athlete Name in Settings → Your Training Profile. Everyone with a synced account is searchable by Athlete Name; only accepted friends can see weekly statistics and equipped gear.</p><p class="muted">Currently showing: <strong id="nfSocialAthleteName">Athlete</strong></p></div><hr><h3>Find athletes</h3><p class="muted">Search athletes by their Athlete Name. Friend requests still require acceptance.</p><div class="nf-social-actions"><input id="nfSocialSearchQuery" type="search" maxlength="48" autocomplete="off" aria-label="Search athletes" placeholder="Search Athlete Name"><button class="secondary" id="nfSocialSearchButton" type="button">Search</button></div><div id="nfSocialSearchResults" aria-live="polite"><p class="muted">Enter at least 2 characters to find people.</p></div><h3>Friend requests &amp; connections</h3><div id="nfSocialRelationships"><p class="muted">Not loaded yet.</p></div><div class="nf-social-actions"><h3>Weekly leaderboard</h3><button class="secondary" id="nfSocialRefresh" type="button">Refresh</button></div><div class="field"><label for="nfSocialMetric">Compare friends by</label><select id="nfSocialMetric"><option value="score">Overall weekly score</option><option value="active_days">Active training days</option><option value="sessions">Logged training sessions</option><option value="strength_sets">Strength sets completed</option><option value="run_km">Running distance (km)</option><option value="cycle_km">Cycling distance (km)</option></select></div><p class="muted" id="nfSocialWeekLabel">Monday–Sunday</p><p class="muted">Overall score: consistency 35 pts + strength 25 pts + cardio 25 pts + variety 15 pts. Each category is capped, so one training type cannot dominate.</p><div id="nfSocialScores"></div><section id="nfSocialBuildPanel" class="nf-social-build" hidden><div class="nf-social-actions"><h3>Friend's equipped build</h3><button type="button" class="secondary" id="nfSocialBuildClose">Close</button></div><div id="nfSocialBuildBody"></div></section></div><p id="nfSocialMessage" role="status" aria-live="polite"></p><p class="muted">Leaderboard values come from user-recorded sessions and can be influenced by manual edits; they are intended for friendly comparisons, not verified competitions.</p></section></main><main class="hidden nf-train-focused" id="train"><div class="panel nf-strength-workspace" id="nfStrengthWorkspace"><div aria-label="Today and the next four days" class="days nf-rolling-days" id="days"></div>
 <p class="nf-train-date-caption" id="nfTrainDateCaption"></p><section class="nf-train-scheduled-block" id="nfTrainScheduledBlock" aria-label="Scheduled session"><div class="nf-train-primary-head"><strong>Scheduled Session</strong><button type="button" class="secondary" id="nfTrainQuickEdit">Edit Session</button></div><div id="nfTrainPrimarySummary" aria-live="polite"></div></section><details class="nf-train-add-other" id="nfTrainOther"><summary>＋ Add Other Session <span aria-hidden="true">⌄</span></summary><div class="nf-train-other-inner"><p class="nf-train-other-helper">Add another strength workout or record running, cycling, walking or other exercise for the selected date.</p><div class="nf-train-other-actions" aria-label="Choose session type"><button type="button" class="secondary" onclick="nfTrainAddBlankSession()">＋ Strength</button><button type="button" class="secondary" onclick="nfTrainOpenCardio(nfTrainSelectedDate,'run')">↗ Run</button><button type="button" class="secondary" onclick="nfTrainOpenCardio(nfTrainSelectedDate,'cycle')">◉ Ride</button><button type="button" class="secondary" onclick="nfTrainOpenCardio(nfTrainSelectedDate,'walk')">◌ Walk</button><button type="button" class="secondary" onclick="nfTrainOpenCardio(nfTrainSelectedDate,'exercise')">＋ Other</button></div><details class="nf-train-session-chooser" id="nfTrainSessionChooser"><summary class="nf-train-session-disclosure-summary">Other strength sessions <span aria-hidden="true">⌄</span></summary><div class="nf-train-session-cards" id="nfTrainSessionCards"></div></details><details class="nf-cardio-disclosure" id="nfCardioDisclosure"><summary><span class="nf-cardio-disclosure-icon">↗</span><span><strong>Cardio &amp; endurance</strong><small>Run, ride, walk or other activity</small></span><span aria-hidden="true" class="nf-cardio-chevron">⌄</span></summary><div class="panel" id="cardioPanel"><div class="tag">CARDIO / ACTIVITY LOG</div><h2>Run · Cycle · Walk · Other Exercise</h2><p class="muted">Log distance activities or other exercise sessions (Yoga, HIIT, Pilates, Weight Training and more). Imported Strava and Oura sessions also appear in your history. Other Exercise contributes bounded XP and consistency, but not running, cycling or lifting milestones without those measurements.</p><div class="grid2"><div class="field"><label for="cardioType">Activity</label><select id="cardioType" onchange="renderCardioGoals()"><option value="run">Run</option><option value="cycle">Cycle</option><option value="walk">Walk</option><option value="exercise">Other Exercise</option></select></div><div class="field"><label for="cardioDate">Date</label><input id="cardioDate" type="date"/></div><div class="field" id="cardioDistanceField"><label for="cardioDistance">Distance (km)</label><input id="cardioDistance" min="0.01" placeholder="e.g. 3.0" step="0.1" type="number"/></div><div class="field" id="cardioActivityNameField" style="display:none"><label for="cardioActivityName">Exercise (optional)</label><input id="cardioActivityName" maxlength="65" placeholder="Yoga, HIIT, weights, Pilates…"/></div><div class="field"><label for="cardioMinutes">Duration (minutes)</label><input id="cardioMinutes" min="1" placeholder="e.g. 25" step="1" type="number"/></div></div><div class="cardio-target" id="cardioTargetInfo"></div><button class="primary" onclick="saveCardio()">LOG ACTIVITY &amp; EARN XP</button><div class="cardio-recent" id="cardioRecent"></div></div></details></div></details><div class="nf-strength-toolbar"><div><div class="nf-train-log-label">WORKOUT LOG</div></div></div><details class="nf-train-session-manage" id="nfTrainSessionManage"><summary>Manage this session</summary><div class="nf-train-session-editor" hidden="" id="nfTrainSessionEditor"></div></details><details class="workout-builder nf-workout-advanced" id="workoutBuilder"><summary>Customise this training day</summary><p class="muted">Change exercises, set counts and rep targets. Your five training days remain available. Previously logged workouts are never rewritten.</p><div id="builderRows"></div><div class="builder-actions"><button class="secondary" onclick="ascBuilderAdd()" type="button">+ Add exercise</button><button class="secondary" onclick="ascBuilderReset()" type="button">Restore default day</button></div><button class="primary" onclick="ascBuilderSave()" type="button">SAVE WORKOUT PLAN</button><p class="muted">Saving changes clears unsaved set drafts for this day, after confirmation.</p></details>
@@ -2040,7 +2042,7 @@ body.nf-input-focus #nfMenuToggle:not([aria-expanded="true"]){opacity:.45}
 <details class="panel nf-collapsible" data-nf-panel="equipment" id="nfEquipmentCollectionPanel"><summary class="nf-collapse-trigger"><span class="nf-collapse-label"><span class="nf-collapse-kicker">CHARACTER / WARDROBE</span><span class="nf-collapse-name">Equipment Collection</span></span><span aria-hidden="true" class="nf-collapse-chevron">⌄</span></summary><div class="nf-collapse-body"><div aria-live="polite" id="nfMaleEquipmentMount"></div></div></details>
 <details aria-label="Earned character titles" class="panel nf-title-collection nf-collapsible" data-nf-panel="titles" id="nfTitleCollectionPanel"><summary class="nf-collapse-trigger"><span class="nf-collapse-label"><span class="nf-collapse-kicker">CHARACTER / TITLES</span><span class="nf-collapse-name">Equippable Titles</span></span><span aria-hidden="true" class="nf-collapse-chevron">⌄</span></summary><div class="nf-collapse-body"><p class="muted">Earn permanent titles through meaningful achievements. Choose one to display under your character name.</p><div id="nfTitleCollectionBody"></div></div></details>
 <div id="powerScore" style="display:none"></div>
-<details class="panel nf-collapsible" data-nf-panel="athleticism" id="nfAthleticismPanel" style="margin-top:16px"><summary class="nf-collapse-trigger"><span class="nf-collapse-label"><span class="nf-collapse-kicker">ATHLETICISM · PERFORMANCE TESTS</span><span class="nf-collapse-name">Athleticism</span></span><span aria-hidden="true" class="nf-collapse-chevron">⌄</span></summary><div class="nf-collapse-body"><p class="muted">35% mobility consistency · 30% plank · 25% push-ups · 10% single-leg balance. Enter your best measured result; incomplete tests count as zero.</p><div class="asc-athletic-tests"><label>Plank hold (seconds)<input id="athPlank" max="3600" min="0" placeholder="e.g. 90" step="1" type="number"/></label><label>Strict push-ups (reps)<input id="athPushups" max="500" min="0" placeholder="e.g. 20" step="1" type="number"/></label><label>Single-leg balance (seconds)<input id="athBalance" max="600" min="0" placeholder="e.g. 30" step="1" type="number"/></label></div><button onclick="saveAthleticTests()" type="button">Save performance tests</button><p class="muted">Original benchmarks include a 180-second plank, <span id="athPushupTarget">40</span> strict push-ups and 60-second balance; the Skill Tree now extends into advanced mastery goals. Push-up targets depend on your selected benchmark category. Mobility consistency reaches its maximum at 20 completed mobility days.</p></div></details><div class="panel" style="margin-top:16px"><div class="tag">CHARACTER PROGRESSION · SKILL TREE</div><h2>Skill Tree</h2><p class="muted">Follow your growing paths, inspect the next milestones, and explore what is still to come.</p><p class="muted nf-recognition-hint">Strength goals recognize common barbell exercise aliases, including Bench Press, Flat Bench, RDL, Romanian Deadlift, Back Squat and OHP. Dumbbell, machine and incline versions stay separate.</p><div id="skillTrees"></div></div>
+<details class="panel nf-collapsible" data-nf-panel="athleticism" id="nfAthleticismPanel" style="margin-top:16px"><summary class="nf-collapse-trigger"><span class="nf-collapse-label"><span class="nf-collapse-kicker">ATHLETICISM · PERFORMANCE TESTS</span><span class="nf-collapse-name">Athleticism</span></span><span aria-hidden="true" class="nf-collapse-chevron">⌄</span></summary><div class="nf-collapse-body"><p class="muted">35% measured ankle mobility · 30% plank · 25% push-ups · 10% single-leg balance. Enter your best measured result; incomplete tests count as zero.</p><div class="asc-athletic-tests"><label>Plank hold (seconds)<input id="athPlank" max="3600" min="0" placeholder="e.g. 90" step="1" type="number"/></label><label>Strict push-ups (reps)<input id="athPushups" max="500" min="0" placeholder="e.g. 20" step="1" type="number"/></label><label>Single-leg balance (seconds)<input id="athBalance" max="600" min="0" placeholder="e.g. 30" step="1" type="number"/></label></div><p class="muted" style="margin-top:12px"><strong>Mobility · knee-to-wall distance</strong> — with your heel flat, move your big toe away from a wall until your knee can just touch it without lifting the heel. Measure the furthest successful toe-to-wall distance on each side (cm). The weaker side sets your skill milestones.</p><div class="asc-athletic-tests"><label>Left ankle (cm)<input id="athMobilityLeft" max="30" min="0" placeholder="e.g. 8.5" step="0.1" type="number"/></label><label>Right ankle (cm)<input id="athMobilityRight" max="30" min="0" placeholder="e.g. 7.5" step="0.1" type="number"/></label></div><button onclick="saveAthleticTests()" type="button">Save performance tests</button><p class="muted">Original benchmarks include a 180-second plank, <span id="athPushupTarget">40</span> strict push-ups and 60-second balance; the Skill Tree now extends into advanced mastery goals. Push-up targets depend on your selected benchmark category. Mobility reaches its benchmark at 15 cm in the knee-to-wall test on both ankles; progress is based on measured distance, not daily checkboxes.</p></div></details><div class="panel" style="margin-top:16px"><div class="tag">CHARACTER PROGRESSION · SKILL TREE</div><h2>Skill Tree</h2><p class="muted">Follow your growing paths, inspect the next milestones, and explore what is still to come.</p><p class="muted nf-recognition-hint">Strength goals recognize common barbell exercise aliases, including Bench Press, Flat Bench, RDL, Romanian Deadlift, Back Squat and OHP. Dumbbell, machine and incline versions stay separate.</p><div id="skillTrees"></div></div>
 </main>
 
 <main id="analytics" class="hidden"><div class="panel"><div class="tag">PERFORMANCE ANALYTICS</div><h2>Progress Analytics</h2><p class="muted">Charts use your saved workout and body metrics. Empty charts mean you have not logged enough data yet.</p><div class="grid2" id="analyticCards"></div></div><section class="panel yp-analytics-premium" aria-labelledby="ypAnalyticsTitle">
@@ -2117,9 +2119,9 @@ body.nf-input-focus #nfMenuToggle:not([aria-expanded="true"]){opacity:.45}
 })();
 </script><script>
 let plan=[{day:'Monday',name:'Chest + Triceps',sub:'Push Strength',ex:[['Barbell Bench Press',3,'8–10'],['Cable Chest Fly',3,'10–12'],['Cable Incline Chest Press',2,'10–12'],['Cable Triceps Pressdown',3,'12']]},{day:'Tuesday',name:'Back + Biceps',sub:'Pull Strength',ex:[['Barbell Bent-Over Row',3,'8–10'],['Cable Lat Pulldown',3,'10–12'],['Cable Seated Row',2,'12'],['Cable Biceps Curl',3,'12']]},{day:'Wednesday',name:'Legs + Core',sub:'Lower-Body Strength',ex:[['Barbell Squat',3,'8–10'],['Cable Pull-Through',3,'12'],['Cable Split Squat',2,'10/leg'],['Cable Pallof Press',2,'10/side']]},{day:'Thursday',name:'Chest + Back',sub:'Upper-Body Hypertrophy',ex:[['Barbell Romanian Deadlift',3,'8–10'],['Cable Chest Press',3,'10–12'],['Cable Row',3,'10–12'],['Cable Straight-Arm Pulldown',2,'12–15']]},{day:'Friday',name:'Shoulders + Arms',sub:'Delts · Biceps · Triceps',ex:[['Barbell Overhead Press',3,'8–10'],['Cable Lateral Raise',3,'12–15'],['Cable Rear-Delt Fly',2,'12–15'],['Cable Biceps Curl',3,'10–12'],['Cable Triceps Pressdown',3,'10–12']]}];
-const quests=[['protein','Hit your protein target (190–210 g)',100],['water','Meet your hydration goal',50],['steps','Reach 7,000 steps (Oura)',75],['sleep','Sleep 7.5+ hours (Oura)',50],['mobility','5 minutes of mobility',50],['pelvic','5-minute pelvic floor & relaxation routine',50]];
+const quests=[['protein','Hit your protein target (190–210 g)',100],['water','Meet your hydration goal',50],['steps','Reach 7,000 steps (Oura)',75],['sleep','Sleep 7.5+ hours (Oura)',50],['activityLog','Record a strength session or 10+ minutes of activity',50],['nutritionLog','Log your food in Nutrition',50]];
 const ranks=[['F','Foundation',0,0,0,0],['E','Rising Athlete',1000,3,100,1000],['D','Iron Disciple',3000,10,400,5000],['C','Advanced Athlete',7000,22,1000,15000],['B','Elite Athlete',15000,45,2500,45000],['A','Performance Leader',30000,80,5000,120000],['S','Peak Performer',60000,150,10000,300000]];
-const key='ascension_v1';let db;try{db=JSON.parse(localStorage.getItem(key))||{}}catch{db={}};db={xp:0,workouts:[],quests:{},metrics:[],cardio:[],cardioGoals:{run:{session:3,weekly:6},cycle:{session:20,weekly:40},walk:{session:3,weekly:15}},name:'Athlete',heightCm:192,startWeight:140,...db};if(!Array.isArray(db.cardio))db.cardio=[];if(!db.cardioGoals||typeof db.cardioGoals!=='object')db.cardioGoals={};const defaultWorkoutPlan=JSON.parse(JSON.stringify(plan));if(Array.isArray(db.workoutPlan)&&db.workoutPlan.length===5&&db.workoutPlan.every((x,i)=>x&&x.day===defaultWorkoutPlan[i].day&&Array.isArray(x.ex)))plan=JSON.parse(JSON.stringify(db.workoutPlan));let day=Math.max(0,Math.min(4,(new Date().getDay()+6)%7));let draft={};try{draft=JSON.parse(localStorage.getItem('ascension_draft_v2'))||{}}catch{};const $=id=>document.getElementById(id),today=()=>{const d=new Date();return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`};function save(){nfCaptureGoldStrengthTrials();localStorage.setItem(key,JSON.stringify(db));renderStats();window.dispatchEvent(new Event('nf:local-saved'))};function totals(){return db.workouts.reduce((a,w)=>{for(const x of w.sets){a.reps+=Number(x.reps)||0;a.volume+=(Number(x.kg)||0)*(Number(x.reps)||0)}return a},{reps:0,volume:0})}function currentWeight(){let a=db.metrics.filter(m=>Number(m.weight)>0).sort((a,b)=>a.date.localeCompare(b.date));return a.length?Number(a[a.length-1].weight):Number(db.startWeight)||140}
+const key='ascension_v1';let db;try{db=JSON.parse(localStorage.getItem(key))||{}}catch{db={}};db={xp:0,workouts:[],quests:{},metrics:[],cardio:[],cardioGoals:{run:{session:3,weekly:6},cycle:{session:20,weekly:40},walk:{session:3,weekly:15}},name:'Athlete',heightCm:192,startWeight:140,...db};if(!Array.isArray(db.cardio))db.cardio=[];if(!db.cardioGoals||typeof db.cardioGoals!=='object')db.cardioGoals={};const defaultWorkoutPlan=JSON.parse(JSON.stringify(plan));if(Array.isArray(db.workoutPlan)&&db.workoutPlan.length===5&&db.workoutPlan.every((x,i)=>x&&x.day===defaultWorkoutPlan[i].day&&Array.isArray(x.ex)))plan=JSON.parse(JSON.stringify(db.workoutPlan));let day=Math.max(0,Math.min(4,(new Date().getDay()+6)%7));let draft={};try{draft=JSON.parse(localStorage.getItem('ascension_draft_v2'))||{}}catch{};const $=id=>document.getElementById(id),today=()=>{const d=new Date();return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`};function save(){nfCaptureGoldStrengthTrials();nfSyncEvidenceQuests();nfSyncProteinQuest();localStorage.setItem(key,JSON.stringify(db));renderStats();if($('questList'))renderQuests();window.dispatchEvent(new Event('nf:local-saved'))};function totals(){return db.workouts.reduce((a,w)=>{for(const x of w.sets){a.reps+=Number(x.reps)||0;a.volume+=(Number(x.kg)||0)*(Number(x.reps)||0)}return a},{reps:0,volume:0})}function currentWeight(){let a=db.metrics.filter(m=>Number(m.weight)>0).sort((a,b)=>a.date.localeCompare(b.date));return a.length?Number(a[a.length-1].weight):Number(db.startWeight)||140}
 // Exercise names are normalized at read-time: legacy records are never renamed.
 // Only mechanically comparable variations count toward the four barbell skill trees.
 function nfCanonicalExercise(value){
@@ -2251,7 +2253,7 @@ function ascAttributeDecay(label,score){const quests=Object.entries(db.quests||{
  else if(label==='Endurance')dates=[...(db.cardio||[]).filter(x=>distanceCardioTypes.includes(x.type)).map(x=>x.date),...quests.filter(([d,v])=>v.steps).map(([d])=>d),...metrics.filter(x=>Number(x.steps)>=7000).map(x=>x.date)];
  else if(label==='Discipline')dates=ascActiveDates();
  else if(label==='Vitality'||label==='Recovery')dates=[...quests.filter(([d,v])=>v.water||v.protein||v.sleep).map(([d])=>d),...metrics.filter(x=>Number(x.sleep)>=7.5).map(x=>x.date),...Object.keys(db.ouraRecovery||{})];
- else if(label==='Athleticism')dates=[...quests.filter(([d,v])=>v.mobility).map(([d])=>d),...Object.values(db.athleticTests||{}).map(v=>v.date).filter(Boolean)];
+ else if(label==='Athleticism')dates=Object.values(db.athleticTests||{}).map(v=>v.date).filter(Boolean);
  if(!dates.length)return score;return Math.max(0,score-Math.floor(ascDecayDays(dates)/7)*5)
 }
 window.ascensionDecayInfo=()=>({graceDays:7,rankPenalty:ascRankPenalty(),daysSinceActivity:ascDaysSince(ascLatestDate(ascActiveDates())),rankIntervalDays:14,attributePointsPerWeek:5,recovery:ascRankRecovery()});
@@ -2960,7 +2962,66 @@ function ouraHabitMode(id,date=today()){
  // Only a real reading for the selected day locks its checkbox.
  return {automatic:valid,value:valid?Number(reading):null};
 }
+// Activity and food quests are derived from logged records, not manual checkboxes.
+// Update today's records once per evidence change; deletion reverses earned quest XP.
+function nfEvidenceQuestModes(date=today()){
+ const foods=(db.nfNutrition?.entries||[]).filter(e=>String(e.date||'').slice(0,10)===date);
+ const nutrition=foods.some(e=>Number.isFinite(Number(e.kcal)) && e.kcal!==null && e.kcal!=='' && Number(e.kcal)>0);
+ const strength=(db.workouts||[]).some(w=>String(w.date||'').slice(0,10)===date && (w.sets||[]).some(set=>Number(set.reps)>0));
+ const activeMinutes=(db.cardio||[]).filter(c=>String(c.date||'').slice(0,10)===date).reduce((sum,c)=>sum+Math.max(0,Number(c.minutes)||0),0);
+ return {
+  activityLog:{automatic:true,qualifies:strength||activeMinutes>=10,detail:strength?'Strength workout logged':activeMinutes>0?Math.round(activeMinutes)+' activity minutes logged':'Auto-completes from Train or synced activity'},
+  nutritionLog:{automatic:true,qualifies:nutrition,detail:nutrition?'Food logged in Nutrition':'Auto-completes from Nutrition'}
+ };
+}
+function nfSyncEvidenceQuests(date=today()){
+ const modes=nfEvidenceQuestModes(date);db.quests ||= {};
+ const record=db.quests[date] ||= {};
+ let changed=false;
+ for(const [id,mode] of Object.entries(modes)){
+  const prior=Boolean(record[id]);
+  if(prior===mode.qualifies)continue;
+  record[id]=mode.qualifies;
+  const amount=quests.find(q=>q[0]===id)?.[2]||0;
+  db.xp=Math.max(0,(Number(db.xp)||0)+(mode.qualifies?amount:-amount));
+  changed=true;
+ }
+ return changed;
+}
+// Protein is a configurable nutrition goal: recorded food can automatically satisfy it.
+// Partial days with insufficient entries keep the manual checkbox available.
+function nfProteinNutritionMode(date=today()){
+ const foods=(db.nfNutrition?.entries||[]).filter(e=>String(e.date||'').slice(0,10)===date);
+ // Match Daily Nutrition: if a full-day summary exists, use only the newest one.
+ // Never add that summary to individual meals or to older duplicate summaries.
+ const summaries=foods.filter(e=>e.mode==='daily_total').sort((a,b)=>String(b.loggedAt||'').localeCompare(String(a.loggedAt||'')));
+ const usable=summaries.length?[summaries[0]]:foods;
+ const customTarget=Number(db.nfNutrition?.targets?.protein);
+ const goal=Number.isFinite(customTarget)&&customTarget>0?customTarget:190;
+ const grams=usable.reduce((n,e)=>n+(e.protein!==null && e.protein!=='' && Number.isFinite(Number(e.protein))?Math.max(0,Number(e.protein)):0),0);
+ const verified=grams>=goal;
+ const shown=Math.round(grams*10)/10;
+ return {automatic:verified,qualifies:verified,grams,goal,detail:shown+' / '+goal+' g from Nutrition'+(verified?' · complete':'')};
+}
+function nfSyncProteinQuest(date=today()){
+ const mode=nfProteinNutritionMode(date);
+ db.quests ||= {};db.nfAutoQuestClaimsV1 ||= {};
+ const record=db.quests[date] ||= {};
+ const provenanceKey=date+':protein';
+ if(!mode.qualifies){
+  if(!db.nfAutoQuestClaimsV1[provenanceKey])return false;
+  delete db.nfAutoQuestClaimsV1[provenanceKey];
+  record.protein=false;db.xp=Math.max(0,(Number(db.xp)||0)-100);
+  return true;
+ }
+ if(record.protein)return false;
+ record.protein=true;db.nfAutoQuestClaimsV1[provenanceKey]=true;
+ db.xp=(Number(db.xp)||0)+100;return true;
+}
 function renderQuests(){
+ const evidenceChanged=nfSyncEvidenceQuests(),proteinChanged=nfSyncProteinQuest();
+ const changed=evidenceChanged||proteinChanged;
+ if(changed)localStorage.setItem(key,JSON.stringify(db));
  const done=db.quests[today()]||{};
   const questCount=quests.filter(([id])=>Boolean(done[id])).length;
   const earnedXP=quests.reduce((sum,[id,label,xp])=>sum+(done[id]?xp:0),0);
@@ -2971,9 +3032,13 @@ function renderQuests(){
   if($('nfDailyQuestFill'))$('nfDailyQuestFill').style.width=completionPct+'%';
  $('questList').innerHTML=quests.map(([id,label,xp])=>{
   const isOura=id==='steps'||id==='sleep';
-  const mode=isOura?ouraHabitMode(id):{automatic:false,value:null};
-  const displayLabel=isOura?label.replace(' (Oura)',''):label;
-  const extra=isOura?` <span class="muted">(${mode.automatic?(id==='steps'?mode.value.toLocaleString()+' steps':' '+mode.value.toFixed(1)+' h')+' · Oura automatic':'manual · Oura unavailable or not synced'})</span>`:'';
+  const evidence=nfEvidenceQuestModes()[id];
+  const proteinMode=id==='protein'?nfProteinNutritionMode():null;
+  const mode=isOura?ouraHabitMode(id):evidence||proteinMode||{automatic:false,value:null};
+  const displayLabel=id==='protein'?'Hit your protein target ('+(Number(db.nfNutrition?.targets?.protein)>0?Number(db.nfNutrition.targets.protein):190)+' g)':isOura?label.replace(' (Oura)',''):label;
+  const extra=evidence?` <span class="muted">(${evidence.detail})</span>`:
+   proteinMode?` <span class="muted">(${proteinMode.detail})</span>`:
+   isOura?` <span class="muted">(${mode.automatic?(id==='steps'?mode.value.toLocaleString()+' steps':' '+mode.value.toFixed(1)+' h')+' · Oura automatic':'manual · Oura unavailable or not synced'})</span>`:'';
   return `<div class="quest"><input type="checkbox" id="q_${id}" ${done[id]?'checked':''} ${mode.automatic?'disabled':''} ${mode.automatic?'':`onchange="claimQuest('${id}',this.checked)"`}><label for="q_${id}">${displayLabel}${extra}</label><small>+${xp} XP</small></div>`;
  }).join('');
  let start=new Date();start.setDate(start.getDate()-((start.getDay()+6)%7));
@@ -2981,7 +3046,7 @@ function renderQuests(){
  $('weekly').innerHTML=`<p>${n}/5 workout sessions this week</p><div class="bar"><div class="fill" style="width:${Math.min(100,n/5*100)}%"></div></div><p class="muted">Train consistently across your five-day split.</p>`;
 }
 function claimQuest(id,checked){
- if((id==='steps'||id==='sleep')&&ouraHabitMode(id).automatic)return;
+ if(id==='activityLog'||id==='nutritionLog'||(id==='protein'&&nfProteinNutritionMode().automatic)||(id==='steps'||id==='sleep')&&ouraHabitMode(id).automatic)return;
  const q=quests.find(x=>x[0]===id);if(!q)return;
  db.quests[today()]??={};
  const prior=!!db.quests[today()][id];
@@ -3226,13 +3291,13 @@ function nfOtherSkillTracks(){
   {id:'running-speed',name:'Running · Speed',kind:'run',targets:nfExpandedEnduranceTargets(runSpeed,[[5,4.9],[10,4.9]]).map(([d,p])=>[d,p*runF])},
   {id:'cycling-distance',name:'Cycling · Distance',kind:'cycle',targets:nfExpandedEnduranceTargets(cycleDistance,[[120,23],[150,24]]).map(([d,v])=>[d,v*cycleF])},
   {id:'cycling-speed',name:'Cycling · Speed',kind:'cycle',targets:nfExpandedEnduranceTargets(cycleSpeed,[[25,32],[40,33]]).map(([d,v])=>[d,v*cycleF])},
-  {id:'athleticism-mobility',name:'Athleticism · Mobility',kind:'mobility',targets:[1,2,3,5,7,10,11,12,13,14,15,16,17,18,19,20,22,25,30,40]},
+  {id:'athleticism-mobility-distance',name:'Athleticism · Mobility',kind:'mobility',targets:[1,2,3,4,5,6,7,8,9,10,10.5,11,11.5,12,12.5,13,13.5,14,14.5,15]},
   {id:'athleticism-core',name:'Athleticism · Core',kind:'test',key:'plank',unit:'s plank',targets:[15,25,35,45,60,75,80,85,90,100,110,120,130,140,150,160,170,180,210,240]},
   {id:'athleticism-pushups',name:'Athleticism · Push-ups',kind:'test',key:'pushups',unit:'reps',targets:pushups},
   {id:'athleticism-balance',name:'Athleticism · Balance',kind:'test',key:'balance',unit:'s balance',targets:[5,10,15,20,25,30,32,34,35,37,39,40,43,46,50,53,56,60,75,90]}
  ];
 }
-function nfOtherSkillCompleted(tracks,cardio,mobilityDays,tests){
+function nfOtherSkillCompleted(tracks,cardio,tests){
  // This is the only code path that awards new non-strength skill nodes.
  // Previous earned flags are ORed with current evidence and never cleared.
  db.nfOtherSkillMilestonesV3 ||= {};
@@ -3241,7 +3306,7 @@ function nfOtherSkillCompleted(tracks,cardio,mobilityDays,tests){
   const prior=Array.isArray(db.nfOtherSkillMilestonesV3[t.id])?db.nfOtherSkillMilestonesV3[t.id]:[];
   const flags=t.targets.map((target,i)=>{
    if(prior[i])return true;
-   if(t.kind==='mobility')return mobilityDays>=target;
+   if(t.kind==='mobility')return Number(tests.mobilityCm?.value||0)>=target;
    if(t.kind==='test')return Number(tests[t.key]?.value||0)>=target;
    return cardio.some(c=>{
     const type=String(c.type||'').toLowerCase();
@@ -3266,11 +3331,10 @@ function nfOtherSkillCompleted(tracks,cardio,mobilityDays,tests){
 function nfSkillUnlockCounts(){
  const best=bestLifts(),bw=bodyMass(),strengthF=strengthBenchmarkFactor();
  const cardio=(db.cardio||[]).filter(c=>Number(c.distance)>0&&Number(c.minutes)>0);
- const mobilityDays=Object.values(db.quests||{}).filter(v=>v.mobility).length;
  const tests=db.athleticTests||{};
  const strength=trials.reduce((n,trial)=>n+nfStrengthCompleted(trial[0],nfStrengthMilestoneTargets(trial,strengthF),best,bw).filter(Boolean).length,0);
  const extraTracks=nfOtherSkillTracks();
- const flags=nfOtherSkillCompleted(extraTracks,cardio,mobilityDays,tests);
+ const flags=nfOtherSkillCompleted(extraTracks,cardio,tests);
  const count=(first,last)=>flags.slice(first,last).reduce((n,arr)=>n+arr.filter(Boolean).length,0);
  return {Strength:strength,Running:count(0,2),Cycling:count(2,4),Athleticism:count(4,8)};
 }
@@ -3383,10 +3447,9 @@ const NF_EQUIPMENT_REQUIREMENTS={
 function nfEquipmentSkillStages(){
  const best=bestLifts(),bw=bodyMass(),factor=strengthBenchmarkFactor();
  const cardio=(db.cardio||[]).filter(c=>Number(c.distance)>0&&Number(c.minutes)>0);
- const mobilityDays=Object.values(db.quests||{}).filter(v=>v.mobility).length;
  const tests=db.athleticTests||{};
  const flags=[...trials.map(t=>nfStrengthCompleted(t[0],nfStrengthMilestoneTargets(t,factor),best,bw)),
-  ...nfOtherSkillCompleted(nfOtherSkillTracks(),cardio,mobilityDays,tests)];
+  ...nfOtherSkillCompleted(nfOtherSkillTracks(),cardio,tests)];
  const byType={strength:[0,1,2,3],athleticism:[8,9,10,11],endurance:[4,5,6,7],speed:[5,7]};
  const stage=(type,lower,upper)=>byType[type].reduce((n,i)=>n+(flags[i]||[]).slice(lower,upper).filter(Boolean).length,0);
  const masteredBranches=type=>byType[type].filter(i=>(flags[i]||[]).slice(18,20).some(Boolean)).length;
@@ -3694,11 +3757,10 @@ function power(){
  const endurance=Math.min(100,Math.round(5+q.filter(([d,v])=>v.steps).length*2+Math.min(30,cardioKm*0.8)+Math.min(25,cardioMin/60)+Math.min(15,n*0.3)+metrics.filter(m=>safe(m.steps)>=7000).length));
  const discipline=Math.min(100,Math.round(n*1.4+new Set(cardio.map(a=>a.date)).size*1.2+q.filter(([d,v])=>Object.values(v).some(Boolean)).length*1.3));
  const vitality=Math.min(100,Math.round(10+metrics.filter(m=>safe(m.sleep)>=7.5).length*3+q.filter(([d,v])=>v.water||v.protein||v.sleep).length*1.2));
- const mobilityDays=q.filter(([d,v])=>v.mobility).length;
  const tests=db.athleticTests||{};
  // Four independently measurable categories, each normalized to a 0-100 score.
  // Missing tests are zero rather than silently treated as completed.
- const mobilityScore=Math.min(100,mobilityDays*5);
+ const mobilityScore=Math.min(100,Math.max(0,Number(tests.mobilityCm?.value)||0)/15*100);
  const coreScore=Math.min(100,Math.max(0,Number(tests.plank?.value)||0)/180*100);
  const bodyweightScore=Math.min(100,Math.max(0,Number(tests.pushups?.value)||0)/athleticPushupTarget()*100);
  const balanceScore=Math.min(100,Math.max(0,Number(tests.balance?.value)||0)/60*100);
@@ -3719,12 +3781,28 @@ window.saveAthleticTests=function(){
    else attempts.push({date:today(),value:v});
    if(v>=prev)db.athleticTests[key]={value:v,date:today()};
  }
- save();renderAthlete();
+ const leftEl=document.getElementById('athMobilityLeft'),rightEl=document.getElementById('athMobilityRight');
+ const leftRaw=leftEl?.value.trim()||'',rightRaw=rightEl?.value.trim()||'';
+ if(leftRaw!==''||rightRaw!==''){
+  if(leftRaw===''||rightRaw===''){alert('Enter both left and right ankle distances for the mobility test.');return;}
+  const left=Number(leftRaw),right=Number(rightRaw);
+  if(![left,right].every(v=>Number.isFinite(v)&&v>=0&&v<=30)){alert('Ankle distance must be between 0 and 30 cm.');return;}
+  const cm=Math.round(Math.min(left,right)*10)/10;
+  db.athleticTests.mobilityMeasure={left,right,date:today()};
+  db.nfAthleticTestHistory ||= {};
+  const attempts=db.nfAthleticTestHistory.mobilityCm ||= [];
+  const existing=attempts.find(x=>x.date===today());
+  if(existing)existing.value=Math.max(Number(existing.value)||0,cm);
+  else attempts.push({date:today(),value:cm});
+  if(cm>=Number(db.athleticTests.mobilityCm?.value||0))db.athleticTests.mobilityCm={value:cm,date:today()};
+ }
+ save();renderAthlete();renderSkills();
 };
 function renderAthlete(){
  nfUpdateCharacterSelector();
  const r=rankIndex(),score=power(),avg=Math.round(sum(score.map(x=>x[1]))/score.length);
  for(const [k,id] of [['plank','athPlank'],['pushups','athPushups'],['balance','athBalance']]){const el=document.getElementById(id);if(el&&document.activeElement!==el)el.value=db.athleticTests?.[k]?.value??'';}
+ for(const [side,id] of [['left','athMobilityLeft'],['right','athMobilityRight']]){const el=document.getElementById(id);if(el&&document.activeElement!==el)el.value=db.athleticTests?.mobilityMeasure?.[side]??'';}
  const pushupTarget=$u('athPushupTarget');if(pushupTarget)pushupTarget.textContent=athleticPushupTarget();
  nfCaptureEquipmentAchievements();
  nfEvaluateSpecialCollections();
@@ -3743,7 +3821,6 @@ function renderSkills(){
  const best=bestLifts(),bw=bodyMass(),cat=benchmarkCategory();
  const strengthF=strengthBenchmarkFactor();
  const cardio=(db.cardio||[]).filter(c=>Number(c.distance)>0&&Number(c.minutes)>0);
- const mobilityDays=Object.values(db.quests||{}).filter(v=>v.mobility).length;
  const tests=db.athleticTests||{};
  const fmtPace=p=>{let m=Math.floor(p),sec=Math.round((p-m)*60);if(sec===60){m++;sec=0}return m+':'+String(sec).padStart(2,'0')};
  const liftNames=['Bench press','Squat','Overhead press','Romanian deadlift'];
@@ -3755,12 +3832,12 @@ function renderSkills(){
   {name:'Cycling',color:'#72c3f1',angle:45,angles:[29,61],children:[6,7],symbol:'◈'},
   {name:'Athleticism',color:'#c4a0f6',angle:135,angles:[104,124,146,166],children:[8,9,10,11],symbol:'✦'}
  ];
- const achieved=[...liftTracks.map(t=>nfStrengthCompleted(t.key,t.targets,best,bw)),...nfOtherSkillCompleted(tracks.slice(4),cardio,mobilityDays,tests)];
+ const achieved=[...liftTracks.map(t=>nfStrengthCompleted(t.key,t.targets,best,bw)),...nfOtherSkillCompleted(tracks.slice(4),cardio,tests)];
  const progress=achieved.map(nodes=>nodes.filter(Boolean).length);
  const frontier=achieved.map(nodes=>{const i=nodes.findIndex(done=>!done);return i<0?nodes.length:i});
  const description=(t,target)=>{
   if(t.kind==='lift')return `${(target*bw).toFixed(1)} kg estimated 1RM`;
-  if(t.kind==='mobility')return `${target} mobility days`;
+  if(t.kind==='mobility')return `${target} cm knee-to-wall · weaker ankle`;
   if(t.kind==='test')return `${target} ${t.unit}`;
   if(t.kind==='run')return `${target[0]} km @ ${fmtPace(target[1])}/km`;
   return `${target[0]} km @ ${Number(target[1]).toFixed(1)} km/h`;
@@ -3900,23 +3977,14 @@ function renderSkills(){
     return dist>=advanced[0]&&mins>0&&(t.kind==='run'?mins/dist<=advanced[1]:dist/(mins/60)>=advanced[1]);
    }).map(c=>String(c.date||'').slice(0,10)).filter(Boolean);
   }else if(t.kind==='mobility'){
-   // Three different calendar weeks with mobility, not three taps on one day.
-   const weeks=new Set();
-   for(const [date,entry] of Object.entries(db.quests||{})){
-    if(!entry?.mobility||!/\d{4}-\d{2}-\d{2}/.test(date))continue;
-    const dt=new Date(date.slice(0,10)+'T12:00:00');
-    if(!Number.isFinite(dt.getTime()))continue;
-    dt.setDate(dt.getDate()-(dt.getDay()+6)%7);
-    weeks.add(dt.toISOString().slice(0,10));
-   }
-   return {count:Math.min(3,weeks.size),target:3,detail:'Mobility practice during 3 different weeks',note:'Weeks are counted from saved daily quests.'};
+   dates=(db.nfAthleticTestHistory?.mobilityCm||[]).filter(v=>Number(v.value)>=Number(advanced)).map(v=>String(v.date||'').slice(0,10)).filter(Boolean);
   }else if(t.kind==='test'){
    // A personal-best record alone is not evidence of three separate performances.
    dates=(db.nfAthleticTestHistory?.[t.key]||[]).filter(v=>Number(v.value)>=Number(advanced)).map(v=>String(v.date||'').slice(0,10)).filter(Boolean);
   }
   const count=Math.min(3,new Set(dates).size);
-  return {count,target:3,detail:`Repeat ${description(t,advanced)} on 3 separate ${t.kind==='test'?'test days':'sessions'}`,
-    note:t.kind==='test'?'Only attempts recorded after this update count; previous personal bests remain intact.':'Recorded workouts and activities count automatically.'};
+  return {count,target:3,detail:`Repeat ${description(t,advanced)} on 3 separate ${t.kind==='test'||t.kind==='mobility'?'test days':'sessions'}`,
+    note:t.kind==='test'||t.kind==='mobility'?'Only recorded measurements on separate days count for repeat mastery.':'Recorded workouts and activities count automatically.'};
  };
  const nfTreeRewards=(ti,compact=false)=>{
   const group=groups.find(g=>g.children.includes(ti));if(!group)return '';
@@ -6376,6 +6444,12 @@ function summary(){
  const counted=importedDays.length?[importedDays[0]]:entries;
  counted.forEach(e=>{for(const k of Object.keys(total)){if(e[k]===null||e[k]===undefined||e[k]===''){if(k!=='kcal')partial[k]=true;}else total[k]+=n(e[k]);}});
  const goals=ensure().targets;
+ const proteinQuest=nfProteinNutritionMode(formDate.value);
+ const questStatus=$('nfNutritionProteinQuestStatus');
+ if(questStatus){
+  const currentDay=formDate.value===today();
+  questStatus.textContent=(currentDay?"Today's protein quest: ":"Protein recorded for this date: ")+proteinQuest.detail+(currentDay&&!proteinQuest.qualifies?' · '+(Math.round((proteinQuest.goal-proteinQuest.grams)*10)/10)+' g remaining':'');
+ }
  $('nfNutritionCalories').innerHTML=esc(Math.round(total.kcal).toLocaleString())+' <small>kcal'+(goals.kcal?' / '+esc(goals.kcal)+' target':' consumed')+'</small>';
  for(const k of ['protein','carbs','fat']){
    $( 'nfNutrition'+k[0].toUpperCase()+k.slice(1)).textContent=Math.round(total[k])+' g'+(partial[k]?' · partial':'');
