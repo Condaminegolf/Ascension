@@ -1,0 +1,26 @@
+name: Integrate Friends tab
+on:
+  push:
+    paths:
+      - 'scripts/patch_friends_tab.py'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - name: Patch existing Friends tab
+        run: python3 scripts/patch_friends_tab.py
+      - name: Commit patched app
+        run: |
+          if ! git diff --quiet -- index.html; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add index.html
+            git commit -m "Integrate Friends search and unified weekly leaderboard"
+            git push
+          fi
