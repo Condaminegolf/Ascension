@@ -1830,6 +1830,31 @@ body.nf-input-focus #nfMenuToggle:not([aria-expanded="true"]){opacity:.45}
 .nf-ss-check{display:flex;justify-content:space-between;align-items:start;gap:12px;font-size:12px;padding:8px 0;border-top:1px solid #45657566;color:#b7ccda}
 .nf-ss-check.done{color:#9ee6cc}.nf-ss-check strong{white-space:nowrap;color:inherit}
 </style>
+<style id="nf-secret-path-styles">
+/* Unrevealed Secret Paths have no DOM representation. */
+.nf-secret-focus{position:relative}
+.nf-secret-focus:after{content:'✦';position:absolute;right:4px;top:3px;font-size:10px;color:var(--nf-tree-accent)}
+.nf-tree-focus-row:has(.nf-secret-focus){grid-template-columns:repeat(5,minmax(0,1fr))}
+.nf-secret-focus-group{margin-top:8px;display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.nf-secret-focus-group .nf-secret-group-label{font-size:10px;letter-spacing:.15em;font-weight:900;color:#b2dfba;margin:0 5px 0 0}
+.nf-secret-focus-group .nf-tree-focus{flex:1 1 120px;max-width:220px;min-height:43px!important}
+.nf-tree-secret-legend{font-size:11px;color:#c9e99a}
+.nf-secret-reveal{position:fixed;inset:0;z-index:99999;display:flex;align-items:center;justify-content:center;padding:calc(env(safe-area-inset-top,0px) + 14px) 18px calc(env(safe-area-inset-bottom,0px) + 14px);background:rgba(2,13,19,.93);backdrop-filter:blur(13px)}
+.nf-secret-reveal-card{--secret-accent:#b9e767;position:relative;text-align:center;overflow:auto;max-height:92vh;width:min(100%,420px);border-radius:24px;border:1px solid var(--secret-accent);padding:26px 22px;background:radial-gradient(ellipse at 50% 20%,#244a36,#0b2028 62%,#08121b);color:#edfff0;box-shadow:0 0 80px #152f1d,0 0 36px #abda6630,inset 0 0 45px #a9d55b1b}
+.nf-secret-reveal-kicker{font-size:12px;font-weight:900;letter-spacing:.32em;color:#d5f2d4}
+.nf-secret-reveal-head{font-size:clamp(25px,7vw,33px);line-height:1.08;font-weight:950;letter-spacing:.14em;color:#fff5cb;margin:13px 0 15px;text-shadow:0 0 23px #d5f2ae70}
+.nf-secret-reveal-sigil{width:116px;height:116px;margin:5px auto 15px;display:grid;place-items:center;border-radius:50%;font-size:63px;color:var(--secret-accent);border:4px solid var(--secret-accent);background:radial-gradient(circle,#29543c,#0b2525 68%);box-shadow:0 0 27px var(--secret-accent),inset 0 0 33px #a7e88833}
+.nf-secret-reveal-card h2{font-size:clamp(25px,6vw,36px);letter-spacing:.07em;color:#ffefd2;margin:10px 0}
+.nf-secret-reveal-card p{margin:0 0 17px;color:#c2d5d5}
+.nf-secret-reveal-reward{display:flex;flex-direction:column;gap:7px;border:1px solid #78b18b;border-radius:15px;padding:12px;margin:0 0 16px;color:#d1dfe0;font-size:12px}
+.nf-secret-reveal-reward strong{font-size:17px;color:var(--secret-accent)}
+.nf-secret-reveal-card button{display:block;width:100%;margin-top:9px;min-height:48px!important}
+.nf-secret-reveal-card button.primary{background:linear-gradient(100deg,#72edbf,var(--secret-accent))!important;color:#09261e!important;font-weight:900!important}
+.nf-secret-reveal-card button.secondary{background:#0b2730!important;color:#d6f3e5!important}
+@media(max-width:500px){.nf-secret-focus-group .nf-tree-focus{flex-basis:90px}.nf-secret-reveal-card{padding:22px 16px}}
+@media(prefers-reduced-motion:reduce){.nf-secret-reveal{backdrop-filter:none}}
+
+</style>
 </head><body><div id="nfStartupSplash" role="status" aria-live="polite" aria-label="YOUR PATH loading">
  <div class="nf-startup-content">
   <div class="nf-startup-symbol" aria-hidden="true"><img src="./your-path-mark.svg" alt="" decoding="async"></div>
@@ -2393,6 +2418,163 @@ function nfCumulativeKm(type){return (db.cardio||[]).filter(a=>a.type===type).re
 function nfLongRideCount(){return (db.cardio||[]).filter(a=>a.type==='cycle'&&Number(a.distance)>=100).length;}
 function nfTitleSkillCounts(){return typeof window.nfCollectionSkillCounts==='function'?window.nfCollectionSkillCounts():{Strength:0,Running:0,Cycling:0,Athleticism:0};}
 function nfTotalSkillNodes(){return Object.values(nfTitleSkillCounts()).reduce((n,v)=>n+(Number(v)||0),0);}
+/* THE SYSTEM: Secret Paths. Deliberately absent from all discovery UI until unlocked.
+   Only newly imported, provider-classified Strava/Oura activities qualify. */
+const NF_SECRET_PATHS = [
+ {id:'golfer',name:'The Golfer',title:'Fairway Master',color:'#b9e767',icon:'⚑',min:30,sports:['golf'],nodes:[
+  ['sessions',1,'First recorded golf session'],['sessions',3,'3 golf sessions'],['minutes',300,'5 hours on the course'],['sessions',5,'5 golf sessions'],['minutes',600,'10 total golf hours'],['sessions',10,'10 golf sessions'],['minutes',1500,'25 hours on the course'],['sessions',20,'20 golf sessions'],['minutes',3000,'50 total golf hours'],['sessions',40,'40 golf sessions']]},
+ {id:'challenger',name:'The Challenger',title:'Court Challenger',color:'#75c9ff',icon:'✦',min:20,sports:['tennis','pickleball','badminton','padel','squash','racquetball','tabletennis'],nodes:[
+  ['sessions',1,'First racket sport session'],['sessions',3,'3 court sessions'],['minutes',180,'3 hours on court'],['sessions',7,'7 court sessions'],['minutes',600,'10 hours on court'],['sessions',12,'12 court sessions'],['minutes',1200,'20 hours on court'],['sessions',25,'25 court sessions'],['minutes',2400,'40 hours on court'],['sessions',50,'50 court sessions']]},
+ {id:'aquatic',name:'The Aquatic',title:'Deepwater',color:'#4fdded',icon:'≈',min:10,sports:['swim','swimming'],nodes:[
+  ['sessions',1,'First swimming session'],['sessions',3,'3 swimming sessions'],['km',1,'1 km recorded swimming'],['sessions',5,'5 swimming sessions'],['km',3,'3 km recorded swimming'],['sessions',10,'10 swimming sessions'],['km',10,'10 km recorded swimming'],['sessions',20,'20 swimming sessions'],['km',25,'25 km recorded swimming'],['sessions',50,'50 swimming sessions']]},
+ {id:'explorer',name:'The Explorer',title:'Summit Seeker',color:'#dfbf85',icon:'⌃',min:30,sports:['hike','hiking'],nodes:[
+  ['sessions',1,'First recorded hike'],['sessions',3,'3 hikes'],['km',15,'15 km hiking'],['elevationM',500,'500 m elevation gained'],['sessions',5,'5 hikes'],['km',50,'50 km hiking'],['elevationM',2000,'2,000 m elevation gained'],['sessions',15,'15 hikes'],['km',150,'150 km hiking'],['sessions',30,'30 hikes']]},
+ {id:'fighter',name:'The Fighter',title:'Iron Fist',color:'#ff857d',icon:'✕',min:15,sports:['boxing','martialarts','kickboxing','karate','jiujitsu','judo','taekwondo','wrestling'],nodes:[
+  ['sessions',1,'First combat training session'],['sessions',3,'3 combat training sessions'],['minutes',180,'3 hours of combat training'],['sessions',8,'8 sessions'],['minutes',600,'10 hours of training'],['sessions',15,'15 sessions'],['minutes',1500,'25 hours of training'],['sessions',30,'30 sessions'],['minutes',3000,'50 hours of training'],['sessions',60,'60 sessions']]},
+ {id:'ascender',name:'The Ascender',title:'Wall Walker',color:'#cb9eff',icon:'△',min:15,sports:['rockclimbing','bouldering','climbing'],nodes:[
+  ['sessions',1,'First climbing session'],['sessions',3,'3 climbing sessions'],['minutes',180,'3 hours climbing'],['sessions',7,'7 climbing sessions'],['minutes',600,'10 hours climbing'],['sessions',15,'15 climbing sessions'],['minutes',1500,'25 hours climbing'],['sessions',30,'30 climbing sessions'],['minutes',3000,'50 hours climbing'],['sessions',60,'60 climbing sessions']]},
+ {id:'flowmaster',name:'The Flowmaster',title:'Flow State',color:'#ec9edf',icon:'✿',min:15,sports:['yoga','pilates'],nodes:[
+  ['sessions',1,'First yoga or Pilates session'],['sessions',3,'3 practice sessions'],['minutes',180,'3 hours of practice'],['sessions',8,'8 practice sessions'],['minutes',600,'10 hours of practice'],['sessions',15,'15 practice sessions'],['minutes',1500,'25 hours of practice'],['sessions',30,'30 practice sessions'],['minutes',3000,'50 hours of practice'],['sessions',60,'60 practice sessions']]},
+ {id:'oarsman',name:'The Oarsman',title:'Waterborne',color:'#6bc6d5',icon:'≋',min:15,sports:['rowing','virtualrow','kayaking','canoeing','standuppaddling'],nodes:[
+  ['sessions',1,'First rowing or paddling session'],['sessions',3,'3 water sessions'],['minutes',180,'3 hours rowing or paddling'],['sessions',7,'7 water sessions'],['km',25,'25 km recorded on the water'],['sessions',15,'15 water sessions'],['minutes',1500,'25 hours on the water'],['sessions',30,'30 water sessions'],['km',150,'150 km recorded on the water'],['sessions',60,'60 water sessions']]},
+ {id:'dancer',name:'The Dancer',title:'Rhythm Keeper',color:'#ffa6bb',icon:'♫',min:15,sports:['dance','dancing'],nodes:[
+  ['sessions',1,'First dance workout'],['sessions',3,'3 dance sessions'],['minutes',180,'3 hours dancing'],['sessions',8,'8 dance sessions'],['minutes',600,'10 hours dancing'],['sessions',15,'15 dance sessions'],['minutes',1500,'25 hours dancing'],['sessions',30,'30 dance sessions'],['minutes',3000,'50 hours dancing'],['sessions',60,'60 dance sessions']]},
+ {id:'snowborn',name:'The Snowborn',title:'Winter Rider',color:'#a0e4fa',icon:'❄',min:20,sports:['alpineski','backcountryski','nordicski','snowboard','rollerski'],nodes:[
+  ['sessions',1,'First snow-sport session'],['sessions',3,'3 snow-sport sessions'],['minutes',180,'3 hours on snow'],['sessions',6,'6 snow-sport sessions'],['minutes',600,'10 hours on snow'],['sessions',12,'12 snow-sport sessions'],['minutes',1500,'25 hours on snow'],['sessions',25,'25 snow-sport sessions'],['minutes',3000,'50 hours on snow'],['sessions',50,'50 snow-sport sessions']]},
+ {id:'teamplayer',name:'The Team Player',title:'Team Captain',color:'#fed382',icon:'✧',min:20,sports:['soccer','basketball','volleyball','cricket'],nodes:[
+  ['sessions',1,'First team-sport session'],['sessions',3,'3 matches or training sessions'],['minutes',180,'3 hours of team sport'],['sessions',8,'8 team-sport sessions'],['minutes',600,'10 hours of team sport'],['sessions',15,'15 sessions'],['minutes',1500,'25 hours of team sport'],['sessions',30,'30 sessions'],['minutes',3000,'50 hours of team sport'],['sessions',60,'60 sessions']]},
+ {id:'trailblazer',name:'The Trailblazer',title:'Off-Road Rider',color:'#a6df84',icon:'↟',min:20,sports:['mountainbikeride','emountainbikeride','gravelride'],nodes:[
+  ['sessions',1,'First off-road ride'],['sessions',3,'3 off-road rides'],['km',30,'30 km off road'],['sessions',7,'7 off-road rides'],['km',100,'100 km off road'],['sessions',15,'15 off-road rides'],['elevationM',2000,'2,000 m elevation gained'],['km',300,'300 km off road'],['sessions',30,'30 off-road rides'],['km',750,'750 km off road']]},
+ {id:'hybrid',name:'The Endurance Hybrid',title:'Threefold Endurance',color:'#eee6a0',icon:'✺',min:10,sports:[],nodes:[
+  ['hybridDiscovery',1,'Run, ride and swim within 7 days'],['hybridWeeks',2,'2 multisport weeks'],['minutes',180,'3 hours across the three sports'],['hybridWeeks',4,'4 multisport weeks'],['minutes',600,'10 hours across the three sports'],['hybridWeeks',8,'8 multisport weeks'],['minutes',1500,'25 hours across the three sports'],['hybridWeeks',12,'12 multisport weeks'],['minutes',3000,'50 hours across the three sports'],['hybridWeeks',20,'20 multisport weeks']]}
+];
+function nfSecretPathData(){return db.nfSecretPathsV1&&typeof db.nfSecretPathsV1==='object'?db.nfSecretPathsV1:null;}
+function nfSecretEnsureData(){
+ if(!nfSecretPathData())db.nfSecretPathsV1={version:1,startedDate:today(),events:[],paths:{},pending:[]};
+ const d=db.nfSecretPathsV1;if(!Array.isArray(d.events))d.events=[];
+ if(!d.paths||typeof d.paths!=='object')d.paths={};if(!Array.isArray(d.pending))d.pending=[];
+ if(!d.startedDate)d.startedDate=today();return d;
+}
+function nfSecretCanonSport(raw){return String(raw||'').toLowerCase().replace(/[^a-z]/g,'');}
+function nfSecretSport(raw){
+ const c=nfSecretCanonSport(raw);
+ if(['run','running','trailrun','virtualrun','jog','jogging'].includes(c))return 'run';
+ if(['ride','cycling','cycle','biking','bike','virtualride','ebikeride','spinning'].includes(c))return 'cycle';
+ if(['swim','swimming'].includes(c))return 'swim';
+ return c;
+}
+function nfSecretPathForSport(sport){return NF_SECRET_PATHS.find(p=>p.id!=='hybrid'&&p.sports.includes(sport))||null;}
+function nfSecretHybridFamily(sport){return ['mountainbikeride','emountainbikeride','gravelride','ebikeride'].includes(sport)?'cycle':sport;}
+function nfSecretDuration(event){return Math.max(0,Number(event.minutes)||0);}
+function nfSecretSameActivity(a,b){
+ if(a.sport!==b.sport||a.date!==b.date)return false;
+ if(a.provider===b.provider)return a.key===b.key;
+ const ta=Date.parse(a.start||''),tb=Date.parse(b.start||'');
+ // Only merge across providers where actual instants are known: never merge two
+ // same-day tennis matches just because they have similar durations.
+ return Number.isFinite(ta)&&Number.isFinite(tb)&&Math.abs(ta-tb)<=20*60000&&Math.abs(nfSecretDuration(a)-nfSecretDuration(b))<=20;
+}
+function nfSecretRecordProviderEvent(provider,src){
+ const d=nfSecretEnsureData(),raw=provider==='strava'?(src.sport_type||src.type):(src.activity);
+ const sport=nfSecretSport(raw),path=nfSecretPathForSport(sport);
+ if(!path&&!['run','cycle','swim'].includes(sport))return false;
+ const minutes=provider==='strava'?Math.round((Number(src.moving_time)>0?Number(src.moving_time):Number(src.elapsed_time))/60):Math.round((Date.parse(src.end_datetime||'')-Date.parse(src.start_datetime||''))/60000);
+ if(!Number.isFinite(minutes)||minutes<Math.min(path?.min||10,10)||minutes>1440)return false;
+ if(path&&minutes<path.min&&(!['run','cycle','swim'].includes(sport)))return false;
+ const start=provider==='strava'?String(src.start_date||src.start_date_local||''):String(src.start_datetime||'');
+ const date=provider==='strava'?String(src.start_date_local||src.start_date||'').slice(0,10):String(src.day||src.start_datetime||'').slice(0,10);
+ if(!/^\d{4}-\d{2}-\d{2}$/.test(date)||date<d.startedDate||date>today())return false;
+ const id=String(src.id||'').slice(0,100);if(!id)return false;
+ const entry={key:provider+':'+id,provider,sport,path:path?.id||null,date,start,minutes,
+  km:Math.max(0,Number(src.distance)||0)/1000,
+  elevationM:provider==='strava'?Math.max(0,Number(src.total_elevation_gain)||0):0};
+ if(d.events.some(e=>e.key===entry.key))return false;
+ const duplicate=d.events.findIndex(e=>nfSecretSameActivity(e,entry));
+ if(duplicate>=0){
+  if(provider==='strava'&&d.events[duplicate].provider!=='strava')d.events[duplicate]=entry;
+  return false;
+ }
+ d.events.push(entry);return true;
+}
+function nfSecretWeekKey(date){
+ const t=new Date(date+'T12:00:00Z');t.setUTCDate(t.getUTCDate()-(t.getUTCDay()+6)%7);return t.toISOString().slice(0,10);
+}
+function nfSecretHybridQualified(events){
+ const a=events.filter(e=>['run','cycle','swim'].includes(nfSecretHybridFamily(e.sport))&&e.minutes>=10).sort((x,y)=>x.date.localeCompare(y.date));
+ // Any seven calendar-day rolling window containing all three disciplines.
+ return a.some((x,i)=>{
+  const until=new Date(x.date+'T12:00:00Z');until.setUTCDate(until.getUTCDate()+6);
+  const end=until.toISOString().slice(0,10);
+  return new Set(a.slice(i).filter(e=>e.date<=end).map(e=>nfSecretHybridFamily(e.sport))).size===3;
+ });
+}
+function nfSecretStats(def,events){
+ const qualified=def.id==='hybrid'?events.filter(e=>['run','cycle','swim'].includes(nfSecretHybridFamily(e.sport))&&e.minutes>=10):events.filter(e=>e.path===def.id&&e.minutes>=def.min);
+ const weekSports=new Map();
+ if(def.id==='hybrid')for(const e of qualified){const w=nfSecretWeekKey(e.date);if(!weekSports.has(w))weekSports.set(w,new Set());weekSports.get(w).add(nfSecretHybridFamily(e.sport));}
+ return {sessions:qualified.length,minutes:qualified.reduce((n,e)=>n+e.minutes,0),km:qualified.reduce((n,e)=>n+(Number(e.km)||0),0),elevationM:qualified.reduce((n,e)=>n+(Number(e.elevationM)||0),0),
+  hybridDiscovery:nfSecretHybridQualified(qualified)?1:0,hybridWeeks:[...weekSports.values()].filter(s=>s.size===3).length};
+}
+function nfSecretRefreshProgress(){
+ const d=nfSecretPathData();if(!d||!d.events?.length)return false;
+ let changed=false;
+ for(const def of NF_SECRET_PATHS){
+  const stats=nfSecretStats(def,d.events),qualifies=def.id==='hybrid'?stats.hybridDiscovery>=1:stats.sessions>=1;
+  if(!qualifies)continue;
+  let path=d.paths[def.id];
+  if(!path){
+   const evidence=d.events.filter(e=>def.id==='hybrid'?['run','cycle','swim'].includes(nfSecretHybridFamily(e.sport)):e.path===def.id).sort((a,b)=>a.date.localeCompare(b.date));
+   path={discoveredAt:evidence.at(-1)?.date||today(),slot:Object.keys(d.paths).length,flags:Array(10).fill(false)};
+   d.paths[def.id]=path;db.xp=(Number(db.xp)||0)+50;
+   if(!d.pending.includes(def.id))d.pending.push(def.id);
+   nfQueueNotice('secret:discover:'+def.id,'skill','Hidden path discovered: '+def.name,'A new discipline has awakened · +50 XP');
+   changed=true;
+  }
+  if(!Array.isArray(path.flags))path.flags=Array(10).fill(false);
+  for(let i=0;i<def.nodes.length;i++){
+   if(path.flags[i]||(i>0&&!path.flags[i-1]))continue;
+   const [metric,target]=def.nodes[i];if((Number(stats[metric])||0)+1e-6<target)continue;
+   path.flags[i]=true;changed=true;
+   if(i>0){const reward=i===9?50:20;db.xp=(Number(db.xp)||0)+reward;
+    if(i===9)nfQueueNotice('secret:mastery:'+def.id,'skill',def.name+' mastered','All 10 secret milestones earned · +50 XP · title available');
+   }
+  }
+ }
+ return changed;
+}
+function nfSecretDiscoveredTracks(){const d=nfSecretPathData();return NF_SECRET_PATHS.filter(p=>d?.paths?.[p.id]?.discoveredAt).map(p=>({...p,kind:'secret',secretId:p.id,targets:p.nodes.map(([metric,value,label])=>({metric,value,label}))}));}
+function nfSecretTrackFlags(pathId){const a=nfSecretPathData()?.paths?.[pathId]?.flags;return Array.from({length:10},(_,i)=>!!a?.[i]);}
+function nfSecretIsDiscovered(pathId){return !!nfSecretPathData()?.paths?.[pathId]?.discoveredAt;}
+function nfSecretMastered(pathId){return nfSecretTrackFlags(pathId).every(Boolean);}
+function nfSecretMaybeReveal(){
+ const d=nfSecretPathData();if(!d?.pending?.length||document.getElementById('nfSecretReveal'))return;
+ const id=d.pending[0],def=NF_SECRET_PATHS.find(p=>p.id===id);if(!def){d.pending.shift();return;}
+ const wrap=document.createElement('div');wrap.id='nfSecretReveal';wrap.className='nf-secret-reveal';
+ wrap.innerHTML=`<div class="nf-secret-reveal-card" role="dialog" aria-modal="true" aria-labelledby="nfSecretDialogTitle" style="--secret-accent:${def.color}"><div class="nf-secret-reveal-kicker">THE SYSTEM</div><div class="nf-secret-reveal-head">HIDDEN PATH<br>DISCOVERED</div><div class="nf-secret-reveal-sigil" aria-hidden="true">${def.icon}</div><h2 id="nfSecretDialogTitle">${def.name.toUpperCase()}</h2><p>A new discipline has awakened.</p><div class="nf-secret-reveal-reward">First qualifying activity recorded <strong>+50 XP · Discovery Reward</strong></div><button type="button" class="primary" data-nf-secret-action="view">VIEW PATH</button><button type="button" class="secondary" data-nf-secret-action="later">CONTINUE</button></div>`;
+ document.body.appendChild(wrap);const primary=wrap.querySelector('button');primary?.focus();
+ const dismiss=view=>{wrap.remove();d.pending.shift();save();if(view){
+   document.querySelector('#tabs [data-tab="hunter"]')?.click();
+   window.nfSecretFocusKey=id;renderSkills();
+   requestAnimationFrame(()=>{document.querySelector(`[data-nf-secret-key="${id}"]`)?.click();document.getElementById('skillTreeViewport')?.scrollIntoView({behavior:'smooth',block:'center'});});
+  }
+  if(d.pending.length)setTimeout(nfSecretMaybeReveal,200);
+ };
+ wrap.addEventListener('click',e=>{const btn=e.target.closest('[data-nf-secret-action]');if(btn)dismiss(btn.dataset.nfSecretAction==='view');});
+}
+// Record the feature installation date even if the athlete hasn't synced a sport yet.
+// Initialising locally never triggers historical discovery. Cloud restore may replace
+// the local snapshot, so reinitialise the empty marker when that restore completes.
+function nfSecretInitializeInstall(isCloudRestore){
+ if(nfSecretPathData())return;
+ nfSecretEnsureData();
+ if(isCloudRestore){save();}
+ else {try{localStorage.setItem(key,JSON.stringify(db))}catch(_e){}}
+}
+document.addEventListener('DOMContentLoaded',()=>nfSecretInitializeInstall(false),{once:true});
+window.addEventListener('nf:cloud-save-loaded',()=>setTimeout(()=>nfSecretInitializeInstall(true),0));
+window.nfSecretMaybeReveal=nfSecretMaybeReveal;
+window.addEventListener('load',()=>setTimeout(nfSecretMaybeReveal,1000),{once:true});
+
 const nfTitlesCatalog=[
  {id:'first-steps',name:'First Steps',detail:'Log your first training session',achieved:()=>db.workouts.length+(db.cardio||[]).length>=1},
  {id:'iron-disciple',name:'Iron Disciple',detail:'Log 25 strength sessions',achieved:()=>db.workouts.length>=25},
@@ -2414,7 +2596,8 @@ const nfTitlesCatalog=[
  {id:'steady-flame',name:'Steady Flame',detail:'Train on 60 distinct days',achieved:()=>nfTrainingDayCount()>=60,progress:()=>[nfTrainingDayCount(),60]},
  {id:'athletic-vanguard',name:'Athletic Vanguard',detail:'Complete 30 Athleticism skill milestones',achieved:()=>nfTitleSkillCounts().Athleticism>=30,progress:()=>[nfTitleSkillCounts().Athleticism,30]},
  {id:'well-rounded',name:'Well Rounded',detail:'Complete 15 milestones in each of the four disciplines',achieved:()=>Object.values(nfTitleSkillCounts()).every(v=>v>=15),progress:()=>[Object.values(nfTitleSkillCounts()).reduce((n,v)=>n+Math.min(v,15),0),60]},
- {id:'system-master',name:'Master of the System',detail:'Complete 200 Skill Tree milestones across all disciplines',achieved:()=>nfTotalSkillNodes()>=200,progress:()=>[nfTotalSkillNodes(),200]}
+ {id:'system-master',name:'Master of the System',detail:'Complete 200 Skill Tree milestones across all disciplines',achieved:()=>nfTotalSkillNodes()>=200,progress:()=>[nfTotalSkillNodes(),200]},
+ ...NF_SECRET_PATHS.map(path=>({id:'secret-'+path.id,name:path.title,secretPath:path.id,detail:'Master all 10 nodes of '+path.name,achieved:()=>nfSecretMastered(path.id),progress:()=>[nfSecretTrackFlags(path.id).filter(Boolean).length,10]}))
 ];
 function nfTitleStore(){
  if(!db.nfTitleRewardsV1||typeof db.nfTitleRewardsV1!=='object')db.nfTitleRewardsV1={earned:{},equipped:null,initialized:false};
@@ -2443,7 +2626,7 @@ function nfRenderTitles(){
  const body=$('nfTitleCollectionBody');if(!body)return;
  const store=nfTitleStore();const active=nfTitlesCatalog.find(t=>t.id===store.equipped&&store.earned[t.id]);
  body.innerHTML='<div class="nf-title-equipped">'+(active?'Equipped: <strong>'+nfSafeText(active.name)+'</strong>':'No title equipped yet')+'</div><div class="nf-title-list">'+
-  nfTitlesCatalog.map(t=>{const earned=!!store.earned[t.id],selected=store.equipped===t.id&&earned;
+  nfTitlesCatalog.filter(t=>!t.secretPath||nfSecretIsDiscovered(t.secretPath)).map(t=>{const earned=!!store.earned[t.id],selected=store.equipped===t.id&&earned;
    const progress=!earned&&typeof t.progress==='function'?t.progress():null;
    const meter=progress?`<span class="nf-title-progress-text">${Math.min(progress[0],progress[1])} / ${progress[1]}</span><span class="nf-title-meter"><span style="width:${Math.min(100,Math.round(100*progress[0]/Math.max(1,progress[1])))}%"></span></span>`:'';
    const earnedDate=earned?`<small class="nf-title-earned-date">Unlocked ${nfSafeText(store.earned[t.id]?.date||'previously')}</small>`:'';
@@ -3825,18 +4008,30 @@ function renderSkills(){
  const fmtPace=p=>{let m=Math.floor(p),sec=Math.round((p-m)*60);if(sec===60){m++;sec=0}return m+':'+String(sec).padStart(2,'0')};
  const liftNames=['Bench press','Squat','Overhead press','Romanian deadlift'];
  const liftTracks=trials.map((t,i)=>({name:liftNames[i]||t[1],kind:'lift',key:t[0],targets:nfStrengthMilestoneTargets(t,strengthF)}));
- const tracks=[...liftTracks,...nfOtherSkillTracks()];
- const groups=[
+  const secretTracks=nfSecretDiscoveredTracks();
+  const tracks=[...liftTracks,...nfOtherSkillTracks(),...secretTracks];
+  const groups=[
   {name:'Strength',color:'#39dfaa',angle:-135,angles:[-166,-146,-124,-104],children:[0,1,2,3],symbol:'◆'},
   {name:'Running',color:'#f3c76f',angle:-45,angles:[-61,-29],children:[4,5],symbol:'↗'},
   {name:'Cycling',color:'#72c3f1',angle:45,angles:[29,61],children:[6,7],symbol:'◈'},
-  {name:'Athleticism',color:'#c4a0f6',angle:135,angles:[104,124,146,166],children:[8,9,10,11],symbol:'✦'}
- ];
- const achieved=[...liftTracks.map(t=>nfStrengthCompleted(t.key,t.targets,best,bw)),...nfOtherSkillCompleted(tracks.slice(4),cardio,tests)];
+   {name:'Athleticism',color:'#c4a0f6',angle:135,angles:[104,124,146,166],children:[8,9,10,11],symbol:'✦'}
+  ];
+  // New secret limbs grow into the gaps between the original four limbs.
+  // Each path receives a stable discovery slot, so existing branches never jump.
+  const nfSecretAngles=[0,90,180,-90,-10,80,170,-100,10,100,-170,-80,20];
+  const secretData=nfSecretPathData();
+  secretTracks.forEach((t,i)=>{
+   const slot=Number(secretData?.paths?.[t.id]?.slot);
+   const safeSlot=Number.isInteger(slot)&&slot>=0&&slot<nfSecretAngles.length?slot:i;
+   const angle=nfSecretAngles[safeSlot];
+   groups.push({name:t.name,color:t.color,angle,angles:[angle],children:[12+i],symbol:t.icon,secret:true,key:t.id,slot:safeSlot});
+  });
+ const achieved=[...liftTracks.map(t=>nfStrengthCompleted(t.key,t.targets,best,bw)),...nfOtherSkillCompleted(nfOtherSkillTracks(),cardio,tests),...secretTracks.map(t=>nfSecretTrackFlags(t.id))];
  const progress=achieved.map(nodes=>nodes.filter(Boolean).length);
  const frontier=achieved.map(nodes=>{const i=nodes.findIndex(done=>!done);return i<0?nodes.length:i});
  const description=(t,target)=>{
-  if(t.kind==='lift')return `${(target*bw).toFixed(1)} kg estimated 1RM`;
+   if(t.kind==='secret')return target?.label||'Secret milestone';
+   if(t.kind==='lift')return `${(target*bw).toFixed(1)} kg estimated 1RM`;
   if(t.kind==='mobility')return `${target} cm knee-to-wall · weaker ankle`;
   if(t.kind==='test')return `${target} ${t.unit}`;
   if(t.kind==='run')return `${target[0]} km @ ${fmtPace(target[1])}/km`;
@@ -3860,15 +4055,15 @@ function renderSkills(){
  const total=tracks.reduce((n,t)=>n+t.targets.length,0),earned=progress.reduce((n,v)=>n+v,0);
  const safeName=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
  const branchNames=['Foundation','Advanced','Mastery'];
- const branchStage=i=>i<6?branchNames[0]:i<18?branchNames[1]:branchNames[2];
+  const branchStage=(i,t)=>t?.kind==='secret'?(i===9?'Mastery':i<4?'Discovery':'Growth'):(i<6?branchNames[0]:i<18?branchNames[1]:branchNames[2]);
  const paths=groups.map((g,gi)=>{
-  const center=g.angle,hub=polar(184,center),roots=polar(87,center-3);
-  const trunk=`M ${pxy(roots)} C ${pxy(polar(120,center-12))} ${pxy(polar(162,center+8))} ${pxy(hub)}`;
+  const center=g.angle,hubRadius=g.secret?250+Math.floor(g.slot/4)*54:184,hub=polar(hubRadius,center),roots=polar(g.secret?102:87,center-3);
+  const trunk=`M ${pxy(roots)} C ${pxy(polar(g.secret?160:120,center-12))} ${pxy(polar(g.secret?hubRadius-35:162,center+8))} ${pxy(hub)}`;
   const twigs=g.children.map((ti,j)=>{
    const t=tracks[ti],angle=g.angles[j],diff=angle-center,done=achieved[ti];
    const stemPoints=t.targets.map((_,k)=>{
-    const fraction=k/Math.max(1,t.targets.length-1);
-    const radius=270+fraction*433;
+     const fraction=k/Math.max(1,t.targets.length-1);
+     const radius=(g.secret?hubRadius+63:270)+fraction*(g.secret?695-(hubRadius+63):433);
     const bend=Math.sin(fraction*7.3+ti*.87)*2.7*Math.sin(Math.PI*fraction);
     return polar(radius,center+diff*(.66+.34*fraction)+bend);
    });
@@ -3895,7 +4090,7 @@ function renderSkills(){
     const lx=x+signLabel*35,ly=y-(isNext?43:5);
     const zoomNodeLabel=showZoomLabel?`<g class="nf-tree-node-label ${isNext?'nf-tree-label-next':'nf-tree-label-earned'}" data-nf-label-x="${lx.toFixed(1)}" data-nf-label-y="${ly.toFixed(1)}" data-nf-label-priority="${isNext?0:1}" transform="translate(${lx.toFixed(1)} ${ly.toFixed(1)})"><rect x="${signLabel===1?0:-labelWidth}" y="-27" width="${labelWidth}" height="39" rx="11" fill="#0c202a" fill-opacity=".97" stroke="${g.color}" stroke-opacity="${isNext?1:.75}"/><text x="${signLabel===1?12:-labelWidth+12}" y="0" fill="${isNext?'#eefff9':'#bce9d5'}">${safeName(zoomLabelShort)}</text></g>`:'';
     const status=isEarned?'Earned':isNext?'Next':'Locked';
-    const label=safeName(`${t.name} · ${branchStage(k)} ${k+1}: ${description(t,t.targets[k])} · ${status}`);
+    const label=safeName(`${t.name} · ${branchStage(k,t)} ${k+1}: ${description(t,t.targets[k])} · ${status}`);
     const twig=`M ${pxy(stemPoint)} Q ${pxy({x:(x+stemPoint.x)/2+Math.cos(a)*sign*3,y:(y+stemPoint.y)/2+Math.sin(a)*sign*3})} ${pxy(tangent)}`;
     return `<g class="nf-tree-bud ${isEarned?'earned':isNext?'next':'locked'} ${mastery?'mastery':''}" role="button" tabindex="0" data-nf-node-track="${ti}" data-nf-node-index="${k}" aria-label="${label}">
       <title>${label}</title>
@@ -3919,7 +4114,7 @@ function renderSkills(){
    <g class="nf-tree-hub" tabindex="0" role="button" data-nf-group="${gi}" aria-label="Focus ${g.name} branch, ${groupEarned} of ${groupTotal} milestones earned">
    <circle cx="${hub.x.toFixed(1)}" cy="${hub.y.toFixed(1)}" r="62" fill="${g.color}" fill-opacity=".055" stroke="${g.color}" stroke-opacity=".14" stroke-width="3"/>
    <circle cx="${hub.x.toFixed(1)}" cy="${hub.y.toFixed(1)}" r="46" fill="#10222c" stroke="${g.color}" stroke-width="3.5"/>
-   <text x="${hub.x.toFixed(1)}" y="${(hub.y-8).toFixed(1)}" text-anchor="middle" fill="${g.color}" font-size="15" font-weight="900" letter-spacing=".8">${g.name.toUpperCase()}</text>
+   <text x="${hub.x.toFixed(1)}" y="${(hub.y-8).toFixed(1)}" text-anchor="middle" fill="${g.color}" font-size="15" font-weight="900" letter-spacing=".8">${safeName(g.secret?g.name.replace(/^The /,'').slice(0,11).toUpperCase():g.name.toUpperCase())}</text>
    <text x="${hub.x.toFixed(1)}" y="${(hub.y+17).toFixed(1)}" text-anchor="middle" fill="#eaf7f6" font-size="17" font-weight="700">${groupEarned} / ${groupTotal}</text>
    </g></g>`;
  }).join('');
@@ -3934,16 +4129,21 @@ function renderSkills(){
   const gEarned=g.children.reduce((n,i)=>n+progress[i],0),gTotal=g.children.reduce((n,i)=>n+tracks[i].targets.length,0);
   return `<details class="asc-skill-detail nf-organic-detail"><summary style="color:${g.color}">${g.name}<small>${gEarned}/${gTotal} earned</small></summary>${g.children.map(i=>{
    const t=tracks[i],n=frontier[i];
-   return `<details class="asc-skill-detail nf-organic-detail-track"><summary>${safeName(t.name)}<small>${progress[i]}/${t.targets.length}</small></summary><p class="muted" style="margin:9px 0">6 Foundation · 12 Advanced · 2 Mastery. Earned nodes remain unlocked.</p>${t.targets.map((target,j)=>`<div class="asc-skill-milestone ${achieved[i][j]?'done':j===n?'nf-milestone-next':'nf-milestone-future'}"><span><b>${j+1}. ${branchStage(j)}</b> · ${description(t,target)}</span><strong>${achieved[i][j]?'✓':j===n?'NEXT':'◌'}</strong></div>`).join('')}</details>`;
+   return `<details class="asc-skill-detail nf-organic-detail-track"><summary>${safeName(t.name)}<small>${progress[i]}/${t.targets.length}</small></summary><p class="muted" style="margin:9px 0">${t.kind==='secret'?'10 discovery and mastery nodes · earned progress is permanent.':'6 Foundation · 12 Advanced · 2 Mastery. Earned nodes remain unlocked.'}</p>${t.targets.map((target,j)=>`<div class="asc-skill-milestone ${achieved[i][j]?'done':j===n?'nf-milestone-next':'nf-milestone-future'}"><span><b>${j+1}. ${branchStage(j,t)}</b> · ${description(t,target)}</span><strong>${achieved[i][j]?'✓':j===n?'NEXT':'◌'}</strong></div>`).join('')}</details>`;
   }).join('')}</details>`;
  }).join('');
- const branchControls=groups.map((g,i)=>{
+ const branchControls=groups.filter(g=>!g.secret).map(g=>{const i=groups.indexOf(g);
   const e=g.children.reduce((n,j)=>n+progress[j],0),n=g.children.reduce((n,j)=>n+tracks[j].targets.length,0);
   return `<button type="button" class="nf-tree-focus" data-nf-tree-focus="${i}" aria-pressed="false" style="--nf-tree-accent:${g.color}"><span class="nf-tree-focus-name">${g.name}</span><small>${e} / ${n}</small></button>`;
- }).join('');
- $u('skillTrees').innerHTML=`<div class="nf-tree-forest-head"><div class="nf-tree-head-row"><div><span class="nf-tree-eyebrow">THE SYSTEM · GROWTH MAP</span><h3>Every milestone grows your path.</h3></div><strong>${earned} <span>/ ${total}</span></strong></div><div class="nf-tree-global-track"><div style="width:${total?earned/total*100:0}%"></div></div><p>Each discipline branches into its own achievements. Bright leaves are earned; the pulsing bud is your next challenge. All original unlocks and milestones are preserved.</p></div>
+  }).join('');
+  const secretControls=groups.filter(g=>g.secret).map(g=>{const i=groups.indexOf(g);
+   const e=g.children.reduce((n,j)=>n+progress[j],0),n=g.children.reduce((n,j)=>n+tracks[j].targets.length,0);
+   return `<button type="button" class="nf-tree-focus nf-secret-focus" data-nf-tree-focus="${i}" data-nf-secret-key="${g.key}" aria-pressed="false" style="--nf-tree-accent:${g.color}"><span class="nf-tree-focus-name">${safeName(g.name)}</span><small>${e} / ${n}</small></button>`;
+  }).join('');
+  $u('skillTrees').innerHTML=`<div class="nf-tree-forest-head"><div class="nf-tree-head-row"><div><span class="nf-tree-eyebrow">THE SYSTEM · GROWTH MAP</span><h3>Every milestone grows your path.</h3></div><strong>${earned} <span>/ ${total}</span></strong></div><div class="nf-tree-global-track"><div style="width:${total?earned/total*100:0}%"></div></div><p>Each discipline branches into its own achievements. Bright leaves are earned; the pulsing bud is your next challenge. All original unlocks and milestones are preserved.</p></div>
  <div class="nf-tree-focus-row" role="group" aria-label="Explore a skill branch"><button type="button" class="nf-tree-focus all" data-nf-tree-focus="all" aria-pressed="true">Whole tree<small>${earned} / ${total}</small></button>${branchControls}</div>
- <div class="asc-tree-toolbar nf-organic-toolbar"><span class="nf-tree-map-hint">Drag to explore · pinch to zoom · tap a leaf · goals appear when zoomed in</span><button type="button" class="secondary" id="skillZoomOut" aria-label="Zoom out">−</button><span id="skillZoomLabel" class="asc-tree-zoom-readout">100%</span><button type="button" class="secondary" id="skillZoomIn" aria-label="Zoom in">+</button><button type="button" class="secondary" id="skillZoomFit">Fit all</button></div>
+  ${secretControls?`<div class="nf-secret-focus-group"><span class="nf-secret-group-label">✦ DISCOVERED PATHS</span>${secretControls}</div>`:''}
+  <div class="asc-tree-toolbar nf-organic-toolbar"><span class="nf-tree-map-hint">Drag to explore · pinch to zoom · tap a leaf · goals appear when zoomed in</span><button type="button" class="secondary" id="skillZoomOut" aria-label="Zoom out">−</button><span id="skillZoomLabel" class="asc-tree-zoom-readout">100%</span><button type="button" class="secondary" id="skillZoomIn" aria-label="Zoom in">+</button><button type="button" class="secondary" id="skillZoomFit">Fit all</button></div>
  <div class="asc-unified-tree asc-tree-viewport nf-radial-tree nf-organic-tree" id="skillTreeViewport"><svg id="skillTreeSvg" viewBox="0 0 ${W} ${H}" role="group" aria-label="Organic branching YOUR PATH skill tree. Tap leaves to inspect milestones."><defs><filter id="nfBranchGlow" x="-70%" y="-70%" width="240%" height="240%"><feGaussianBlur stdDeviation="2.3" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter><filter id="nfWideGlow" x="-100%" y="-100%" width="300%" height="300%"><feGaussianBlur stdDeviation="12"/></filter><radialGradient id="nfOrganicCore"><stop offset="0%" stop-color="#244e43"/><stop offset="77%" stop-color="#122c2e"/><stop offset="100%" stop-color="#101f29"/></radialGradient></defs>
  ${rings}
  <circle cx="${cx}" cy="${cy}" r="110" fill="#55d8a5" fill-opacity=".055" stroke="#76ecb9" stroke-opacity=".10" stroke-width="2"/>
@@ -3952,7 +4152,7 @@ function renderSkills(){
  <circle cx="${cx}" cy="${cy}" r="70" fill="none" stroke="#a7f9d5" stroke-opacity=".3" stroke-width="1.3" stroke-dasharray="3 9"/>
  <text x="${cx}" y="${cy-10}" font-size="24" font-weight="900" text-anchor="middle" fill="#f2fff9" letter-spacing="1.6">THE</text><text x="${cx}" y="${cy+22}" font-size="24" font-weight="900" text-anchor="middle" fill="#70f0b1" letter-spacing="1">SYSTEM</text></svg><div class="nf-tree-inline-goal" id="nfTreeInlineGoal" role="status" aria-live="polite" hidden></div></div>
  <div class="nf-tree-inspect" id="nfTreeSelection" aria-live="polite"><div class="nf-tree-inspect-icon">✦</div><div><strong>Your next challenge is waiting</strong><p>Tap a leaf to see its goal in the map. Full milestone history is available below the tree.</p></div></div>
- <div class="nf-tree-legend"><span><i class="nf-legend-leaf earned"></i> Earned</span><span><i class="nf-legend-leaf next"></i> Next</span><span><i class="nf-legend-leaf locked"></i> Future</span><span>✧ Mastery</span></div>
+ <div class="nf-tree-legend"><span><i class="nf-legend-leaf earned"></i> Earned</span><span><i class="nf-legend-leaf next"></i> Next</span><span><i class="nf-legend-leaf locked"></i> Future</span><span>✧ Mastery</span>${secretControls?'<span class="nf-tree-secret-legend">✦ Secret paths revealed</span>':''}</div>
  <div class="nf-tree-goal-section"><details class="nf-tree-goals-disclosure" id="nfTreeGoalsDisclosure" ${nfWrittenGoalPanelOpen?'open':''}><summary><span>Next &amp; completed goals <small class="nf-disclosure-hint">· tap selected branch again to toggle</small></span><span class="nf-disclosure-arrow" aria-hidden="true">⌄</span></summary><div class="nf-tree-goals is-overview" id="nfTreeGoals" aria-live="polite"></div></details></div>
  <h3 class="nf-tree-details-heading">Milestones by discipline</h3><div class="asc-skill-details">${details}</div>`;
  // Display exact next goals and past successes without needing precision taps on small leaves.
@@ -3961,7 +4161,8 @@ function renderSkills(){
  // Additional mastery feats are *optional* and never replace the 240 original skill nodes.
  // Each is earned by repeating a high-end verified performance on separate recorded dates.
  const nfRepeatMastery=(ti)=>{
-  const t=tracks[ti],advanced=t.targets[17];let dates=[];
+   const t=tracks[ti];if(t.kind==='secret')return {count:0,target:0,detail:'',note:'',hidden:true};
+   const advanced=t.targets[17];let dates=[];
   if(t.kind==='lift'){
    const target=Number(advanced)*bw;
    dates=(db.workouts||[]).filter(w=>w.date&&(w.sets||[]).some(x=>{
@@ -3987,7 +4188,10 @@ function renderSkills(){
     note:t.kind==='test'||t.kind==='mobility'?'Only recorded measurements on separate days count for repeat mastery.':'Recorded workouts and activities count automatically.'};
  };
  const nfTreeRewards=(ti,compact=false)=>{
-  const group=groups.find(g=>g.children.includes(ti));if(!group)return '';
+   const group=groups.find(g=>g.children.includes(ti));if(!group)return '';
+   if(group.secret){const t=tracks[ti],master=nfSecretMastered(t.id);
+    return `<div class="nf-tree-reward-links ${compact?'compact':''}"><span class="nf-tree-reward-label">✦ SECRET PATH REWARDS</span><small>+50 XP discovery · +20 XP per growth node · +50 XP mastery</small><span class="nf-tree-reward-label">MASTERY TITLE · ${safeName(t.title)}</span><small>${master?'Unlocked — equip in Titles':'Complete all 10 nodes to earn the title'}</small><button type="button" data-nf-skill-reward="titles">View titles</button></div>`;
+   }
   const gear=group.name==='Strength'?['top']:group.name==='Athleticism'?['shorts']:['shoes','sunglasses'];
   const available=gear.map(type=>{
    const cfg=NF_EQUIPMENT_REQUIREMENTS[type],unlock=nfEquipmentUnlocks(type);
@@ -4006,7 +4210,7 @@ function renderSkills(){
      ${title?`<span class="nf-tree-reward-label">RELATED TITLE · ${safeName(title.name)}</span><small>${safeName(title.detail)}</small><button type="button" data-nf-skill-reward="titles">View titles</button>`:''}</div>`;
  };
  const nfRepeatMasteryMarkup=(ti)=>{
-  const repeat=nfRepeatMastery(ti),done=repeat.count===repeat.target;
+   const repeat=nfRepeatMastery(ti);if(repeat.hidden)return '';const done=repeat.count===repeat.target;
   return `<div class="nf-tree-repeat ${done?'is-earned':''}"><span>${done?'✦':'◇'} REPEAT-PERFORMANCE MASTERY</span>
    <strong>${repeat.count} / ${repeat.target}</strong><p>${safeName(repeat.detail)}</p>
    <div class="nf-tree-repeat-bar"><i style="width:${Math.round(repeat.count/repeat.target*100)}%"></i></div>
@@ -4017,15 +4221,15 @@ function renderSkills(){
   const done=achieved[ti].map((v,k)=>v?k:-1).filter(k=>k>=0);
   const recent=done.slice(-2).reverse();
   const isComplete=n>=t.targets.length;
-  const nextLabel=isComplete?'Every milestone in this track has been earned':`<b>#${n+1} ${branchStage(n)}:</b> ${safeName(description(t,t.targets[n]))}`;
-  const history=done.length?`<details class="nf-tree-goal-history"><summary>View all ${done.length} earned milestones</summary><ul>${done.slice().reverse().map(k=>`<li>✓ #${k+1} ${branchStage(k)} · ${safeName(description(t,t.targets[k]))}</li>`).join('')}</ul></details>`:'';
+  const nextLabel=isComplete?'Every milestone in this track has been earned':`<b>#${n+1} ${branchStage(n,t)}:</b> ${safeName(description(t,t.targets[n]))}`;
+  const history=done.length?`<details class="nf-tree-goal-history"><summary>View all ${done.length} earned milestones</summary><ul>${done.slice().reverse().map(k=>`<li>✓ #${k+1} ${branchStage(k,t)} · ${safeName(description(t,t.targets[k]))}</li>`).join('')}</ul></details>`:'';
   return `<article class="nf-tree-goal-card" data-nf-goal-track="${ti}"><h4>${safeName(t.name)} <small>${progress[ti]} / ${t.targets.length}</small></h4><p class="nf-tree-goal-next">${nextLabel}</p><p class="nf-tree-goal-earned"><b>Previously achieved:</b> ${recent.length?recent.map(k=>`#${k+1} ${safeName(description(t,t.targets[k]))}`).join(' · '):'No completed goals yet'}</p>${history}${nfTreeRewards(ti)}${nfRepeatMasteryMarkup(ti)}</article>`;
  };
  const renderGoalPanel=(which='all',selectedTrack=null)=>{
   const box=document.getElementById('nfTreeGoals');if(!box)return;
   goalContext=String(which);goalTrack=selectedTrack;
   const overview=which==='all'&&selectedTrack==null;
-  let selected=selectedTrack!=null?[selectedTrack]:overview?groups.map(g=>g.children.find(i=>frontier[i]<tracks[i].targets.length)??g.children[0]):groups[Number(which)]?.children||[];
+  let selected=selectedTrack!=null?[selectedTrack]:overview?groups.filter(g=>!g.secret).map(g=>g.children.find(i=>frontier[i]<tracks[i].targets.length)??g.children[0]):groups[Number(which)]?.children||[];
   selected=selected.filter(i=>Number.isInteger(i)&&tracks[i]);
   const name=selectedTrack!=null?tracks[selectedTrack].name:overview?'Your next goals across all disciplines':groups[Number(which)]?.name+' goals';
   box.classList.toggle('is-overview',overview);
@@ -4039,12 +4243,12 @@ function renderSkills(){
   const next=frontier[ti];
   const priorText=prior===undefined?'None yet':`#${prior+1} ${safeName(description(t,t.targets[prior]))}`;
   const upcoming=next>=t.targets.length?'Track complete':`#${next+1} ${safeName(description(t,t.targets[next]))}`;
-  inspector.innerHTML=`<div class="nf-tree-inspect-icon">${achieved[ti][k]?'✓':k===frontier[ti]?'◈':'◌'}</div><div><strong>${safeName(t.name)} · ${branchStage(k)} ${k+1}</strong><p>${safeName(description(t,t.targets[k]))} <span class="nf-tree-inspect-status">${state}</span></p><p><b>Next:</b> ${upcoming} · <b>Previously earned:</b> ${priorText}</p>${nfTreeRewards(ti,true)}${nfRepeatMasteryMarkup(ti)}</div>`;
+  inspector.innerHTML=`<div class="nf-tree-inspect-icon">${achieved[ti][k]?'✓':k===frontier[ti]?'◈':'◌'}</div><div><strong>${safeName(t.name)} · ${branchStage(k,t)} ${k+1}</strong><p>${safeName(description(t,t.targets[k]))} <span class="nf-tree-inspect-status">${state}</span></p><p><b>Next:</b> ${upcoming} · <b>Previously earned:</b> ${priorText}</p>${nfTreeRewards(ti,true)}${nfRepeatMasteryMarkup(ti)}</div>`;
   const inline=document.getElementById('nfTreeInlineGoal');
   if(inline){
    inline.hidden=false;
    inline.style.setProperty('--nf-tree-selected-accent',group.color);
-   inline.innerHTML=`<strong>${safeName(t.name)} · ${branchStage(k)} #${k+1}</strong><span>${safeName(description(t,t.targets[k]))} · ${state}</span>`;
+   inline.innerHTML=`<strong>${safeName(t.name)} · ${branchStage(k,t)} #${k+1}</strong><span>${safeName(description(t,t.targets[k]))} · ${state}</span>`;
   }
   // The written overview is optional and stays where the user left it.
   // Never open a large panel automatically in response to a leaf tap.
@@ -4784,7 +4988,7 @@ async function syncStrava(){
  const r=await api('sync',{provider:'strava'});db.stravaIgnoredIds??=[];
  let added=0,skipped=0,corrected=0,reconciled=0;
  const stravaTypes={Run:'run',TrailRun:'run',VirtualRun:'run',Ride:'cycle',VirtualRide:'cycle',GravelRide:'cycle',MountainBikeRide:'cycle',EBikeRide:'cycle',Walk:'walk',Hike:'walk'};
- for(const a of r.activities||[]){
+  for(const a of (r.activities||[]).slice().sort((x,y)=>String(x.start_date_local||x.start_date||'').localeCompare(String(y.start_date_local||y.start_date||'')))){
   const id=String(a.id||'');if(!id||db.stravaIgnoredIds.includes(id)){skipped++;continue;}
   const sportType=String(a.sport_type||a.type||'Workout'),type=stravaTypes[sportType]||'exercise';
   const distance=Math.round((Number(a.distance)||0)/10)/100,
@@ -4810,9 +5014,11 @@ async function syncStrava(){
   const xp=type==='exercise'?nfExerciseXP(minutes):cardioXP(type,distance,minutes);
   db.cardio.push({id:'strava-'+id,stravaId:id,source:'strava',date,type,distance:type==='exercise'?0:distance,
     sourceDistanceKm:type==='exercise'?distance:null,minutes,startTime,xp,paceBonus,activityLabel:label,sportType});
-  db.xp+=xp;added++;
- }
- if(added||corrected||reconciled)refreshViews();
+   db.xp+=xp;added++;nfSecretRecordProviderEvent('strava',a);
+  }
+  const secretChanged=nfSecretRefreshProgress();
+  if(added||corrected||reconciled||secretChanged)refreshViews();
+  if(secretChanged)nfSecretMaybeReveal();
  window.nfAuditImport?.('Strava',{message:`${added} imported, ${corrected} corrected, ${reconciled} reconciled, ${skipped} skipped`});
  say('Strava: '+added+' activities imported (including Other Exercise), '+corrected+' distances corrected, '+reconciled+' overlapping Oura workouts reconciled, '+skipped+' skipped/already present. '+(r.activities||[]).length+' checked.');
 }
@@ -4874,15 +5080,15 @@ function importOuraWorkouts(rows){
     activity:name,minutes,distance:hasDistance?distance:null,xp});
   db.cardio.push({id:'oura-'+id,ouraId:id,source:'oura',ouraSource:source,date,startTime:start,
     type:resolvedType,distance:hasDistance?distance:0,minutes,xp,paceBonus:0,activityLabel:name,sportType:name});
-  db.xp+=xp;added++;
- }
- return {added,duplicates,uncertain};
+   db.xp+=xp;added++;nfSecretRecordProviderEvent('oura',a);
+  }
+  return {added,duplicates,uncertain,secretChanged:nfSecretRefreshProgress()};
 }
 // Recover previously imported Oura-only generic sessions on app start; their XP was already awarded.
 nfMigrateOuraExerciseSessions();
 const nfExistingRenderAll=renderAll;
 renderAll=function(...args){nfMigrateOuraExerciseSessions();return nfExistingRenderAll(...args);};
-async function syncOura(){const r=await api('sync',{provider:'oura',timezone:Intl.DateTimeFormat().resolvedOptions().timeZone||'Australia/Brisbane'});db.ouraConnected=true;db.ouraSyncFailed=false;db.ouraRecovery??={};for(const x of r.recovery||[])db.ouraRecovery[x.date]=x;applyOuraHabits(r.recovery||[]);const w=importOuraWorkouts(r.workouts||[]);save();renderRecovery();renderQuests();window.dispatchEvent(new Event('nf:oura-synced'));if(w.added)refreshViews();window.nfAuditImport?.('Oura',{message:`${w.added} imported, ${w.duplicates} duplicates skipped, ${w.uncertain} uncertain`});const todayDate=typeof today==='function'?today():new Date().toLocaleDateString('en-CA');
+async function syncOura(){const r=await api('sync',{provider:'oura',timezone:Intl.DateTimeFormat().resolvedOptions().timeZone||'Australia/Brisbane'});db.ouraConnected=true;db.ouraSyncFailed=false;db.ouraRecovery??={};for(const x of r.recovery||[])db.ouraRecovery[x.date]=x;applyOuraHabits(r.recovery||[]);const w=importOuraWorkouts(r.workouts||[]);save();renderRecovery();renderQuests();window.dispatchEvent(new Event('nf:oura-synced'));if(w.added||w.secretChanged)refreshViews();if(w.secretChanged)nfSecretMaybeReveal();window.nfAuditImport?.('Oura',{message:`${w.added} imported, ${w.duplicates} duplicates skipped, ${w.uncertain} uncertain`});const todayDate=typeof today==='function'?today():new Date().toLocaleDateString('en-CA');
  const recent=(r.recovery||[]).filter(x=>x&&x.date).sort((a,b)=>String(b.date).localeCompare(String(a.date)))[0];
  const todayValues=(r.recovery||[]).find(x=>x?.date===todayDate);
  const readyToday=todayValues?.readiness!=null;
