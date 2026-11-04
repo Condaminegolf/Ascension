@@ -584,6 +584,21 @@ body.nf-onboard-open{overflow:hidden}
 @media(max-width:430px){.nf-onboard-card{border-radius:17px;padding:21px}.nf-onboard-card h2{font-size:24px}.nf-onboard-stepper{font-size:9px}.nf-onboard-mode button{font-size:12px}}
 body:is([data-nf-theme="lavender"],[data-nf-theme="blush"],[data-nf-theme="forest"]) .nf-onboard-card{background:#fbfcfd;border-color:#c4d6d4;color:#223740}body:is([data-nf-theme="lavender"],[data-nf-theme="blush"],[data-nf-theme="forest"]) .nf-onboard-card h2,body:is([data-nf-theme="lavender"],[data-nf-theme="blush"],[data-nf-theme="forest"]) .nf-onboard-field label{color:#20353c}body:is([data-nf-theme="lavender"],[data-nf-theme="blush"],[data-nf-theme="forest"]) .nf-onboard-card input,body:is([data-nf-theme="lavender"],[data-nf-theme="blush"],[data-nf-theme="forest"]) .nf-onboard-card select{background:#fff;color:#213942;border-color:#bccdd0}
 </style>
+<style id="nf-new-athlete-tour-css">
+#nfFirstSteps.hidden{display:none!important}
+#nfFirstSteps{position:fixed;inset:0;z-index:2147482000;background:#020b12c7;display:flex;align-items:center;justify-content:center;padding:18px;backdrop-filter:blur(8px)}
+#nfFirstSteps .nf-first-card{width:min(100%,440px);background:linear-gradient(160deg,#16332e,#101c2b);border:1px solid #6bc7a3;border-radius:20px;padding:24px;box-shadow:0 16px 55px #000a;color:#eaf7f1}
+#nfFirstSteps .nf-first-kicker{font:800 11px/1.5 system-ui;letter-spacing:.15em;color:#8fe6ba}
+#nfFirstSteps h2{font-size:24px;margin:12px 0;color:#f1f8f6}
+#nfFirstSteps p{font-size:14px;line-height:1.55;color:#c2d4d1}
+#nfFirstSteps .nf-first-progress{display:flex;gap:5px;margin:19px 0}
+#nfFirstSteps .nf-first-progress i{height:5px;border-radius:5px;background:#33554b;flex:1}
+#nfFirstSteps .nf-first-progress i.on{background:#80e1b1}
+#nfFirstSteps .nf-first-actions{display:flex;gap:8px;align-items:center;justify-content:space-between;margin-top:17px}
+#nfFirstSteps button{min-height:43px;padding:9px 15px;border:1px solid #6ecba5;border-radius:10px;background:#176c50;color:#fff;font-weight:800}
+#nfFirstSteps button.secondary{background:transparent;border-color:#59736d;color:#b8cec7}
+@media(prefers-reduced-motion:reduce){#nfFirstSteps{backdrop-filter:none}}
+</style>
 <style id="nf-character-collapsibles-style">
 /* Compact Character accordion. Native details preserves form controls and keyboard accessibility. */
 #hunter details.nf-collapsible{overflow:hidden}
@@ -2130,6 +2145,12 @@ body.nf-input-focus #nfMenuToggle:not([aria-expanded="true"]){opacity:.45}
  <button type="button" id="nfCloudConflictKeepLocal" class="secondary">Keep this device's version</button>
  </div>
 </div><div id="cloudGuest"><div class="grid2"><div class="field"><label for="cloudEmail">Email</label><input id="cloudEmail" type="email" autocomplete="email" placeholder="you@example.com"></div><div class="field"><label for="cloudPassword">Password</label><input id="cloudPassword" type="password" autocomplete="current-password" minlength="8" placeholder="At least 8 characters"></div></div><div class="actions"><button class="primary" type="button" id="cloudSignIn">Sign in</button><button type="button" id="cloudSignUp">Create account</button><button type="button" id="cloudResetPassword">Reset password</button><button type="button" id="cloudResendConfirmation">Resend confirmation</button></div></div><div id="cloudMember" class="hidden"><p><strong id="cloudUserEmail"></strong></p><div class="actions"><button class="primary" type="button" id="cloudUpload">Upload this device's data</button><button type="button" id="cloudDownload">Download cloud data</button><button type="button" id="cloudSignOut">Sign out</button></div><p class="muted">Automatic sync is enabled after cloud data is loaded or this device's data is uploaded. Check the status above before switching devices. Export a JSON backup before your first migration.</p></div></section><div class="panel"><h2>Your Training Profile</h2><div class="grid2"><div class="field"><label>Height (cm)</label><input id="heightCm" type="number" min="100" max="250" step="1"></div><div class="field"><label>Starting bodyweight (kg)</label><input id="startWeight" type="number" min="30" max="350" step="0.1"></div><div class="field"><label for="nfProfileGoalWeight">Desired bodyweight (kg)</label><input id="nfProfileGoalWeight" type="number" min="30" max="350" step="0.1"></div><div class="field"><label>Performance benchmark category</label><select id="benchmarkCategory"><option value="open">Open / Custom (existing targets)</option><option value="male">Male benchmarks</option><option value="female">Female benchmarks</option></select></div></div><p class="muted">Your height and starting weight come from your own profile. Benchmark category changes performance milestones, not your recorded results, XP per workout, Discipline, or Recovery. Open / Custom retains the existing benchmarks. Height is recorded for your profile; it does not automatically increase strength targets. Bodyweight-adjusted achievements use your latest logged weight, or your starting weight if none is logged.</p><button class="secondary" onclick="saveProfile()">Save body profile</button><div class="field"><label>Athlete name</label><input id="hunterName" placeholder="Your name"></div><button class="primary" onclick="saveName()">SAVE NAME</button><p class="foot">Your records are saved locally and automatically synced when signed in and online. Export a backup periodically. Sign in above to sync between devices. Export a backup before migrating or resetting data.</p><button class="secondary" onclick="document.getElementById('importFile').click()">Import Save</button><input type="file" id="importFile" accept="application/json" class="hidden" onchange="importData(event)"><p class="foot warn">Reset permanently removes local records.</p><button class="secondary" onclick="resetData()">Reset All Data</button></div></main><footer class="foot">Training guidance: start with manageable loads, use controlled technique, and progress gradually. Pelvic floor exercises should involve full relaxation; stop if they cause pain. This app is a training tracker, not medical advice. <a href="./privacy.html">Privacy Policy</a> · <a href="./terms.html">Terms of Service</a></footer></div>
+<div id="nfFirstSteps" class="hidden" role="dialog" aria-modal="true" aria-labelledby="nfFirstStepsTitle">
+ <section class="nf-first-card"><div class="nf-first-kicker">THE SYSTEM · YOUR FIRST STEPS</div>
+ <h2 id="nfFirstStepsTitle">Your path begins</h2><p id="nfFirstStepsDescription"></p>
+ <div class="nf-first-progress" id="nfFirstStepsProgress" aria-hidden="true"></div>
+ <div class="nf-first-actions"><button class="secondary" type="button" id="nfFirstStepsSkip">Skip guide</button><button type="button" id="nfFirstStepsNext">Next</button></div></section>
+</div>
 <div id="nfWelcomeOverlay" class="nf-onboard-backdrop hidden" role="dialog" aria-modal="true" aria-labelledby="nfOnboardTitle">
  <section class="nf-onboard-card" aria-describedby="nfOnboardIntro">
   <div class="nf-onboard-brand">YOUR PATH <span>THE SYSTEM</span></div>
@@ -4778,6 +4799,27 @@ window.nfSocialCloudContext=()=>({client,user});
  const ow=id=>document.getElementById(id);
  let onboardingMode='create',onboardingStage='account',onboardingBusy=false,cloudAvailable=true,onboardingLocalMode=false;
  const onboardStorageKey='nextform.onboarding.v1';
+  let nfFirstStepIndex=0;
+  const nfFirstSteps=[
+   ['Train without confusion','Open Train. Your scheduled workout comes first; log sets or cardio there, and save partial sessions if needed.'],
+   ['Connect your devices','Open the menu and connect Strava and Oura. Your existing activities can support training progress, but duplicate sessions should count only once.'],
+   ['Discover THE SYSTEM','Character shows your performance radar, rank and growing Skill Tree. New milestones unlock as you record real progress.'],
+   ['Find your friends','In Friends, search for other athletes by their Athlete Name, request a connection and compare weekly results.']
+  ];
+  function nfFirstStepsRender(){
+   const el=ow('nfFirstSteps');if(!el)return;
+   ow('nfFirstStepsTitle').textContent=nfFirstSteps[nfFirstStepIndex][0];
+   ow('nfFirstStepsDescription').textContent=nfFirstSteps[nfFirstStepIndex][1];
+   ow('nfFirstStepsProgress').innerHTML=nfFirstSteps.map((_,i)=>'<i class="'+(i<=nfFirstStepIndex?'on':'')+'"></i>').join('');
+   ow('nfFirstStepsNext').textContent=nfFirstStepIndex===nfFirstSteps.length-1?'Finish':'Next';
+  }
+  function nfFirstStepsHide(){ow('nfFirstSteps')?.classList.add('hidden');try{localStorage.setItem('nextform.first-steps.v1','complete')}catch(_){} }
+  function nfFirstStepsStart(){
+   try{if(localStorage.getItem('nextform.first-steps.v1')==='complete')return}catch(_){}
+   nfFirstStepIndex=0;nfFirstStepsRender();ow('nfFirstSteps')?.classList.remove('hidden');
+  }
+  ow('nfFirstStepsSkip')?.addEventListener('click',nfFirstStepsHide);
+  ow('nfFirstStepsNext')?.addEventListener('click',()=>{if(nfFirstStepIndex<3){nfFirstStepIndex++;nfFirstStepsRender()}else nfFirstStepsHide()});
  const hasExistingLocalProgress=()=>Boolean((db.workouts||[]).length||(db.cardio||[]).length||(db.metrics||[]).length||
    (db.name&&db.name!=='Athlete')||localStorage.getItem('ascension_cloud_last_sync'));
  const onboardingNeeded=()=>!localStorage.getItem(onboardStorageKey)&&!hasExistingLocalProgress();
@@ -4828,16 +4870,16 @@ window.nfSocialCloudContext=()=>({client,user});
    const {data,error}=await client.auth.signUp({email:a.email,password:a.password,options:{emailRedirectTo:location.origin+location.pathname,data:{display_name:a.name}}});if(error)throw error;
    // Account creation succeeded; save profile and starting measurements only now.
    nfWelcomeSaveProfile(p,a.name);
-   if(data.session){await enterSession(data.session);nfWelcomeHide(true);}
+   if(data.session){await enterSession(data.session);nfWelcomeHide(true);nfFirstStepsStart();}
    else {ow('nfOnboardPassword').value='';localStorage.setItem(onboardStorageKey,'profile-pending-confirmation');nfWelcomeStage('success');ow('nfOnboardSuccessText').textContent='We sent a confirmation link to '+a.email+'. Confirm your email, then sign in to enable cloud sync. Your starting profile has been saved on this device.';}
   }catch(e){nfWelcomeMessage(e.message||String(e));}
   finally{onboardingBusy=false;ow('nfOnboardFinish').disabled=false;}
  }
  function nfWelcomeLocal(){
-  if(onboardingStage==='success'){nfWelcomeHide(true);return;}
+  if(onboardingStage==='success'){nfWelcomeHide(true);nfFirstStepsStart();return;}
   // Allow local usage without pretending that an account was created.
   if(onboardingStage!=='fitness'){nfWelcomeMode('create');onboardingLocalMode=true;nfWelcomeStage('fitness');ow('nfOnboardFinish').textContent='Start training locally';ow('nfOnboardLocal').classList.add('hidden');ow('nfOnboardLocalNameWrap').classList.remove('hidden');ow('nfOnboardLocalName').value=ow('nfOnboardName').value||'';ow('nfOnboardLocalName').focus();return;}
-  try{const p=nfWelcomeProfileValid();nfWelcomeSaveProfile(p,ow('nfOnboardLocalName').value.trim()||ow('nfOnboardName').value.trim()||'Athlete');nfWelcomeHide(true)}catch(e){nfWelcomeMessage(e.message||String(e))}
+  try{const p=nfWelcomeProfileValid();nfWelcomeSaveProfile(p,ow('nfOnboardLocalName').value.trim()||ow('nfOnboardName').value.trim()||'Athlete');nfWelcomeHide(true);nfFirstStepsStart()}catch(e){nfWelcomeMessage(e.message||String(e))}
  }
  ow('nfOnboardNew').addEventListener('click',()=>nfWelcomeMode('create'));
  ow('nfOnboardExisting').addEventListener('click',()=>nfWelcomeMode('signin'));
@@ -4862,6 +4904,7 @@ window.nfSocialCloudContext=()=>({client,user});
 const status=(msg,error=false)=>{el('cloudStatus').textContent=msg;el('cloudStatus').dataset.error=String(error)};
 const storageKey='ascension_cloud_last_sync';
 const offlinePendingKey='yourpath:offline-pending:v1';
+ const cloudOwnerKey='yourpath:cloud-owner:v1';
 const wasOfflinePending=()=>{try{return Boolean(user&&localStorage.getItem(offlinePendingKey)===user.id)}catch(_){return false}};
 const markOfflinePending=()=>{try{if(user)localStorage.setItem(offlinePendingKey,user.id)}catch(_){}};
 const clearOfflinePending=()=>{try{if(user&&wasOfflinePending())localStorage.removeItem(offlinePendingKey)}catch(_){}};
@@ -4964,7 +5007,12 @@ function nfAttemptMerge(remote){
  ready=true;dirty=true;nfCloudClearConflict();status('Independent records merged · syncing…');queueUpload();return true;
 }
 async function getCloud(){const {data,error}=await client.from('ascension_saves').select('save_data,updated_at').eq('user_id',user.id).maybeSingle();if(error)throw error;return data}
-function markSynced(iso){nfSyncBase=localSnapshot();nfCloudClearConflict();cloudIso=iso||null;cloudStamp=Date.parse(iso)||0;localStorage.setItem(storageKey,String(cloudStamp));clearOfflinePending();dirty=false;ready=true;status('Cloud synced · '+new Date().toLocaleTimeString())}
+function markSynced(iso,uploadedSnapshot=null){
+  // The version acknowledged by the server may be older than edits made during an in-flight upload.
+  nfSyncBase=JSON.parse(JSON.stringify(uploadedSnapshot||localSnapshot()));nfCloudClearConflict();cloudIso=iso||null;cloudStamp=Date.parse(iso)||0;
+  localStorage.setItem(storageKey,String(cloudStamp));if(user)localStorage.setItem(cloudOwnerKey,user.id);
+  clearOfflinePending();dirty=false;ready=true;status('Cloud synced · '+new Date().toLocaleTimeString());
+ }
 async function upload(force=false){
  if(!user||!ready||!dirty&&!force)return;
  if(syncBusy){pending=true;return}
@@ -4975,7 +5023,7 @@ async function upload(force=false){
   else if(cloudIso){const {data,error}=await client.from('ascension_saves').update({save_data:snapshot,updated_at:new Date().toISOString()}).eq('user_id',user.id).eq('updated_at',cloudIso).select('updated_at').maybeSingle();if(error)throw error;result=data}
   else {const {data,error}=await client.from('ascension_saves').insert({user_id:user.id,save_data:snapshot,updated_at:new Date().toISOString()}).select('updated_at').single();if(error)throw error;result=data}
   if(!result){const remote=await getCloud();if(remote){if(nfAttemptMerge(remote))return;nfCloudSetConflict(remote,'Cloud was updated on another device during your save. Your unsynced workouts are preserved here. Choose which version to keep.')}else{ready=false;status('Cloud save changed unexpectedly. Local data is safe; reconnect before retrying.',true)}return}
-  const changedDuringUpload=JSON.stringify(snapshot)!==JSON.stringify(localSnapshot());markSynced(result.updated_at);
+  const changedDuringUpload=JSON.stringify(snapshot)!==JSON.stringify(localSnapshot());markSynced(result.updated_at,snapshot);
   if(changedDuringUpload){dirty=true;pending=true;markOfflinePending();status('New changes saved locally · syncing latest version…');}
  }catch(e){dirty=true;status('Cloud upload failed; changes kept locally and will retry: '+errMessage(e),true)}
  finally{syncBusy=false;if(pending&&ready){pending=false;queueUpload()} }
@@ -4989,12 +5037,24 @@ async function enterSession(session){
  status('Loading your cloud save…');
  try{
   const remote=await getCloud();if(generation!==loadGeneration)return;
-  if(remote){
+   const previousOwner=localStorage.getItem(cloudOwnerKey);
+   // Older installations did not store an owner ID. If they have a prior cloud stamp but this account has no save, do not silently claim that device data.
+   if(!previousOwner&&!remote&&Number(localStorage.getItem(storageKey))>0&&((db.workouts||[]).length||(db.cardio||[]).length||(db.metrics||[]).length)){
+     localBackup('Legacy local save awaiting account verification');ready=false;
+     status('This device has previously synced training data. To avoid mixing accounts, review your local backup before using the manual Upload action.',true);return;
+   }
+   if(previousOwner&&previousOwner!==user.id){
+     localBackup('Saved before switching cloud account');
+     if(remote){if(!validData(remote.save_data))throw Error('This account has an invalid cloud save.');db={};activate(remote.save_data);markSynced(remote.updated_at);status('Different account detected · its cloud profile restored safely.');}
+     else{ready=false;status('Different account detected. Local training belongs to another account. Your backup is preserved; sign in to the original account or use the explicit Upload control after reviewing your data.',true);}
+     return;
+   }
+   if(remote){
    const lastStamp=Number(localStorage.getItem(storageKey))||0;
    const localTraining=(db.workouts||[]).length||(db.cardio||[]).length||(db.metrics||[]).length;
    const locallyChanged=JSON.stringify(localSnapshot())!==JSON.stringify(remote.save_data);
    // A pending offline save must NEVER be replaced just because the cloud timestamp is unchanged.
-   if(locallyChanged&&wasOfflinePending()&&lastStamp===Date.parse(remote.updated_at)){
+   if(locallyChanged&&wasOfflinePending()&&lastStamp===Date.parse(remote.updated_at)&&(!nfSyncBase||JSON.stringify(nfSyncBase)===JSON.stringify(remote.save_data))){
     nfSyncBase=JSON.parse(JSON.stringify(remote.save_data));cloudIso=remote.updated_at;
     ready=true;dirty=true;status('Offline workout preserved · syncing to cloud…');queueUpload();
    }else if(localTraining&&locallyChanged&&(lastStamp!==Date.parse(remote.updated_at)||wasOfflinePending())){
@@ -5045,6 +5105,7 @@ async function init(){
  const nativeSetItem=Storage.prototype.setItem;
  Storage.prototype.setItem=function(k,v){nativeSetItem.call(this,k,v);if(this===localStorage&&k==='ascension_v1'&&!applying){queueUpload()}};
  document.addEventListener('visibilitychange',()=>{if(!document.hidden)refreshCloud();else if(dirty)upload(false)});
+  window.addEventListener('pagehide',()=>{if(user&&dirty)markOfflinePending()});
  window.addEventListener('online',()=>{if(user&&!ready&&!cloudConflict)enterSession({user});else if(dirty)queueUpload();else refreshCloud()});
  setInterval(()=>{if(user&&ready&&dirty)queueUpload()},15000);
  window.addEventListener('focus',()=>refreshCloud());

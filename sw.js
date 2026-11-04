@@ -1,5 +1,5 @@
 /* YOUR PATH: fast cached startup with background update check. Never cache account/API responses. */
-const VERSION='yp-golf-rank-alignment-20261104-v4';
+const VERSION='yp-launch-security-sync-onboard-20261104-v1';
 const CACHE='yourpath-shell-'+VERSION;
 const CORE=['./index.html','./cloud-config.js','./manifest.webmanifest'];
 const OPTIONAL=['./icon-192.png','./icon-512.png','./favicon.png','./apple-touch-icon.png','./your-path-mark.svg','./release-notes.json'];
