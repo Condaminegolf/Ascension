@@ -1892,6 +1892,13 @@ body.nf-input-focus #nfMenuToggle:not([aria-expanded="true"]){opacity:.45}
  left:0!important;top:0!important;width:100%!important;height:100%!important;
  object-fit:fill!important;filter:none!important;
 }
+</style><style id="nf-cloud-conflict-comparison-v1">
+.nf-cloud-compare{padding:10px 12px;margin:8px 0 12px;border:1px solid rgba(220,193,128,.35);border-radius:12px;background:rgba(12,25,39,.35)}
+.nf-cloud-compare-row{display:grid;grid-template-columns:minmax(110px,1.4fr) minmax(58px,.8fr) minmax(58px,.8fr);gap:8px;padding:6px 0;align-items:center}
+.nf-cloud-compare-row>:nth-child(n+2){text-align:right}
+.nf-cloud-compare p{font-size:.8rem;line-height:1.4;margin:8px 0 2px}
+.nf-cloud-conflict-actions{display:grid;grid-template-columns:1fr;gap:8px}
+.nf-cloud-conflict-actions button{min-height:42px;white-space:normal}
 </style><style id="nf-golf-mastery-gear-v1">
 .nf-golf-collection{margin:12px 0 20px;padding:12px;border:1px solid #b2a46a;border-radius:15px;background:linear-gradient(155deg,#12372e,#101d24)!important}
 .nf-golf-collection .nf-secret-gear-item{--secret-gear-color:#d4bc71;min-height:202px}
@@ -2138,9 +2145,12 @@ body.nf-input-focus #nfMenuToggle:not([aria-expanded="true"]){opacity:.45}
 <main id="records" class="hidden"><section class="panel"><div class="tag">YOUR WEEK / PERFORMANCE REVIEW</div><h2>Weekly performance review</h2><p class="muted">Your saved activity and progress, with a concise next-week recommendation.</p><div id="nfV3WeeklyReview"></div></section><div class="panel"><div class="tag">PERFORMANCE RECORDS</div><h2>Personal Bests</h2><p class="muted">Strength records use estimated 1RM from sets of 1–10 reps. Cardio pace records are based on completed sessions within ±10% of the stated distance.</p><div id="recordContent"></div></div><div class="panel"><div class="tag">PROGRESSIVE OVERLOAD</div><h2>Next Session Targets</h2><p class="muted">Recommendations use your last completed session. When every set reaches the top of its prescribed rep range, a small weight increase is suggested. Adjust for technique, recovery and comfort.</p><div id="overloadContent"></div></div></main><main id="settings" class="hidden"><section class="panel nf-appearance"><div class="tag">YOUR PATH / APPEARANCE</div><h2>Make it yours</h2><p class="muted">Switch the appearance of YOUR PATH. Your training data, accounts and connections stay unchanged.</p><div class="nf-theme-options" role="group" aria-label="Visual theme"><button type="button" class="nf-theme-option" data-nf-theme="path" aria-pressed="true"><span class="nf-swatch yp-swatch-path"></span><strong>YOUR PATH · Midnight</strong><small>Signature · Mint &amp; lavender</small></button><button type="button" class="nf-theme-option" data-nf-theme="tactical" aria-pressed="false"><span class="nf-swatch nf-swatch-dark"></span><strong>Legacy Dark</strong><small>Original · Deep forest</small></button><button type="button" class="nf-theme-option" data-nf-theme="lavender" aria-pressed="false"><span class="nf-swatch nf-swatch-lavender"></span><strong>Bounty &amp; Rosewood</strong><small>Cool white · Rich crimson · Rosewood</small></button><button type="button" class="nf-theme-option" data-nf-theme="forest" aria-pressed="false"><span class="nf-swatch nf-swatch-forest"></span><strong>Avocado &amp; Lemon Cake</strong><small>Avocado green · Light lemon cream</small></button><button type="button" class="nf-theme-option" data-nf-theme="blush" aria-pressed="false"><span class="nf-swatch nf-swatch-blush"></span><strong>Lemon Grove</strong><small>Soft sky blue · Lemon yellow · Honey brown</small></button></div></section><section class="panel" id="ascConnectedApps"><div class="tag">INTEGRATIONS</div><h2>Connected Apps</h2><p class="muted">Connect Strava to import cardio activities and Oura to view recovery. Sign in to YOUR PATH first. Imported activities earn XP once, and your existing records are retained.</p><div class="grid2"><div class="exercise"><h3>Strava</h3><div id="ascStravaStatus" class="muted">Checking connection…</div><div class="actions"><button type="button" id="ascStravaConnect">Connect Strava</button><button type="button" id="ascStravaSync">Sync activities</button><button type="button" id="ascStravaDisconnect" class="secondary">Disconnect</button></div></div><div class="exercise"><h3>Oura</h3><div id="ascOuraStatus" class="muted">Checking connection…</div><p class="muted">To display your connected Oura email, reconnect once to approve profile permissions. YOUR PATH only displays your email to you.</p><div class="actions"><button type="button" id="ascOuraConnect">Connect Oura</button><button type="button" id="ascOuraSync">Sync recovery</button><button type="button" id="ascOuraDisconnect" class="secondary">Disconnect</button></div></div></div><div id="ascIntegrationMessage" class="muted" role="status"></div><div id="ascOuraRecovery" class="exercise"><h3>Recovery overview</h3><p class="muted">Connect Oura and sync to see recent measurements.</p></div></section><section class="panel cloud-profile" id="cloudProfile"><div class="tag">YOUR ACCOUNT</div><h2>Profile & Cloud Sync</h2><p class="muted">Sign in on your phone or desktop to access the same YOUR PATH progress. Your cloud save is automatically downloaded when you sign in or reopen the app. Changes automatically upload after saving.</p><div id="cloudStatus" class="muted" role="status" aria-live="polite">Checking cloud configuration…</div>
 <div id="nfCloudConflict" class="nf-cloud-conflict hidden" role="region" aria-labelledby="nfCloudConflictTitle">
  <strong id="nfCloudConflictTitle">Two devices have different progress</strong>
- <p>Local workouts are preserved. Review the conflict rather than automatically overwriting either device.</p>
+ <p>Progress on this phone and in the cloud is different. Sync is paused to protect both. Download both backups before choosing a version.</p>
+ <div id="nfCloudConflictCompare" class="nf-cloud-compare" aria-live="polite"></div>
  <div class="nf-cloud-conflict-actions">
- <button type="button" id="nfCloudConflictBackup" class="secondary">Download local backup</button>
+ <button type="button" id="nfCloudConflictBackup" class="secondary">Download phone backup</button>
+ <button type="button" id="nfCloudConflictCloudBackup" class="secondary">Download cloud backup</button>
+ <button type="button" id="nfCloudConflictTryMerge" class="secondary">Try safe merge</button>
  <button type="button" id="nfCloudConflictUseCloud" class="secondary">Use cloud version</button>
  <button type="button" id="nfCloudConflictKeepLocal" class="secondary">Keep this device's version</button>
  </div>
@@ -4904,6 +4914,20 @@ window.nfSocialCloudContext=()=>({client,user});
 const status=(msg,error=false)=>{el('cloudStatus').textContent=msg;el('cloudStatus').dataset.error=String(error)};
 const storageKey='ascension_cloud_last_sync';
 const offlinePendingKey='yourpath:offline-pending:v1';
+// Keep a per-account confirmed server baseline across reloads for true three-way merging.
+// This is never a second source of truth: it is only used to detect which device changed what.
+const nfCloudBaseKey=id=>'yourpath:confirmed-cloud-base:v2:'+id;
+function nfReadCloudBase(id){
+ try{const record=JSON.parse(localStorage.getItem(nfCloudBaseKey(id))||'null');
+  return record?.owner===id&&record?.data&&validData(record.data)&&record.updated_at?record:null;
+ }catch(e){console.warn('Cloud comparison baseline unavailable',e);return null;}
+}
+function nfRememberCloudBase(iso,data){
+ if(!user||!iso||!validData(data))return;
+ try{localStorage.setItem(nfCloudBaseKey(user.id),JSON.stringify({owner:user.id,updated_at:iso,data}));}
+ catch(e){console.warn('Unable to store cloud comparison baseline',e);}
+}
+
  const cloudOwnerKey='yourpath:cloud-owner:v1';
 const wasOfflinePending=()=>{try{return Boolean(user&&localStorage.getItem(offlinePendingKey)===user.id)}catch(_){return false}};
 const markOfflinePending=()=>{try{if(user)localStorage.setItem(offlinePendingKey,user.id)}catch(_){}};
@@ -4913,18 +4937,31 @@ const localSnapshot=()=>JSON.parse(JSON.stringify(db));
 const errMessage=e=>e&&e.message?e.message:String(e);
 const setUi=()=>{el('cloudGuest').classList.toggle('hidden',!!user);el('cloudMember').classList.toggle('hidden',!user);el('cloudUserEmail').textContent=user?.email||''};
 function localBackup(reason){try{const stamp=new Date().toISOString();localStorage.setItem('ascension_cloud_backup_'+stamp,JSON.stringify({reason,save_data:localSnapshot()}));const keys=Object.keys(localStorage).filter(k=>k.startsWith('ascension_cloud_backup_')).sort();keys.slice(0,Math.max(0,keys.length-3)).forEach(k=>localStorage.removeItem(k));}catch(e){console.warn('Could not create local backup',e)}}
+function nfCloudCompareSummary(local,remote){
+ const count=(obj,field)=>Array.isArray(obj?.[field])?obj[field].length:0;
+ const left=localSnapshot(),right=remote?.save_data||{};
+ const el= document.getElementById('nfCloudConflictCompare');if(!el)return;
+ const names=[['workouts','Strength sessions'],['cardio','Cardio activities'],['metrics','Measurements']];
+ el.replaceChildren();
+ const head=document.createElement('div');head.className='nf-cloud-compare-row';
+ for(const title of ['Data','This phone','Cloud']){const x=document.createElement('strong');x.textContent=title;head.appendChild(x)}el.appendChild(head);
+ for(const [key,label] of names){const row=document.createElement('div');row.className='nf-cloud-compare-row';
+  for(const val of [label,String(count(left,key)),String(count(right,key))]){const x=document.createElement('span');x.textContent=val;row.appendChild(x)}el.appendChild(row)}
+ const footer=document.createElement('p');footer.textContent='XP: phone '+Number(left.xp||0)+' · cloud '+Number(right.xp||0)+'. Different counts do not show which copy is newer.';el.appendChild(footer);
+}
 function nfCloudSetConflict(remote,message){
  if(!remote||!validData(remote.save_data)){ready=false;status('Cloud conflict could not be loaded; local records remain on this device.',true);return}
  localBackup('Recovery copy before cloud conflict');
  cloudConflict={remote};ready=false;dirty=true;
+ nfCloudCompareSummary(localSnapshot(),remote);
  el('nfCloudConflict')?.classList.remove('hidden');
- status(message||'Another device has different saved progress. Review the conflict to continue syncing.',true);
+ status(message||'Sync paused: this phone and cloud have different progress. Export both backups before choosing a version.',true);
 }
-function nfCloudClearConflict(){cloudConflict=null;el('nfCloudConflict')?.classList.add('hidden')}
-function nfCloudExport(data){
+function nfCloudClearConflict(){cloudConflict=null;el('nfCloudConflict')?.classList.add('hidden');el('nfCloudConflictCompare')?.replaceChildren()}
+function nfCloudExport(data,kind='phone'){
  const blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json'});
  const url=URL.createObjectURL(blob),a=document.createElement('a');
- a.href=url;a.download='YOUR-PATH-local-recovery-'+new Date().toISOString().replace(/[:.]/g,'-')+'.json';
+ a.href=url;a.download='YOUR-PATH-'+kind+'-recovery-'+new Date().toISOString().replace(/[:.]/g,'-')+'.json';
  document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);
 }
 function activate(d){if(!validData(d))throw Error('Cloud save has an invalid format.');applying=true;try{db={...db,...d};localStorage.setItem(key,JSON.stringify(db));renderAll();window.nfSyncSkillUnlocks?.();nfActivateNoticeInbox();window.dispatchEvent(new Event('nf:cloud-save-loaded'))}finally{applying=false}}
@@ -5004,12 +5041,15 @@ function nfAttemptMerge(remote){
  if(!merged)return false;
  localBackup('Before automatic merge');
  activate(merged);cloudIso=remote.updated_at;cloudStamp=Date.parse(remote.updated_at)||0;
+ // The new upload must be compared against the CURRENT cloud, not the older common ancestor.
+ nfSyncBase=JSON.parse(JSON.stringify(remote.save_data));nfRememberCloudBase(remote.updated_at,remote.save_data);
  ready=true;dirty=true;nfCloudClearConflict();status('Independent records merged · syncing…');queueUpload();return true;
 }
 async function getCloud(){const {data,error}=await client.from('ascension_saves').select('save_data,updated_at').eq('user_id',user.id).maybeSingle();if(error)throw error;return data}
 function markSynced(iso,uploadedSnapshot=null){
   // The version acknowledged by the server may be older than edits made during an in-flight upload.
   nfSyncBase=JSON.parse(JSON.stringify(uploadedSnapshot||localSnapshot()));nfCloudClearConflict();cloudIso=iso||null;cloudStamp=Date.parse(iso)||0;
+  nfRememberCloudBase(cloudIso,nfSyncBase);
   localStorage.setItem(storageKey,String(cloudStamp));if(user)localStorage.setItem(cloudOwnerKey,user.id);
   clearOfflinePending();dirty=false;ready=true;status('Cloud synced · '+new Date().toLocaleTimeString());
  }
@@ -5028,7 +5068,12 @@ async function upload(force=false){
  }catch(e){dirty=true;status('Cloud upload failed; changes kept locally and will retry: '+errMessage(e),true)}
  finally{syncBusy=false;if(pending&&ready){pending=false;queueUpload()} }
 }
-function queueUpload(){if(!user)return;dirty=true;markOfflinePending();if(!ready){status('Workout saved on this device. Cloud sync will resume after reconnecting.');return;}clearTimeout(syncTimer);syncTimer=setTimeout(()=>upload(false),350)}
+function queueUpload(){
+ if(!user)return;dirty=true;markOfflinePending();
+ if(cloudConflict){status('Sync paused: phone and cloud have different progress. Back up both versions and review the conflict below.',true);return;}
+ if(!ready){status(navigator.onLine?'Changes saved on this phone. Checking the cloud before uploading…':'Changes saved on this phone. Will sync when internet returns.');return;}
+ clearTimeout(syncTimer);syncTimer=setTimeout(()=>upload(false),350);
+}
 async function refreshCloud(){if(!user||syncBusy||cloudConflict)return;if(!ready){if(navigator.onLine)await enterSession({user});return;}try{const remote=await getCloud();if(!remote)return;if(remote.updated_at!==cloudIso){if(dirty){if(nfAttemptMerge(remote))return;nfCloudSetConflict(remote,'A newer cloud save exists while this device has unsynced progress. Choose which copy to keep.');return}activate(remote.save_data);markSynced(remote.updated_at);status('Latest cloud data downloaded · '+new Date().toLocaleTimeString())}else if(dirty)queueUpload()}catch(e){status('Cloud refresh failed; using local data: '+errMessage(e),true)}}
 async function enterSession(session){
  const generation=++loadGeneration;
@@ -5038,6 +5083,8 @@ async function enterSession(session){
  try{
   const remote=await getCloud();if(generation!==loadGeneration)return;
    const previousOwner=localStorage.getItem(cloudOwnerKey);
+   const storedBase=nfReadCloudBase(user.id);
+   nfSyncBase=storedBase?.data?JSON.parse(JSON.stringify(storedBase.data)):null;
    // Older installations did not store an owner ID. If they have a prior cloud stamp but this account has no save, do not silently claim that device data.
    if(!previousOwner&&!remote&&Number(localStorage.getItem(storageKey))>0&&((db.workouts||[]).length||(db.cardio||[]).length||(db.metrics||[]).length)){
      localBackup('Legacy local save awaiting account verification');ready=false;
@@ -5051,15 +5098,34 @@ async function enterSession(session){
    }
    if(remote){
    const lastStamp=Number(localStorage.getItem(storageKey))||0;
-   const localTraining=(db.workouts||[]).length||(db.cardio||[]).length||(db.metrics||[]).length;
-   const locallyChanged=JSON.stringify(localSnapshot())!==JSON.stringify(remote.save_data);
-   // A pending offline save must NEVER be replaced just because the cloud timestamp is unchanged.
-   if(locallyChanged&&wasOfflinePending()&&lastStamp===Date.parse(remote.updated_at)&&(!nfSyncBase||JSON.stringify(nfSyncBase)===JSON.stringify(remote.save_data))){
-    nfSyncBase=JSON.parse(JSON.stringify(remote.save_data));cloudIso=remote.updated_at;
-    ready=true;dirty=true;status('Offline workout preserved · syncing to cloud…');queueUpload();
-   }else if(localTraining&&locallyChanged&&(lastStamp!==Date.parse(remote.updated_at)||wasOfflinePending())){
-    if(nfSyncBase&&nfAttemptMerge(remote))return;nfCloudSetConflict(remote,'This device has training data different from your account cloud save. Review both versions before continuing.');
-   }else{activate(remote.save_data);markSynced(remote.updated_at);status('Latest cloud save loaded · autosave on')}
+   const remoteStamp=Date.parse(remote.updated_at)||0;
+   const local=localSnapshot();
+   const same=(a,b)=>JSON.stringify(a)===JSON.stringify(b);
+   const locallyChanged=!same(local,remote.save_data);
+   const localTraining=(local.workouts||[]).length||(local.cardio||[]).length||(local.metrics||[]).length;
+   const baseMatchesStamp=storedBase&&storedBase.updated_at===remote.updated_at;
+   const localMatchesBase=!!storedBase&&same(local,storedBase.data);
+   const remoteMatchesBase=!!storedBase&&same(remote.save_data,storedBase.data);
+   if(!locallyChanged){activate(remote.save_data);markSynced(remote.updated_at);status('Cloud and phone confirmed in sync');}
+   else if(storedBase&&localMatchesBase){
+    // Only the cloud changed since our last confirmed version; there are no pending local edits.
+    localBackup('Before updating stale local copy');activate(remote.save_data);markSynced(remote.updated_at);
+    status('Newer cloud progress downloaded · in sync');
+   }else if(storedBase&&remoteMatchesBase){
+    // Only this phone changed; preserve the edits and upload using the confirmed version.
+    cloudIso=remote.updated_at;cloudStamp=remoteStamp;ready=true;dirty=true;
+    status('Phone changes preserved · uploading…');queueUpload();
+   }else if(storedBase&&nfAttemptMerge(remote))return;
+   else if(!storedBase&&lastStamp===remoteStamp&&previousOwner===user.id){
+    // Safe legacy upgrade: same confirmed cloud timestamp, no concurrent cloud edits.
+    nfSyncBase=JSON.parse(JSON.stringify(remote.save_data));nfRememberCloudBase(remote.updated_at,remote.save_data);
+    cloudIso=remote.updated_at;cloudStamp=remoteStamp;ready=true;dirty=true;
+    status('Existing phone changes preserved · uploading…');queueUpload();
+   }else if(!localTraining&&!wasOfflinePending()){
+    activate(remote.save_data);markSynced(remote.updated_at);status('Cloud profile restored · in sync');
+   }else{
+    nfCloudSetConflict(remote,'Sync paused: this phone and cloud both contain progress. Download both backups, then review the versions below.');
+   }
   }
   else {cloudIso=null;cloudStamp=0;ready=true;dirty=true;status('Creating first cloud save…');queueUpload()}
  }catch(e){status('Unable to load cloud save; local data retained. Cloud writes paused: '+errMessage(e),true)}
@@ -5088,6 +5154,19 @@ async function nfCloudKeepLocal(){
  }catch(e){ready=false;status('Unable to save this device: '+errMessage(e),true)}
 }
 el('nfCloudConflictBackup')?.addEventListener('click',()=>nfCloudExport(localSnapshot()));
+el('nfCloudConflictCloudBackup')?.addEventListener('click',async()=>{
+ if(!cloudConflict)return;
+ try{const remote=await getCloud();if(!remote||!validData(remote.save_data))throw Error('Cloud backup unavailable');
+ nfCloudExport(remote.save_data,'cloud');status('Cloud backup downloaded. Phone copy is still preserved. Sync remains paused.',true);
+ }catch(e){status('Could not download cloud backup: '+errMessage(e),true)}
+});
+el('nfCloudConflictTryMerge')?.addEventListener('click',async()=>{
+ if(!cloudConflict)return;
+ try{const remote=await getCloud();if(!remote)throw Error('Cloud copy unavailable');
+  if(nfSyncBase&&nfAttemptMerge(remote))return;
+  status('These copies have overlapping changes that cannot be merged safely. Download both backups; neither will be overwritten automatically.',true);
+ }catch(e){status('Could not compare the two saves: '+errMessage(e),true)}
+});
 el('nfCloudConflictUseCloud')?.addEventListener('click',nfCloudUseCloud);
 el('nfCloudConflictKeepLocal')?.addEventListener('click',nfCloudKeepLocal);
 async function uploadChoice(){if(!user)return;if(!confirm('Replace the cloud save with ALL data currently on this device? This may overwrite newer records from another device. Export a JSON backup first.'))return;ready=true;dirty=true;await upload(true)}
@@ -5487,7 +5566,8 @@ function renderSync(){if(!chip)return;
  const message=(cloud?.textContent||'').trim(),error=cloud?.dataset.error==='true';
  const guest=byId('cloudGuest'),member=byId('cloudMember'),signedIn=!!member&&!member.classList.contains('hidden');
  if(!navigator.onLine){status='offline';label='Offline';detail='Local saves remain available until connection returns'}
- else if(error||/failed|error|conflict|could not/.test(message.toLowerCase())){status='error';label='Sync issue';detail=message||'Review cloud status in settings'}
+ else if(!!byId('nfCloudConflict')&&!byId('nfCloudConflict').classList.contains('hidden')){status='error';label='Sync paused';detail='Two copies need review. Download backups before choosing a version.'}
+ else if(error||/failed|error|conflict|could not|paused/.test(message.toLowerCase())){status='error';label='Sync issue';detail=message||'Review cloud status in settings'}
  else if(signedIn&&/synced|downloaded|restored/.test(message.toLowerCase())&&!localDirty){status='synced';label='Cloud synced';detail=message}
  else if(signedIn&&localDirty){status='pending';label='Sync pending';detail='Saved locally; waiting for confirmed cloud sync'}
  else if(signedIn){status='syncing';label='Cloud checking';detail=message||'Checking account sync'}
