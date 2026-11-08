@@ -3898,10 +3898,16 @@ function nfEquipUnlockedGolfOutfit(){
 // Full cinematic Golf Mastery portraits are optional presentation artwork.
 // Individual equipment layers continue to drive all partial and mixed outfits.
 const NF_GOLF_MALE_MASTERY_PORTRAITS=['golf-male-rank-F.webp','golf-male-rank-E.webp','golf-male-rank-D.webp','golf-male-rank-C.webp','golf-male-rank-B.webp','golf-male-rank-A.webp','golf-male-rank-S.webp'];
+const NF_GOLF_FEMALE_MASTERY_PORTRAITS=['golf-female-rank-F.webp','golf-female-rank-E.webp','golf-female-rank-D.webp','golf-female-rank-C.webp','golf-female-rank-B.webp','golf-female-rank-A.webp','golf-female-rank-S.webp'];
 const NF_GOLF_MALE_PRODUCT_THUMBS={top:'golf-gear-top.webp',shorts:'golf-gear-shorts.webp',shoes:'golf-gear-shoes.webp',sunglasses:'golf-gear-sunglasses.webp',mastery:'golf-gear-mastery.webp'};
+const NF_GOLF_FEMALE_PRODUCT_THUMBS={top:'golf-gear-top.webp',shorts:'golf-gear-shorts.webp',shoes:'golf-gear-shoes.webp',sunglasses:'golf-gear-sunglasses.webp',mastery:'golf-gear-mastery.webp'};
 function nfGolfMaleCompleteSetActive(){
  if(nfCharacterType()!=='male'||!nfGolfPieceUnlocked('mastery')||nfSelectedSecretItem('mastery','male')!=='golfer')return false;
  return ['top','shorts','shoes','sunglasses'].every(type=>nfSelectedGolfItem(type,'male')==='golfer'&&!nfSelectedNewSecretOutfit(type,'male'));
+}
+function nfGolfFemaleCompleteSetActive(){
+ if(nfCharacterType()!=='female'||!nfGolfPieceUnlocked('mastery')||nfSelectedSecretItem('mastery','female')!=='golfer')return false;
+ return ['top','shorts','shoes','sunglasses'].every(type=>nfSelectedGolfItem(type,'female')==='golfer'&&!nfSelectedNewSecretOutfit(type,'female'));
 }
 function nfGolfOutfitMarkup(){
  if(!nfSecretIsDiscovered('golfer'))return '';
@@ -3913,7 +3919,8 @@ function nfGolfOutfitMarkup(){
    <div class="nf-secret-gear-grid">${NF_GOLF_REWARDS.map(r=>{
      const earned=nfGolfPieceUnlocked(r.type);
      const active=earned&&(r.type==='mastery'?nfSelectedSecretItem('mastery',gender)==='golfer':nfSelectedGolfItem(r.type,gender)==='golfer');
-     const thumb=gender==='male'?(NF_GOLF_MALE_PRODUCT_THUMBS[r.type]||NF_GOLF_THUMBS[gender][r.type]):(r.type==='mastery'?NF_GOLF_MASTERY_THUMB:NF_GOLF_THUMBS[gender][r.type]);
+     const premiumThumbs=gender==='male'?NF_GOLF_MALE_PRODUCT_THUMBS:(gender==='female'?NF_GOLF_FEMALE_PRODUCT_THUMBS:null);
+     const thumb=premiumThumbs?(premiumThumbs[r.type]||(r.type==='mastery'?NF_GOLF_MASTERY_THUMB:NF_GOLF_THUMBS[gender][r.type])):(r.type==='mastery'?NF_GOLF_MASTERY_THUMB:NF_GOLF_THUMBS[gender][r.type]);
      return `<button type="button" class="nf-secret-gear-item ${active?'selected':''} ${earned?'earned':'locked'}" ${earned?'':'disabled'} data-nf-golf-piece="${r.type}" aria-pressed="${active}">
        <span class="nf-secret-gear-art"><img src="${thumb}" alt="" loading="lazy"></span>
        <strong>${r.name}</strong><small>Node ${r.node} · ${r.label}</small>
@@ -4200,9 +4207,10 @@ function avatarMarkup(rank){
  const auraColor=(db.nfAuraColorByCharacter||{})[gender]||aura[rank];
  // Full-rank portraits include the golf outfit and Node-10 Staff Bag already.
  // Do not double-render equipment or the bag on that specific completed set.
- const golfMastery=gender==='male'&&nfGolfMaleCompleteSetActive();
- const src=golfMastery?NF_GOLF_MALE_MASTERY_PORTRAITS[rank]:`character-${gender}-rank-${rank}.webp?v=approved20261027gear2`;
+ const golfMastery=(gender==='male'&&nfGolfMaleCompleteSetActive())||(gender==='female'&&nfGolfFemaleCompleteSetActive());
+ const golfPortraits=gender==='male'?NF_GOLF_MALE_MASTERY_PORTRAITS:(gender==='female'?NF_GOLF_FEMALE_MASTERY_PORTRAITS:null);
  const fallback=`character-${gender}-rank-${rank}.webp?v=approved20261027gear2`;
+ const src=(golfMastery&&golfPortraits)?golfPortraits[rank]:fallback;
  const imageError=golfMastery?`onerror="this.onerror=null;this.src='${fallback}';this.parentElement.classList.add('nf-golf-portrait-missing');"`:'';
  return `<div class="nf-character-art nf-character-${gender}${golfMastery?' nf-full-golf-mastery':''}" style="--nf-rank-color:${aura[rank]};--nf-aura-color:${auraColor}">
  <div class="nf-aura-field" aria-hidden="true"></div>
