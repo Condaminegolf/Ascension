@@ -2094,7 +2094,7 @@ body.nf-input-focus #nfMenuToggle:not([aria-expanded="true"]){opacity:.45}
 <details class="nf-train-display-options" id="nfTrainDisplayOptions"><summary>Display options</summary><div class="nf-train-option-label">Workout detail</div><div aria-label="Workout detail level" class="nf-training-mode" role="group"><button aria-pressed="true" data-nf-workout-view="beginner" id="nfBeginnerMode" type="button">Simple</button><button aria-pressed="false" data-nf-workout-view="advanced" id="nfAdvancedMode" type="button">Detailed</button></div><div class="nf-train-option-label">Exercise layout</div><div aria-label="Workout layout" class="nf-train-view-controls" role="group"><button class="secondary" id="nfTrainFocusButton" onclick="nfTrainingView('focus')" type="button">One at a time</button><button class="secondary" id="nfTrainAllButton" onclick="nfTrainingView('all')" type="button">All exercises</button></div></details>
 <div class="nf-train-empty-prompt" hidden="" id="nfTrainEmptyPrompt"></div><p class="nf-ghost-hint" id="nfGhostHint">Faint numbers are AI or local ghost suggestions, not logged values. Your typed numbers are kept as a draft until you save.</p><div id="exercises"></div>
 <div class="nf-train-pager" hidden="" id="nfTrainPager"><button class="secondary" id="nfTrainPrevious" onclick="nfSelectTrainFocus(nfFocusExercise-1)" type="button">‹ Previous</button><span id="nfTrainPagerLabel"></span><button class="secondary" id="nfTrainNext" onclick="nfTrainNextExercise()" type="button" title="Move on without losing your unfinished draft">Next exercise ›</button></div>
-<div class="nf-train-rest" hidden="" id="nfTrainRest"><span>Rest · <strong id="nfTrainRestCountdown">1:30</strong></span><select aria-label="Rest duration" onchange="nfSetRestSeconds(Number(this.value))"><option value="60">60s</option><option value="90" selected>90s</option><option value="120">120s</option><option value="180">180s</option></select><button class="secondary" onclick="nfSkipRestTimer()" type="button">Skip rest</button></div><div class="exercise" id="overloadTrainTip"></div><div aria-live="polite" class="nf-advanced-metrics nf-workout-advanced" id="nfAdvancedMetrics"></div><div class="nf-simple-edit"><button class="secondary" data-nf-edit-workout="true" type="button">Edit exercises</button></div><button class="primary" id="nfTrainSaveSets" onclick="finishWorkout({advance:true})">Save completed sets</button><div class="muted" id="draftStatus" style="margin-top:10px" role="status" aria-live="polite"></div><div class="nf-train-next-hint" id="nfTrainNextHint" aria-live="polite"></div><details class="nf-train-skills" id="nfTrainSkillsDetails"><summary>What this workout builds</summary><div class="nf-v3-panel" hidden="" id="nfV3TrainSkill"></div></details><details class="nf-training-rules"><summary>How workout saving, XP and rank work</summary><p>Enter actual weight and reps for each set, then tap Save completed sets. No ticking is required. Empty and incomplete sets stay in your draft for later. XP is awarded only once for each newly saved set.</p><p>Rank progression also uses lifetime reps, lifting volume, bodyweight-relative milestones and regular activity. Inactivity can lower your current rank and attributes, but your earned XP and historic records are retained.</p></details><details aria-label="Today’s training recommendation" class="panel nf-daily-coach" id="nfDailyCoachPanel">
+<div class="nf-train-rest" hidden="" id="nfTrainRest"><span>Rest · <strong id="nfTrainRestCountdown">1:30</strong></span><select aria-label="Rest duration" onchange="nfSetRestSeconds(Number(this.value))"><option value="60">60s</option><option value="90" selected>90s</option><option value="120">120s</option><option value="180">180s</option></select><button class="secondary" onclick="nfSkipRestTimer()" type="button">Skip rest</button></div><div class="exercise" id="overloadTrainTip"></div><div aria-live="polite" class="nf-advanced-metrics nf-workout-advanced" id="nfAdvancedMetrics"></div><div class="nf-simple-edit"><button class="secondary" data-nf-edit-workout="true" type="button">Edit exercises</button></div><button class="primary" id="nfTrainSaveSets" onclick="finishWorkout({advance:true})">Save completed sets</button><div class="muted" id="draftStatus" style="margin-top:10px" role="status" aria-live="polite"></div><div class="nf-train-next-hint" id="nfTrainNextHint" aria-live="polite"></div><details class="nf-train-skills" id="nfTrainSkillsDetails"><summary>What this workout builds</summary><div class="nf-v3-panel" hidden="" id="nfV3TrainSkill"></div></details><details class="nf-training-rules"><summary>How workout saving, XP and rank work</summary><p>Enter actual weight and reps for each set, then tap Save completed sets. No ticking is required. Empty and incomplete sets stay in your draft for later. XP is awarded only once for each newly saved set.</p><p>Each promotion starts new XP, session, repetition and volume requirements at zero. Completed Strength Trials are permanently retained. Lifetime records remain intact, while inactivity may temporarily affect your visible rank.</p></details><details aria-label="Today’s training recommendation" class="panel nf-daily-coach" id="nfDailyCoachPanel">
 <summary class="nf-daily-coach-header"><span aria-hidden="true" class="nf-daily-coach-spark">✦</span><span class="nf-daily-coach-label"><small>THE SYSTEM / QUICK GUIDANCE</small><strong>Today’s AI recommendation</strong><span aria-live="polite" class="nf-daily-coach-teaser" id="nfDailyCoachTeaser">View your session guidance and suggested targets.</span></span><span aria-hidden="true" class="nf-daily-coach-arrow">⌄</span></summary>
 <div class="nf-daily-coach-body">
 <p class="nf-daily-coach-intro">Suggested numbers appear faintly in your workout. They never count as completed sets, and will never replace what you type.</p>
@@ -2125,7 +2125,7 @@ body.nf-input-focus #nfMenuToggle:not([aria-expanded="true"]){opacity:.45}
 <div id="nfIntelPlannerHint" role="status">Nutrition Intelligence will appear here after your nutrition logs are analysed.</div>
 <div id="nfAIOutput"></div>
 </div></details></main>
-<main id="quests" class="hidden"><div class="panel"><div class="tag">TRAINING CHALLENGES</div><h2>Challenges &amp; Goals</h2><p class="muted">Daily quests now live on Home. Your monthly challenges and distance targets remain here.</p><button type="button" class="secondary" onclick="nfShowHomeQuests()">Go to Daily Quests</button></div><div class="panel"><div class="tag">ENDURANCE TARGETS</div><h3>Weekly Activity Goals</h3><p class="muted">Edit your distance goals whenever you need. Goals are targets, not prerequisites for earning activity XP.</p><div id="cardioGoalControls"></div><button class="primary" onclick="saveCardioGoals()">SAVE DISTANCE GOALS</button><div id="cardioWeeklyProgress"></div></div><div class="panel" id="monthlyChallengesPanel"><div class="tag">MONTHLY PROGRESSION</div><h2>Monthly Challenges</h2><p class="muted">One-time rewards per challenge, per calendar month. Log real activity to unlock; claimed rewards are reversed if a deleted activity causes you to fall below the target.</p><div id="monthlyChallenges"></div></div></main><main id="progress" class="hidden"><div class="panel"><h2>Body & Recovery Log</h2><div class="grid2"><div class="field"><label>Body weight (kg)</label><input type="number" id="bodyWeight" step="0.1" placeholder="140"></div><div class="field"><label>Waist (cm)</label><input type="number" id="waist" step="0.1" placeholder="Optional"></div><div class="field"><label>Daily steps</label><input type="number" id="stepsInput" placeholder="e.g. 7500"></div><div class="field"><label>Sleep (hours)</label><input type="number" id="sleepInput" step="0.1" placeholder="e.g. 8"></div></div><button class="primary" onclick="saveMetrics()">SAVE TODAY'S METRICS</button></div><div class="panel"><h3>Recent Workout History</h3><div id="history"></div></div><div class="panel"><h3>Endurance History</h3><div id="cardioHistory"></div></div><div class="panel"><div class="tag">BODY COMPOSITION</div><h2>Weight & Waist Goals</h2><div class="grid2"><div class="field"><label>Target weight (kg)</label><input id="targetWeight" type="number" min="30" max="350" step="0.1" value="110"></div><div class="field"><label>Target waist (cm, optional)</label><input id="targetWaist" type="number" min="30" max="250" step="0.1" placeholder="Optional"></div></div><button class="primary" onclick="ascSaveGoals()">SAVE BODY GOALS</button><div id="bodyGoalOverview"></div></div><div class="panel"><h3>Weight History</h3><div id="weightHistory"></div></div></main><main id="ranks" class="hidden"><div class="panel"><div class="tag">YOUR PATH / RANKS</div><h2>From F to S Rank</h2><p class="muted">Every rank requires XP, logged training sessions, repetitions and volume. C Rank onward requires Strength Trials, while B requires 1 Gold trial, A requires 2 and S requires all 4 Gold trials. Completed Gold trials stay earned even if bodyweight changes. Partial sessions count without double-counting.</p><div id="rankList"></div></div><div class="panel"><h3>Achievement Badges</h3><div id="badges"></div></div><div class="panel"><h3>Strength Trials · Relative to Bodyweight</h3><p class="muted">Bench, squat, overhead press and Romanian deadlift milestones are scaled to your current bodyweight. Your best estimated 1-rep max (e1RM) is calculated from logged sets of 1–10 reps. These are game milestones, not medical or normative strength standards. Never attempt a max lift just to earn a badge.</p><div id="strengthBadges"></div></div><div class="panel"><div class="tag">YOUR MILESTONES</div><h2>Achievement Timeline</h2><p class="muted">Achievements are recorded when first reached and remain in your timeline. Milestone badges do not award extra XP.</p><div id="achievementTimeline"></div></div></main>
+<main id="quests" class="hidden"><div class="panel"><div class="tag">TRAINING CHALLENGES</div><h2>Challenges &amp; Goals</h2><p class="muted">Daily quests now live on Home. Your monthly challenges and distance targets remain here.</p><button type="button" class="secondary" onclick="nfShowHomeQuests()">Go to Daily Quests</button></div><div class="panel"><div class="tag">ENDURANCE TARGETS</div><h3>Weekly Activity Goals</h3><p class="muted">Edit your distance goals whenever you need. Goals are targets, not prerequisites for earning activity XP.</p><div id="cardioGoalControls"></div><button class="primary" onclick="saveCardioGoals()">SAVE DISTANCE GOALS</button><div id="cardioWeeklyProgress"></div></div><div class="panel" id="monthlyChallengesPanel"><div class="tag">MONTHLY PROGRESSION</div><h2>Monthly Challenges</h2><p class="muted">One-time rewards per challenge, per calendar month. Log real activity to unlock; claimed rewards are reversed if a deleted activity causes you to fall below the target.</p><div id="monthlyChallenges"></div></div></main><main id="progress" class="hidden"><div class="panel"><h2>Body & Recovery Log</h2><div class="grid2"><div class="field"><label>Body weight (kg)</label><input type="number" id="bodyWeight" step="0.1" placeholder="140"></div><div class="field"><label>Waist (cm)</label><input type="number" id="waist" step="0.1" placeholder="Optional"></div><div class="field"><label>Daily steps</label><input type="number" id="stepsInput" placeholder="e.g. 7500"></div><div class="field"><label>Sleep (hours)</label><input type="number" id="sleepInput" step="0.1" placeholder="e.g. 8"></div></div><button class="primary" onclick="saveMetrics()">SAVE TODAY'S METRICS</button></div><div class="panel"><h3>Recent Workout History</h3><div id="history"></div></div><div class="panel"><h3>Endurance History</h3><div id="cardioHistory"></div></div><div class="panel"><div class="tag">BODY COMPOSITION</div><h2>Weight & Waist Goals</h2><div class="grid2"><div class="field"><label>Target weight (kg)</label><input id="targetWeight" type="number" min="30" max="350" step="0.1" value="110"></div><div class="field"><label>Target waist (cm, optional)</label><input id="targetWaist" type="number" min="30" max="250" step="0.1" placeholder="Optional"></div></div><button class="primary" onclick="ascSaveGoals()">SAVE BODY GOALS</button><div id="bodyGoalOverview"></div></div><div class="panel"><h3>Weight History</h3><div id="weightHistory"></div></div></main><main id="ranks" class="hidden"><div class="panel"><div class="tag">YOUR PATH / RANKS</div><h2>From F to S Rank</h2><p class="muted">Each rank requires NEW XP, training sessions, repetitions and volume earned since the previous promotion. These four counters reset to zero when you rank up. Bronze, Silver and Gold Strength Trials are permanent and never reset. C Rank onward needs Strength Trials; B needs 1 Gold, A needs 2, and S needs all 4 Gold. Lifetime training history and rewards are retained.</p><div id="rankList"></div></div><div class="panel"><h3>Achievement Badges</h3><div id="badges"></div></div><div class="panel"><h3>Strength Trials · Relative to Bodyweight</h3><p class="muted">Bench, squat, overhead press and Romanian deadlift milestones are scaled to your current bodyweight. Your best estimated 1-rep max (e1RM) is calculated from logged sets of 1–10 reps. These are game milestones, not medical or normative strength standards. Never attempt a max lift just to earn a badge.</p><div id="strengthBadges"></div></div><div class="panel"><div class="tag">YOUR MILESTONES</div><h2>Achievement Timeline</h2><p class="muted">Achievements are recorded when first reached and remain in your timeline. Milestone badges do not award extra XP.</p><div id="achievementTimeline"></div></div></main>
 <main class="hidden" id="hunter">
 <details class="panel nf-collapsible" data-nf-panel="character" id="nfCharacterSelectorPanel" open=""><summary class="nf-collapse-trigger"><span class="nf-collapse-label"><span class="nf-collapse-kicker">CHARACTER IDENTITY</span><span class="nf-collapse-name">Your Character</span></span><span aria-hidden="true" class="nf-collapse-chevron">⌄</span></summary><div class="nf-collapse-body"><p class="muted">Choose your character. Your progress stays the same. <button class="nf-tip-trigger" type="button" data-nf-tip="character" aria-label="How character progression works">ⓘ</button></p><div class="nf-character-switch"><button data-nf-character="male" id="nfMaleCharacter" type="button">Male Character</button><button data-nf-character="female" id="nfFemaleCharacter" type="button">Female Character</button></div></div></details><div class="panel"><div class="tag">AVATAR PROGRESSION</div><h2>Character Evolution</h2><div class="upgrade-grid"><div class="nf-avatar-column"><div aria-label="Athlete name and equipped title" aria-live="polite" class="nf-avatar-identity"><div class="nf-avatar-player-name" id="nfAvatarDisplayName">Athlete</div><div class="nf-avatar-player-title nf-avatar-title-empty" id="nfAvatarDisplayTitle">No title equipped</div></div><div class="avatar-frame" id="hunterAvatar"></div></div><div><div class="big" id="hunterEvoTitle"></div><p class="muted" id="hunterEvoInfo"></p><details class="nf-next-forms nf-collapsible" data-nf-panel="forms" id="nfNextFormsPanel"><summary class="nf-collapse-trigger"><span class="nf-collapse-label"><span class="nf-collapse-kicker">RANK PROGRESSION</span><span class="nf-collapse-name">Next Forms</span></span><span aria-hidden="true" class="nf-collapse-chevron">⌄</span></summary><div class="nf-collapse-body"><div class="skill" id="evoNext"></div><div class="nf-rank-strip" id="nfRankStrip"></div></div></details></div></div></div>
 <details class="panel nf-collapsible" data-nf-panel="equipment" id="nfEquipmentCollectionPanel"><summary class="nf-collapse-trigger"><span class="nf-collapse-label"><span class="nf-collapse-kicker">CHARACTER / WARDROBE</span><span class="nf-collapse-name">Equipment Collection</span></span><span aria-hidden="true" class="nf-collapse-chevron">⌄</span></summary><div class="nf-collapse-body"><div aria-live="polite" id="nfMaleEquipmentMount"></div></div></details>
@@ -2219,7 +2219,7 @@ body.nf-input-focus #nfMenuToggle:not([aria-expanded="true"]){opacity:.45}
 let plan=[{day:'Monday',name:'Chest + Triceps',sub:'Push Strength',ex:[['Barbell Bench Press',3,'8–10'],['Cable Chest Fly',3,'10–12'],['Cable Incline Chest Press',2,'10–12'],['Cable Triceps Pressdown',3,'12']]},{day:'Tuesday',name:'Back + Biceps',sub:'Pull Strength',ex:[['Barbell Bent-Over Row',3,'8–10'],['Cable Lat Pulldown',3,'10–12'],['Cable Seated Row',2,'12'],['Cable Biceps Curl',3,'12']]},{day:'Wednesday',name:'Legs + Core',sub:'Lower-Body Strength',ex:[['Barbell Squat',3,'8–10'],['Cable Pull-Through',3,'12'],['Cable Split Squat',2,'10/leg'],['Cable Pallof Press',2,'10/side']]},{day:'Thursday',name:'Chest + Back',sub:'Upper-Body Hypertrophy',ex:[['Barbell Romanian Deadlift',3,'8–10'],['Cable Chest Press',3,'10–12'],['Cable Row',3,'10–12'],['Cable Straight-Arm Pulldown',2,'12–15']]},{day:'Friday',name:'Shoulders + Arms',sub:'Delts · Biceps · Triceps',ex:[['Barbell Overhead Press',3,'8–10'],['Cable Lateral Raise',3,'12–15'],['Cable Rear-Delt Fly',2,'12–15'],['Cable Biceps Curl',3,'10–12'],['Cable Triceps Pressdown',3,'10–12']]}];
 const quests=[['protein','Hit your protein target (190–210 g)',100],['water','Meet your hydration goal',50],['steps','Reach 7,000 steps (Oura)',75],['sleep','Sleep 7.5+ hours (Oura)',50],['activityLog','Record a strength session or 10+ minutes of activity',50],['nutritionLog','Log your food in Nutrition',50]];
 const ranks=[['F','Foundation',0,0,0,0],['E','Rising Athlete',1000,3,100,1000],['D','Iron Disciple',3000,10,400,5000],['C','Advanced Athlete',7000,22,1000,15000],['B','Elite Athlete',15000,45,2500,45000],['A','Performance Leader',30000,80,5000,120000],['S','Peak Performer',60000,150,10000,300000]];
-const key='ascension_v1';let db;try{db=JSON.parse(localStorage.getItem(key))||{}}catch{db={}};db={xp:0,workouts:[],quests:{},metrics:[],cardio:[],cardioGoals:{run:{session:3,weekly:6},cycle:{session:20,weekly:40},walk:{session:3,weekly:15}},name:'Athlete',heightCm:192,startWeight:140,...db};if(!Array.isArray(db.cardio))db.cardio=[];if(!db.cardioGoals||typeof db.cardioGoals!=='object')db.cardioGoals={};const defaultWorkoutPlan=JSON.parse(JSON.stringify(plan));if(Array.isArray(db.workoutPlan)&&db.workoutPlan.length===5&&db.workoutPlan.every((x,i)=>x&&x.day===defaultWorkoutPlan[i].day&&Array.isArray(x.ex)))plan=JSON.parse(JSON.stringify(db.workoutPlan));let day=Math.max(0,Math.min(4,(new Date().getDay()+6)%7));let draft={};try{draft=JSON.parse(localStorage.getItem('ascension_draft_v2'))||{}}catch{};const $=id=>document.getElementById(id),today=()=>{const d=new Date();return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`};function save(){nfCaptureGoldStrengthTrials();nfSyncEvidenceQuests();nfSyncProteinQuest();localStorage.setItem(key,JSON.stringify(db));renderStats();if($('questList'))renderQuests();window.dispatchEvent(new Event('nf:local-saved'))};function totals(){return db.workouts.reduce((a,w)=>{for(const x of w.sets){a.reps+=Number(x.reps)||0;a.volume+=(Number(x.kg)||0)*(Number(x.reps)||0)}return a},{reps:0,volume:0})}function currentWeight(){let a=db.metrics.filter(m=>Number(m.weight)>0).sort((a,b)=>a.date.localeCompare(b.date));return a.length?Number(a[a.length-1].weight):Number(db.startWeight)||140}
+const key='ascension_v1';let db;try{db=JSON.parse(localStorage.getItem(key))||{}}catch{db={}};db={xp:0,workouts:[],quests:{},metrics:[],cardio:[],cardioGoals:{run:{session:3,weekly:6},cycle:{session:20,weekly:40},walk:{session:3,weekly:15}},name:'Athlete',heightCm:192,startWeight:140,...db};if(!Array.isArray(db.cardio))db.cardio=[];if(!db.cardioGoals||typeof db.cardioGoals!=='object')db.cardioGoals={};const defaultWorkoutPlan=JSON.parse(JSON.stringify(plan));if(Array.isArray(db.workoutPlan)&&db.workoutPlan.length===5&&db.workoutPlan.every((x,i)=>x&&x.day===defaultWorkoutPlan[i].day&&Array.isArray(x.ex)))plan=JSON.parse(JSON.stringify(db.workoutPlan));let day=Math.max(0,Math.min(4,(new Date().getDay()+6)%7));let draft={};try{draft=JSON.parse(localStorage.getItem('ascension_draft_v2'))||{}}catch{};const $=id=>document.getElementById(id),today=()=>{const d=new Date();return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`};function save(){nfCaptureGoldStrengthTrials();nfCaptureStrengthTrialAwards();nfSyncEvidenceQuests();nfSyncProteinQuest();localStorage.setItem(key,JSON.stringify(db));renderStats();if($('questList'))renderQuests();window.dispatchEvent(new Event('nf:local-saved'))};function totals(){return db.workouts.reduce((a,w)=>{for(const x of w.sets){a.reps+=Number(x.reps)||0;a.volume+=(Number(x.kg)||0)*(Number(x.reps)||0)}return a},{reps:0,volume:0})}function currentWeight(){let a=db.metrics.filter(m=>Number(m.weight)>0).sort((a,b)=>a.date.localeCompare(b.date));return a.length?Number(a[a.length-1].weight):Number(db.startWeight)||140}
 // Exercise names are normalized at read-time: legacy records are never renamed.
 // Only mechanically comparable variations count toward the four barbell skill trees.
 function nfCanonicalExercise(value){
@@ -2250,13 +2250,29 @@ function strengthBenchmarkFactor(){return benchmarkCategory()==='female'?.75:1}
 function athleticPushupTarget(){return benchmarkCategory()==='female'?25:40}
 function runBenchmarkFactor(){return benchmarkCategory()==='female'?1.12:1}
 function cycleBenchmarkFactor(){return benchmarkCategory()==='female'?.9:1}
-function trialCount(){
- let best=bestLifts(),bw=currentWeight(),count=0,earned=db.nfGoldStrengthTrialsV1||{};
- for(const t of trials){
-  // A completed Gold Trial also preserves the Bronze and Silver prerequisites.
-  if(earned[t[0]]){count+=3;continue;}
-  for(const ratio of t.slice(2))if((best[t[0]]||0)>=ratio*bw*strengthBenchmarkFactor())count++;
+// Bronze, Silver and Gold trial completions are permanent, independent of rank and bodyweight changes.
+// Existing historical Gold awards still imply all three tiers for that exercise.
+function nfStrengthTrialAwardKey(exercise,tier){return exercise+'|'+tier;}
+function nfCaptureStrengthTrialAwards(){
+ if(!db.nfStrengthTrialAwardsV1||typeof db.nfStrengthTrialAwardsV1!=='object'||Array.isArray(db.nfStrengthTrialAwardsV1))db.nfStrengthTrialAwardsV1={};
+ const best=bestLifts(),bw=currentWeight(),factor=strengthBenchmarkFactor(),gold=db.nfGoldStrengthTrialsV1||{};
+ let changed=false;
+ for(const t of trials)for(let tier=0;tier<3;tier++){
+  const k=nfStrengthTrialAwardKey(t[0],tier),target=t[tier+2]*bw*factor,record=Number(best[t[0]]||0);
+  if(!db.nfStrengthTrialAwardsV1[k]&&(gold[t[0]]||record>0&&record+1e-7>=target)){
+   db.nfStrengthTrialAwardsV1[k]={date:today(),e1RM:Number(record.toFixed(2)),target:Number(target.toFixed(2))};changed=true;
+  }
  }
+ return changed;
+}
+function nfStrengthTrialEarned(exercise,tier,best,bw){
+ return !!(db.nfGoldStrengthTrialsV1||{})[exercise]
+  ||!!(db.nfStrengthTrialAwardsV1||{})[nfStrengthTrialAwardKey(exercise,tier)]
+  ||Number(best[exercise]||0)>0&&Number(best[exercise]||0)+1e-7>=trials.find(t=>t[0]===exercise)[tier+2]*bw*strengthBenchmarkFactor();
+}
+function trialCount(){
+ const best=bestLifts(),bw=currentWeight();let count=0;
+ for(const t of trials)for(let tier=0;tier<3;tier++)if(nfStrengthTrialEarned(t[0],tier,best,bw))count++;
  return count;
 }
 // B, A and S now require distinct Gold Strength Trials, not just a total of Bronze/Silver badges.
@@ -2355,63 +2371,103 @@ function ascAttributeDecay(label,score){const quests=Object.entries(db.quests||{
  if(!dates.length)return score;return Math.max(0,score-Math.floor(ascDecayDays(dates)/7)*5)
 }
 window.ascensionDecayInfo=()=>({graceDays:7,rankPenalty:ascRankPenalty(),daysSinceActivity:ascDaysSince(ascLatestDate(ascActiveDates())),rankIntervalDays:14,attributePointsPerWeek:5,recovery:ascRankRecovery()});
+// Rank checkpoint v1: lifetime achievements NEVER reset; only the four new-rank counters do.
+// Store on the existing synced profile, so a second device sees the same promotion baseline.
+function nfRankTotals(){const t=totals();return {xp:Math.max(0,Number(db.xp)||0),sessions:(db.workouts||[]).length,reps:Math.max(0,t.reps),volume:Math.max(0,t.volume)};}
+function nfLegacyHighestEarnedRank(){
+ let index=0;const t=totals(),gold=nfGoldStrengthTrialStatus().count,completed=trialCount();
+ ranks.forEach((r,i)=>{if((Number(db.xp)||0)>=r[2]&&(db.workouts||[]).length>=r[3]&&t.reps>=r[4]&&t.volume>=r[5]&&completed>=Math.max(0,i-2)&&gold>=nfGoldTrialsRequired(i))index=i;});
+ return Math.max(index,nfPreviouslyEarnedRankIndex());
+}
+function nfRankLedger(){
+ let ledger=db.nfRankLedgerV1;
+ if(!ledger||ledger.version!==1||!Number.isInteger(ledger.highestEarnedRank)||!ledger.baseline||typeof ledger.baseline!=='object'){
+  const highest=Math.max(0,Math.min(ranks.length-1,nfLegacyHighestEarnedRank()));
+  // Existing ranks are grandfathered, but historic overshoot cannot count toward the next rank.
+  // F-rank players retain incomplete progress toward their first ever promotion.
+  ledger={version:1,highestEarnedRank:highest,baseline:highest>0?nfRankTotals():{xp:0,sessions:0,reps:0,volume:0},createdAt:today(),promotions:[]};
+  db.nfRankLedgerV1=ledger;
+  try{localStorage.setItem(key,JSON.stringify(db))}catch(_e){}
+ }
+ return ledger;
+}
+function nfRankTarget(rank,key){
+ const fields={xp:2,sessions:3,reps:4,volume:5};
+ if(rank<0||rank>=ranks.length-1)return 0;
+ return Math.max(0,ranks[rank+1][fields[key]]-ranks[rank][fields[key]]);
+}
+function nfRankTrainingProgress(){
+ const ledger=nfRankLedger(),lifetime=nfRankTotals(),values={};
+ for(const field of ['xp','sessions','reps','volume'])values[field]=Math.max(0,lifetime[field]-(Number(ledger.baseline[field])||0));
+ return values;
+}
+function nfApplyRankPromotions(){
+ nfCaptureGoldStrengthTrials();nfCaptureStrengthTrialAwards();
+ const ledger=nfRankLedger(),rank=ledger.highestEarnedRank;
+ if(rank>=ranks.length-1||ascRankPenalty()>0)return ledger;
+ const progress=nfRankTrainingProgress();
+ if(!['xp','sessions','reps','volume'].every(field=>progress[field]>=nfRankTarget(rank,field)))return ledger;
+ if(trialCount()<Math.max(0,rank-1)||nfGoldStrengthTrialStatus().count<nfGoldTrialsRequired(rank+1))return ledger;
+ const next=rank+1;
+ ledger.promotions.push({rank:ranks[next][0],date:today(),from:ranks[rank][0]});
+ ledger.highestEarnedRank=next;
+ // Record rank achievement immediately so inactivity rules and achievements see the promotion.
+ const rankAchievementId='rank-'+ranks[next][0];
+ if(!db.achievementTimeline||typeof db.achievementTimeline!=='object'||Array.isArray(db.achievementTimeline))db.achievementTimeline={};
+ if(!db.achievementTimeline[rankAchievementId]){db.achievementTimeline[rankAchievementId]={id:rankAchievementId,label:ranks[next][0]+' Rank reached',description:'YOUR PATH rank progression',date:today()};
+  if(typeof nfQueueNotice==='function')nfQueueNotice('achievement:'+rankAchievementId,'rank',ranks[next][0]+' Rank reached','YOUR PATH rank progression',today());}
+ // The completing workout belongs ONLY to the prior rank: no excess XP/sets/volume carry forward.
+ ledger.baseline=nfRankTotals();
+ try{localStorage.setItem(key,JSON.stringify(db));window.dispatchEvent(new Event('nf:local-saved'))}catch(_e){}
+ return ledger;
+}
 function rankIndex(){
- let i=0,t=totals(),gold=nfGoldStrengthTrialStatus().count,totalTrials=trialCount();
- ranks.forEach((r,n)=>{
-  if(db.xp>=r[2]&&db.workouts.length>=r[3]&&t.reps>=r[4]&&t.volume>=r[5]&&totalTrials>=Math.max(0,n-2)&&gold>=nfGoldTrialsRequired(n))i=n;
- });
- // Existing rank achievements are grandfathered. Do not retroactively demote a
- // user who earned B/A/S before Gold gates were introduced; decay still applies.
- return Math.max(0,Math.max(i,nfPreviouslyEarnedRankIndex())-ascRankPenalty());
+ // Inactivity can temporarily lower the visible rank, but does not erase unlocked ranks or their checkpoint.
+ const earned=nfApplyRankPromotions().highestEarnedRank;
+ return Math.max(0,earned-ascRankPenalty());
 }function streak(){let days=[...new Set([...db.cardio.map(w=>w.date),...db.workouts.map(w=>w.date),...Object.entries(db.quests).filter(([k,v])=>Object.values(v).some(Boolean)).map(([k])=>k)])].sort().reverse();let s=0;let d=new Date();for(let offset=0;offset<days.length+1;offset++){let x=new Date(d);x.setDate(d.getDate()-offset);let k=x.toLocaleDateString('en-CA');if(days.includes(k))s++;else if(offset===0)continue;else break}return s}// YOUR PATH: aggregate advancement based on EVERY requirement, never XP alone.
 function nfRankReadiness(){
- const index=rankIndex(),current=ranks[index],next=ranks[index+1];
- if(!next)return {current, next:null,index, percent:100, completed:0, total:0, requirements:[], allReady:true};
- const t=totals(),recovery=ascRankRecovery();
- const clamp=n=>Math.min(1,Math.max(0,Number.isFinite(n)?n:0));
+ const visible=rankIndex(),ledger=nfRankLedger(),index=ledger.highestEarnedRank,current=ranks[index],next=ranks[index+1];
+ const recovery=ascRankRecovery(),clamp=n=>Math.min(1,Math.max(0,Number.isFinite(n)?n:0));
  const fmt=n=>Math.round(Math.max(0,Number(n)||0)).toLocaleString();
- const measures=[
-  ['xp','XP',Number(db.xp)||0,current[2],next[2],'XP'],
-  ['sessions','Training sessions',(db.workouts||[]).length,current[3],next[3],'sessions'],
-  ['reps','Total repetitions',t.reps,current[4],next[4],'reps'],
-  ['volume','Training volume',t.volume,current[5],next[5],'kg lifted']
- ];
- const previousTrialTarget=Math.max(0,index-2),nextTrialTarget=Math.max(0,index-1);
- if(nextTrialTarget>previousTrialTarget)measures.push(['trials','Strength trials',trialCount(),previousTrialTarget,nextTrialTarget,'trials']);
- const requirements=measures.map(([id,label,value,start,target,unit])=>{
-  const fraction=target>start?clamp((value-start)/(target-start)):1;
-  const completed=value>=target;
-  return {id,label,value,start,target,unit,percent:Math.round(fraction*100),fraction,completed,
-    amount:`${fmt(value)} / ${fmt(target)} ${unit}`,
-    note:completed?'Requirement complete':`${fmt(target-value)} ${unit} remaining`};
- });
+ if(!next&&recovery.penalty===0)return {current,next:null,index,percent:100,completed:0,total:0,requirements:[],allReady:true};
+ const progress=nfRankTrainingProgress(),requirements=[],labels={xp:'XP earned this rank',sessions:'Training sessions this rank',reps:'Repetitions this rank',volume:'Training volume this rank'},units={xp:'XP',sessions:'sessions',reps:'reps',volume:'kg lifted'};
+ if(next)for(const id of ['xp','sessions','reps','volume']){
+  const value=progress[id],target=nfRankTarget(index,id),fraction=target>0?clamp(value/target):1,completed=value>=target;
+  requirements.push({id,label:labels[id],value,start:0,target,unit:units[id],fraction,percent:Math.round(fraction*100),completed,
+   amount:`${fmt(value)} / ${fmt(target)} ${units[id]}`,
+   note:completed?'Requirement complete':`${fmt(target-value)} ${units[id]} remaining`});
+ }
+ if(next){
+  const required=Math.max(0,index-1),count=trialCount();
+  if(required>0)requirements.push({id:'trials',label:'Strength Trials (permanent)',value:count,start:0,target:required,unit:'trials',
+   fraction:clamp(count/required),percent:Math.round(100*clamp(count/required)),completed:count>=required,
+   amount:`${count} / ${required} trials`,note:'Completed trials stay unlocked across every rank'});
   const goldTarget=nfGoldTrialsRequired(index+1),gold=nfGoldStrengthTrialStatus();
-  // An already-earned rank is recovered through inactivity rules, not re-earned via new Gold gates.
-  if(goldTarget>0&&nfPreviouslyEarnedRankIndex()<index+1){
-   const count=Math.min(gold.count,goldTarget),remaining=gold.details.filter(t=>!t.earned).sort((a,b)=>b.progress-a.progress);
-   const nextGold=remaining[0];
-   const fraction=clamp((count+(count<goldTarget&&nextGold?nextGold.progress:0))/goldTarget);
-   requirements.push({id:'gold',label:'Gold Strength Trials',value:gold.count,start:0,target:goldTarget,unit:'Gold trials',
+  if(goldTarget>0){
+   const closest=gold.details.filter(t=>!t.earned).sort((a,b)=>b.progress-a.progress)[0];
+   const fraction=clamp((Math.min(gold.count,goldTarget)+(gold.count<goldTarget&&closest?closest.progress:0))/goldTarget);
+   requirements.push({id:'gold',label:'Gold Strength Trials (permanent)',value:gold.count,start:0,target:goldTarget,unit:'Gold trials',
     fraction,percent:Math.round(fraction*100),completed:gold.count>=goldTarget,
     amount:`${gold.count} / ${goldTarget} Gold trials`,
-    note:gold.count>=goldTarget?'Required Gold trials completed':nextGold?`Next closest: ${nextGold.name} · ${nextGold.best.toFixed(1)} / ${nextGold.target.toFixed(1)} kg estimated 1RM`:'Complete qualifying barbell strength sets to unlock Gold trials'});
+    note:gold.count>=goldTarget?'Completed Gold trials are retained':closest?`Next closest: ${closest.name} · ${closest.best.toFixed(1)} / ${closest.target.toFixed(1)} kg estimated 1RM`:'Complete qualifying barbell sets to unlock Gold trials'});
   }
- // When inactivity lowers rank, historic XP, volume and trials alone cannot grant promotion.
- // Show a separate recovery gate so the bar never reaches 100 while rank decay is unresolved.
+ }
  if(recovery.penalty>0){
   const requiredDays=3+recovery.recovered*5,requiredSessions=recovery.recovered+1;
-  const progress=recovery.returning?clamp(Math.min(recovery.activeDays/requiredDays,recovery.sessionDays/requiredSessions)):0;
+  const fraction=recovery.returning?clamp(Math.min(recovery.activeDays/requiredDays,recovery.sessionDays/requiredSessions)):0;
   requirements.push({id:'recovery',label:'Rank recovery',value:recovery.activeDays,start:0,target:requiredDays,unit:'active days',
-    fraction:progress,percent:Math.round(100*progress),completed:false,
-    amount:`${recovery.returning?recovery.activeDays:0} / ${requiredDays} active days`,
-    note:recovery.returning?`${recovery.sessionDays} / ${requiredSessions} workout or cardio days · restore the next lost tier`:'Return to training to begin restoring lost rank tiers'});
+   fraction,percent:Math.round(fraction*100),completed:false,
+   amount:`${recovery.returning?recovery.activeDays:0} / ${requiredDays} active days`,
+   note:recovery.returning?`${recovery.sessionDays} / ${requiredSessions} workout or cardio days · restore the next lost tier`:'Return to training to begin restoring lost rank tiers'});
  }
  const completed=requirements.filter(x=>x.completed).length,total=requirements.length;
- const allReady=completed===total;
- const raw=Math.round(requirements.reduce((n,x)=>n+x.fraction,0)/Math.max(total,1)*100);
- // A current rank below S must never claim promotion-ready 100% without the rank actually updating.
- const percent=allReady?Math.min(raw,99):Math.min(raw,99);
- return {current,next,index,percent,completed,total,requirements,allReady};
+ // Only the FOUR resettable training counters contribute to overall readiness.
+ // Pre-earned trials are gate checks; they must not make a freshly promoted rank read 30–70%.
+ const training=requirements.filter(x=>['xp','sessions','reps','volume'].includes(x.id));
+ const raw=training.length?Math.round(training.reduce((n,x)=>n+x.fraction,0)/training.length*100):0;
+ const percent=Math.min(raw,99);
+ return {current,next:next||ranks[index],index,visible,percent,completed,total,requirements,allReady:completed===total};
 }
 function nfRenderRankReadiness(snapshot){
  const p=snapshot||nfRankReadiness();
@@ -2429,14 +2485,14 @@ function nfRenderRankReadiness(snapshot){
   if(homePercent)homePercent.textContent='100%';if(percent)percent.textContent='100%';if(bar)bar.style.width='100%';if(track)track.setAttribute('aria-valuenow','100');
   return;
  }
- if(heading)heading.textContent=p.current[0]+' → '+p.next[0]+' RANK';
+ if(heading)heading.textContent=(p.visible<p.index?'RECOVER '+ranks[p.index][0]+' · ':'')+p.current[0]+' → '+p.next[0]+' RANK';
  if(summary)summary.textContent=p.completed+' of '+p.total+' promotion requirements completed · '+p.percent+'% overall readiness';
  rows.innerHTML=p.requirements.map(r=>`<div class="nf-rank-requirement ${r.completed?'is-complete':''}">
   <div class="nf-rank-requirement-labels"><strong>${r.completed?'✓ ':''}${r.label}</strong><span class="nf-rank-requirement-numbers">${r.amount}</span></div>
   <div class="nf-rank-requirement-track" role="progressbar" aria-label="${r.label}" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${r.percent}"><div class="nf-rank-requirement-fill" style="width:${r.percent}%"></div></div>
   <div class="nf-rank-requirement-note">${r.note}</div>
  </div>`).join('');
- if(tip)tip.textContent='The overall bar combines '+p.total+' requirements; each must be complete to earn '+p.next[0]+' Rank. XP alone cannot promote your character.';
+ if(tip)tip.textContent='The overall bar tracks new XP, sessions, repetitions and volume since the last promotion. Strength Trial completions are permanent, separate promotion gates.';
 }
 
 // YOUR PATH Daily Quests + Achievement Inbox. Persist in the existing synced save.
@@ -3333,12 +3389,13 @@ function saveMetrics(){
  save();renderProgress();alert('Metrics saved. Other measurements from today were kept.');
 }function renderProgress(){$('history').innerHTML=db.workouts.length?db.workouts.slice(-12).reverse().map(w=>`<div class="history"><strong>${nfSafeMarkup(w.name)}</strong><div class="muted">${nfSafeMarkup(w.date)} · ${w.sets.length} sets · ${w.sets.reduce((a,s)=>a+s.kg*s.reps,0).toLocaleString()} kg volume</div></div>`).join(''):'<p class="muted">No workouts logged yet.</p>';$('weightHistory').innerHTML=db.metrics.filter(m=>m.weight).slice(-12).reverse().map(m=>`<div class="history">${m.date} <strong style="float:right">${m.weight} kg</strong></div>`).join('')||'<p class="muted">No weight entries yet.</p>'}function renderRanks(){
  // Recognize valid historical Gold performances on first open before a new workout is saved.
- if(nfCaptureGoldStrengthTrials())try{localStorage.setItem(key,JSON.stringify(db))}catch(_e){}
+ const goldCaptured=nfCaptureGoldStrengthTrials(),trialsCaptured=nfCaptureStrengthTrialAwards();
+ if(goldCaptured||trialsCaptured)try{localStorage.setItem(key,JSON.stringify(db))}catch(_e){}
  const rank=rankIndex(),gold=nfGoldStrengthTrialStatus(),completed=gold.details.filter(t=>t.earned).length;
  const t=totals();
  const rankList=ranks.map((r,i)=>{
   const total=Math.max(0,i-2),goldRequired=nfGoldTrialsRequired(i);
-  const standards=`${r[2].toLocaleString()} XP · ${r[3]} sessions · ${r[4].toLocaleString()} reps · ${r[5].toLocaleString()} kg volume · ${total} Strength Trials`;
+  const before=i>0?ranks[i-1]:ranks[i];const standards=`${(r[2]-before[2]).toLocaleString()} new XP · ${r[3]-before[3]} new sessions · ${(r[4]-before[4]).toLocaleString()} new reps · ${(r[5]-before[5]).toLocaleString()} kg new volume · ${total} permanent Strength Trials`;
   const goldText=goldRequired?` · <span class="nf-gold-trial-req">${goldRequired} Gold Strength Trial${goldRequired===1?'':'s'} ${completed>=goldRequired?'✓':(i<=nfPreviouslyEarnedRankIndex()?' · rank previously earned':' 🔒')}</span>`:'';
   return `<div class="milestone"><div><strong style="font-size:24px;color:${i<=rank?'#55d5ff':'#8294a9'}">${r[0]}</strong> <strong>${r[1]}</strong><div class="muted">${standards}${goldText}</div></div><span class="pill">${i<=rank?'UNLOCKED':'LOCKED'}</span></div>`;
  }).join('');
@@ -3353,7 +3410,7 @@ function saveMetrics(){
   return `<div class="exercise"><strong>${nfSafeText(tr[1])}</strong><div class="muted">Best estimated 1RM: ${best[tr[0]]?best[tr[0]].toFixed(1)+' kg':'Not logged'}</div>`+
   tr.slice(2).map((ratio,i)=>{
    const target=ratio*bw*factor;
-   const ok=(best[tr[0]]||0)>=target||(goldRecord?.saved&&i<=2);
+   const ok=nfStrengthTrialEarned(tr[0],i,best,bw);
    return `<div class="milestone"><span>${ok?'🏆':'🔒'} ${['Bronze','Silver','Gold'][i]} · ${(ratio*100).toFixed(0)}% bodyweight${factor!==1?' × '+factor:''}</span><span class="muted">${target.toFixed(1)} kg e1RM</span></div>`;
   }).join('')+'</div>';
  }).join('');
@@ -4887,7 +4944,7 @@ function ascCheckAchievements(){
  }
  const weights=metrics.filter(m=>Number(m.weight)>0).sort((a,b)=>a.date.localeCompare(b.date));
  for(const amount of [5,10,20,30]){const reached=weights.find(m=>Number(m.weight)<=Number(db.startWeight||140)-amount);if(reached)grant('weight-'+amount,`${amount} kg weight change`,`Reached ${amount} kg below starting weight`,reached.date)}
- const idx=rankIndex();for(let i=1;i<=idx;i++)grant('rank-'+ranks[i][0],`${ranks[i][0]} Rank reached`,'ASCENSION rank progression',today());
+ const idx=nfRankLedger().highestEarnedRank;for(let i=1;i<=idx;i++)grant('rank-'+ranks[i][0],`${ranks[i][0]} Rank reached`,'ASCENSION rank progression',today());
  if(changed)localStorage.setItem('ascension_v1',JSON.stringify(db));return changed;
 }
 function ascRenderAchievements(){
@@ -5110,7 +5167,7 @@ function nfCloudExport(data,kind='phone'){
  a.href=url;a.download='YOUR-PATH-'+kind+'-recovery-'+new Date().toISOString().replace(/[:.]/g,'-')+'.json';
  document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);
 }
-function activate(d){if(!validData(d))throw Error('Cloud save has an invalid format.');applying=true;try{db={...db,...d};localStorage.setItem(key,JSON.stringify(db));renderAll();window.nfSyncSkillUnlocks?.();nfActivateNoticeInbox();window.dispatchEvent(new Event('nf:cloud-save-loaded'))}finally{applying=false}}
+function activate(d){if(!validData(d))throw Error('Cloud save has an invalid format.');applying=true;try{db={...db,...d};if(!Object.prototype.hasOwnProperty.call(d,'nfRankLedgerV1'))delete db.nfRankLedgerV1;if(!Object.prototype.hasOwnProperty.call(d,'nfStrengthTrialAwardsV1'))delete db.nfStrengthTrialAwardsV1;localStorage.setItem(key,JSON.stringify(db));renderAll();window.nfSyncSkillUnlocks?.();nfActivateNoticeInbox();window.dispatchEvent(new Event('nf:cloud-save-loaded'))}finally{applying=false}}
 function nfMergeRecords(base,local,remote){
  const equal=(a,b)=>JSON.stringify(a)===JSON.stringify(b);
  if(!validData(local)||!validData(remote))return null;
