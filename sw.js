@@ -1,5 +1,5 @@
 /* YOUR PATH: fast cached startup with background update check. Never cache account/API responses. */
-const VERSION='yp-rank-checkpoints-20261110-v1';
+const VERSION='yp-premium-male-shorts-20261110-v2';
 const CACHE='yourpath-shell-'+VERSION;
 const CORE=['./index.html','./cloud-config.js','./manifest.webmanifest'];
 const OPTIONAL=['./icon-192.png','./icon-512.png','./favicon.png','./apple-touch-icon.png','./your-path-mark.svg','./release-notes.json'];
