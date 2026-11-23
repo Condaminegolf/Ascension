@@ -1919,7 +1919,212 @@ body.nf-input-focus #nfMenuToggle:not([aria-expanded="true"]){opacity:.45}
 .nf-secret-asset-status:empty{display:none}
 .nf-secret-loading-art{font-size:36px;display:flex;align-items:center;justify-content:center;height:100%;color:#87dcc9}
 @media(max-width:520px){.nf-new-secret-set .nf-secret-gear-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.nf-new-secret-set .nf-secret-gear-item{min-height:175px}}
-</style></head><body><div id="nfStartupSplash" role="status" aria-live="polite" aria-label="YOUR PATH loading">
+</style><style id="yp-insights-styles">
+/* YOUR PATH — Insights: cross-domain progress analysis. Standalone and read-only. */
+#insights{--ypi-bg:#101d2b;--ypi-border:#3b5968;--ypi-text:#e8f5f6;--ypi-muted:#b1c9ce;--ypi-mint:#7ee6c7;--ypi-blue:#8abef2;--ypi-gold:#f2cb8a;--ypi-purple:#baabfa;color:var(--ypi-text);padding-bottom:36px}
+#insights .ypi-hero{background:radial-gradient(circle at 88% 0%,rgba(62,151,142,.21),transparent 40%),linear-gradient(150deg,#132d39,#132337 65%,#171c32);border:1px solid #527c80;overflow:hidden}
+#insights .ypi-eyebrow{font-size:10px;font-weight:800;letter-spacing:.18em;color:#91e7c7;text-transform:uppercase}
+#insights .ypi-heading{display:flex;justify-content:space-between;gap:16px;align-items:flex-start;flex-wrap:wrap}
+#insights .ypi-heading h2{margin:7px 0;font-size:clamp(26px,5vw,34px);line-height:1.1;letter-spacing:-.04em;color:#f4fefa}
+#insights .ypi-heading p{max-width:640px;color:var(--ypi-muted);font-size:13px;line-height:1.55;margin:6px 0 8px}
+#insights .ypi-period{display:flex;align-items:center;gap:7px;font-size:12px;color:var(--ypi-muted);font-weight:700}
+#insights .ypi-period select{color:#eefbf9;background:#172c38;border:1px solid #638a8e;border-radius:9px;padding:9px 11px;min-width:112px;max-width:150px;font:inherit}
+#insights .ypi-kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:9px;margin:16px 0 13px}
+#insights .ypi-kpi{background:rgba(5,20,30,.53);border:1px solid #466570;border-radius:13px;padding:13px 12px;min-width:0}
+#insights .ypi-kpi small{display:block;color:#b3cbd0;font-size:11px;font-weight:650;line-height:1.3}
+#insights .ypi-kpi strong{display:block;font-size:clamp(20px,3.7vw,30px);font-weight:850;line-height:1.2;letter-spacing:-.04em;margin:6px 0;color:#f5fffa;font-variant-numeric:tabular-nums;overflow-wrap:anywhere}
+#insights .ypi-kpi em{display:block;color:#a7dad2;font-size:10px;font-style:normal;line-height:1.4}
+#insights .ypi-lead{border-top:1px solid rgba(139,198,189,.25);padding-top:14px;display:grid;grid-template-columns:1fr auto;gap:12px;align-items:center}
+#insights .ypi-lead strong{font-size:14px;color:#eafff3}
+#insights .ypi-lead p{font-size:12px;line-height:1.5;color:#c0d6d7;margin:5px 0 0}
+#insights .ypi-quality{border:1px solid #6c918c;color:#c5f2de;border-radius:999px;padding:6px 9px;font-size:10px;font-weight:800;white-space:nowrap}
+#insights .ypi-section-title{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin:0 0 9px}
+#insights .ypi-section-title h3{font-size:17px;margin:0;color:#eefcf9}
+#insights .ypi-section-title small{font-size:11px;color:#acc6cc}
+#insights .ypi-card{background:linear-gradient(140deg,#152537,#111e2e);border:1px solid var(--ypi-border);border-radius:14px;padding:16px;min-width:0}
+#insights .ypi-card p{font-size:12px;color:#c3d2dc;line-height:1.55;margin:8px 0}
+#insights .ypi-card small{font-size:11px;color:#a8c0ca;line-height:1.5}
+#insights .ypi-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:12px 0}
+#insights .ypi-card-header{display:flex;gap:10px;align-items:center;margin-bottom:12px}
+#insights .ypi-card-header .ypi-icon{display:grid;place-items:center;width:31px;height:31px;border:1px solid #567e80;background:#284149;color:#b7ffe4;border-radius:10px;font-size:16px;flex:0 0 auto}
+#insights .ypi-card-header strong{color:#f3fffc;font-size:15px}
+#insights .ypi-big{font-size:clamp(23px,3vw,31px);color:#f6fffa;font-weight:850;line-height:1.2;letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+#insights .ypi-big small{font-size:12px;font-weight:600;letter-spacing:0}
+#insights .ypi-minis{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin:12px 0}
+#insights .ypi-mini{border-top:1px solid rgba(124,164,174,.35);padding-top:8px}
+#insights .ypi-mini span{display:block;color:#aec2ca;font-size:10px}
+#insights .ypi-mini b{display:block;font-size:15px;color:#f2fbfb;font-variant-numeric:tabular-nums;margin-top:4px}
+#insights .ypi-detail{color:#c3d5dd;font-size:12px;line-height:1.6}
+#insights .ypi-pill{display:inline-flex;padding:4px 8px;border:1px solid #617c85;border-radius:999px;font-size:10px;color:#d0e5e6;font-weight:700;background:#233744}
+#insights .ypi-chart{margin-top:12px;background:#0b1b2b;border:1px solid #304a58;border-radius:12px;padding:10px 8px 6px;min-height:80px}
+#insights .ypi-chart svg{display:block;width:100%;height:auto;max-height:265px}
+#insights .ypi-chart-empty{border:1px dashed #486474;background:#0e2232;color:#afc9ce;border-radius:10px;padding:19px 12px;line-height:1.6;font-size:12px}
+#insights .ypi-legend{font-size:11px;color:#b3c7d1;margin:9px 0 0;line-height:1.55}
+#insights .ypi-legend b{color:#89e8c8}
+#insights .ypi-track{background:#243f49;border-radius:999px;height:8px;overflow:hidden;margin:9px 0}
+#insights .ypi-track>span{display:block;height:100%;background:linear-gradient(90deg,#6fd4af,#b6d9a3);border-radius:999px;max-width:100%}
+#insights .ypi-driver{border-top:1px solid rgba(121,155,177,.25);padding-top:9px;margin-top:11px;color:#c9d7e3;font-size:12px;line-height:1.55}
+#insights .ypi-driver strong{color:#ebfff9}
+#insights .ypi-habit-weeks{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:7px;margin:12px 0 5px}
+#insights .ypi-week{background:#142f3e;border:1px solid #355766;border-radius:10px;padding:9px 5px;text-align:center;min-width:0}
+#insights .ypi-week small{font-size:9px;color:#b6d1d2;white-space:nowrap}
+#insights .ypi-week-bars{height:72px;display:flex;align-items:flex-end;justify-content:center;gap:5px;margin:8px auto}
+#insights .ypi-week-bars i{display:block;width:12px;max-width:42%;border-radius:4px 4px 1px 1px;min-height:2px;background:#7ee6c7}
+#insights .ypi-week-bars i+ i{background:#aeabfa}
+#insights .ypi-week b{display:block;font-size:9px;color:#d0e8ee;font-variant-numeric:tabular-nums}
+#insights .ypi-method{background:#102232;border:1px solid #345469;border-radius:13px;padding:12px 14px;font-size:11px;color:#b7cbd4;line-height:1.6;margin:15px 0}
+#insights .ypi-method strong{display:block;color:#ccebdc;font-size:12px;margin-bottom:3px}
+#insights .ypi-actions{background:linear-gradient(130deg,#1a3440,#1a2d3e);border:1px solid #457a7b;border-radius:14px;padding:16px;display:grid;gap:7px}
+#insights .ypi-actions strong{color:#eefff7;font-size:15px}
+#insights .ypi-actions p{color:#c1d9de;font-size:12px;line-height:1.55;margin:0}
+#insights .ypi-links{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+#insights .ypi-links button{border:1px solid #5d8b84;background:#203f45;color:#eaffef;border-radius:9px;padding:9px 11px;font-size:12px;font-weight:750;cursor:pointer}
+#insights .ypi-links button:hover{background:#2d5559}
+#insights .ypi-disclosure{margin-top:10px;font-size:11px;color:#afc3cd;line-height:1.6}
+@media(max-width:810px){#insights .ypi-kpis{grid-template-columns:repeat(2,minmax(0,1fr))}#insights .ypi-grid{grid-template-columns:1fr}}
+@media(max-width:480px){#insights .ypi-hero{padding:14px 11px}#insights .ypi-kpi{padding:12px 9px}#insights .ypi-card{padding:13px}#insights .ypi-habit-weeks{gap:4px}#insights .ypi-week{padding:7px 2px}#insights .ypi-week-bars{gap:3px}#insights .ypi-week-bars i{width:8px}#insights .ypi-lead{grid-template-columns:1fr}#insights .ypi-quality{justify-self:start}}
+
+
+/* YOUR PATH — explicit-consent, holistic GPT insights coach */
+#insights .ypi-ai-coach{background:radial-gradient(ellipse at 90% 5%,rgba(68,194,162,.17),transparent 45%),linear-gradient(155deg,#142c3a,#152132 68%,#191b32);border:1px solid #4a9b8e;padding:20px;overflow:hidden}
+#insights .ypi-ai-head{display:flex;align-items:center;gap:13px;margin-bottom:10px}
+#insights .ypi-ai-mark{display:grid;place-items:center;flex:none;width:44px;height:44px;border-radius:14px;background:linear-gradient(145deg,#2e897d,#24546b);border:1px solid #78c9ac;font-size:23px;color:#f7fff7;box-shadow:0 0 24px #45b89a2c}
+#insights .ypi-ai-head h3{font-size:clamp(18px,4vw,23px);line-height:1.2;color:#f3fff9;margin:4px 0 3px}
+#insights .ypi-ai-kicker{color:#8de9c4;letter-spacing:.12em;text-transform:uppercase;font-weight:900;font-size:10px}
+#insights .ypi-ai-intro{font-size:12px;line-height:1.65;color:#c3d8dd;max-width:850px;margin:0 0 13px}
+#insights .ypi-ai-controls{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:10px;margin:12px 0}
+#insights .ypi-ai-field{display:flex;flex-direction:column;gap:6px;font-size:11px;color:#c8e5e3;font-weight:800;min-width:0}
+#insights .ypi-ai-field select,#insights .ypi-ai-field textarea,#insights .ypi-ai-ask textarea{width:100%;background:#102534;border:1px solid #527c83;border-radius:10px;color:#f6fffc;font:inherit;font-size:13px;line-height:1.45;padding:10px 11px;min-width:0;box-sizing:border-box}
+#insights .ypi-ai-field textarea,#insights .ypi-ai-ask textarea{resize:vertical;min-height:56px;max-height:160px}
+#insights .ypi-ai-field.wide{grid-column:1/-1}
+#insights .ypi-ai-consent{display:flex;align-items:flex-start;gap:10px;padding:10px 11px;border-radius:10px;border:1px solid #476b76;background:#152b3a;margin:8px 0;line-height:1.45;color:#e8f8f7;font-size:12px}
+#insights .ypi-ai-consent input{margin:2px 0 0;accent-color:#77e7c1;width:17px;height:17px;flex:none}
+#insights .ypi-ai-consent small{display:block;font-size:11px;color:#b6cad4;line-height:1.5;margin-top:4px}
+#insights .ypi-ai-actions{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:13px 0 6px}
+#insights .ypi-ai-btn{font:inherit;cursor:pointer;border:1px solid #7be1c1;border-radius:11px;background:linear-gradient(120deg,#79e5c3,#a2f5d5);color:#112a29;font-size:13px;font-weight:900;min-height:42px;padding:11px 15px;box-shadow:0 2px 10px #0003}
+#insights .ypi-ai-btn.secondary{background:#203c4c;border-color:#608a97;color:#e8fbf9;box-shadow:none}
+#insights .ypi-ai-btn:disabled{opacity:.55;cursor:wait}
+#insights .ypi-ai-status{font-size:11px;color:#b9d4d6;line-height:1.5;min-height:17px;margin:8px 0}
+#insights .ypi-ai-status.error{color:#ffc4b7}
+#insights .ypi-ai-result{border:1px solid #578578;border-radius:14px;background:linear-gradient(155deg,#102638,#122434);padding:16px;margin:14px 0;box-shadow:inset 0 1px 0 #ffffff10}
+#insights .ypi-ai-result[hidden]{display:none!important}
+#insights .ypi-ai-result h4{font-size:clamp(17px,4vw,21px);color:#e6fff4;line-height:1.3;margin:2px 0 8px}
+#insights .ypi-ai-result p{font-size:13px;line-height:1.7;color:#d3e7e9;margin:8px 0 12px}
+#insights .ypi-ai-block-title{font-weight:900;color:#93e9c6;letter-spacing:.1em;text-transform:uppercase;font-size:10px;margin:18px 0 9px}
+#insights .ypi-ai-driver-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
+#insights .ypi-ai-driver{border:1px solid #436577;background:#162d3b;border-radius:11px;padding:12px;min-width:0}
+#insights .ypi-ai-driver .area{display:block;color:#a0e8d2;font-size:10px;font-weight:900;letter-spacing:.06em;text-transform:uppercase;margin-bottom:7px}
+#insights .ypi-ai-driver strong{color:#f1fff9;font-size:12px;line-height:1.45;font-weight:750}
+#insights .ypi-ai-driver small{display:block;color:#b4cbd5;font-size:11px;line-height:1.5;margin-top:6px}
+#insights .ypi-ai-step{display:grid;grid-template-columns:28px minmax(0,1fr);gap:10px;align-items:start;margin:10px 0}
+#insights .ypi-ai-step .num{display:grid;place-items:center;background:#315f5c;border:1px solid #7bb5a5;color:#dbffee;border-radius:9px;min-height:28px;font-size:12px;font-weight:900}
+#insights .ypi-ai-step strong{color:#e8fff5;font-size:13px}
+#insights .ypi-ai-step p{font-size:12px;line-height:1.55;margin:3px 0;color:#c8e0e1}
+#insights .ypi-ai-step small{font-size:11px;color:#9ebfc5;line-height:1.5}
+#insights .ypi-ai-answer{white-space:pre-line;border-left:3px solid #90e8c7;padding:9px 12px;background:#173a40;color:#e9fff7;font-size:13px;line-height:1.65;border-radius:0 9px 9px 0;margin:12px 0}
+#insights .ypi-ai-caveat{font-size:11px;color:#aec6ce;border-top:1px solid #42616b;padding-top:12px;margin-top:14px;line-height:1.55}
+#insights .ypi-ai-ask{border-top:1px solid #446572;margin-top:16px;padding-top:14px}
+#insights .ypi-ai-ask label{display:block;font-size:12px;font-weight:850;color:#effff7;margin-bottom:8px}
+#insights .ypi-ai-ask-row{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:9px;align-items:start}
+#insights .ypi-ai-questions{display:flex;gap:7px;flex-wrap:wrap;margin-top:11px}
+#insights .ypi-ai-questions button{font:inherit;font-size:11px;line-height:1.4;color:#c1f5e6;border-radius:999px;background:#153a41;border:1px solid #5a9389;padding:7px 10px;text-align:left;cursor:pointer}
+#insights .ypi-ai-questions button:hover{background:#23524e}
+#insights .ypi-ai-help{font-size:11px;color:#a6c0c7;line-height:1.55;margin:11px 0 0}
+@media(max-width:650px){#insights .ypi-ai-coach{padding:14px}#insights .ypi-ai-controls,#insights .ypi-ai-driver-grid,#insights .ypi-ai-ask-row{grid-template-columns:minmax(0,1fr)}#insights .ypi-ai-ask-row button{justify-self:start}#insights .ypi-ai-btn{width:100%}#insights .ypi-ai-actions .ypi-ai-btn{width:100%}}
+
+</style>
+<style id="yp-orbit-insights-styles">
+/* YOUR PATH / THE SYSTEM - integrated Body Intelligence */
+#insights{--ypx-dark:#101825;--ypx-panel:#162837;--ypx-line:rgba(150,220,213,.20);--ypx-white:#f2fff9;--ypx-mint:#80f2d2;--ypx-blue:#83c9ff;--ypx-amber:#f5cd91;--ypx-muted:#a9bfca;color:var(--ypx-white);padding-bottom:40px}
+#insights .ypx-shell{max-width:1160px;margin:0 auto;display:grid;gap:16px}
+#insights .ypx-hero{background:radial-gradient(ellipse at 75% -10%,rgba(58,234,186,.18),transparent 55%),radial-gradient(ellipse at -10% 90%,rgba(65,139,206,.15),transparent 48%),linear-gradient(155deg,#132732,#101d2b 75%,#141c30);border:1px solid rgba(113,229,201,.46);position:relative;overflow:hidden;padding:clamp(17px,4vw,28px)}
+#insights .ypx-hero-grid{position:absolute;inset:0;pointer-events:none;opacity:.3;background-image:linear-gradient(rgba(90,190,187,.14) 1px,transparent 1px),linear-gradient(90deg,rgba(90,190,187,.14) 1px,transparent 1px);background-size:44px 44px;mask-image:linear-gradient(180deg,black,transparent 90%)}
+#insights .ypx-hero>*:not(.ypx-hero-grid){position:relative}
+#insights .ypx-eyebrow,#insights .ypx-kicker{font-size:10px;font-weight:850;letter-spacing:.16em;color:#92eacf;text-transform:uppercase}
+#insights .ypx-emblem{font-size:20px;color:#b2f5df;vertical-align:middle;margin-right:4px}
+#insights .ypx-slash{padding:0 5px;color:#598b8c}
+#insights .ypx-live{float:right;display:inline-flex;align-items:center;gap:7px;font-size:10px;letter-spacing:.07em;color:#bdd8d4}
+#insights .ypx-live i,#insights .ypx-pulse,#insights .ypx-state-dot{width:7px;height:7px;border-radius:50%;background:#80f2d2;display:inline-block;box-shadow:0 0 0 4px rgba(128,242,210,.10),0 0 16px #80f2d288;animation:ypxBreathe 2.8s ease-in-out infinite}
+@keyframes ypxBreathe{50%{opacity:.5;box-shadow:0 0 0 6px rgba(128,242,210,.06)}}
+#insights .ypx-hero h2{font-size:clamp(29px,5vw,46px);letter-spacing:-.05em;line-height:1.07;margin:19px 0 12px;font-weight:850;color:#fbfffd}
+#insights .ypx-hero h2 em{font-style:normal;color:var(--ypx-mint)}
+#insights .ypx-subtitle{font-size:clamp(12px,2.4vw,14px);line-height:1.65;color:#bcd2d7;max-width:740px;margin:0 0 18px}
+#insights .ypx-flow{display:flex;gap:11px;align-items:center;flex-wrap:wrap;margin:9px 0 23px;font-size:10px;letter-spacing:.15em;font-weight:800;color:#9ed9d1}
+#insights .ypx-flow b{color:#588f9a;font-size:17px;font-weight:500}
+#insights .ypx-orbits{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+#insights .ypx-orbit{min-width:0;position:relative;padding:17px 16px 13px;background:linear-gradient(150deg,rgba(27,53,67,.95),rgba(16,31,45,.92));border:1px solid var(--ypx-line);border-radius:16px;box-shadow:inset 0 1px 0 rgba(245,255,255,.05);display:flex;flex-direction:column;align-items:center;text-align:center}
+#insights .ypx-orbit:hover{border-color:rgba(120,227,215,.5)}
+#insights .ypx-orbit-top{width:100%;display:flex;justify-content:space-between;align-items:center;gap:6px;color:#b5d7d7;font-size:10px;letter-spacing:.10em;font-weight:800;text-align:left}
+#insights .ypx-orbit-dot{color:#87cfba;font-size:16px}
+#insights .ypx-orbit-core{width:126px;height:126px;position:relative;margin:4px 0 0}
+#insights .ypx-orbit-core svg{position:absolute;inset:0;width:100%;height:100%;transform:rotate(-90deg)}
+#insights .ypx-track{fill:none;stroke:#294453;stroke-width:5;stroke-dasharray:5 5}
+#insights .ypx-arc{fill:none;stroke-width:5;stroke-linecap:round;filter:drop-shadow(0 0 6px rgba(128,242,210,.23));transition:stroke-dasharray .6s ease}
+#insights .ypx-arc.recovery{stroke:var(--ypx-mint)}#insights .ypx-arc.strength{stroke:var(--ypx-amber)}#insights .ypx-arc.cardio{stroke:var(--ypx-blue)}
+#insights .ypx-orbit-numeric{position:absolute;inset:0;display:flex;justify-content:center;align-items:center;flex-direction:column;gap:2px}
+#insights .ypx-orbit-numeric b{font-size:clamp(24px,3vw,33px);line-height:1;font-weight:900;letter-spacing:-.045em;color:#f6fff9;font-variant-numeric:tabular-nums}
+#insights .ypx-orbit-numeric small{font-size:9px;letter-spacing:.07em;color:#a8cbca;font-weight:800}
+#insights .ypx-orbit h3{color:#f3fffc;font-size:15px;margin:1px 0 7px;font-weight:780}
+#insights .ypx-orbit p{color:#abc8cf;line-height:1.5;font-size:11px;max-width:250px;margin:0 0 11px;min-height:32px}
+#insights .ypx-orbit-foot{font-size:10px;line-height:1.4;color:#8fadb8;border-top:1px solid rgba(160,219,226,.15);padding-top:10px;margin-top:auto;width:100%}
+#insights .ypx-signal-strip{display:flex;align-items:center;gap:12px;background:linear-gradient(90deg,rgba(29,94,85,.3),rgba(25,65,85,.18));border:1px solid rgba(126,239,215,.25);border-radius:12px;margin-top:15px;padding:12px 14px;flex-wrap:wrap}
+#insights .ypx-signal-strip>span{color:#a6e7d6;font-size:9px;letter-spacing:.13em;display:flex;align-items:center;gap:8px;font-weight:900;white-space:nowrap}
+#insights .ypx-signal-strip strong{color:#effdf9;font-size:12px;line-height:1.45;font-weight:710;flex:1;min-width:180px}
+#insights .ypx-signal-strip small{color:#88aaaf;font-size:10px;white-space:nowrap}
+#insights .ypx-coach{padding:clamp(16px,3.5vw,25px);border:1px solid rgba(111,204,182,.55);border-radius:16px;background:radial-gradient(circle at 94% 4%,rgba(72,197,155,.14),transparent 37%),linear-gradient(150deg,#182d3c,#132331 63%,#171e31);box-shadow:0 14px 35px #020e1a22}
+#insights .ypx-coach-head{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:15px}
+#insights .ypx-coach h3{font-size:clamp(21px,3.5vw,26px);letter-spacing:-.035em;color:#f7fffb;margin:5px 0 0}
+#insights .ypx-ai-state{border:1px solid #4f887f;background:#18393c;color:#b6f2df;border-radius:99px;padding:7px 10px;font-size:10px;font-weight:790;display:flex;gap:9px;align-items:center;white-space:nowrap}
+#insights .ypx-consent{padding:18px;border:1px solid rgba(119,216,196,.38);background:rgba(27,60,65,.45);border-radius:13px;margin:14px 0}
+#insights .ypx-consent strong{font-size:16px;color:#eefff9}#insights .ypx-consent p{font-size:12px;color:#bacfd2;line-height:1.6;margin:9px 0 14px}
+#insights .ypx-primary{background:linear-gradient(120deg,#74e4bf,#8cd9de);color:#0c2930;font-weight:900;border:0;border-radius:11px;padding:12px 17px;cursor:pointer;box-shadow:0 5px 24px #50cbac29}
+#insights .ypx-primary span{padding-left:14px}
+#insights .ypx-notice{padding:16px;color:#c4dcdb;background:#19303c;border:1px solid rgba(134,198,200,.18);border-radius:11px;font-size:12px;line-height:1.55}
+#insights .ypx-notice.error{border-color:#b87879;color:#ffd3cb}
+#insights .ypx-story h4{font-size:20px;letter-spacing:-.02em;color:#f6fffb;margin:9px 0 10px}
+#insights .ypx-story>p{color:#d2e6e5;font-size:13px;line-height:1.7;margin:0 0 18px;max-width:850px}
+#insights .ypx-focus-label{font-size:10px;letter-spacing:.15em;color:#8be8cd;font-weight:900;padding-top:3px;margin-bottom:11px}
+#insights .ypx-steps{display:grid;gap:8px;grid-template-columns:repeat(auto-fit,minmax(205px,1fr))}
+#insights .ypx-step{background:rgba(25,55,66,.68);border:1px solid rgba(128,209,198,.22);border-radius:12px;padding:13px;display:flex;gap:11px}
+#insights .ypx-step-index{background:#23554d;color:#aef5dc;font-size:11px;font-weight:900;border-radius:8px;width:25px;height:25px;display:grid;place-items:center;flex:none}
+#insights .ypx-step strong{font-size:13px;color:#f1fffa}#insights .ypx-step p{font-size:11px;color:#c3d6d8;line-height:1.55;margin:5px 0}#insights .ypx-step small{font-size:10px;color:#93b4b9}
+#insights .ypx-findings{display:flex;flex-wrap:wrap;gap:8px;margin-top:15px}
+#insights .ypx-finding{font-size:11px;color:#b3d9d0;border:1px solid rgba(148,219,207,.22);padding:8px 10px;border-radius:9px;background:#132d36}
+#insights .ypx-finding strong{color:#f2fff9;margin-right:4px;text-transform:capitalize}
+#insights .ypx-caveat{font-size:10px;color:#8faeb2;margin:14px 0}
+#insights .ypx-ai-ask{margin-top:17px;padding-top:16px;border-top:1px solid rgba(129,206,196,.22)}
+#insights .ypx-ai-ask label{display:block;color:#d9f8ed;font-size:12px;font-weight:780;margin-bottom:8px}
+#insights .ypx-question-row{display:flex;gap:8px;border:1px solid #487876;border-radius:11px;padding:5px;background:#101f2d}
+#insights .ypx-question-row input{flex:1;min-width:0;color:#f0fffb;border:0!important;background:transparent!important;padding:9px 10px;outline:0;font-size:12px;box-shadow:none!important}
+#insights .ypx-question-row input::placeholder{color:#86a9ae}
+#insights .ypx-question-row button{min-width:44px;background:#75e4bd;color:#0b2d2d;border:0;border-radius:8px;font-size:22px;font-weight:850;cursor:pointer}
+#insights .ypx-question-row button:disabled{opacity:.4;cursor:wait}
+#insights .ypx-answer{background:#102a35;border-left:3px solid #91eed2;border-radius:0 9px 9px 0;padding:12px;margin-top:9px;font-size:12px;line-height:1.6;color:#dbf5ea;white-space:pre-wrap}
+#insights .ypx-coach-foot{display:flex;align-items:center;justify-content:space-between;gap:12px;color:#8ba9b0;font-size:10px;margin-top:12px}
+#insights #ypxRefresh{background:none;color:#a9eacf;border:1px solid #426e6d;border-radius:8px;width:32px;height:32px;cursor:pointer;font-size:19px}
+#insights .ypx-bodyline{padding:18px 22px;background:linear-gradient(100deg,#172b39,#132435);border:1px solid rgba(115,174,177,.3);display:flex;justify-content:space-between;gap:15px;align-items:center}
+#insights .ypx-bodyline>div:first-child{display:flex;flex-direction:column;gap:7px}
+#insights .ypx-bodyline strong{color:#f2fff9;font-size:14px}
+#insights .ypx-bodyline small{font-size:11px;color:#9cb8bd}
+#insights .ypx-weight-readout{white-space:nowrap;color:#edfaef;font-size:25px;font-weight:900;font-variant-numeric:tabular-nums}
+#insights .ypx-evidence{border:1px solid rgba(126,180,186,.32);background:#122434;border-radius:13px;overflow:hidden}
+#insights .ypx-evidence>summary{display:flex;align-items:center;justify-content:space-between;gap:10px;cursor:pointer;list-style:none;font-size:11px;letter-spacing:.12em;font-weight:880;padding:18px;color:#d2f5e9}
+#insights .ypx-evidence>summary::-webkit-details-marker{display:none}
+#insights .ypx-evidence-hint{color:#98b5bd;font-size:10px;letter-spacing:0;font-weight:600}
+#insights .ypx-evidence-hint b{padding-left:7px;font-size:15px}
+#insights .ypx-evidence-body{display:grid;gap:12px;padding:12px 16px 17px;border-top:1px solid rgba(128,201,196,.18)}
+#insights .ypx-evidence-body .ypi-card{background:#162b3a}
+#insights .ypx-privacy{color:#96b4b8;padding:0 5px;font-size:11px}
+#insights .ypx-privacy summary{cursor:pointer;text-decoration:underline;text-underline-offset:3px}
+#insights .ypx-privacy p{font-size:11px;max-width:750px;line-height:1.6}
+#insights .ypx-quiet{padding:8px 12px;border-radius:8px;border:1px solid #628e93;color:#d8f5e8;background:#1a3442;cursor:pointer}
+#insights .ypx-orbit-core svg .strength,#insights .ypx-orbit-core svg .cardio{opacity:.9}
+@media(max-width:720px){#insights .ypx-orbits{gap:8px}#insights .ypx-orbit{padding:13px 7px 10px;border-radius:12px}#insights .ypx-orbit-core{width:92px;height:92px;margin:4px 0}#insights .ypx-orbit-top{font-size:8px;letter-spacing:.02em}#insights .ypx-orbit-dot{display:none}#insights .ypx-orbit-numeric b{font-size:22px}#insights .ypx-orbit-numeric small{font-size:7px;letter-spacing:0}#insights .ypx-orbit h3{font-size:11px;min-height:27px}#insights .ypx-orbit p{font-size:9px;line-height:1.4;min-height:43px}#insights .ypx-orbit-foot{font-size:8px;padding-top:8px}#insights .ypx-live{float:none;margin-top:10px;display:flex}#insights .ypx-signal-strip{gap:8px}#insights .ypx-signal-strip small{width:100%}#insights .ypx-bodyline{padding:14px 15px}#insights .ypx-weight-readout{font-size:19px}#insights .ypx-evidence-hint{font-size:9px}}
+@media(max-width:380px){#insights .ypx-orbit-core{width:80px;height:80px}#insights .ypx-orbit-numeric b{font-size:19px}#insights .ypx-orbit h3{font-size:10px}}
+@media(prefers-reduced-motion:reduce){#insights .ypx-live i,#insights .ypx-pulse,#insights .ypx-state-dot{animation:none}#insights .ypx-arc{transition:none}}
+
+</style>
+</head><body><div id="nfStartupSplash" role="status" aria-live="polite" aria-label="YOUR PATH loading">
  <div class="nf-startup-content">
   <div class="nf-startup-symbol" aria-hidden="true"><img src="./your-path-mark.svg" alt="" decoding="async"></div>
   <h1 class="nf-startup-brand">YOUR <span>PATH</span></h1>
@@ -1979,6 +2184,7 @@ body.nf-input-focus #nfMenuToggle:not([aria-expanded="true"]){opacity:.45}
         <button class="nf-menu-link" data-nf-menu="notices" type="button"><span class="nf-menu-glyph">◈</span><span><strong>Notifications</strong><small>Updates and achievements</small></span><span id="nfMenuNoticeBadge" class="nf-unread-badge nf-drawer-unread" hidden aria-hidden="true"></span><span class="nf-menu-arrow">›</span></button>
         <button class="nf-menu-link" data-nf-menu="ranks" type="button"><span class="nf-menu-glyph">◇</span><span><strong>Ranks &amp; Skill Tree</strong><small>Requirements and achievements</small></span><span class="nf-menu-arrow">›</span></button>
         <button class="nf-menu-link" data-nf-menu="progress" type="button"><span class="nf-menu-glyph">◌</span><span><strong>Body &amp; recovery</strong><small>Goals, measurements and wellness</small></span><span class="nf-menu-arrow">›</span></button>
+        <button class="nf-menu-link" data-nf-menu="insights" type="button"><span class="nf-menu-glyph">◉</span><span><strong>Insights</strong><small>Weight, food &amp; training impact</small></span><span class="nf-menu-arrow">›</span></button>
         <button class="nf-menu-link" data-nf-menu="analytics" type="button"><span class="nf-menu-glyph">▥</span><span><strong>Analytics</strong><small>Strength, cardio and consistency trends</small></span><span class="nf-menu-arrow">›</span></button>
         <button class="nf-menu-link" data-nf-menu="friends" type="button"><span class="nf-menu-glyph">♧</span><span><strong>Friends &amp; leaderboard</strong><small>Optional social features</small></span><span class="nf-menu-arrow">›</span></button>
       </div>
@@ -2002,7 +2208,7 @@ body.nf-input-focus #nfMenuToggle:not([aria-expanded="true"]){opacity:.45}
 </section><div class="panel hero"><div><div class="rank" id="rank">F</div><div style="text-align:center" class="muted">TRAINING RANK</div></div><div><div class="muted">XP LEVEL <span id="level">1</span> · <span id="xp">0</span> TOTAL XP</div><div class="big" id="rankTitle">Foundation</div><div class="nf-rank-bar-label"><span>NEXT RANK READINESS</span><strong id="rankProgressPercent">0%</strong></div><div class="bar nf-rank-main-track" id="rankProgressTrack" role="progressbar" aria-label="Progress toward next rank" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"><div class="fill" id="xpbar" style="width:0%"></div></div><div class="muted" id="nextRank">Progress to E Rank</div><div class="muted" id="decayStatus" style="margin-top:6px"></div></div></div><section class="command-dashboard" aria-label="Progress overview">
 <div class="panel command-power"><div class="command-label">PERFORMANCE INDEX</div><div class="command-power-top"><div><div class="command-number" id="overviewPower">0 <small>/ 100</small></div><div class="muted">Combined training and wellness progress</div></div><div class="command-mini" id="overviewBreakdown"></div></div></div>
 <div class="panel command-radar"><div class="command-label">ATTRIBUTE RADAR · LIVE PROGRESSION</div><div id="overviewRadar" class="radar-slot"></div><div class="muted" style="text-align:center">Strength · Endurance · Discipline · Recovery · Mobility</div></div>
-</section><div class="stats" style="margin-top:12px"><div class="stat"><strong id="sessions">0</strong><span class="muted">Workouts</span></div><div class="stat"><strong id="streak">0</strong><span class="muted">Day streak</span></div><div class="stat"><strong id="sets">0</strong><span class="muted">Sets logged</span></div></div><nav class="tabs nf-bottom-nav" id="tabs"><button class="active" data-tab="home">⌂<span>Home</span></button><button data-tab="train">＋<span>Train</span></button><button data-tab="hunter">◇<span>Character</span></button><button data-tab="records">▥<span>Records</span></button><button data-tab="nutrition">🍽<span>Nutrition</span></button></nav><div id="nfHiddenNav" hidden><button data-tab="quests">Challenges</button><button data-tab="progress">Progress</button><button data-tab="ranks">Ranks</button><button data-tab="analytics">Analytics</button><button data-tab="calendar">Calendar</button><button data-tab="settings">Settings</button><button data-tab="datahealth">Data Health</button><button data-tab="friends">Friends</button></div><main id="home"><section class="panel nf-home-focus nf-today-panel" id="nfHomeFocus" aria-label="Today's training">
+</section><div class="stats" style="margin-top:12px"><div class="stat"><strong id="sessions">0</strong><span class="muted">Workouts</span></div><div class="stat"><strong id="streak">0</strong><span class="muted">Day streak</span></div><div class="stat"><strong id="sets">0</strong><span class="muted">Sets logged</span></div></div><nav class="tabs nf-bottom-nav" id="tabs"><button class="active" data-tab="home">⌂<span>Home</span></button><button data-tab="train">＋<span>Train</span></button><button data-tab="hunter">◇<span>Character</span></button><button data-tab="records">▥<span>Records</span></button><button data-tab="nutrition">🍽<span>Nutrition</span></button></nav><div id="nfHiddenNav" hidden><button data-tab="quests">Challenges</button><button data-tab="progress">Progress</button><button data-tab="ranks">Ranks</button><button data-tab="insights">Insights</button><button data-tab="analytics">Analytics</button><button data-tab="calendar">Calendar</button><button data-tab="settings">Settings</button><button data-tab="datahealth">Data Health</button><button data-tab="friends">Friends</button></div><main id="home"><section class="panel nf-home-focus nf-today-panel" id="nfHomeFocus" aria-label="Today's training">
   <div class="yp-home-intro"><span class="yp-home-orbit" aria-hidden="true">✧</span><span>YOUR PATH <em>·</em> BECOME WHO YOU CHOOSE.</span></div><div class="nf-home-focus-head"><div><div class="tag">TODAY <span aria-hidden="true">·</span> <span id="nfTodayDate">YOUR TRAINING</span></div><h2 id="nfTodayHeading">Your next move</h2><p class="muted" id="nfTodaySubtitle">One thing at a time.</p></div><span class="nf-home-focus-mark" aria-hidden="true">✧</span></div>
   <div class="nf-today-primary" id="nfTodayPrimary" aria-live="polite">Checking your training schedule…</div>
   <div class="nf-today-session-list" id="nfTodaySessions" aria-label="Sessions planned for today"></div><div id="nfOuraTodayRecovery" class="nf-oura-today" hidden aria-live="polite"></div>
@@ -2150,6 +2356,72 @@ body.nf-input-focus #nfMenuToggle:not([aria-expanded="true"]){opacity:.45}
 <section class="panel yp-analytics-premium"><h3>Running and Cycling Performance</h3><p class="muted">Totals include manual and imported activities stored in YOUR PATH. Sessions without distance don't contribute to distance charts.</p><div id="ypAnalyticsEndurance" class="yp-endurance-grid"></div></section>
 <div class="panel"><div class="tag">ADDITIONAL CHARTS</div><h3>Bodyweight, Weekly Volume & Records</h3><p class="muted">Long-term measurements and original training charts are preserved below.</p></div><div class="panel"><h3>Bodyweight Trend</h3><div id="weightChart"></div></div><div class="panel"><h3>Weekly Training Volume</h3><div id="volumeChart"></div></div><div class="panel"><h3>Endurance Distance by Week</h3><div id="cardioChart"></div></div><div class="panel"><h3>Estimated Strength Records</h3><div id="strengthChart"></div></div>
 </main>
+<main id="insights" class="hidden" aria-labelledby="ypInsightsTitle">
+ <div class="ypx-shell">
+  <section class="panel ypx-hero">
+   <div class="ypx-hero-grid" aria-hidden="true"></div>
+   <div class="ypx-eyebrow"><span class="ypx-emblem">✦</span> THE SYSTEM <span class="ypx-slash">/</span> BODY INTELLIGENCE <span class="ypx-live"><i></i> PERSONAL PERFORMANCE</span></div>
+   <h2 id="ypInsightsTitle">Balance is the new<br><em>progress.</em></h2>
+   <p class="ypx-subtitle">Recover well. Build strength relative to your bodyweight. Develop the engine to sustain it. One intelligent view of how it's all working together.</p>
+   <div class="ypx-flow" aria-label="Three pillars of performance"><span>RECOVER</span><b>→</b><span>STRENGTHEN</span><b>→</b><span>ENDURE</span></div>
+   <div class="ypx-orbits" aria-label="Live performance signals">
+    <article class="ypx-orbit" id="ypxRecoveryCard">
+     <div class="ypx-orbit-top"><span>01 / RECOVERY</span><span class="ypx-orbit-dot">◉</span></div>
+     <div class="ypx-orbit-core"><svg viewBox="0 0 124 124" aria-hidden="true"><circle class="ypx-track" cx="62" cy="62" r="50"/><circle class="ypx-arc recovery" id="ypxRecoveryArc" cx="62" cy="62" r="50" stroke-dasharray="0 314.16"/></svg><div class="ypx-orbit-numeric"><b id="ypxRecoveryNumber">—</b><small id="ypxRecoveryUnit">OURA SCORE</small></div></div>
+     <h3 id="ypxRecoveryState">Waiting for Oura</h3><p id="ypxRecoveryDetail">Sync Oura to connect your recovery signal.</p>
+     <div class="ypx-orbit-foot" id="ypxRecoveryFoot">Oura readiness · latest reading</div>
+    </article>
+    <article class="ypx-orbit" id="ypxStrengthCard">
+     <div class="ypx-orbit-top"><span>02 / RELATIVE STRENGTH</span><span class="ypx-orbit-dot">◆</span></div>
+     <div class="ypx-orbit-core"><svg viewBox="0 0 124 124" aria-hidden="true"><circle class="ypx-track" cx="62" cy="62" r="50"/><circle class="ypx-arc strength" cx="62" cy="62" r="50" stroke-dasharray="108 206"/></svg><div class="ypx-orbit-numeric"><b id="ypxStrengthNumber">—</b><small id="ypxStrengthUnit">× BODYWEIGHT</small></div></div>
+     <h3 id="ypxStrengthState">Log a compound lift</h3><p id="ypxStrengthDetail">Your strongest comparable lift relative to your body mass.</p>
+     <div class="ypx-orbit-foot" id="ypxStrengthFoot">Estimated 1RM ÷ recent bodyweight</div>
+    </article>
+    <article class="ypx-orbit" id="ypxCardioCard">
+     <div class="ypx-orbit-top"><span>03 / CARDIO ENGINE</span><span class="ypx-orbit-dot">↗</span></div>
+     <div class="ypx-orbit-core"><svg viewBox="0 0 124 124" aria-hidden="true"><circle class="ypx-track" cx="62" cy="62" r="50"/><circle class="ypx-arc cardio" cx="62" cy="62" r="50" stroke-dasharray="165 149"/></svg><div class="ypx-orbit-numeric"><b id="ypxCardioNumber">—</b><small id="ypxCardioUnit">MIN / WEEK</small></div></div>
+     <h3 id="ypxCardioState">Build your engine</h3><p id="ypxCardioDetail">Cardio volume and consistency across the last four weeks.</p>
+     <div class="ypx-orbit-foot" id="ypxCardioFoot">Logged sessions · not a VO₂ max estimate</div>
+    </article>
+   </div>
+   <div class="ypx-signal-strip"><span><i class="ypx-pulse"></i> CURRENT SIGNAL</span><strong id="ypxBalanceSignal">Analysing your recovery, strength and cardio…</strong><small id="ypxBalanceDate">Last 28 complete days</small></div>
+  </section>
+
+  <section id="ypxCoach" class="panel ypx-coach" aria-labelledby="ypxCoachHeading">
+   <div class="ypx-coach-head"><div><div class="ypx-kicker">✦ THE SYSTEM / INTELLIGENT BRIEFING</div><h3 id="ypxCoachHeading">Your performance decoded.</h3></div><div class="ypx-ai-state" id="ypxAIState"><span class="ypx-state-dot"></span> Waiting for data</div></div>
+   <div id="ypxAIConsent" class="ypx-consent" hidden>
+    <strong>Activate automatic AI Insights</strong>
+    <p>Once enabled, YOUR PATH automatically sends summary values for weight, nutrition, training and connected Oura recovery to OpenAI through your secure account when Insights needs a fresh review. Individual meals, workout names in full history and account details are not shared. You can switch it off below.</p>
+    <button type="button" id="ypxAIActivate" class="ypx-primary">Activate AI Insights <span>✦</span></button>
+   </div>
+   <div id="ypxAINotice" class="ypx-notice" role="status" aria-live="polite">Linking your performance signals…</div>
+   <div id="ypxAIStory" class="ypx-story" hidden aria-live="polite">
+    <h4 id="ypxAIHeadline">Your performance signal</h4><p id="ypxAIAssessment"></p>
+    <div class="ypx-focus-label">THE NEXT BEST MOVE</div><div id="ypxAISteps" class="ypx-steps"></div>
+    <div id="ypxAIFindings" class="ypx-findings"></div><p id="ypxAICaveat" class="ypx-caveat"></p>
+   </div>
+   <div class="ypx-ai-ask"><label for="ypxQuestion">Ask THE SYSTEM</label><div class="ypx-question-row"><input id="ypxQuestion" maxlength="420" placeholder="What should I focus on this week?" autocomplete="off"/><button type="button" id="ypxAsk" aria-label="Send question">↗</button></div><div id="ypxAnswer" class="ypx-answer" hidden></div></div>
+   <div class="ypx-coach-foot"><span id="ypxFreshness">28-day view · updates automatically</span><button type="button" id="ypxRefresh" title="Refresh AI briefing" aria-label="Refresh AI briefing">↻</button></div>
+  </section>
+
+  <section class="panel ypx-bodyline"><div><span class="ypx-kicker">BODY COMPOSITION CONTEXT</span><strong id="ypxWeightHeadline">Reading your bodyweight trend…</strong><small id="ypxWeightDetail">Weight alone cannot distinguish fat, muscle and fluid.</small></div><div class="ypx-weight-readout" id="ypxWeightValue">—</div></section>
+
+  <details class="ypx-evidence"><summary><span>VIEW EVIDENCE &amp; TRAINING HISTORY</span><span class="ypx-evidence-hint">Nutrition · Weight · Strength · Cardio <b>⌄</b></span></summary>
+   <div class="ypx-evidence-body">
+    <input type="hidden" id="ypInsightsPeriod" value="28">
+    <div id="ypInsightsKpis" class="ypi-kpis" aria-live="polite"></div>
+    <div class="ypi-lead"><div><strong id="ypInsightsLead"></strong><p id="ypInsightsLeadExplain"></p></div><span id="ypInsightsConfidence" class="ypi-quality"></span></div>
+    <section class="ypi-card"><div class="ypi-section-title"><h3>Weight trend</h3><small id="ypInsightsWeightDates"></small></div><div id="ypInsightsWeightChart" class="ypi-chart"></div><p id="ypInsightsWeightNote" class="ypi-legend"></p></section>
+    <div id="ypInsightsPillars" class="ypi-grid"></div>
+    <section class="ypi-card"><div class="ypi-section-title"><h3>Cardio &amp; strength over time</h3><small>Completed sessions only</small></div><div id="ypInsightsWeeks"></div><p class="ypi-legend">Cardio minutes and strength sessions use separate scales; neither estimates calories burned.</p></section>
+    <section class="ypi-actions"><div class="ypi-eyebrow">LOCAL DATA RECOMMENDATION</div><strong id="ypInsightsActionTitle"></strong><p id="ypInsightsActionText"></p><small id="ypInsightsMethodDetail"></small></section>
+   </div>
+  </details>
+  <details class="ypx-privacy"><summary>AI data use &amp; privacy</summary><p>AI uses aggregated logged statistics and latest Oura recovery where available, with your authorisation. It does not receive your account name, raw food descriptions or individual workout diary. Its suggestions do not change your targets. The coaching result is cached on this device so reopening Insights does not trigger repeated API usage.</p><button type="button" id="ypxAIDisable" class="ypx-quiet">Turn off automatic AI Insights</button><p>THE SYSTEM measures recorded trends; it cannot diagnose health, prove muscle or fat gain, or infer VO₂ max without validated measurements.</p></details>
+ </div>
+</main>
+
+
 <main id="calendar" class="hidden"><div class="panel"><div class="tag">TRAINING HISTORY</div><h2>Training Calendar</h2><p class="muted">Select a date to inspect logged strength sessions, runs, rides, walks and body metrics.</p><div class="calendar-controls"><button onclick="ascCalMove(-1)">← Previous</button><strong id="calMonth"></strong><button onclick="ascCalMove(1)">Next →</button></div><div class="cal-grid" id="calGrid"></div><div id="calDetail" class="exercise"></div></div></main>
 <main id="records" class="hidden"><section class="panel"><div class="tag">YOUR WEEK / PERFORMANCE REVIEW</div><h2>Weekly performance review</h2><p class="muted">Your saved activity and progress, with a concise next-week recommendation.</p><div id="nfV3WeeklyReview"></div></section><div class="panel"><div class="tag">PERFORMANCE RECORDS</div><h2>Personal Bests</h2><p class="muted">Strength records use estimated 1RM from sets of 1–10 reps. Cardio pace records are based on completed sessions within ±10% of the stated distance.</p><div id="recordContent"></div></div><div class="panel"><div class="tag">PROGRESSIVE OVERLOAD</div><h2>Next Session Targets</h2><p class="muted">Recommendations use your last completed session. When every set reaches the top of its prescribed rep range, a small weight increase is suggested. Adjust for technique, recovery and comfort.</p><div id="overloadContent"></div></div></main><main id="settings" class="hidden"><section class="panel nf-appearance"><div class="tag">YOUR PATH / APPEARANCE</div><h2>Make it yours</h2><p class="muted">Switch the appearance of YOUR PATH. Your training data, accounts and connections stay unchanged.</p><div class="nf-theme-options" role="group" aria-label="Visual theme"><button type="button" class="nf-theme-option" data-nf-theme="path" aria-pressed="true"><span class="nf-swatch yp-swatch-path"></span><strong>YOUR PATH · Midnight</strong><small>Signature · Mint &amp; lavender</small></button><button type="button" class="nf-theme-option" data-nf-theme="tactical" aria-pressed="false"><span class="nf-swatch nf-swatch-dark"></span><strong>Legacy Dark</strong><small>Original · Deep forest</small></button><button type="button" class="nf-theme-option" data-nf-theme="lavender" aria-pressed="false"><span class="nf-swatch nf-swatch-lavender"></span><strong>Bounty &amp; Rosewood</strong><small>Cool white · Rich crimson · Rosewood</small></button><button type="button" class="nf-theme-option" data-nf-theme="forest" aria-pressed="false"><span class="nf-swatch nf-swatch-forest"></span><strong>Avocado &amp; Lemon Cake</strong><small>Avocado green · Light lemon cream</small></button><button type="button" class="nf-theme-option" data-nf-theme="blush" aria-pressed="false"><span class="nf-swatch nf-swatch-blush"></span><strong>Lemon Grove</strong><small>Soft sky blue · Lemon yellow · Honey brown</small></button></div></section><section class="panel" id="ascConnectedApps"><div class="tag">INTEGRATIONS</div><h2>Connected Apps</h2><p class="muted">Connect Strava to import cardio activities and Oura to view recovery. Sign in to YOUR PATH first. Imported activities earn XP once, and your existing records are retained.</p><div class="grid2"><div class="exercise"><h3>Strava</h3><div id="ascStravaStatus" class="muted">Checking connection…</div><div class="actions"><button type="button" id="ascStravaConnect">Connect Strava</button><button type="button" id="ascStravaSync">Sync activities</button><button type="button" id="ascStravaDisconnect" class="secondary">Disconnect</button></div></div><div class="exercise"><h3>Oura</h3><div id="ascOuraStatus" class="muted">Checking connection…</div><p class="muted">To display your connected Oura email, reconnect once to approve profile permissions. YOUR PATH only displays your email to you.</p><div class="actions"><button type="button" id="ascOuraConnect">Connect Oura</button><button type="button" id="ascOuraSync">Sync recovery</button><button type="button" id="ascOuraDisconnect" class="secondary">Disconnect</button></div></div></div><div id="ascIntegrationMessage" class="muted" role="status"></div><div id="ascOuraRecovery" class="exercise"><h3>Recovery overview</h3><p class="muted">Connect Oura and sync to see recent measurements.</p></div></section><section class="panel cloud-profile" id="cloudProfile"><div class="tag">YOUR ACCOUNT</div><h2>Profile & Cloud Sync</h2><p class="muted">Sign in on your phone or desktop to access the same YOUR PATH progress. Your cloud save is automatically downloaded when you sign in or reopen the app. Changes automatically upload after saving.</p><div id="cloudStatus" class="muted" role="status" aria-live="polite">Checking cloud configuration…</div>
 <div id="nfCloudConflict" class="nf-cloud-conflict hidden" role="region" aria-labelledby="nfCloudConflictTitle">
@@ -7878,4 +8150,391 @@ window.nfNutritionIntelligenceDebug=()=>({analysis:analyse(),context:trainingCon
 #nfTrainMiniNotice{position:fixed;z-index:9100;left:50%;bottom:calc(var(--nf-nav-measured,68px) + env(safe-area-inset-bottom) + 14px);transform:translate(-50%,12px);opacity:0;pointer-events:none;padding:10px 14px;max-width:min(85vw,440px);text-align:center;border:1px solid #65998b;border-radius:12px;background:#17372f;color:#e7fbf3;font-size:13px;font-weight:650;box-shadow:0 8px 30px #030a0ecc;transition:opacity .17s,transform .17s}
 #nfTrainMiniNotice.visible{opacity:1;transform:translate(-50%,0)}
 </style>
+<script id="yp-insights-js">
+/* YOUR PATH Insights — on-device, read-only progress analysis. No network calls or data writes. */
+(function(){
+ 'use strict';
+ const root=document.getElementById('insights');if(!root)return;
+ const el=id=>document.getElementById(id);
+ const esc=x=>String(x??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+ const number=x=>x===null||x===undefined||x===''?null:(Number.isFinite(Number(x))?Number(x):null);
+ const positive=x=>{const v=number(x);return v!==null&&v>0?v:null};
+ const median=xs=>{if(!xs.length)return null;const a=xs.slice().sort((x,y)=>x-y),n=a.length;return n%2?a[(n-1)/2]:(a[n/2-1]+a[n/2])/2};
+ const mean=xs=>xs.length?xs.reduce((a,b)=>a+b,0)/xs.length:null;
+ const day=()=>{const d=new Date();return [d.getFullYear(),String(d.getMonth()+1).padStart(2,'0'),String(d.getDate()).padStart(2,'0')].join('-')};
+ const validDay=x=>{if(typeof x!=='string'||!/^(\d{4})-(\d{2})-(\d{2})$/.test(x))return false;const d=new Date(x+'T12:00:00Z');return !Number.isNaN(d.getTime())&&d.toISOString().slice(0,10)===x};
+ const atUTC=x=>new Date(x+'T12:00:00Z');
+ const plus=(s,n)=>{const d=atUTC(s);d.setUTCDate(d.getUTCDate()+n);return d.toISOString().slice(0,10)};
+ const daysBetween=(a,b)=>(atUTC(a)-atUTC(b))/86400000;
+ const fmt=(v,d=0)=>v===null||!Number.isFinite(v)?'—':v.toLocaleString('en-AU',{minimumFractionDigits:d,maximumFractionDigits:d});
+ const signed=(v,d=1)=>v===null||!Number.isFinite(v)?'—':(v>0?'+':'')+fmt(v,d);
+ const inPeriod=(date,first,last)=>validDay(date)&&date>=first&&date<=last;
+ const lastValue=(arr,key)=>arr.find(x=>positive(x[key])!==null)?.[key]??null;
+ const qualifySet=x=>x&&positive(x.reps)!==null&&number(x.kg)!==null&&Number(x.kg)>=0;
+
+ function compute(source,period=28,asOf=day()){
+  const n=[14,28,90].includes(Number(period))?Number(period):28;
+  const end=plus(asOf,-1),start=plus(end,-(n-1)),prevEnd=plus(start,-1),prevStart=plus(prevEnd,-(n-1));
+  const weightsMap=new Map();
+  for(const m of Array.isArray(source.metrics)?source.metrics:[]){if(!inPeriod(m?.date,start,end))continue;const w=number(m.weight);if(w!==null&&w>=30&&w<=350)weightsMap.set(m.date,w)}
+  const weights=[...weightsMap].sort((a,b)=>a[0].localeCompare(b[0])).map(([date,kg])=>({date,kg}));
+  const firstWeight=weights[0]||null,lastWeight=weights.at(-1)||null;
+  const latestOverall=(Array.isArray(source.metrics)?source.metrics:[]).filter(m=>validDay(m?.date)&&m.date<=end&&number(m.weight)!==null&&Number(m.weight)>=30&&Number(m.weight)<=350).sort((a,b)=>b.date.localeCompare(a.date))[0]||null;
+  const spans=weights.length>=2?daysBetween(lastWeight.date,firstWeight.date):0;
+  const slopes=[];
+  if(weights.length>=4&&spans>=10){for(let i=0;i<weights.length;i++)for(let j=i+1;j<weights.length;j++){
+   const dist=daysBetween(weights[j].date,weights[i].date);
+   if(dist>=4)slopes.push((weights[j].kg-weights[i].kg)/dist*7);
+  }}
+  const weekly=slopes.length>=3?median(slopes):null;
+  const weightDelta=weights.length>=2?lastWeight.kg-firstWeight.kg:null;
+  const goal=positive(source.bodyGoals?.weight);
+  const startWeight=positive(source.startWeight);
+  const mass=latestOverall?Number(latestOverall.weight):startWeight;
+  const goalGap=goal&&mass?mass-goal:null;
+  const eta=goalGap!==null&&weekly!==null&&Math.abs(weekly)>=.1&&Math.abs(weekly)<=1.8&&Math.sign(goalGap)===-Math.sign(weekly)&&spans>=21&&weights.length>=6?Math.abs(goalGap/weekly):null;
+
+  const nutrition=source.nfNutrition&&typeof source.nfNutrition==='object'?source.nfNutrition:{};
+  const allEntries=Array.isArray(nutrition.entries)?nutrition.entries:[];
+  const completeDays=nutrition.completeDays&&typeof nutrition.completeDays==='object'?nutrition.completeDays:{};
+  const dailyGroups=new Map();
+  for(const item of allEntries){if(!validDay(item?.date)||item.date>end||item.date<prevStart)continue;const list=dailyGroups.get(item.date)||[];list.push(item);dailyGroups.set(item.date,list)}
+  function fullDay(date){
+   const entries=dailyGroups.get(date)||[];
+   if(!entries.length)return {date,hasEntry:false,complete:false,kcal:null,protein:null,est:false};
+   const summaries=entries.filter(e=>e.mode==='daily_total').sort((a,b)=>String(b.loggedAt||'').localeCompare(String(a.loggedAt||'')));
+   const chosen=summaries.length?[summaries[0]]:entries;
+   const kcalKnown=chosen.every(e=>number(e.kcal)!==null&&number(e.kcal)>=0);
+   const full=summaries.length>0||completeDays[date]===true;
+   const proteinKnown=chosen.every(e=>number(e.protein)!==null&&number(e.protein)>=0);
+   const est=chosen.some(e=>['estimated','uncertain'].includes(String(e.confidence||'').toLowerCase())||e.source==='ai'&&!['app_total','label_read'].includes(String(e.confidence||'')));
+   return {date,hasEntry:true,complete:full&&kcalKnown,kcal:full&&kcalKnown?chosen.reduce((sum,e)=>sum+Number(e.kcal),0):null,protein:full&&kcalKnown&&proteinKnown?chosen.reduce((sum,e)=>sum+Number(e.protein),0):null,est};
+  }
+  const currentNutrition=Array.from({length:n},(_,i)=>fullDay(plus(start,i)));
+  const previousNutrition=Array.from({length:n},(_,i)=>fullDay(plus(prevStart,i)));
+  const complete=currentNutrition.filter(d=>d.complete&&d.kcal!==null&&d.kcal>=0);
+  const previousComplete=previousNutrition.filter(d=>d.complete&&d.kcal!==null&&d.kcal>=0);
+  const proteinDays=complete.filter(d=>d.protein!==null);
+  const target=positive(nutrition.targets?.kcal),proteinGoal=positive(nutrition.targets?.protein);
+  const avgKcal=mean(complete.map(d=>d.kcal)),prevAvgKcal=mean(previousComplete.map(d=>d.kcal));
+  const avgProtein=mean(proteinDays.map(d=>d.protein));
+  const estDays=complete.filter(d=>d.est).length;
+  const kcalGap=avgKcal!==null&&target!==null?avgKcal-target:null;
+
+  const exercise=Array.isArray(source.cardio)?source.cardio:[];
+  const seenCardio=new Set();
+  const uniqueCardio=[];
+  for(const c of exercise){if(!c||!inPeriod(c.date,prevStart,end))continue;
+   const type=String(c.type||'').toLowerCase();if(!['run','cycle','walk','exercise'].includes(type))continue;
+   const uid=c.stravaId?'strava:'+c.stravaId:c.ouraId?'oura:'+c.ouraId:c.id?'id:'+c.id:[c.date,type,c.minutes,c.distance,c.startTime||''].join('|');
+   if(seenCardio.has(uid))continue;seenCardio.add(uid);uniqueCardio.push({...c,type});
+  }
+  const cardiolog=uniqueCardio.filter(c=>inPeriod(c.date,start,end));
+  const previousCardio=uniqueCardio.filter(c=>inPeriod(c.date,prevStart,prevEnd));
+  const cardioMinutes=cs=>cs.reduce((sum,c)=>sum+Math.max(0,number(c.minutes)||0),0);
+  const cardioDistance=cs=>cs.filter(c=>['run','cycle','walk'].includes(c.type)).reduce((sum,c)=>sum+Math.max(0,number(c.distance)||0),0);
+  const cardioTypes={run:0,cycle:0,walk:0,exercise:0};for(const a of cardiolog)cardioTypes[a.type]++;
+
+  const workoutLogs=Array.isArray(source.workouts)?source.workouts:[];
+  const workouts=workoutLogs.filter(w=>w&&inPeriod(w.date,start,end)&&Array.isArray(w.sets)&&w.sets.some(qualifySet));
+  const oldWorkouts=workoutLogs.filter(w=>w&&inPeriod(w.date,prevStart,prevEnd)&&Array.isArray(w.sets)&&w.sets.some(qualifySet));
+  const summaryLift=xs=>{
+   const unique=new Set();let sets=0,volume=0,reps=0;
+   for(const w of xs){unique.add([w.date,w.sessionId||w.id||w.name||w.day||'Strength'].join('|'));
+    for(const x of w.sets||[]){if(!qualifySet(x))continue;const r=Number(x.reps),kg=Number(x.kg);sets++;reps+=r;volume+=r*kg;}}
+   return {sessions:unique.size,sets,volume,reps};
+  };
+  const lifts=summaryLift(workouts),oldLifts=summaryLift(oldWorkouts);
+  const weeks=new Map();
+  const weekOf=d=>{const dt=atUTC(d),offset=(dt.getUTCDay()+6)%7;return plus(d,-offset)};
+  for(let i=0;i<n;i++){const d=plus(start,i),wk=weekOf(d);if(!weeks.has(wk))weeks.set(wk,{week:wk,cardio:0,lifts:new Set(),food:0})}
+  for(const a of cardiolog){const w=weeks.get(weekOf(a.date));if(w)w.cardio+=Math.max(0,number(a.minutes)||0)}
+  for(const w of workouts){const ww=weeks.get(weekOf(w.date));if(ww)ww.lifts.add([w.date,w.sessionId||w.id||w.name||w.day||'Strength'].join('|'))}
+  for(const d of complete){const w=weeks.get(weekOf(d.date));if(w)w.food++}
+  const weekSeries=[...weeks.values()].sort((a,b)=>a.week.localeCompare(b.week)).map(w=>({week:w.week,cardio:w.cardio,lifts:w.lifts.size,food:w.food})).slice(-6);
+  const weightReady=weekly!==null;
+  const nutritionCoverage=complete.length/n;
+  const confidence=weightReady&&spans>=14&&weights.length>=6&&nutritionCoverage>=.7&&estDays<=Math.floor(complete.length/3)?'strong':weightReady||weights.length>=2||nutritionCoverage>=.35?'developing':'limited';
+  return {start,end,period:n,weights,firstWeight,lastWeight,latestOverall,weightDelta,weekly,weightReady,spans,mass,goal,goalGap,eta,
+   nutrition:{days:complete.length,logged:currentNutrition.filter(d=>d.hasEntry).length,coverage:nutritionCoverage,average:avgKcal,prevAverage:prevAvgKcal,prevDays:previousComplete.length,proteinDays:proteinDays.length,proteinAverage:avgProtein,estDays,goal:target,proteinGoal,kcalGap},
+   cardio:{sessions:cardiolog.length,minutes:cardioMinutes(cardiolog),prevMinutes:cardioMinutes(previousCardio),distance:cardioDistance(cardiolog),types:cardioTypes},
+   lifts:{...lifts,prevSessions:oldLifts.sessions,prevVolume:oldLifts.volume},weekSeries,confidence};
+ }
+ function weightGraphic(data){
+  if(data.weights.length<2)return '<div class="ypi-chart-empty">Add at least two weigh-ins in Body &amp; recovery to show a weight chart. With four or more records across 10 days, THE SYSTEM can estimate a meaningful trend.</div>';
+  const arr=data.weights;
+  const width=800,height=230,L=48,R=23,T=26,B=39;
+  const min=Math.min(...arr.map(x=>x.kg)),max=Math.max(...arr.map(x=>x.kg));
+  const pad=Math.max(.55,(max-min)*.20),low=min-pad,high=max+pad;
+  const duration=Math.max(1,daysBetween(data.end,data.start));
+  const x=d=>L+Math.max(0,daysBetween(d,data.start))/duration*(width-L-R);
+  const y=v=>T+(high-v)/(high-low)*(height-T-B);
+  const pts=arr.map(r=>[x(r.date),y(r.kg)]);
+  const poly=pts.map(p=>p.map(z=>z.toFixed(1)).join(',')).join(' ');
+  const grid=[0,.5,1].map(z=>'<line x1="'+L+'" x2="'+(width-R)+'" y1="'+(T+(height-T-B)*z).toFixed(1)+'" y2="'+(T+(height-T-B)*z).toFixed(1)+'" stroke="#2e5361" stroke-dasharray="4 6"/>').join('');
+  const circles=pts.map((p,i)=>'<circle cx="'+p[0].toFixed(1)+'" cy="'+p[1].toFixed(1)+'" r="4" fill="#8ff7d1"><title>'+esc(arr[i].date+' · '+fmt(arr[i].kg,1)+' kg')+'</title></circle>').join('');
+  let trend='';
+  if(data.weightReady){const centre=median(arr.map(x=>x.kg));const middleDay=arr[Math.floor(arr.length/2)].date;const base=centre-(data.weekly/7)*daysBetween(middleDay,data.start);
+   const last=base+(data.weekly/7)*duration;
+   if(base>=low-3&&base<=high+3&&last>=low-3&&last<=high+3)trend='<line x1="'+L+'" y1="'+y(base).toFixed(1)+'" x2="'+(width-R)+'" y2="'+y(last).toFixed(1)+'" stroke="#efc982" stroke-width="2" stroke-dasharray="7 6"/>';
+  }
+  const labels='<text x="5" y="'+(T+4)+'" fill="#b3cdd2" font-size="13">'+fmt(high,1)+'</text><text x="5" y="'+(height-B+4)+'" fill="#b3cdd2" font-size="13">'+fmt(low,1)+'</text><text x="'+L+'" y="'+(height-8)+'" fill="#b3cdd2" font-size="12">'+esc(data.start.slice(5))+'</text><text x="'+(width-R)+'" y="'+(height-8)+'" text-anchor="end" fill="#b3cdd2" font-size="12">'+esc(data.end.slice(5))+'</text>';
+  return '<svg viewBox="0 0 '+width+' '+height+'" role="img" aria-label="Bodyweight across '+arr.length+' recorded dates from '+esc(data.start)+' to '+esc(data.end)+'">'+grid+trend+'<polyline points="'+poly+'" fill="none" stroke="#85e7c7" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>'+circles+labels+'</svg>';
+ }
+ function pillar(title,icon,headline,subtitle,stats,description){return '<article class="ypi-card"><div class="ypi-card-header"><span class="ypi-icon" aria-hidden="true">'+icon+'</span><strong>'+esc(title)+'</strong></div><div class="ypi-big">'+esc(headline)+'</div><p>'+esc(subtitle)+'</p><div class="ypi-minis">'+stats.map(x=>'<div class="ypi-mini"><span>'+esc(x[0])+'</span><b>'+esc(x[1])+'</b></div>').join('')+'</div><div class="ypi-driver">'+description+'</div></article>'}
+ function render(){
+  if(root.classList.contains('hidden'))return;
+  if(typeof db==='undefined'||!db||typeof db!=='object')return;
+  const data=compute(db,Number(el('ypInsightsPeriod')?.value||28)),{nutrition:N,cardio:C,lifts:L}=data;
+  const trendText=data.weightReady?signed(data.weekly,2)+' kg/week':'Need more weigh-ins';
+  const cards=[
+   ['Latest logged weight',data.latestOverall?fmt(Number(data.latestOverall.weight),1)+' kg':'—',data.latestOverall?'Last weighed '+data.latestOverall.date:'Add your first weigh-in'],
+   ['Observed weight change',data.weightDelta===null?'—':signed(data.weightDelta,1)+' kg',data.weights.length>=2?'First to last recorded weight':'At least two weigh-ins needed'],
+   ['Weight trend',data.weightReady?trendText:'—',data.weightReady?'Robust weekly estimate':'4+ weigh-ins across 10+ days'],
+   ['Calorie intake',N.average===null?'—':fmt(Math.round(N.average))+' kcal',N.days+' complete day'+(N.days===1?'':'s')+' out of '+data.period]
+  ];
+  el('ypInsightsKpis').innerHTML=cards.map(x=>'<div class="ypi-kpi"><small>'+esc(x[0])+'</small><strong>'+esc(x[1])+'</strong><em>'+esc(x[2])+'</em></div>').join('');
+  let lead='',detail='';
+  if(!data.weightReady){lead='Build a clear weight trend';detail='Add at least four weigh-ins spanning 10 days. Your nutrition, cardio and strength records are available below in the meantime.';}
+  else if(data.weekly<-.10){lead='Your recorded weight is trending down';detail='The measured trend is '+trendText+'. Review food logging and training consistency together; water, glycogen and other factors also move the scale.';}
+  else if(data.weekly>.10){lead='Your recorded weight is trending up';detail='The measured trend is '+trendText+'. This may be consistent with your goal, but the scale alone cannot distinguish muscle, fat and fluid.';}
+  else{lead='Your recorded weight is broadly steady';detail='The trend is '+trendText+'. Small short-term changes may reflect normal variation rather than a meaningful shift in body tissue.';}
+  if(data.goal!==null&&data.mass!==null){
+   detail+=' Current distance to your '+fmt(data.goal,1)+' kg goal: '+fmt(Math.abs(data.goalGap),1)+' kg '+(data.goalGap>0?'above':data.goalGap<0?'below':'(at target)')+'.';
+   if(data.weightReady&&Math.abs(data.weekly)>.1&&Math.abs(data.goalGap)>.1)detail+=' Your observed weight direction is '+(Math.sign(data.goalGap)===-Math.sign(data.weekly)?'toward':'away from')+' that goal.';
+  }
+  if(data.eta!==null&&data.eta<=260)detail+=' If the current trend continued unchanged, your goal could be approximately '+fmt(Math.ceil(data.eta))+' weeks away; this is not a prediction or guarantee.';
+  el('ypInsightsLead').textContent=lead;el('ypInsightsLeadExplain').textContent=detail;
+  el('ypInsightsConfidence').textContent=({strong:'MORE COMPLETE DATA',developing:'DEVELOPING DATA',limited:'LIMITED DATA'})[data.confidence];
+  el('ypInsightsWeightDates').textContent=data.weights.length+' weigh-in'+(data.weights.length===1?'':'s')+' · '+data.start+' to '+data.end;
+  el('ypInsightsWeightChart').innerHTML=weightGraphic(data);
+  el('ypInsightsWeightNote').textContent=data.weightReady?'Mint = recorded weigh-ins · amber dashed line = robust trend estimate. Weight can vary with fluid, carbohydrate stores, digestion and training recovery.':'Weight is a body-mass measurement, not a direct measure of fat or muscle. More data unlocks a weekly trend.';
+
+  let intakeStory='';
+  if(!N.days){intakeStory='No fully logged days in this review window. Food entries alone cannot establish daily calorie intake until the day is marked complete or a full-day summary is imported.';}
+  else if(N.days<Math.max(5,Math.ceil(data.period*.4))){intakeStory='The intake average uses only complete days. Missing days are excluded rather than treated as zero; this sample may not represent your typical week.';}
+  else if(N.goal!==null){intakeStory='Your logged complete-day intake is '+fmt(Math.abs(N.kcalGap))+' kcal/day '+(N.kcalGap>0?'above':N.kcalGap<0?'below':'in line with')+' your selected food target. A food target is not your measured maintenance expenditure.';}
+  else intakeStory='You have a usable intake average. Add a calorie target in Nutrition to compare your recorded habits with your intended plan.';
+  if(N.prevAverage!==null&&N.prevDays>=Math.max(5,Math.ceil(data.period*.3))&&N.days>=Math.max(5,Math.ceil(data.period*.3)))intakeStory+=' Average vs prior equal period: '+signed(N.average-N.prevAverage,0)+' kcal per complete day.';
+  if(N.estDays)intakeStory+=' '+N.estDays+' complete day(s) include AI-estimated values.';
+  const foodPillar=pillar('Nutrition','◔',N.average===null?'Not enough data':fmt(Math.round(N.average))+' kcal/day',N.days+' / '+data.period+' days fully logged',[
+   ['Food target',N.goal===null?'Not set':fmt(N.goal)+' kcal'],['Average protein',N.proteinAverage===null?'—':fmt(N.proteinAverage)+' g']
+  ],'<strong>What it suggests:</strong> '+esc(intakeStory));
+  const changeC=C.prevMinutes===0?'No previous activity recorded':(C.minutes===C.prevMinutes?'Same time as prior period':signed(C.minutes-C.prevMinutes,0)+' min vs prior period');
+  const cardioStory=C.sessions?'You recorded '+fmt(C.minutes)+' min of cardio ('+fmt(C.distance,1)+' km with distance). This can support energy expenditure and fitness, but the app does not estimate its share of weight change or add guessed burn calories to your food budget.':'No cardio recorded in this window. Unrecorded activity is not counted.';
+  const cardioPillar=pillar('Cardio','↗',fmt(Math.round(C.minutes/data.period*7))+' min/week',C.sessions+' recorded activity session'+(C.sessions===1?'':'s'),[
+   ['Distance logged',fmt(C.distance,1)+' km'],['vs previous period',changeC]
+  ],'<strong>What it suggests:</strong> '+esc(cardioStory));
+  const liftStory=L.sessions?'You logged '+L.sessions+' strength sessions and '+fmt(L.volume)+' kg of total load × reps. Lifting supports strength and can help preserve lean mass during weight management; logged volume cannot determine how many calories were burned or whether muscle mass increased.':'No completed strength sets recorded in this period. Planned sessions are not counted.';
+  const liftPillar=pillar('Weight lifting','▰',fmt(L.sessions)+' sessions',fmt(L.sets)+' completed sets · '+fmt(L.reps)+' reps',[
+   ['Total volume',fmt(Math.round(L.volume))+' kg'],['vs previous period',signed(L.sessions-L.prevSessions,0)+' sessions']
+  ],'<strong>What it suggests:</strong> '+esc(liftStory));
+  el('ypInsightsPillars').innerHTML=foodPillar+cardioPillar+liftPillar;
+
+  const weeks=data.weekSeries,maxCardio=Math.max(1,...weeks.map(x=>x.cardio)),maxLifts=Math.max(1,...weeks.map(x=>x.lifts));
+  el('ypInsightsWeeks').innerHTML=weeks.length?'<div class="ypi-habit-weeks">'+weeks.map(w=>{
+   const hc=Math.max(2,Math.round(w.cardio/maxCardio*64)),hl=Math.max(2,Math.round(w.lifts/maxLifts*64));
+   return '<div class="ypi-week" title="'+esc(w.week+': '+w.cardio+' cardio minutes, '+w.lifts+' lifting sessions')+'"><small>'+esc(w.week.slice(5))+'</small><div class="ypi-week-bars"><i style="height:'+hc+'px"></i><i style="height:'+hl+'px"></i></div><b>'+fmt(w.cardio)+'m / '+fmt(w.lifts)+'s</b></div>';
+  }).join('')+'</div>':'<div class="ypi-chart-empty">Record sessions to see weekly patterns.</div>';
+
+  let actionTitle='',actionText='';
+  if(data.weights.length<4||!data.weightReady){actionTitle='Record regular weigh-ins';actionText='Aim for consistent morning measurements across at least two weeks. We need a trend before relating training and food patterns to measured weight change.';}
+  else if(N.days<Math.max(5,Math.ceil(data.period*.5))){actionTitle='Finish more food logs';actionText='You currently have '+N.days+' complete food days in '+data.period+'. Import a full-day summary or mark meals complete; otherwise calorie averages may be misleading.';}
+  else if(N.goal===null){actionTitle='Set a calorie target';actionText='A target allows a clear comparison with actual logged intake. Your current weight trend and training totals remain descriptive, not a causal attribution.';}
+  else if(data.goal===null){actionTitle='Set a bodyweight goal';actionText='Add an optional target under Body & recovery to show goal distance and, when supported by enough data, a cautious trend-based timeframe.';}
+  else if(C.sessions===0&&L.sessions===0){actionTitle='Connect your training data';actionText='Log a workout or sync Strava/Oura to compare training patterns with your nutrition and weigh-ins.';}
+  else{actionTitle='Compare the next fortnight';actionText='Keep weigh-ins and complete food days consistent. Compare your next 14 days against this period before changing food or training targets based on short-term scale movement.';}
+  el('ypInsightsActionTitle').textContent=actionTitle;el('ypInsightsActionText').textContent=actionText;
+  el('ypInsightsMethodDetail').textContent='Coverage: '+N.days+'/'+data.period+' complete food days ('+Math.round(100*N.coverage)+'%), '+data.weights.length+' weigh-ins, '+C.sessions+' cardio sessions and '+L.sessions+' lifting sessions. The current day is excluded to avoid partial-day bias.';
+ }
+ let pending=false;function schedule(){if(pending)return;pending=true;requestAnimationFrame(()=>{pending=false;try{render()}catch(error){console.warn('Insights could not render:',error);const e=el('ypInsightsLead');if(e)e.textContent='Insights are temporarily unavailable. Your data is unchanged.';}})}
+ el('ypInsightsPeriod')?.addEventListener('change',schedule);
+ document.querySelectorAll('[data-nf-menu="insights"],[data-tab="insights"]').forEach(btn=>btn.addEventListener('click',()=>setTimeout(schedule,0)));
+ root.querySelectorAll('[data-yp-insights-goto]').forEach(button=>button.addEventListener('click',()=>{
+  const target=button.dataset.ypInsightsGoto,link=document.querySelector('#tabs [data-tab="'+target+'"]')||document.querySelector('#nfHiddenNav [data-tab="'+target+'"]');
+  if(link){link.click();window.scrollTo({top:0,behavior:'auto'})}
+ }));
+ window.addEventListener('nf:local-saved',schedule);window.addEventListener('nf:cloud-save-loaded',schedule);
+ new MutationObserver(schedule).observe(root,{attributes:true,attributeFilter:['class']});
+ if(!root.classList.contains('hidden'))schedule();
+ // Read-only testing helper: returns aggregates from supplied data, never transmits athlete records.
+ window.ypInsightsAnalyse=compute;
+})();
+
+</script>
+<script id="yp-insights-ai-js">
+/* YOUR PATH / Body Intelligence. On-device signals with an opt-in, automatically refreshed AI briefing. */
+(function(){
+ 'use strict';
+ const root=document.getElementById('insights');if(!root)return;
+ const $=id=>document.getElementById(id);
+ const esc=x=>String(x??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+ const num=(x,lo=-Infinity,hi=Infinity)=>x===null||x===undefined||x===''?null:(Number.isFinite(Number(x))&&Number(x)>=lo&&Number(x)<=hi?Number(x):null);
+ const diff=(a,b)=>Math.round((new Date(a+'T12:00:00')-new Date(b+'T12:00:00'))/86400000);
+ const date=()=>{const d=new Date();return [d.getFullYear(),String(d.getMonth()+1).padStart(2,'0'),String(d.getDate()).padStart(2,'0')].join('-')};
+ const fmt=(x,d=1)=>Number.isFinite(x)?x.toLocaleString('en-AU',{minimumFractionDigits:d,maximumFractionDigits:d}):'—';
+ const signed=(x,d=0)=>Number.isFinite(x)?(x>0?'+':'')+fmt(x,d):'—';
+ const circumference=2*Math.PI*50;
+ function arc(id,p){const n=$(id);if(n)n.setAttribute('stroke-dasharray',`${(circumference*Math.max(0,Math.min(1,p))).toFixed(2)} ${circumference.toFixed(2)}`)}
+ function state(label,mode='idle'){$('ypxAIState').innerHTML='<span class="ypx-state-dot"></span> '+esc(label);$('ypxAIState').dataset.state=mode;}
+ function notice(msg,err=false){const n=$('ypxAINotice');n.hidden=false;n.textContent=msg;n.classList.toggle('error',err)}
+ const canRead=()=>typeof db!=='undefined'&&db&&typeof window.ypInsightsAnalyse==='function';
+ function liftKind(name){
+  const s=String(name||'').toLowerCase();if(!s||/dumbbell|\bdb\b|machine|smith|cable|single.arm|unilateral|band|bodyweight|assisted/.test(s))return null;
+  if(/deadlift/.test(s)&&!/romanian|stiff.leg|single.leg|rack pull/.test(s))return 'Deadlift';
+  if(/squat/.test(s)&&!/bulgarian|split|goblet|hack|jump|front|zercher|pistol/.test(s))return 'Squat';
+  if(/bench.*press|press.*bench/.test(s)&&!/incline|decline|close.grip|floor/.test(s))return 'Bench press';
+  if(/overhead press|military press|strict press/.test(s))return 'Overhead press';
+  return null;
+ }
+ function computeSignals(){
+  if(!canRead())return null;
+  const d=window.ypInsightsAnalyse(db,28),n=d.nutrition||{},c=d.cardio||{},l=d.lifts||{};
+  let oura=null;try{oura=window.nfOuraReadinessForCoach?.()||null}catch(_){ }
+  const now=date();
+  const recs=Object.values(db.ouraRecovery||{}).filter(x=>x&&/^\d{4}-\d{2}-\d{2}$/.test(String(x.date||''))&&diff(now,x.date)>=0&&diff(now,x.date)<7&&num(x.readiness,0,100)!==null);
+  const readinessAverage=recs.length?recs.reduce((a,x)=>a+Number(x.readiness),0)/recs.length:null;
+  const latestReady=oura?.fresh&&num(oura.readiness,0,100)!==null?num(oura.readiness,0,100):null;
+  const latestOverall=d.latestOverall||null;
+  const weightKg=num(d.mass,30,350),weightAge=latestOverall?diff(now,latestOverall.date):null;
+  const weightFresh=weightKg!==null&&weightAge!==null&&weightAge>=0&&weightAge<=45;
+  const liftMap=new Map();
+  for(const w of Array.isArray(db.workouts)?db.workouts:[]){
+   if(!w||!/^\d{4}-\d{2}-\d{2}$/.test(String(w.date||''))||w.date>d.end||w.date<d.start||!Array.isArray(w.sets))continue;
+   for(const set of w.sets){const kind=liftKind(set?.exercise);if(!kind)continue;
+    const kg=num(set.kg,1,450),rep=num(set.reps,1,8);if(kg===null||rep===null||!Number.isInteger(rep))continue;
+    const e1rm=kg*(1+rep/30);const old=liftMap.get(kind);
+    if(!old||e1rm>old.e1rm)liftMap.set(kind,{kind,e1rm,kg,rep,date:w.date});
+   }
+  }
+  // Do not blend different exercises into a fake 'overall strength score'.
+  const lifts=[...liftMap.values()].sort((a,b)=>(b.e1rm/(weightKg||1))-(a.e1rm/(weightKg||1)));
+  const primaryLift=lifts[0]||null;
+  const ratio=weightFresh&&primaryLift?primaryLift.e1rm/weightKg:null;
+  // Compare the SAME exercise family to the previous 28 days, not different movement patterns.
+  const priorStart=new Date(d.start+'T12:00:00Z');priorStart.setUTCDate(priorStart.getUTCDate()-28);
+  const prevDay=priorStart.toISOString().slice(0,10),prevEndDate=new Date(d.start+'T12:00:00Z');prevEndDate.setUTCDate(prevEndDate.getUTCDate()-1);
+  const prevEnd=prevEndDate.toISOString().slice(0,10);
+  let previous1RM=null;
+  if(primaryLift)for(const w of Array.isArray(db.workouts)?db.workouts:[]){
+   if(!w||w.date<prevDay||w.date>prevEnd||!Array.isArray(w.sets))continue;
+   for(const set of w.sets){if(liftKind(set?.exercise)!==primaryLift.kind)continue;
+    const kg=num(set.kg,1,450),reps=num(set.reps,1,8);if(kg===null||reps===null||!Number.isInteger(reps))continue;
+    const estimate=kg*(1+reps/30);previous1RM=previous1RM===null?estimate:Math.max(previous1RM,estimate);
+   }
+  }
+  const strengthChange=primaryLift&&previous1RM!==null&&previous1RM>0?(primaryLift.e1rm/previous1RM-1)*100:null;
+  const weeklyMin=c.minutes/4,priorWeeklyMin=c.prevMinutes/4;
+  const cardioChange=c.prevMinutes>0?(c.minutes-c.prevMinutes)/c.prevMinutes*100:null;
+  const signal=latestReady!==null&&latestReady<70?'Your recovery signal suggests easing the load before pushing harder.':latestReady!==null&&latestReady>=85&&l.sessions>=5&&c.sessions>=4?'Recovery and training both look active; build progressively rather than adding everything at once.':l.sessions===0&&c.sessions===0?'Log strength and cardio sessions to connect your training picture.':latestReady===null?'Sync Oura for a live recovery signal alongside your lifting and cardio.':l.sessions===0?'Recovery is connected; record your key lifts to track strength relative to bodyweight.':c.sessions===0?'Recovery and lifting are connected; add cardio sessions to track your aerobic workload.':'Your recovery, strength and cardio are being tracked together. Look for sustainable progress across all three.';
+  const runLog=(Array.isArray(db.cardio)?db.cardio:[]).filter(x=>x?.type==='run'&&x.date>=d.start&&x.date<=d.end&&num(x.distance,2,100)!==null&&num(x.minutes,10,600)!==null);
+  const runPace=runLog.length>=2?runLog.reduce((a,x)=>a+Number(x.minutes)/Number(x.distance),0)/runLog.length:null;
+  const payload={
+   date:d.end,goal:{weightKg:num(d.goal,30,350),gapKg:num(d.goalGap,-200,200)},
+   weight:{latestKg:num(weightKg,30,350),changeKg:num(d.weightDelta,-50,50),weeklyTrendKg:num(d.weekly,-10,10),measurements:d.weights.length,spanDays:d.spans,trendReady:!!d.weightReady},
+   nutrition:{completeDays:n.days||0,estimatedDays:n.estDays||0,averageKcal:num(n.average,0,10000),previousAverageKcal:num(n.prevAverage,0,10000),calorieGoal:num(n.goal,900,9000),proteinAverageG:num(n.proteinAverage,0,800),proteinGoalG:num(n.proteinGoal,0,800)},
+   cardio:{sessions:c.sessions||0,minutes:c.minutes||0,previousMinutes:c.prevMinutes||0,types:c.types||{},weeklyMinutes:num(weeklyMin,0,3000),previousWeeklyMinutes:num(priorWeeklyMin,0,3000),runPaceMinKm:num(runPace,2,30)},
+   strength:{sessions:l.sessions||0,previousSessions:l.prevSessions||0,sets:l.sets||0,reps:l.reps||0,volumeKg:l.volume||0,previousVolumeKg:l.prevVolume||0,relativeRatio:num(ratio,0,10),referenceLift:primaryLift?.kind||null,estimated1RMKg:num(primaryLift?.e1rm,1,600),recentWeightDays:weightAge!==null?Math.max(0,weightAge):null,referenceLiftCount:lifts.length,previousEstimated1RMKg:num(previous1RM,1,600),liftStrengthChangePercent:num(strengthChange,-90,300)},
+   recovery:{ouraReadiness:oura?.readiness==null?null:num(oura.readiness,0,100),ouraSleepHours:oura?.sleepHours==null?null:num(oura.sleepHours,0,24),ouraAgeDays:oura?.age==null?null:num(oura.age,0,45),ouraFresh:!!oura?.fresh,readinessAverage7:num(readinessAverage,0,100),readinessCount7:recs.length,hrvVsBaselinePercent:oura?.hrv&&oura?.hrvBaseline?num((oura.hrv/oura.hrvBaseline-1)*100,-90,300):null,restingHrAboveBaseline:oura?.restingHR&&oura?.hrBaseline?num(oura.restingHR-oura.hrBaseline,-80,80):null},
+   weekly:(d.weekSeries||[]).slice(-6).map(x=>({week:x.week,cardioMinutes:x.cardio,strengthSessions:x.lifts,completeFoodDays:x.food}))
+  };
+  return {d,oura,latestReady,readinessAverage,readinessCount:recs.length,ratio,primaryLift,lifts,weightFresh,weightAge,weightKg,weeklyMin,cardioChange,runPace,signal,previous1RM,strengthChange,payload};
+ }
+ window.ypxComputeSignals=computeSignals;
+ function draw(signals){
+  const x=signals;if(!x)return;
+  const recVal=x.latestReady;
+  $('ypxRecoveryNumber').textContent=recVal===null?'—':String(Math.round(recVal));
+  $('ypxRecoveryState').textContent=recVal===null?(x.oura?'Oura needs sync':'Connect Oura'):recVal>=85?'Ready for more':recVal>=70?'Steady recovery':'Recovery first';
+  $('ypxRecoveryDetail').textContent=recVal===null?(x.oura?'Latest reading is '+x.oura.age+' day(s) old. Sync Oura for a current signal.':'Connect Oura in Integrations to see your latest recovery signal.'):('7-day readiness: '+(x.readinessAverage===null?'not enough data':Math.round(x.readinessAverage)+'/100')+' · '+x.readinessCount+' recorded days');
+  $('ypxRecoveryFoot').textContent=recVal===null?'Live score only when fresh':'Oura readiness · '+x.oura.date;
+  arc('ypxRecoveryArc',recVal===null?0:recVal/100);
+  $('ypxStrengthNumber').textContent=x.ratio===null?'—':fmt(x.ratio,2)+'×';
+  $('ypxStrengthState').textContent=x.ratio===null?(x.primaryLift&&!x.weightFresh?'Update weigh-in':'Record a key lift'):x.primaryLift.kind;
+  $('ypxStrengthDetail').textContent=x.ratio===null?(x.primaryLift?'Recent bodyweight required for a trustworthy relative-strength ratio.':'Log barbell squat, bench, deadlift or overhead press (1–8 reps).'):'Estimated '+fmt(x.primaryLift.e1rm,0)+' kg max ÷ '+fmt(x.weightKg,1)+' kg bodyweight';
+  $('ypxStrengthFoot').textContent=x.primaryLift?(x.strengthChange===null?'Based on '+x.primaryLift.kg+' kg × '+x.primaryLift.rep+' reps':signed(x.strengthChange,1)+'% vs prior period · same lift'):'No machine-lift comparisons or invented score';
+  $('ypxCardioNumber').textContent=x.d.cardio.sessions?fmt(Math.round(x.weeklyMin),0):'—';
+  $('ypxCardioState').textContent=x.d.cardio.sessions?'Aerobic workload':'Log a cardio session';
+  $('ypxCardioDetail').textContent=x.d.cardio.sessions?(x.d.cardio.sessions+' completed sessions · '+fmt(x.d.cardio.minutes,0)+' total minutes'):'Sync Strava or log walking, running or cycling.';
+  $('ypxCardioFoot').textContent=x.cardioChange===null?'No comparable previous period':signed(x.cardioChange,0)+'% vs previous 28 days';
+  $('ypxBalanceSignal').textContent=x.signal;
+  $('ypxBalanceDate').textContent='28 complete days · '+x.d.end;
+  const w=x.d,trend=w.weightReady?(w.weekly<0?'↓ ':'↑ ')+fmt(Math.abs(w.weekly),2)+' kg/week':'Need more weigh-ins';
+  $('ypxWeightHeadline').textContent=w.weightReady?'Measured trend: '+trend:'Bodyweight context: '+(w.latestOverall?fmt(Number(w.latestOverall.weight),1)+' kg':'not yet recorded');
+  $('ypxWeightDetail').textContent=w.goal!==null?'Your target: '+fmt(w.goal,1)+' kg · Strength-to-weight is more useful when supported by a recent weigh-in.':'Keep weight readings consistent; shape and performance are not the scale alone.';
+  $('ypxWeightValue').textContent=w.latestOverall?fmt(Number(w.latestOverall.weight),1)+' kg':'—';
+ }
+ function ctx(){try{return window.nfSocialCloudContext?.()||null}catch(_){return null}}
+ function consentKey(user){return 'yourpath.insights.auto.v1.'+user}
+ function cacheKey(user){return 'yourpath.insights.brief.v1.'+user}
+ function active(user){try{return localStorage.getItem(consentKey(user))==='yes'}catch(_){return false}}
+ function fingerprint(payload){const str=JSON.stringify(payload),N=str.length;let h=2166136261;for(let i=0;i<N;i++)h=Math.imul(h^str.charCodeAt(i),16777619);return (h>>>0).toString(36)}
+ function getCache(uid){try{return JSON.parse(localStorage.getItem(cacheKey(uid))||'null')}catch(_){return null}}
+ function setCache(uid,obj){try{localStorage.setItem(cacheKey(uid),JSON.stringify(obj))}catch(_){}}
+ let busy=false,doneFor=null,questionHistory=[],seenUser=null,queued=false,earliestNext=0;
+ function renderAI(r){
+  $('ypxAIStory').hidden=false;$('ypxAINotice').hidden=true;
+  $('ypxAIHeadline').textContent=r.headline||'Your personal training signal';
+  $('ypxAIAssessment').textContent=r.assessment||'';
+  const steps=Array.isArray(r.nextSteps)?r.nextSteps:[];
+  $('ypxAISteps').innerHTML=steps.slice(0,3).map((s,i)=>'<article class="ypx-step"><span class="ypx-step-index">'+(i+1)+'</span><div><strong>'+esc(s.title||'')+'</strong><p>'+esc(s.action||'')+'</p><small>'+esc(s.why||'')+'</small></div></article>').join('');
+  $('ypxAIFindings').innerHTML=(Array.isArray(r.drivers)?r.drivers:[]).slice(0,4).map(x=>'<span class="ypx-finding"><strong>'+esc(x.area||'')+':</strong>'+esc(x.finding||'')+'</span>').join('');
+  $('ypxAICaveat').textContent=r.caveat||'Patterns are associations, not proof of cause. This is not a medical diagnosis.';
+ }
+ async function requestAI(question='',force=false){
+  if(busy||Date.now()<earliestNext&&!force)return;
+  const user=ctx()?.user,client=ctx()?.client;
+  if(!user?.id||!client)return;
+  if(!active(user.id))return;
+  const metrics=computeSignals();if(!metrics)return;
+  const stamp=fingerprint(metrics.payload),cache=getCache(user.id),now=Date.now();
+  const fresh=cache?.fingerprint===stamp&&cache?.result&&now-cache.time<12*3600e3;
+  if(!question&&!force&&fresh){renderAI(cache.result);state('AI · LIVE');$('ypxFreshness').textContent='Analysed '+new Date(cache.time).toLocaleString('en-AU',{day:'numeric',month:'short',hour:'numeric',minute:'2-digit'})+' · auto-updated';return}
+  if(!question&&!force&&cache&&now-cache.time<2*3600e3){renderAI(cache.result);state('AI · READY');$('ypxFreshness').textContent='Briefing cached · tap ↻ for a new review';return}
+  busy=true;$('ypxAsk').disabled=true;$('ypxRefresh').disabled=true;
+  state('ANALYSING','busy');notice(question?'THE SYSTEM is reviewing your question and current signals…':'THE SYSTEM is interpreting recovery, strength, cardio and body composition…');
+  const sentUser=user.id;
+  const requestBody={consent:true,recoveryConsent:true,period:28,focus:'performance',question:question.slice(0,420),conversation:questionHistory.slice(-3),summary:metrics.payload};
+  try{
+   const {data,error}=await client.functions.invoke('nextform-insights-coach',{body:requestBody});
+   if(error){let details=null;try{details=await error.context?.clone()?.json()}catch(_){}throw new Error(details?.error||error.message||'Your AI connection is currently unavailable.')}
+   if(data?.error)throw new Error(data.error);
+   if(typeof data?.assessment!=='string')throw new Error('The AI response was incomplete.');
+   if(ctx()?.user?.id!==sentUser||!active(sentUser))return;
+   renderAI(data);doneFor=stamp;state('AI · LIVE');
+   $('ypxFreshness').textContent='Updated '+new Date().toLocaleString('en-AU',{hour:'numeric',minute:'2-digit'})+' · source: your synced activity';
+   if(question){$('ypxAnswer').hidden=false;$('ypxAnswer').textContent=data.answer||data.assessment;questionHistory.push({question:question.slice(0,240),answer:String(data.answer||data.assessment).slice(0,450)});questionHistory=questionHistory.slice(-3)}
+   else setCache(sentUser,{fingerprint:stamp,result:data,time:Date.now()});
+  }catch(e){if(ctx()?.user?.id!==sentUser)return;state('AI · OFFLINE','error');notice((e?.message||'AI temporarily unavailable.')+' Live performance signals above continue to work.',true);earliestNext=Date.now()+90*1000}
+  finally{busy=false;$('ypxAsk').disabled=false;$('ypxRefresh').disabled=false}
+ }
+ function refresh(trigger=false){
+  if(root.classList.contains('hidden'))return;
+  if(!canRead()){notice('Your activity is loading. Insights will appear when your data is ready.');return;}
+  let metrics=null;try{metrics=computeSignals();draw(metrics)}catch(e){console.warn('Orbit Insights failed to read a signal',e);notice('Some training data could not be analysed. No records were changed.',true);return;}
+  const cloud=ctx(),user=cloud?.user;
+  if(!user?.id){$('ypxAIConsent').hidden=true;state('SIGN IN TO SYNC');notice('Sign in under Profile & Cloud Sync to activate the automatic AI briefing. Your live signals above still work on device.');$('ypxAIStory').hidden=true;return}
+  if(seenUser!==user.id){questionHistory=[];seenUser=user.id;$('ypxAnswer').hidden=true;$('ypxAIStory').hidden=true}
+  if(!active(user.id)){$('ypxAIConsent').hidden=false;state('AI · NOT ACTIVE');notice('Activate once to receive automatic, personalised Insights. Your summaries will only be sent after you agree.');$('ypxAIStory').hidden=true;return}
+  $('ypxAIConsent').hidden=true;
+  const cached=getCache(user.id);
+  if(cached?.result&&$('ypxAIStory').hidden){renderAI(cached.result);state('AI · READY')}
+  const fp=fingerprint(metrics.payload),now=Date.now();
+  if(trigger||(!busy&&fp!==doneFor&&(!cached||fp!==cached.fingerprint||now-cached.time>=12*3600e3)))requestAI();
+  else if(cached?.result){state('AI · LIVE');$('ypxFreshness').textContent='Last updated '+new Date(cached.time).toLocaleString('en-AU',{day:'numeric',month:'short',hour:'numeric',minute:'2-digit'})}
+ }
+ function queue(){if(queued)return;queued=true;requestAnimationFrame(()=>{queued=false;refresh()})}
+ $('ypxAIActivate').addEventListener('click',()=>{const user=ctx()?.user?.id;if(!user)return;try{localStorage.setItem(consentKey(user),'yes')}catch(_){notice('Your browser is blocking local preferences.',true);return}refresh(true)});
+ $('ypxAIDisable').addEventListener('click',()=>{const user=ctx()?.user?.id;if(!user)return;try{localStorage.removeItem(consentKey(user));localStorage.removeItem(cacheKey(user))}catch(_){}doneFor=null;refresh()});
+ $('ypxRefresh').addEventListener('click',()=>{if(!ctx()?.user?.id||!active(ctx().user.id)){refresh();return}requestAI('',true)});
+ $('ypxAsk').addEventListener('click',()=>{const q=$('ypxQuestion').value.trim();if(q){if(!active(ctx()?.user?.id||'')){refresh();return}requestAI(q,true)}});
+ $('ypxQuestion').addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();$('ypxAsk').click()}});
+ document.querySelectorAll('[data-nf-menu="insights"],[data-tab="insights"]').forEach(b=>b.addEventListener('click',()=>setTimeout(queue,50)));
+ window.addEventListener('nf:cloud-save-loaded',()=>setTimeout(queue,80));window.addEventListener('nf:oura-synced',()=>setTimeout(queue,70));window.addEventListener('nf:local-saved',()=>setTimeout(queue,150));
+ new MutationObserver(queue).observe(root,{attributes:true,attributeFilter:['class']});
+ if(!root.classList.contains('hidden'))queue();
+})();
+
+</script>
+
 </body></html>
