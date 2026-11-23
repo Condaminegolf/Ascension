@@ -1,5 +1,5 @@
 /* YOUR PATH: fast cached startup with background update check. Never cache account/API responses. */
-const VERSION='yp-body-intelligence-auto-ai-20261123-v1';
+const VERSION='yp-continuous-personal-coach-20261123-v1';
 const CACHE='yourpath-shell-'+VERSION;
 const CORE=['./index.html','./cloud-config.js','./manifest.webmanifest'];
 const OPTIONAL=['./icon-192.png','./icon-512.png','./favicon.png','./apple-touch-icon.png','./your-path-mark.svg','./release-notes.json'];

@@ -2356,14 +2356,84 @@ body.nf-input-focus #nfMenuToggle:not([aria-expanded="true"]){opacity:.45}
 <section class="panel yp-analytics-premium"><h3>Running and Cycling Performance</h3><p class="muted">Totals include manual and imported activities stored in YOUR PATH. Sessions without distance don't contribute to distance charts.</p><div id="ypAnalyticsEndurance" class="yp-endurance-grid"></div></section>
 <div class="panel"><div class="tag">ADDITIONAL CHARTS</div><h3>Bodyweight, Weekly Volume & Records</h3><p class="muted">Long-term measurements and original training charts are preserved below.</p></div><div class="panel"><h3>Bodyweight Trend</h3><div id="weightChart"></div></div><div class="panel"><h3>Weekly Training Volume</h3><div id="volumeChart"></div></div><div class="panel"><h3>Endurance Distance by Week</h3><div id="cardioChart"></div></div><div class="panel"><h3>Estimated Strength Records</h3><div id="strengthChart"></div></div>
 </main>
+<style id="yp-continuous-coach-style">
+/* YOUR PATH / Continuous Coach: briefing comes first; performance evidence supports it. */
+#insights .ypx-hero{padding-bottom:16px!important}
+#insights .ypx-hero .ypx-flow{margin-bottom:0}
+#insights .ypx-coach{border-color:rgba(124,237,206,.67);box-shadow:0 15px 45px rgba(17,108,116,.16),inset 0 1px 0 rgba(194,255,236,.08);background:radial-gradient(circle at 93% 7%,rgba(54,189,182,.21),transparent 43%),radial-gradient(circle at 7% 85%,rgba(98,98,220,.09),transparent 55%),linear-gradient(145deg,#152f3c,#102531 66%,#141d30)}
+#insights .ypx-coach h3{font-size:clamp(21px,3.5vw,29px)}
+#insights .ypx-story{position:relative;padding:5px 0}
+#insights .ypx-story h4{font-size:clamp(20px,3.7vw,27px);max-width:26ch;line-height:1.21;letter-spacing:-.025em;margin:12px 0}
+#insights .ypx-story>p{font-size:clamp(13px,2vw,15px);line-height:1.8;color:#d6eee9;white-space:pre-line;max-width:70ch}
+#insights .ypx-orbit-section{border:1px solid rgba(116,193,183,.26);border-radius:15px;background:linear-gradient(140deg,#112331,#172638);padding:clamp(14px,2.5vw,22px)}
+#insights .ypx-orbit-section-head{margin-bottom:15px}
+#insights .ypx-orbit-section-head h3{font-size:clamp(16px,2.5vw,20px);color:#e0fff3;letter-spacing:-.025em;margin:4px 0 0}
+#insights .ypx-orbit-section .ypx-orbits{margin-top:0}
+#insights .ypx-continuity{border-left:3px solid #80e9d2;background:linear-gradient(90deg,rgba(82,195,175,.13),transparent);padding:13px 16px;border-radius:0 11px 11px 0;margin:6px 0 18px}
+#insights .ypx-continuity-overline{font-size:9px;letter-spacing:.16em;font-weight:900;color:#a8eedd;margin-bottom:6px}
+#insights .ypx-continuity-pulse{color:#b4ffee;margin-right:5px}
+#insights .ypx-continuity strong{font-size:13px;color:#f1fff8}
+#insights .ypx-continuity p{font-size:12px;line-height:1.65;color:#bfe1dc;margin:6px 0 0;white-space:pre-line}
+#insights .ypx-focus-label{margin-top:12px;margin-bottom:12px}
+#insights .ypx-steps{grid-template-columns:1fr}
+#insights .ypx-step{background:linear-gradient(104deg,rgba(51,113,103,.4),rgba(22,63,78,.42));border-color:rgba(144,237,209,.47);border-radius:13px;padding:16px;max-width:720px}
+#insights .ypx-step-index{font-size:17px;background:#275e56;width:32px;height:32px;border-radius:10px}
+#insights .ypx-step strong{font-size:15px}
+#insights .ypx-step p{font-size:13px;line-height:1.65;color:#e2f2eb}
+#insights .ypx-step small{font-size:11px;line-height:1.5}
+#insights .ypx-supporting-evidence{margin-top:14px;border-top:1px solid rgba(155,217,208,.17);padding-top:11px}
+#insights .ypx-supporting-evidence>summary{cursor:pointer;color:#addbd0;font-size:11px;display:flex;justify-content:space-between;gap:8px;list-style:none}
+#insights .ypx-supporting-evidence>summary::-webkit-details-marker{display:none}
+#insights .ypx-coaching-history{margin-top:15px;border:1px solid rgba(148,217,205,.22);border-radius:12px;background:rgba(13,35,47,.37);padding:0 13px}
+#insights .ypx-coaching-history summary{padding:13px 1px;font-size:10px;letter-spacing:.12em;color:#b0dbce;font-weight:800;display:flex;justify-content:space-between;cursor:pointer;list-style:none}
+#insights .ypx-coaching-history summary::-webkit-details-marker{display:none}
+#insights .ypx-memory-list{display:grid;gap:10px;padding:2px 0 13px}
+#insights .ypx-memory-entry{padding:11px 12px;background:rgba(31,72,82,.44);border-radius:9px;border:1px solid rgba(161,229,219,.15)}
+#insights .ypx-memory-entry small{display:block;font-size:9px;letter-spacing:.06em;color:#8dc6b7;margin-bottom:5px}
+#insights .ypx-memory-entry strong{display:block;font-size:12px;color:#e8fff4}
+#insights .ypx-memory-entry p{font-size:11px;line-height:1.5;color:#afc9c7;margin:5px 0 0}
+#insights .ypx-privacy-actions{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0}
+#insights .ypx-delete-memory{border-color:#9f777a!important;color:#efc0be!important}
+#insights .ypx-privacy-status{font-size:11px;color:#bfe8d6;line-height:1.45;margin:8px 0}
+#insights .ypx-ai-ask{margin-top:18px}
+#insights .ypx-ai-ask label{font-size:12px}
+@media(max-width:620px){#insights .ypx-continuity{padding:12px}#insights .ypx-coach-head{align-items:start}#insights .ypx-ai-state{font-size:9px}}
+</style>
 <main id="insights" class="hidden" aria-labelledby="ypInsightsTitle">
  <div class="ypx-shell">
   <section class="panel ypx-hero">
    <div class="ypx-hero-grid" aria-hidden="true"></div>
    <div class="ypx-eyebrow"><span class="ypx-emblem">✦</span> THE SYSTEM <span class="ypx-slash">/</span> BODY INTELLIGENCE <span class="ypx-live"><i></i> PERSONAL PERFORMANCE</span></div>
-   <h2 id="ypInsightsTitle">Balance is the new<br><em>progress.</em></h2>
-   <p class="ypx-subtitle">Recover well. Build strength relative to your bodyweight. Develop the engine to sustain it. One intelligent view of how it's all working together.</p>
+   <h2 id="ypInsightsTitle">The work behind<br><em>the numbers.</em></h2>
+   <p class="ypx-subtitle">One coach who pays attention: your training, your recovery, your goals, and what we decided last time. The numbers guide the conversation — they aren't the conversation.</p>
    <div class="ypx-flow" aria-label="Three pillars of performance"><span>RECOVER</span><b>→</b><span>STRENGTHEN</span><b>→</b><span>ENDURE</span></div>
+  </section>
+
+  <section id="ypxCoach" class="panel ypx-coach" aria-labelledby="ypxCoachHeading">
+   <div class="ypx-coach-head"><div><div class="ypx-kicker">✦ THE SYSTEM / YOUR PERSONAL COACH</div><h3 id="ypxCoachHeading">Let's talk about your progress.</h3></div><div class="ypx-ai-state" id="ypxAIState"><span class="ypx-state-dot"></span> Waiting for data</div></div>
+   <div id="ypxAIConsent" class="ypx-consent" hidden>
+    <strong>Let THE SYSTEM get to know your journey</strong>
+    <p>With your permission, your coach reviews summary trends in recovery, strength, cardio, nutrition and weight. It also saves up to eight short, private coaching notes in your account so it can remember your previous focus and follow up across devices. It does not send raw meal entries or your full workout diary. Switch it off or delete the saved notes in Privacy at any time.</p>
+    <button type="button" id="ypxAIActivate" class="ypx-primary">Activate my personal coach <span>✦</span></button>
+   </div>
+   <div id="ypxAINotice" class="ypx-notice" role="status" aria-live="polite">Linking your performance signals…</div>
+   <div id="ypxContinuityCard" class="ypx-continuity" hidden>
+    <div class="ypx-continuity-overline"><span class="ypx-continuity-pulse">◉</span> OUR LAST CHECK-IN</div>
+    <strong id="ypxContinuityTitle">The conversation continues</strong>
+    <p id="ypxContinuityBody"></p>
+   </div>
+   <div id="ypxAIStory" class="ypx-story" hidden aria-live="polite">
+    <h4 id="ypxAIHeadline">Your performance signal</h4><p id="ypxAIAssessment"></p>
+    <div class="ypx-focus-label">ONE THING I'D LIKE YOU TO FOCUS ON</div><div id="ypxAISteps" class="ypx-steps"></div>
+    <details class="ypx-supporting-evidence"><summary>Why I'm recommending this <span>⌄</span></summary><div id="ypxAIFindings" class="ypx-findings"></div><p id="ypxAICaveat" class="ypx-caveat"></p></details>
+   </div>
+   <details id="ypxCoachingHistory" class="ypx-coaching-history" hidden><summary>OUR PREVIOUS CHECK-INS <span>⌄</span></summary><div id="ypxMemoryList" class="ypx-memory-list"></div></details>
+   <div class="ypx-ai-ask"><label for="ypxQuestion">Tell me what happened — or ask THE SYSTEM</label><div class="ypx-question-row"><input id="ypxQuestion" maxlength="420" placeholder="I tried your advice this week…" autocomplete="off"/><button type="button" id="ypxAsk" aria-label="Send question">↗</button></div><div id="ypxAnswer" class="ypx-answer" hidden></div></div>
+   <div class="ypx-coach-foot"><span id="ypxFreshness">28-day view · updates automatically</span><button type="button" id="ypxRefresh" title="Refresh AI briefing" aria-label="Refresh AI briefing">↻</button></div>
+  </section>
+
+  <section class="ypx-orbit-section panel" aria-labelledby="ypxSignalsHeading">
+   <div class="ypx-orbit-section-head"><div class="ypx-kicker">◈ THE EVIDENCE BEHIND YOUR COACHING</div><h3 id="ypxSignalsHeading">What your body is telling us</h3></div>
    <div class="ypx-orbits" aria-label="Live performance signals">
     <article class="ypx-orbit" id="ypxRecoveryCard">
      <div class="ypx-orbit-top"><span>01 / RECOVERY</span><span class="ypx-orbit-dot">◉</span></div>
@@ -2385,23 +2455,7 @@ body.nf-input-focus #nfMenuToggle:not([aria-expanded="true"]){opacity:.45}
     </article>
    </div>
    <div class="ypx-signal-strip"><span><i class="ypx-pulse"></i> CURRENT SIGNAL</span><strong id="ypxBalanceSignal">Analysing your recovery, strength and cardio…</strong><small id="ypxBalanceDate">Last 28 complete days</small></div>
-  </section>
 
-  <section id="ypxCoach" class="panel ypx-coach" aria-labelledby="ypxCoachHeading">
-   <div class="ypx-coach-head"><div><div class="ypx-kicker">✦ THE SYSTEM / INTELLIGENT BRIEFING</div><h3 id="ypxCoachHeading">Your performance decoded.</h3></div><div class="ypx-ai-state" id="ypxAIState"><span class="ypx-state-dot"></span> Waiting for data</div></div>
-   <div id="ypxAIConsent" class="ypx-consent" hidden>
-    <strong>Activate automatic AI Insights</strong>
-    <p>Once enabled, YOUR PATH automatically sends summary values for weight, nutrition, training and connected Oura recovery to OpenAI through your secure account when Insights needs a fresh review. Individual meals, workout names in full history and account details are not shared. You can switch it off below.</p>
-    <button type="button" id="ypxAIActivate" class="ypx-primary">Activate AI Insights <span>✦</span></button>
-   </div>
-   <div id="ypxAINotice" class="ypx-notice" role="status" aria-live="polite">Linking your performance signals…</div>
-   <div id="ypxAIStory" class="ypx-story" hidden aria-live="polite">
-    <h4 id="ypxAIHeadline">Your performance signal</h4><p id="ypxAIAssessment"></p>
-    <div class="ypx-focus-label">THE NEXT BEST MOVE</div><div id="ypxAISteps" class="ypx-steps"></div>
-    <div id="ypxAIFindings" class="ypx-findings"></div><p id="ypxAICaveat" class="ypx-caveat"></p>
-   </div>
-   <div class="ypx-ai-ask"><label for="ypxQuestion">Ask THE SYSTEM</label><div class="ypx-question-row"><input id="ypxQuestion" maxlength="420" placeholder="What should I focus on this week?" autocomplete="off"/><button type="button" id="ypxAsk" aria-label="Send question">↗</button></div><div id="ypxAnswer" class="ypx-answer" hidden></div></div>
-   <div class="ypx-coach-foot"><span id="ypxFreshness">28-day view · updates automatically</span><button type="button" id="ypxRefresh" title="Refresh AI briefing" aria-label="Refresh AI briefing">↻</button></div>
   </section>
 
   <section class="panel ypx-bodyline"><div><span class="ypx-kicker">BODY COMPOSITION CONTEXT</span><strong id="ypxWeightHeadline">Reading your bodyweight trend…</strong><small id="ypxWeightDetail">Weight alone cannot distinguish fat, muscle and fluid.</small></div><div class="ypx-weight-readout" id="ypxWeightValue">—</div></section>
@@ -2417,7 +2471,7 @@ body.nf-input-focus #nfMenuToggle:not([aria-expanded="true"]){opacity:.45}
     <section class="ypi-actions"><div class="ypi-eyebrow">LOCAL DATA RECOMMENDATION</div><strong id="ypInsightsActionTitle"></strong><p id="ypInsightsActionText"></p><small id="ypInsightsMethodDetail"></small></section>
    </div>
   </details>
-  <details class="ypx-privacy"><summary>AI data use &amp; privacy</summary><p>AI uses aggregated logged statistics and latest Oura recovery where available, with your authorisation. It does not receive your account name, raw food descriptions or individual workout diary. Its suggestions do not change your targets. The coaching result is cached on this device so reopening Insights does not trigger repeated API usage.</p><button type="button" id="ypxAIDisable" class="ypx-quiet">Turn off automatic AI Insights</button><p>THE SYSTEM measures recorded trends; it cannot diagnose health, prove muscle or fat gain, or infer VO₂ max without validated measurements.</p></details>
+  <details class="ypx-privacy"><summary>AI data use &amp; privacy</summary><p>With your authorisation, the AI receives aggregated logged training, nutrition, weight and Oura recovery values. YOUR PATH stores up to eight small coaching notes in a private per-athlete Supabase table so THE SYSTEM can follow up across signed-in devices; notes are not raw food or workout logs. The latest briefing is also cached locally to limit repeated AI use. No training or nutrition targets change automatically.</p><div class="ypx-privacy-actions"><button type="button" id="ypxAIDisable" class="ypx-quiet">Pause personal coaching</button><button type="button" id="ypxMemoryDelete" class="ypx-quiet ypx-delete-memory">Delete saved coaching memory</button></div><p class="ypx-privacy-status" id="ypxPrivacyStatus" role="status" aria-live="polite"></p><p>THE SYSTEM measures recorded trends; it cannot diagnose health, prove muscle or fat gain, or infer VO₂ max without validated measurements.</p></details>
  </div>
 </main>
 
@@ -8465,19 +8519,48 @@ window.nfNutritionIntelligenceDebug=()=>({analysis:analyse(),context:trainingCon
   $('ypxWeightValue').textContent=w.latestOverall?fmt(Number(w.latestOverall.weight),1)+' kg':'—';
  }
  function ctx(){try{return window.nfSocialCloudContext?.()||null}catch(_){return null}}
- function consentKey(user){return 'yourpath.insights.auto.v1.'+user}
- function cacheKey(user){return 'yourpath.insights.brief.v1.'+user}
+ function consentKey(user){return 'yourpath.insights.auto.v2.memory.'+user}
+ function cacheKey(user){return 'yourpath.insights.brief.v2.coach.'+user}
  function active(user){try{return localStorage.getItem(consentKey(user))==='yes'}catch(_){return false}}
  function fingerprint(payload){const str=JSON.stringify(payload),N=str.length;let h=2166136261;for(let i=0;i<N;i++)h=Math.imul(h^str.charCodeAt(i),16777619);return (h>>>0).toString(36)}
  function getCache(uid){try{return JSON.parse(localStorage.getItem(cacheKey(uid))||'null')}catch(_){return null}}
  function setCache(uid,obj){try{localStorage.setItem(cacheKey(uid),JSON.stringify(obj))}catch(_){}}
  let busy=false,doneFor=null,questionHistory=[],seenUser=null,queued=false,earliestNext=0;
+ const memories=new Map(),memoLoaded=new Set(),memoLoading=new Set();
+ const recentReview=uid=>(memories.get(uid)||[]).filter(x=>x?.type==='review').slice(-1)[0]||null;
+ function displayMemories(uid,continuity=''){
+  const records=(memories.get(uid)||[]).filter(x=>x?.type==='review');
+  const latest=records[records.length-1];
+  const card=$('ypxContinuityCard');
+  if(continuity){card.hidden=false;$('ypxContinuityTitle').textContent='Since we last spoke';$('ypxContinuityBody').textContent=continuity;}
+  else if(latest){card.hidden=false;$('ypxContinuityTitle').textContent='Last time, we agreed to focus on…';$('ypxContinuityBody').textContent=String(latest.focus||latest.assessment||'Keep building consistent habits.').slice(0,260);}
+  else card.hidden=true;
+  const holder=$('ypxCoachingHistory');holder.hidden=!records.length;
+  $('ypxMemoryList').innerHTML=records.slice(-5).reverse().map(x=>'<div class="ypx-memory-entry"><small>'+esc(new Date(x.at).toLocaleDateString('en-AU',{day:'numeric',month:'short'}))+'</small><strong>'+esc(x.headline||'Your coaching check-in')+'</strong><p>'+esc(x.focus||x.note||'')+'</p></div>').join('');
+ }
+ async function loadMemory(uid,client,renew=false){
+  if(!uid||!client||memoLoading.has(uid)||(!renew&&memoLoaded.has(uid)))return;
+  memoLoading.add(uid);
+  try{
+   const {data,error}=await client.from('nf_ai_coach_memory').select('timeline').eq('user_id',uid).maybeSingle();
+   if(error)throw error;
+   const history=Array.isArray(data?.timeline)?data.timeline.filter(x=>x&&typeof x==='object'&&typeof x.at==='string').slice(-8):[];
+   if(ctx()?.user?.id!==uid)return;
+   memories.set(uid,history);memoLoaded.add(uid);
+   const keepContinuity=(!$('ypxAIStory').hidden&&$('ypxContinuityTitle').textContent==='Since we last spoke')?$('ypxContinuityBody').textContent:'';
+   displayMemories(uid,keepContinuity);
+  }catch(e){console.warn('Coaching memory could not be loaded',e);memoLoaded.add(uid)}
+  finally{memoLoading.delete(uid);queue()}
+ }
+ function rememberedBrief(r){return r?{headline:r.headline||'Where we left off',assessment:r.assessment||'Your previous coaching note is ready. Your next assessment will refresh when due.',nextSteps:r.focus?[{title:'Our most recent focus',action:r.focus,why:'From our last check-in'}]:[],drivers:[],caveat:'Previous coaching note saved in your account. New evidence will be reviewed in your next check-in.'}:null;}
+
  function renderAI(r){
   $('ypxAIStory').hidden=false;$('ypxAINotice').hidden=true;
-  $('ypxAIHeadline').textContent=r.headline||'Your personal training signal';
+  $('ypxAIHeadline').textContent=r.headline||'Here is where we are';
+  displayMemories(ctx()?.user?.id||'',String(r.continuity||'').slice(0,300));
   $('ypxAIAssessment').textContent=r.assessment||'';
   const steps=Array.isArray(r.nextSteps)?r.nextSteps:[];
-  $('ypxAISteps').innerHTML=steps.slice(0,3).map((s,i)=>'<article class="ypx-step"><span class="ypx-step-index">'+(i+1)+'</span><div><strong>'+esc(s.title||'')+'</strong><p>'+esc(s.action||'')+'</p><small>'+esc(s.why||'')+'</small></div></article>').join('');
+  $('ypxAISteps').innerHTML=steps.slice(0,1).map((s,i)=>'<article class="ypx-step"><span class="ypx-step-index">'+(i+1)+'</span><div><strong>'+esc(s.title||'')+'</strong><p>'+esc(s.action||'')+'</p><small>'+esc(s.why||'')+'</small></div></article>').join('');
   $('ypxAIFindings').innerHTML=(Array.isArray(r.drivers)?r.drivers:[]).slice(0,4).map(x=>'<span class="ypx-finding"><strong>'+esc(x.area||'')+':</strong>'+esc(x.finding||'')+'</span>').join('');
   $('ypxAICaveat').textContent=r.caveat||'Patterns are associations, not proof of cause. This is not a medical diagnosis.';
  }
@@ -8489,8 +8572,8 @@ window.nfNutritionIntelligenceDebug=()=>({analysis:analyse(),context:trainingCon
   const metrics=computeSignals();if(!metrics)return;
   const stamp=fingerprint(metrics.payload),cache=getCache(user.id),now=Date.now();
   const fresh=cache?.fingerprint===stamp&&cache?.result&&now-cache.time<12*3600e3;
-  if(!question&&!force&&fresh){renderAI(cache.result);state('AI · LIVE');$('ypxFreshness').textContent='Analysed '+new Date(cache.time).toLocaleString('en-AU',{day:'numeric',month:'short',hour:'numeric',minute:'2-digit'})+' · auto-updated';return}
-  if(!question&&!force&&cache&&now-cache.time<2*3600e3){renderAI(cache.result);state('AI · READY');$('ypxFreshness').textContent='Briefing cached · tap ↻ for a new review';return}
+  if(!question&&!force&&fresh){renderAI(cache.result);state('COACH · READY');$('ypxFreshness').textContent='Analysed '+new Date(cache.time).toLocaleString('en-AU',{day:'numeric',month:'short',hour:'numeric',minute:'2-digit'})+' · auto-updated';return}
+  if(!question&&!force&&cache&&now-cache.time<20*3600e3){renderAI(cache.result);state('COACH · REMEMBERING');$('ypxFreshness').textContent='Briefing cached · tap ↻ for a new review';return}
   busy=true;$('ypxAsk').disabled=true;$('ypxRefresh').disabled=true;
   state('ANALYSING','busy');notice(question?'THE SYSTEM is reviewing your question and current signals…':'THE SYSTEM is interpreting recovery, strength, cardio and body composition…');
   const sentUser=user.id;
@@ -8501,10 +8584,11 @@ window.nfNutritionIntelligenceDebug=()=>({analysis:analyse(),context:trainingCon
    if(data?.error)throw new Error(data.error);
    if(typeof data?.assessment!=='string')throw new Error('The AI response was incomplete.');
    if(ctx()?.user?.id!==sentUser||!active(sentUser))return;
-   renderAI(data);doneFor=stamp;state('AI · LIVE');
-   $('ypxFreshness').textContent='Updated '+new Date().toLocaleString('en-AU',{hour:'numeric',minute:'2-digit'})+' · source: your synced activity';
-   if(question){$('ypxAnswer').hidden=false;$('ypxAnswer').textContent=data.answer||data.assessment;questionHistory.push({question:question.slice(0,240),answer:String(data.answer||data.assessment).slice(0,450)});questionHistory=questionHistory.slice(-3)}
-   else setCache(sentUser,{fingerprint:stamp,result:data,time:Date.now()});
+   doneFor=stamp;state(data.memoryStored?'COACH · REMEMBERING':'COACH · READY');
+   $('ypxFreshness').textContent='Checked in '+new Date().toLocaleString('en-AU',{hour:'numeric',minute:'2-digit'})+(data.memoryStored?' · remembered across devices':' · could not save memory');
+   if(question){$('ypxAnswer').hidden=false;$('ypxAnswer').textContent=data.answer||data.assessment;questionHistory.push({question:question.slice(0,240),answer:String(data.answer||data.assessment).slice(0,450)});questionHistory=questionHistory.slice(-3);$('ypxQuestion').value='';}
+   else{renderAI(data);setCache(sentUser,{fingerprint:stamp,result:data,time:Date.now()});}
+   if(data.memoryStored)loadMemory(sentUser,client,true);
   }catch(e){if(ctx()?.user?.id!==sentUser)return;state('AI · OFFLINE','error');notice((e?.message||'AI temporarily unavailable.')+' Live performance signals above continue to work.',true);earliestNext=Date.now()+90*1000}
   finally{busy=false;$('ypxAsk').disabled=false;$('ypxRefresh').disabled=false}
  }
@@ -8513,19 +8597,38 @@ window.nfNutritionIntelligenceDebug=()=>({analysis:analyse(),context:trainingCon
   if(!canRead()){notice('Your activity is loading. Insights will appear when your data is ready.');return;}
   let metrics=null;try{metrics=computeSignals();draw(metrics)}catch(e){console.warn('Orbit Insights failed to read a signal',e);notice('Some training data could not be analysed. No records were changed.',true);return;}
   const cloud=ctx(),user=cloud?.user;
-  if(!user?.id){$('ypxAIConsent').hidden=true;state('SIGN IN TO SYNC');notice('Sign in under Profile & Cloud Sync to activate the automatic AI briefing. Your live signals above still work on device.');$('ypxAIStory').hidden=true;return}
+  if(!user?.id){$('ypxAIConsent').hidden=true;state('SIGN IN TO SYNC');notice('Sign in under Profile & Cloud Sync to continue your private coaching story. Your performance signals still work offline.');$('ypxAIStory').hidden=true;return}
   if(seenUser!==user.id){questionHistory=[];seenUser=user.id;$('ypxAnswer').hidden=true;$('ypxAIStory').hidden=true}
-  if(!active(user.id)){$('ypxAIConsent').hidden=false;state('AI · NOT ACTIVE');notice('Activate once to receive automatic, personalised Insights. Your summaries will only be sent after you agree.');$('ypxAIStory').hidden=true;return}
+  if(!active(user.id)){$('ypxAIConsent').hidden=false;state('COACH · NOT ACTIVE');notice('Activate once to start your ongoing coaching story. THE SYSTEM only remembers after you approve.');$('ypxAIStory').hidden=true;return}
   $('ypxAIConsent').hidden=true;
-  const cached=getCache(user.id);
-  if(cached?.result&&$('ypxAIStory').hidden){renderAI(cached.result);state('AI · READY')}
+  if(!memoLoaded.has(user.id)){if(!memoLoading.has(user.id))loadMemory(user.id,cloud.client);state('RECALLING YOUR HISTORY','busy');notice('Retrieving your last check-in…');return;}
+  const cached=getCache(user.id),prior=recentReview(user.id);
+  if(cached?.result&&$('ypxAIStory').hidden){renderAI(cached.result);state('COACH · READY')}
+  else if(!cached?.result&&prior&&$('ypxAIStory').hidden){renderAI(rememberedBrief(prior));state('COACH · REMEMBERED');$('ypxFreshness').textContent='Last check-in · '+new Date(prior.at).toLocaleDateString('en-AU',{day:'numeric',month:'short'})}
   const fp=fingerprint(metrics.payload),now=Date.now();
-  if(trigger||(!busy&&fp!==doneFor&&(!cached||fp!==cached.fingerprint||now-cached.time>=12*3600e3)))requestAI();
-  else if(cached?.result){state('AI · LIVE');$('ypxFreshness').textContent='Last updated '+new Date(cached.time).toLocaleString('en-AU',{day:'numeric',month:'short',hour:'numeric',minute:'2-digit'})}
+  const lastReviewTime=prior?Date.parse(prior.at):0;
+  const lastReviewRecent=Number.isFinite(lastReviewTime)&&lastReviewTime>0&&now-lastReviewTime<20*3600e3;
+  const cacheRecent=cached?.time&&now-cached.time<20*3600e3;
+  if(trigger||(!busy&&!lastReviewRecent&&!cacheRecent&&fp!==doneFor))requestAI();
+  else if(cached?.result){state('COACH · READY');$('ypxFreshness').textContent='Last check-in '+new Date(cached.time).toLocaleString('en-AU',{day:'numeric',month:'short',hour:'numeric',minute:'2-digit'})}
+  else if(prior){state('COACH · REMEMBERED');$('ypxAINotice').hidden=true;}
  }
  function queue(){if(queued)return;queued=true;requestAnimationFrame(()=>{queued=false;refresh()})}
  $('ypxAIActivate').addEventListener('click',()=>{const user=ctx()?.user?.id;if(!user)return;try{localStorage.setItem(consentKey(user),'yes')}catch(_){notice('Your browser is blocking local preferences.',true);return}refresh(true)});
- $('ypxAIDisable').addEventListener('click',()=>{const user=ctx()?.user?.id;if(!user)return;try{localStorage.removeItem(consentKey(user));localStorage.removeItem(cacheKey(user))}catch(_){}doneFor=null;refresh()});
+ $('ypxAIDisable').addEventListener('click',()=>{const user=ctx()?.user?.id;if(!user)return;try{localStorage.removeItem(consentKey(user));localStorage.removeItem(cacheKey(user))}catch(_){}doneFor=null;$('ypxPrivacyStatus').textContent='Coaching paused. Your previous private notes remain available until you delete them.';refresh()});
+ $('ypxMemoryDelete').addEventListener('click',async()=>{
+  const cloud=ctx(),uid=cloud?.user?.id;if(!uid||!cloud.client){$('ypxPrivacyStatus').textContent='Sign in to delete saved notes.';return;}
+  if(busy){$('ypxPrivacyStatus').textContent='Finish the current AI reply before deleting your memory.';return;}
+  if(!window.confirm('Permanently delete your saved THE SYSTEM coaching notes across devices? This cannot be undone.'))return;
+  const button=$('ypxMemoryDelete');button.disabled=true;$('ypxPrivacyStatus').textContent='Deleting saved notes…';
+  try{const {error}=await cloud.client.from('nf_ai_coach_memory').delete().eq('user_id',uid);if(error)throw error;
+    memories.delete(uid);memoLoaded.delete(uid);try{localStorage.removeItem(consentKey(uid));localStorage.removeItem(cacheKey(uid))}catch(_){}
+    doneFor=null;questionHistory=[];$('ypxAIStory').hidden=true;$('ypxAnswer').hidden=true;$('ypxCoachingHistory').hidden=true;$('ypxContinuityCard').hidden=true;
+    $('ypxPrivacyStatus').textContent='Saved coaching memory deleted. Automatic AI is paused; activate again if you want to restart.';
+    refresh();
+  }catch(e){$('ypxPrivacyStatus').textContent='Could not delete memory: '+String(e?.message||'Try again.').slice(0,140)}
+  finally{button.disabled=false}
+ });
  $('ypxRefresh').addEventListener('click',()=>{if(!ctx()?.user?.id||!active(ctx().user.id)){refresh();return}requestAI('',true)});
  $('ypxAsk').addEventListener('click',()=>{const q=$('ypxQuestion').value.trim();if(q){if(!active(ctx()?.user?.id||'')){refresh();return}requestAI(q,true)}});
  $('ypxQuestion').addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();$('ypxAsk').click()}});
